@@ -1,0 +1,189 @@
+.playerMainBlock
+{
+    position: fixed;
+    width: 509px;
+    height: 49px;
+    background: url(../Images/Player/player_bg.png) left top no-repeat;
+    top: 555px;
+    right: -12px;
+    padding: 6px 6px 8px 6px;
+    z-index: 999999;
+    }
+.playerButton
+{
+    float: left;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    background: url(../Images/player/playerBtns.png) no-repeat;
+}
+
+.butonBlock
+{
+    margin:8px 0 0 8px; 
+    }
+
+.playerMainBlock .prev
+{
+    background-position: -44px 0;
+}
+  
+.playerMainBlock .prev:hover 
+{
+    background-position: -44px -22px;
+}
+
+.playerMainBlock .playPause
+{
+    background-position: -22px 0;
+}
+  
+.playerMainBlock .playPause:hover 
+{
+    background-position: -22px -22px;
+}
+
+.playerMainBlock .pause
+{
+    background-position: -66px 0;
+}
+  
+.playerMainBlock .playPause:hover 
+{
+    background-position: -66px -22px;
+}
+      
+.playerMainBlock .next
+{
+    background-position: 0 0;
+}
+  
+.playerMainBlock .next:hover 
+{
+    background-position: 0 -22px;
+}
+.butonBlock
+{
+    width: 120px;
+    float: left;
+    }
+    
+.songActions
+{
+    width: 22px;
+    margin-left: 8px;
+    }
+    
+.butonBlock .addToWall 
+{
+    background-position: 0 -44px;
+    }
+
+.butonBlock .addToWall:hover
+{
+    background-position: 0 -66px;
+    }
+
+.butonBlock .addToFavorit 
+{
+    background-position: -22px -44px;
+    }
+
+.butonBlock .addToFavorit:hover
+{
+    background-position: -22px -66px;
+    }
+
+.butonBlock .share
+{
+    background-position: -66px -44px;
+    }
+
+.butonBlock .share:hover
+{
+    background-position: -66px -66px;
+    }
+
+.centerPart
+{
+    float: left;
+    width: 335px;
+    }
+    
+.centerPart .cover
+{
+    width: 35px;
+    height: 35px;
+    background: url(../Images/Player/cover.jpg) no-repeat;
+    margin: 0 8px 0 4px;
+    float: left;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    }
+
+.centerPart .trackName
+{
+    width: 275px;
+    height: 16px;
+    overflow: hidden;
+    font-size: 9px;
+    text-align: left;
+    color: #888;
+    margin-top: 5px;
+    }
+    
+.centerPart .trackSlider
+{
+    width: 175px;
+    height: 4px;
+    margin: 3px 0 0 4px;
+    float: left;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+}
+
+.centerPart .trackSlider, .centerPart .trackVolume 
+{
+    background: url(../Images/Player/sliderBg.jpg) repeat-x;
+}
+
+    
+.centerPart .ui-slider-range-min
+{
+    background: url(../Images/Player/sliderBgLeft.jpg) center top repeat-x;
+}
+    
+.centerPart .trackSlider .ui-slider-handle, .centerPart .trackVolume .ui-slider-handle
+{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: -6px;
+    background: url(../Images/Player/handle.png) center top no-repeat;
+    cursor: pointer;
+}
+
+.centerPart .trackSlider .ui-slider-handle:hover
+{
+    background-position:  center bottom;
+}
+
+.centerPart .trackTimer 
+{
+    width: 45px;
+    height: 14px;
+    font-size: 9px;
+    color: #777;
+    float: left;
+    margin: -2px 0 0 5px;
+}   
+
+.centerPart .trackVolume
+{
+    width: 50px;
+    height: 4px;
+    float: left;
+    margin-top: 2px;
+    }
