@@ -42,15 +42,34 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="APPLICATION\Images\" />
     <Folder Include="APPLICATION\Scripts\KnockoutExampleFromTS\Types\" />
-    <Folder Include="APPLICATION\Styles\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elexir.html" />
+    <Content Include="APPLICATION\Images\dropdownblock_arrow.png" />
+    <Content Include="APPLICATION\Images\dropdownblock_bg.jpg" />
+    <Content Include="APPLICATION\Images\header_bg.jpg" />
+    <Content Include="APPLICATION\Images\logo.png" />
+    <Content Include="APPLICATION\Images\navigation\events.png" />
+    <Content Include="APPLICATION\Images\navigation\icons.png" />
+    <Content Include="APPLICATION\Images\navigation\menu_hover.jpg" />
+    <Content Include="APPLICATION\Images\navigation\music.png" />
+    <Content Include="APPLICATION\Images\navigation\myNews.png" />
+    <Content Include="APPLICATION\Images\navigation\myPage.png" />
+    <Content Include="APPLICATION\Images\navigation\notice_dot.jpg" />
+    <Content Include="APPLICATION\Images\navigation\people.png" />
+    <Content Include="APPLICATION\Images\navigation\video.png" />
+    <Content Include="APPLICATION\Images\player\cover.jpg" />
+    <Content Include="APPLICATION\Images\player\handle.png" />
+    <Content Include="APPLICATION\Images\player\playerBtns.png" />
+    <Content Include="APPLICATION\Images\player\player_bg.png" />
+    <Content Include="APPLICATION\Images\player\sliderBg.jpg" />
+    <Content Include="APPLICATION\Images\player\sliderBgLeft.jpg" />
+    <Content Include="APPLICATION\Images\vk_bg.jpg" />
+    <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.debug.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout.mapping.debug.js" />
@@ -82,8 +101,14 @@
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\urls.js" />
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\DetailVm.js" />
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\RequestVm.js" />
+    <Content Include="APPLICATION\Styles\cssreset-min.css" />
+    <Content Include="APPLICATION\Styles\jquery-ui-1.10.0.custom.min.css" />
+    <Content Include="APPLICATION\Styles\main.css" />
+    <Content Include="APPLICATION\Styles\player.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\styles.css" />
+    <Content Include="index.html" />
+    <Content Include="main.html" />
     <Content Include="TestPage.html" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -154,6 +179,7 @@
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
+    <Content Include="wellcome.html" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
