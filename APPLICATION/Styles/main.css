@@ -1,0 +1,228 @@
+body
+{
+    font-family: Verdana, Geneva, sans-serif;
+    }
+
+ #headerBlock 
+{
+    height: 34px;
+    background: url(../Images/header_bg.jpg) no-repeat;
+}
+
+    #headerLogo
+    {
+        display: block;
+        float: left;
+        width: 79px;
+        height: 27px;
+        background: url(../Images/logo.png) left top no-repeat;
+        margin: 4px 0 0 17px;
+    }
+
+    #headerLogo:hover
+    {
+        background-position: center bottom;
+    }
+    /* Header navigation */
+    #headerNavigation
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        height: 37px;
+        margin: 1px 7px 0 0;
+        float: right;
+        width: auto;
+    }
+        #headerNavigation ul li.topNavigatiobEl
+        {
+            display: block;
+            height: 38px;
+            float: left;
+            cursor: pointer;
+        }
+        
+        #headerNavigation ul li.topNavigatiobEl:hover
+        {
+            background-position: center -35px;
+        }
+        
+        #navigationMyPage
+        {
+            width: 28px;
+            background: url(../Images/navigation/myPage.png) center -1px no-repeat;
+        }
+        
+        #navigationMyPage:hover .dropDownBlock
+        {
+            display: block !important;
+        }
+                
+        #navigationMyNews
+        {
+            width: 28px;
+            background: url(../Images/navigation/myNews.png) center -1px no-repeat;
+        }
+                 
+        #navigationMyNews:hover .dropDownBlock
+        {
+            display: block !important;
+        }
+                 
+        #navigationMusic
+        {
+            width: 59px;
+            background: url(../Images/navigation/music.png) center -1px no-repeat;
+        }
+        
+        #navigationVideo
+        {
+            width: 59px;
+            background: url(../Images/navigation/video.png) center -1px no-repeat;
+        }
+        
+        #navigationEvents
+        {
+            width: 59px;
+            background: url(../Images/navigation/events.png) center -1px no-repeat;
+        }
+        
+        #navigationPeople
+        {
+            width: 59px;
+            background: url(../Images/navigation/people.png) center -1px no-repeat;
+        }
+
+        /* sub navigation */
+        #headerNavigation ul.subNavigation li a
+        {
+            color: #777777;
+            border: 1px solid transparent;
+            font-size: 11px;
+            font-family: Verdana, Geneva, sans-serif;
+            line-height: 22px;
+            height: 22px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        #headerNavigation ul.subNavigation li a:hover
+        {
+            border: 1px solid #eee;
+            background: url(../Images/navigation/menu_hover.jpg) left top repeat-x;
+            color: #528fc2;
+        }
+        
+        #headerNavigation ul.subNavigation li
+        {
+            border: 1px solid transparent; 
+            text-align: left;
+        }
+        
+        #headerNavigation ul.subNavigation li a div.subnavIcons
+        {
+            width: 15px;
+            height: 15px;
+            float: left;
+            background-image: url('../Images/navigation/icons.png');
+            margin: 3px 3px 0 3px;
+        }
+        
+        #headerNavigation ul.subNavigation li div.noticeDot
+        {
+            background: url('../Images/navigation/notice_dot.jpg') center right no-repeat;
+            width: 3px;
+            height: 3px;
+            float: right;
+            margin: 9px 3px 0 0 ;
+        }
+        
+        #headerNavigation ul.subNavigation li a div.allPage
+        {
+            background-position: -15px 0; 
+        }
+        
+        #headerNavigation ul.subNavigation li a:hover div.allPage
+        {
+            background-position: -15px -15px; 
+        }
+        
+        #headerNavigation ul.subNavigation li a div.music
+        {
+            background-position: -30px 0; 
+        }
+        
+        #headerNavigation ul.subNavigation li a:hover div.music
+        {
+            background-position: -30px -15px; 
+        }
+        
+        #headerNavigation ul.subNavigation li a div.video
+        {
+            background-position: -75px 0; 
+        }
+        
+        #headerNavigation ul.subNavigation li a:hover div.video
+        {
+            background-position: -75px -15px; 
+        }
+        
+        #headerNavigation ul.subNavigation li a div.events
+        {
+            background-position: 0 0; 
+        }
+        
+        #headerNavigation ul.subNavigation li a:hover div.events
+        {
+            background-position: 0 -15px; 
+        }
+        
+        #headerNavigation ul.subNavigation li a div.subscribe
+        {
+            background-position: -60px 0; 
+        }
+        
+        #headerNavigation ul.subNavigation li a:hover div.subscribe
+        {
+            background-position: -60px -15px; 
+        }
+        
+        #headerNavigation ul.subNavigation li a div.notice
+        {
+            background-position: -45px 0; 
+        }
+        
+        #headerNavigation ul.subNavigation li a:hover div.notice
+        {
+            background-position: -45px -15px; 
+        }
+        
+                                
+        /* drop down block */
+        .dropDownBlock
+        {
+            background: url(../Images/dropdownblock_bg.jpg) #f5f5f5 left top repeat-x;
+            padding: 4px 4px 6px 4px;
+            height: auto;
+            top: 37px;
+            position: absolute;
+            border: 1px solid #fff;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-shadow: 0 0 1px 1px #dcdee0, 1px 1px 3px rgba(0,0,0,0.1);
+            -webkit-box-shadow: 0 0 1px 1px #dcdee0, 1px 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 0 1px 1px #dcdee0, 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        .mainNavShift
+        {
+            margin-left: -48px;
+        }
+        
+        div.dropmenuArrow
+        {
+            background: url(../Images/dropdownblock_arrow.png) no-repeat;
+            width: 11px;
+            height: 8px;
+            position: absolute;
+            top: -8px;
+            left: 56px;
+        }

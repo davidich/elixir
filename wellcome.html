@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/cssreset-min.css" />
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/main.css" />
+        <script type="text/javascript" src="Scripts/jquery-1.9.0.min.js"></script> 
+        <script type="text/javascript" src="Scripts/jquery-ui-1.10.0.min.js"></script> 
+    </head>
+    <body>
+        <div id='headerBlock'>
+            <a href='#' id='headerLogo'></a>
+            <div id='headerNavigation'>
+                <ul>
+                    <li id='navigationMyPage' class='topNavigatiobEl'>
+                        <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
+                            <div class='dropmenuArrow'></div>
+                            <ul class='subNavigation'>
+                                <li><a href='#'><div class='subnavIcons allPage'></div>Вся страница</a></li>
+                                <li><a href='#'><div class='subnavIcons music'></div>Музыка</a></li>
+                                <li><a href='#'><div class='subnavIcons video'></div>Видео</a></li>
+                                <li><a href='#'><div class='subnavIcons events'></div>События</a></li>
+                                <li><a href='#'><div class='subnavIcons subscribe'></div>Подписки</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id='navigationMyNews'class='topNavigatiobEl'>
+                        <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
+                            <div class='dropmenuArrow'></div>
+                            <ul class='subNavigation'>
+                                <li><a href='#'><div class='subnavIcons music'></div>Музыка<div class='noticeDot'></div></a></li>
+                                <li><a href='#'><div class='subnavIcons video'></div>Видео</a></li>
+                                <li><a href='#'><div class='subnavIcons events'></div>События</a></li>
+                                <li><a href='#'><div class='subnavIcons subscribe'></div>Подписки</a></li>
+                                <li><a href='#'><div class='subnavIcons notice'></div>Уведомления<div class='noticeDot'></div></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id='navigationMusic' class='topNavigatiobEl'></li>
+                    <li id='navigationVideo' class='topNavigatiobEl'></li>
+                    <li id='navigationEvents' class='topNavigatiobEl'></li>
+                    <li id='navigationPeople' class='topNavigatiobEl'></li>
+                </ul>
+            </div>
+        </div>
+        <div id='mainContent'>
+           <a href='./main.html'><img src='./APPLICATION/Images/wellcome_bg.jpg' /></a>
+        </div>
+
+        <script>
+            $(function () {
+                $('.trackSlider').slider({
+                    range: "min",
+                    min: 0,
+                    max: 100,
+                    value: 0,
+                    animate: true,
+                    slide: function (event, ui) {
+                        console.log('position', ui.value);
+                    }
+                });
+
+                $('.trackVolume').slider({
+                    range: "min",
+                    min: 0,
+                    max: 100,
+                    value: 0,
+                    animate: true,
+                    slide: function (event, ui) {
+                        console.log('volume', ui.value);
+                    }
+                });
+            });
+        </script>
+    </body
+</html>
