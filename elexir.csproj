@@ -14,7 +14,7 @@
     <RootNamespace>elexir</RootNamespace>
     <AssemblyName>elexir</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="APPLICATION\Images\" />
-    <Folder Include="APPLICATION\Scripts\" />
+    <Folder Include="APPLICATION\Scripts\KnockoutExampleFromTS\Types\" />
     <Folder Include="APPLICATION\Styles\" />
     <Folder Include="Properties\" />
   </ItemGroup>
@@ -51,6 +51,115 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elexir.html" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.debug.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\knockout.mapping.debug.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\knockout.mapping.js" />
+    <Content Include="APPLICATION\Scripts\Libs\soundmanager\soundmanager2.js" />
+    <Content Include="APPLICATION\Scripts\Libs\soundmanager\soundmanagerWrapper.js" />
+    <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\soundmanager2.swf" />
+    <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\soundmanager2_debug.swf" />
+    <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\soundmanager2_flash9.swf" />
+    <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\soundmanager2_flash9_debug.swf" />
+    <Content Include="APPLICATION\Scripts\main.js" />
+    <Content Include="APPLICATION\Scripts\domReady.js" />
+    <Content Include="APPLICATION\Scripts\Libs\autoNumeric.js" />
+    <Content Include="APPLICATION\Scripts\Libs\json.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\class.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\knockoutWrapper.js" />
+    <Content Include="APPLICATION\Scripts\Libs\Plupload.js" />
+    <Content Include="APPLICATION\Scripts\Libs\pubSub.js" />
+    <Content Include="APPLICATION\Scripts\require-jquery.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\agreementDialog.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\attachmentDialog.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\employeeDialog.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\historyDialog.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\jobDialog.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\locationDialog.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\tableBuilder.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\Components\zipResolver.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\dal.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\urls.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\DetailVm.js" />
+    <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\RequestVm.js" />
+    <Content Include="Content\bg.jpg" />
+    <Content Include="Content\styles.css" />
+    <Content Include="TestPage.html" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\knockout-2.2.1.debug.js" />
+    <Content Include="Scripts\knockout-2.2.1.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.md" />
@@ -64,9 +173,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>20287</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4447/</IISUrl>
+          <IISUrl>http://localhost/elexir</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

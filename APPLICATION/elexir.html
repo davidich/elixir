@@ -1,9 +1,155 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Elixir</title>
+    <script data-main="scripts/main" src="Scripts/require-jquery.js"></script>
+    <!--<script src="Scripts/Libs/soundmanager/soundmanager2.js"></script>-->
+
+    <style>
+        #player {
+            border: 3px solid blue;
+            padding: 4px;
+            margin: 0px auto;
+            height: 50px;
+            width: 215px;
+        }
+
+        #loader {
+            background-color: red;
+        }
+
+        #playerControls {
+            background-color: green;
+        }
+
+        #player button {
+            width: 68px;
+        }
+
+        #songs {
+            margin: 10px 242px;
+            border: 3px solid blue;
+            padding: 4px;
+        }
+    </style>
+
 </head>
 <body>
-    
+    <div style="height: 600px; background-color: grey;">
+        <div id="player">
+            <div id="loader">
+                player is loading...
+            </div>
+            <div id="playerControls" style="display: none;">
+                <span>sound url:</span><input id="soundUrl" type="text" />
+                <br />
+                <button id="playPause">></button>
+                <button id="stop">stop</button>
+                <button id="muteUnmute">mute</button>
+            </div>
+        </div>
+        <div id="songs">
+            <span>Songs:</span>
+            <div>
+                <button data-url="http://cs2-1.userapi.com/d21/73875141e5922e.mp3">Rihanna</button>
+            </div>
+            <div>
+                <button data-url="http://cs2-4.userapi.com/d17/b803eb4b94b9d1.mp3">Grove Armada</button>
+            </div>
+            <div>
+                <button data-url="http://cs2-1.userapi.com/d15/d94984feb8cd85.mp3">Faithless</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        require(["jquery", 'domReady', "sm2"], function ($, domReady, sm2) {
+            //soundManager.setup({
+            //    url: 'Scripts/Libs/soundmanager/swfs/',
+            //    flashVersion: 9, // optional: shiny features (default = 8)
+            //    useFlashBlock: false, // optionally, enable when you're ready to dive in
+            //    /*
+            //    * read up on HTML5 audio support, if you're feeling adventurous.
+            //    * iPad/iPhone and devices without flash installed will always attempt to use it.
+            //    */
+            //    onready: function() {
+            //        $("#loader").hide();
+            //        $("#playerControls").show();
+            //        //$("body div").css("background-color", "green");
+            //    }
+            //});
+
+
+            domReady(function () {
+                $("#playPause").click(function () {
+                    var buttonText = $(this).text();
+                    if (buttonText == ">")
+                        play();
+                    else
+                        pause();
+                });
+
+                $("#stop").click(stop);
+
+                $("#muteUnmute").click(function () {
+                    var button = $(this);
+
+                    if (!sm2.muted)
+                        sm2.mute();
+                    else
+                        sm2.unmute();
+
+                    button.text(button.text() == "mute" ? "unmute" : "mute");
+                    sm2.toggleMute("curSound");
+                });
+
+                $("#songs button").click(function () { playSong(this); });
+            });
+
+            function play() {
+                var soundUrl = $("#soundUrl").val();
+                if (!sm2.canPlayURL(soundUrl)) {
+                    alert("bad url");
+                    return;
+                }
+
+                $("#playPause").text("||");
+
+                var curSong = sm2.getSoundById("curSong");
+                if (curSong && curSong.url == soundUrl)
+                    curSong.resume();
+                else {
+                    sm2.destroySound("curSong");
+
+                    var curSoung = sm2.createSound({
+                        id: 'curSong',
+                        url: soundUrl
+                    });
+
+                    curSoung.play();
+                }
+            }
+
+            function pause() {
+                $("#playPause").text(">");
+                sm2.pauseAll();
+            }
+
+            function playSong(songButton) {
+                var $button = $(songButton);
+                $("#soundUrl").val($button.data("url"));
+                play();
+            }
+
+            function stop() {
+                $("#soundUrl").val("");
+                $("#playPause").text(">");
+                sm2.destroySound("curSong");
+            }
+
+        });
+    </script>
 </body>
 </html>

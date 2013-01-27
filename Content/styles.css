@@ -1,0 +1,22 @@
+﻿body {
+    margin: 0;
+}
+
+#background {
+     
+    width: 898px;
+    height: 800px;
+    background: url(../Content/bg.jpg) left top no-repeat;
+    margin: auto;
+}
+
+#iFrameContainer {
+    width: 730px;
+    height: 599px;
+    background: none;
+    border: 0px solid #039;
+    position: relative;
+    z-index: 2;
+    left: 148px;
+    top: 136px;
+}
