@@ -68,6 +68,7 @@
     <Content Include="APPLICATION\Images\player\player_bg.png" />
     <Content Include="APPLICATION\Images\player\sliderBg.jpg" />
     <Content Include="APPLICATION\Images\player\sliderBgLeft.jpg" />
+    <Content Include="APPLICATION\Images\player\toggleView.png" />
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.debug.js" />
