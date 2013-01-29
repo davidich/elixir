@@ -71,6 +71,11 @@
     <Content Include="APPLICATION\Images\player\sliderBgLeft.jpg" />
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
+    <Content Include="APPLICATION\Scripts\app.js" />
+    <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.js" />
+    <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.min.js" />
+    <Content Include="APPLICATION\Scripts\Libs\vkWrapper.js" />
+    <Content Include="APPLICATION\Scripts\require-config.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.debug.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout.mapping.debug.js" />
@@ -102,6 +107,10 @@
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\urls.js" />
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\DetailVm.js" />
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\RequestVm.js" />
+    <Content Include="APPLICATION\Scripts\Vms\musicVM.js" />
+    <Content Include="APPLICATION\Scripts\Vms\mainVM.js" />
+    <Content Include="APPLICATION\Scripts\Vms\playerVM.js" />
+    <Content Include="APPLICATION\Scripts\Vms\viewBase.js" />
     <Content Include="APPLICATION\Styles\cssreset-min.css" />
     <Content Include="APPLICATION\Styles\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="APPLICATION\Styles\main.css" />

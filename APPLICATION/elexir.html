@@ -3,69 +3,102 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Elixir</title>
-    <script data-main="scripts/main" src="Scripts/require-jquery.js"></script>
-    <!--<script src="Scripts/Libs/soundmanager/soundmanager2.js"></script>-->
-
-    <style>
-        #player {
-            border: 3px solid blue;
-            padding: 4px;
-            margin: 0px auto;
-            height: 50px;
-            width: 215px;
-        }
-
-        #loader {
-            background-color: red;
-        }
-
-        #playerControls {
-            background-color: green;
-        }
-
-        #player button {
-            width: 68px;
-        }
-
-        #songs {
-            margin: 10px 242px;
-            border: 3px solid blue;
-            padding: 4px;
-        }
-    </style>
-
+    <script type="text/javascript" src="Scripts/require-jquery.js" data-main="Scripts/main"></script>
+    <link rel="stylesheet" type="text/css" href="Styles/cssreset-min.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/player.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/jquery-ui-1.10.0.custom.min.css" />
 </head>
 <body>
-    <div style="height: 600px; background-color: grey;">
-        <div id="player">
-            <div id="loader">
-                player is loading...
-            </div>
-            <div id="playerControls" style="display: none;">
-                <span>sound url:</span><input id="soundUrl" type="text" />
-                <br />
-                <button id="playPause">></button>
-                <button id="stop">stop</button>
-                <button id="muteUnmute">mute</button>
-            </div>
+    <div id='headerBlock'>
+        <a href='#' id='headerLogo'></a>
+        <div id='headerNavigation'>
+            <ul>
+                <li id='navigationMyPage' class='topNavigatiobEl'>
+                    <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
+                        <div class='dropmenuArrow'></div>
+                        <ul class='subNavigation'>
+                            <li><a href='#'>
+                                <div class='subnavIcons allPage'></div>
+                                Вся страница</a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons music'></div>
+                                Музыка</a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons video'></div>
+                                Видео</a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons events'></div>
+                                События</a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons subscribe'></div>
+                                Подписки</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id='navigationMyNews' class='topNavigatiobEl'>
+                    <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
+                        <div class='dropmenuArrow'></div>
+                        <ul class='subNavigation'>
+                            <li><a href='#'>
+                                <div class='subnavIcons music'></div>
+                                Музыка<div class='noticeDot'></div>
+                            </a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons video'></div>
+                                Видео</a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons events'></div>
+                                События</a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons subscribe'></div>
+                                Подписки</a></li>
+                            <li><a href='#'>
+                                <div class='subnavIcons notice'></div>
+                                Уведомления<div class='noticeDot'></div>
+                            </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id='navigationMusic' class='topNavigatiobEl'></li>
+                <li id='navigationVideo' class='topNavigatiobEl'></li>
+                <li id='navigationEvents' class='topNavigatiobEl'></li>
+                <li id='navigationPeople' class='topNavigatiobEl'></li>
+            </ul>
         </div>
-        <div id="songs">
-            <span>Songs:</span>
-            <div>
-                <button data-url="http://cs2-1.userapi.com/d21/73875141e5922e.mp3">Rihanna</button>
-            </div>
-            <div>
-                <button data-url="http://cs2-4.userapi.com/d17/b803eb4b94b9d1.mp3">Grove Armada</button>
-            </div>
-            <div>
-                <button data-url="http://cs2-1.userapi.com/d15/d94984feb8cd85.mp3">Faithless</button>
-            </div>
-        </div>
-
     </div>
 
-    <script>
-        
-    </script>
+    <!--main block-->
+    <div id='mainContent' style="display: none;" data-bind="visible: isVisible, click: goToMusic">
+        <img src='Images/wellcome_bg.jpg' alt="" />
+    </div>
+    <!--main block END-->
+
+    <!--music block-->
+    <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
+        <button data-bind="click: goToMain">back </button>
+    </div>
+    <!--music block END-->
+
+    <!--player block-->
+    <div id="playerContent" style="display: none;" data-bind="visible: isVisible">
+        <div class='playerMainBlock'>
+            <div class='butonBlock'>
+                <div class='playerButton prev'></div>
+                <div class='playerButton playPause pause'></div>
+                <div class='playerButton next'></div>
+                <div class='playerButton songActions share'></div>
+                <div style='clear: both;'></div>
+            </div>
+            <div class='centerPart'>
+                <div class='cover'></div>
+                <div class='trackName'>Climax - Usher</div>
+                <div class='trackSlider'></div>
+                <div class='trackTimer'>-3:05</div>
+                <div class='trackVolume'></div>
+            </div>
+        </div>
+    </div>
+    <!--player block END-->
 </body>
 </html>
