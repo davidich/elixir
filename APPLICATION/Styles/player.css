@@ -1,8 +1,14 @@
+.playerBlock {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 509px;
+}
 .playerMainBlock
 {
-    position: fixed;
+/*    position: fixed; */
     width: 509px;
-    height: 49px;
+    height: 33px;
     background: url(../Images/Player/player_bg.png) left top no-repeat;
     top: 555px;
     right: -12px;
@@ -163,6 +169,9 @@
     top: -6px;
     background: url(../Images/Player/handle.png) center top no-repeat;
     cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    border: 0;
 }
 
 .centerPart .trackSlider .ui-slider-handle:hover
@@ -198,3 +207,120 @@
     cursor: pointer;
     }
     
+/* header */
+.playerHeader {
+    width: 505px;
+    height: 122px;
+    padding-top: 10px;
+    background: url(../images/Player/header.png) center top no-repeat;
+    margin-bottom: -3px;
+}
+
+.playerHeader .albumCover {
+    display: block;
+    width: 114px;
+    height: 111px;
+    background: url(../images/player/Cover_Border.png) center top no-repeat;
+    padding: 2px 0 0 14px;
+    float: left;
+}
+
+.playerHeader .trackDetails {
+    font-size: 11px;
+    width: 340px;
+    overflow: hidden;
+    float: left;
+}
+
+.playerHeader .trackDetails a{
+    text-decoration: none;
+    color: #3c79ab;
+}
+
+.playerHeader .trackQuality {
+    margin-top: 2px;
+}
+
+.playerHeader .detailDescription 
+{
+    font-size: 11px;
+    color: #b3b3b3;
+    text-align: left;
+    line-height: 17px;
+}
+
+.playerHeader .heart {
+    display: block;
+    float: left;
+    width: 15px;
+    height: 15px;
+    background: url("../Images/player/headerIcons.png") -37px 0 no-repeat;
+}
+
+.playerHeader .heart:hover {
+    background-position: -37px -15px;
+}
+
+.playerHeader .compactViewBtn {
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    background: url("../Images/player/headerIcons.png") 0 0 no-repeat;
+    float: right;
+    cursor: pointer;
+}
+
+.playerHeader .compactViewBtn:hover {
+    background-position: 0 -22px;
+}
+
+.playerHeader .bottomButtonsBlock 
+{
+    position: relative;
+    margin-top: 95px;
+}
+
+.playerHeader .btnRotator {
+    float: left;
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background: url(../Images/player/playerBtns.png) -25px -45px no-repeat;
+}
+
+.playerHeader .bottomButtonsBlock .btnRotator:hover {
+    background-position: -25px -67px;
+}
+
+.playerHeader .bottomButtonsBlock .menuTriangle {
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    background: url(../Images/player/headerIcons.png) -85px 3px no-repeat;
+}
+
+.playerHeader .bottomButtonsBlock .menuTriangle:hover {
+    background-position: -85px -12px;
+}
+
+.playerPlaylistBlock {
+    width: 505px;
+    height: 335px;
+    background: url(../images/Player/playList.png) center top no-repeat;
+}
+
+.playerDropmenuShift {
+    margin-left: -160px;
+    z-index: 999999;
+    width: 170px;
+}
+
+.bottomButtonsBlock .menuTriangle .playerDropmenuShift .dropmenuArrow {
+    left: 160px
+}
+
+.bottomButtonsBlock .menuTriangle .dropDownBlock {
+    top: 20px;
+}

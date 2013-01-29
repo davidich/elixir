@@ -92,7 +92,7 @@ body
         }
 
         /* sub navigation */
-        #headerNavigation ul.subNavigation li a
+        ul.subNavigation li a
         {
             color: #777777;
             border: 1px solid transparent;
@@ -104,20 +104,20 @@ body
             display: block;
         }
         
-        #headerNavigation ul.subNavigation li a:hover
+        ul.subNavigation li a:hover
         {
             border: 1px solid #eee;
             background: url(../Images/navigation/menu_hover.jpg) left top repeat-x;
             color: #528fc2;
         }
         
-        #headerNavigation ul.subNavigation li
+        ul.subNavigation li
         {
             border: 1px solid transparent; 
             text-align: left;
         }
         
-        #headerNavigation ul.subNavigation li a div.subnavIcons
+        ul.subNavigation li a div.subnavIcons
         {
             width: 15px;
             height: 15px;
