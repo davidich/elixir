@@ -1,28 +1,28 @@
-﻿define(["jquery", "domReady", "ko", "pubSub", "Vms/mainVM", "Vms/musicVM", "Vms/playerVM"], function ($, domReady, ko, pubSub, MainVM, MusicVM, PlayerVM) {
-    domReady(function () {
-        //alert("UserID: " + vk.args["user_id"]);        
+﻿define(["jquery", "ko", "pubSub", "Vms/mainVM", "Vms/musicVM", "Vms/playerVM"], function ($, ko, pubSub, MainVM, MusicVM, PlayerVM) {
 
-        var mainVM = new MainVM("main");
-        var $mainBlock = $("#mainContent");
-        ko.applyBindings(mainVM, $mainBlock.get(0));
-        
-        var musicVM = new MusicVM("music");
-        var $musicBlock = $("#musicContent");
-        ko.applyBindings(musicVM, $musicBlock.get(0));
-        
-        var playerVM = new PlayerVM();
-        var $playerBlock = $("#playerContent");
-        ko.applyBindings(playerVM, $playerBlock.get(0));
-        
-        // set main as active view
-        pubSub.pub("viewChanged", "main");
+    //alert("UserID: " + vk.args["user_id"]);        
 
-        //REMOVE AFTER DEBUG
-        window.mainVM = window.parent.mainVM = mainVM;
-        window.musicVM = window.parent.musicVM = musicVM;
-        window.playerVM = window.parent.playerVM = playerVM;        
-    });
-    
+    var mainVM = new MainVM("main");
+    var $mainBlock = $("#mainContent");
+    ko.applyBindings(mainVM, $mainBlock.get(0));
+
+    var musicVM = new MusicVM("music");
+    var $musicBlock = $("#musicContent");
+    ko.applyBindings(musicVM, $musicBlock.get(0));
+
+    var playerVM = new PlayerVM();
+    var $playerBlock = $("#playerContent");
+    ko.applyBindings(playerVM, $playerBlock.get(0));
+
+    // set main as active view
+    pubSub.pub("viewChanged", "main");
+
+    //TODO: REMOVE AFTER DEBUG
+    window.mainVM = window.parent.mainVM = mainVM;
+    window.musicVM = window.parent.musicVM = musicVM;
+    window.playerVM = window.parent.playerVM = playerVM;
+
+
     $("#playPause").click(function () {
         var buttonText = $(this).text();
         if (buttonText == ">")
