@@ -24,7 +24,7 @@
     background: url(../Images/player/playerBtns.png) no-repeat;
 }
 
-.butonBlock
+.buttonBlock
 {
     margin:8px 0 0 8px; 
     }
@@ -68,7 +68,7 @@
 {
     background-position: 0 -22px;
 }
-.butonBlock
+.buttonBlock
 {
     width: 120px;
     float: left;
@@ -80,32 +80,32 @@
     margin-left: 8px;
     }
     
-.butonBlock .addToWall 
+.buttonBlock .addToWall 
 {
     background-position: 0 -44px;
     }
 
-.butonBlock .addToWall:hover
+.buttonBlock .addToWall:hover
 {
     background-position: 0 -66px;
     }
 
-.butonBlock .addToFavorit 
+.buttonBlock .addToFavorit 
 {
     background-position: -22px -44px;
     }
 
-.butonBlock .addToFavorit:hover
+.buttonBlock .addToFavorit:hover
 {
     background-position: -22px -66px;
     }
 
-.butonBlock .share
+.buttonBlock .share
 {
     background-position: -66px -44px;
     }
 
-.butonBlock .share:hover
+.buttonBlock .share:hover
 {
     background-position: -66px -66px;
     }
@@ -202,9 +202,14 @@
     width: 22px;
     height: 22px;
     float: right;
-    background: url(../images/Player/toggleView.png) center top no-repeat;
+    background: url(../images/Player/playerBtns.png) -88px -30px no-repeat;
     margin: 7px 15px 0 0;
     cursor: pointer;
+    }
+
+.playerMainBlock .rightPart:hover
+{
+    background-position: -88px -52px;
     }
     
 /* header */
@@ -323,4 +328,51 @@
 
 .bottomButtonsBlock .menuTriangle .dropDownBlock {
     top: 20px;
+}
+
+
+.menuTriangle ul.subNavigation .subnavIcons {
+     background: url(../images/Player/playerBtns.png) 0 0 no-repeat;
+}
+
+.bottomButtonsBlock .menuTriangle li a .addTofavorite {
+    background-position: -25px -46px;
+}
+
+.bottomButtonsBlock .menuTriangle li a:hover .addTofavorite {
+    background-position: -25px -68px;
+}
+
+.bottomButtonsBlock .menuTriangle li a .share
+{
+    background-position: -69px -46px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a:hover .share
+{
+    background-position: -69px -68px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a .sendToWall
+{
+    background-position: -4px -46px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a:hover .sendToWall
+{
+    background-position: -4px -68px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a .addToPLaylist
+{
+    background-position: -88px 0;
+    }
+
+.bottomButtonsBlock .menuTriangle li a:hover .addToPLaylist
+{
+    background-position: -88px -15px;
+    }
+
+.menuTriangle:hover .dropDownBlock {
+    display: block !important;
 }
