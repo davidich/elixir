@@ -36,7 +36,7 @@ require(["require-config"], function () {
                 var completedEventCount = componentCount - componets.length;
                 var progress = completedEventCount / componentCount;
                 var barWidth = progress * $("#loaderContainer").width();
-                $("#loaderBar").animate({ width: barWidth }, 250, "linear", function () {                    
+                $("#loaderBar").animate({ width: barWidth }, /*25*/0, "linear", function () {                    
                     if ($("#loaderBar").width() == $("#loaderContainer").width())
                         $("#splashContent").fadeOut("slow");    // hide splash once loaded
                 });
@@ -51,9 +51,10 @@ require(["require-config"], function () {
 
         // start VK initialization
         require(["vk"], function (vk) {
-            vk.init(function () {
+            vk.init(function () {                
+                pubSub.pub("componentInited", "vkApi");                
                 window.vk = vk;
-                pubSub.pub("componentInited", "vkApi");
+                window.parent.vk = vk;
             }, function () {
                 alert("VK api initialization failed;");
             });
@@ -61,10 +62,6 @@ require(["require-config"], function () {
 
         // start SoundManager2 initialization
         require(["soundmanager2"], function (soundManager) {
-            // The following may help Flash see the global.
-            window.soundManager = soundManager;
-
-            // set manager params
             soundManager.setup({
                 preferFlash: true,
                 url: ' http://davidich.la.net.ua/elexir/APPLICATION/Scripts/Libs/soundmanager/swfs/',
@@ -75,6 +72,8 @@ require(["require-config"], function () {
                 //useFlashBlock: false, // optionally, enable when you're ready to dive in
                 onready: function () {
                     pubSub.pub("componentInited", "soundManager");
+                    window.sm = soundManager;
+                    window.parent.sm = soundManager;
                 }
             });
 

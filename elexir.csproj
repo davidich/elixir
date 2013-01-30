@@ -115,6 +115,9 @@
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\urls.js" />
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\DetailVm.js" />
     <Content Include="APPLICATION\Scripts\KnockoutExampleFromTS\ViewModels\RequestVm.js" />
+    <Content Include="APPLICATION\Scripts\Types\TrackSearchResult.js" />
+    <Content Include="APPLICATION\Scripts\Types\TrackSearcher.js" />
+    <Content Include="APPLICATION\Scripts\Types\Track.js" />
     <Content Include="APPLICATION\Scripts\Vms\musicVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\mainVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\playerVM.js" />
