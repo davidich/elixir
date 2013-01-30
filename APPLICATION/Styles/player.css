@@ -11,8 +11,8 @@
     height: 33px;
     background: url(../Images/Player/player_bg.png) left top no-repeat;
     top: 555px;
-    right: -12px;
-    padding: 6px 6px 8px 6px;
+/*    right: -12px; */
+    padding: 3px 6px 6px 6px; 
     z-index: 999999;
     }
 .playerButton
@@ -22,7 +22,7 @@
     height: 22px;
     cursor: pointer;
     background: url(../Images/player/playerBtns.png) no-repeat;
-    margin-left: 6px;
+    margin-right: 6px;
 }
 
 .buttonBlock
@@ -122,7 +122,7 @@
     width: 35px;
     height: 35px;
     background: url(../Images/Player/cover.jpg) no-repeat;
-    margin: 0 8px 0 4px;
+    margin: 0 8px 0 2px;
     float: left;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
@@ -232,15 +232,9 @@
 }
 
 .playerHeader .trackDetails {
-    font-size: 11px;
     width: 340px;
     overflow: hidden;
     float: left;
-}
-
-.playerHeader .trackDetails a{
-    text-decoration: none;
-    color: #3c79ab;
 }
 
 .playerHeader .trackQuality {
@@ -249,7 +243,6 @@
 
 .playerHeader .detailDescription 
 {
-    font-size: 11px;
     color: #b3b3b3;
     text-align: left;
     line-height: 17px;
@@ -377,3 +370,134 @@
 .menuTriangle:hover .dropDownBlock {
     display: block !important;
 }
+
+/* playlistHeader */
+.playlistHeader {
+    width: 480px;
+    height: 25px;
+    margin: auto;
+}
+
+.playlistHeader .songAmount{
+    width: 100px;
+    height: 15px;
+    color: #b3b3b3;
+    float: left;
+    text-align: left;
+    margin: 6px 0 0 0;
+}
+
+.playlistHeader .playlistHeaderButtons {
+    float: right;
+}
+
+.playlistHeader .playlistHeaderButtons div 
+{
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 5px 0 0 8px;
+    cursor: pointer;
+    background: url(../images/Player/headerIcons.png) 0 0 no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.goToPlaylist
+{
+    background: url(../images/Player/headerIcons.png) -54px 1px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.goToPlaylist:hover
+{
+    background: url(../images/Player/headerIcons.png) -54px -14px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.shuffle
+{
+    background: url(../images/Player/headerIcons.png) -68px 1px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.shuffle:hover
+{
+    background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.clearPlaylist
+{
+    background: url(../images/Player/headerIcons.png) -23px 1px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.clearPlaylist:hover
+{
+    background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
+}
+
+.playerPlaylistBlock  .trackListBlock {
+    position: relative;
+    overflow: auto;
+    z-index: 999;
+    height: 280px;
+}
+
+.playerPlaylistBlock .plTrack {
+    display: block;
+    width: 498px;
+    height: 26px;
+    border-bottom: 1px solid #ebebeb;
+    -moz-box-shadow: 0 1px 2px 0 #fff!important;
+    -webkit-box-shadow: 0 1px 2px 0 #fff !important;
+    box-shadow: 0 1px 2px 0 #fff!important;
+    margin: 1px auto 0;
+    cursor: pointer;
+}
+
+.playerPlaylistBlock .plTrack:hover {
+    background: #f0f0f0;
+    border-bottom: 1px solid #e3e3e3;
+    cursor: pointer;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+.playerPlaylistBlock .plTrack:hover .deleteTrack {
+    display: block;
+}
+
+.playerPlaylistBlock .plTrack div{
+    line-height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.playerPlaylistBlock .trackName {
+    width: 190px;
+    font-weight: normal;
+    color: #666;
+    float: left;
+    margin-left: 15px;
+}
+
+.playerPlaylistBlock .trackArtist {
+    float: left;
+    height: 26px;
+    margin: 0 5px;
+    width: 225px;
+}
+
+.playerPlaylistBlock .trackTime {
+    width: 45px;
+    color: #666;
+    float: right;
+}
+
+.playerPlaylistBlock .deleteTrack 
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
+    margin: 5px 0 0 -15px;
+    display: none;
+}
+
