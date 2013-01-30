@@ -1,12 +1,6 @@
-﻿define(["ko", "Vms/viewBase", "pubSub", /*plugins w/o export*/ "jqueryui"],
-    function (ko, viewBase, pubSub, sm2) {
-        function Track(artist, title, url) {
-            var self = this;
-
-            self.artist = artist;
-            self.title = title;
-            self.url = url;
-        }
+﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackSearcher", "Types/TrackSearchResult", /*plugins w/o export*/ "jqueryui"],
+    function (ko, viewBase, pubSub, Track, TrackSearcher, TrackSearchResult) {
+        
 
         // player ui setup
         $('#playerMainBlock .trackSlider').slider({
@@ -40,19 +34,48 @@
             self.supportedViews = ["music", "video", "artists"];
 
             pubSub.sub("viewChanged", function (viewName) {
-                var visible = $.inArray(viewName, self.supportedViews) != -1;
-                self.isVisible(visible);
+                //var visible = $.inArray(viewName, self.supportedViews) != -1;
+                //self.isVisible(visible);
+                self.isVisible(false);
             });
 
             // Data
             self.currentTrack = ko.observable();
             self.playlist = ko.observableArray();
             self.state = ko.observable(); //play, pause, stop
+            
 
             // Behavior
-            self.playPause = function () {
+            pubSub.sub("player.playTrack", function(track) {
+                if (self.currentTrack())
+                    soundManager.destroySound(self.currentTrack().id());
 
+                self.currentTrack(track);
+
+                var sound = soundManager.createSound({
+                    id: track.id(),
+                    url: track.url()
+                    //,whileloading: soundIsLoadingFunction
+                });
+
+                sound.play();
+            });            
+
+            self.playPause = function () {               
+                if (self.state() == "pause" && self.currentTrackId()) {
+                    soundManager.resume(self.currentTrackId());
+                    soundManager.state("play");
+                }                    
+                else if (self.currentTrackId()) {
+                    soundManager.state("play");
+                }
             };
+            
+            // Methods
+
+            function unpause() {
+                
+            }
         }
 
         Player.prototype = new viewBase();
