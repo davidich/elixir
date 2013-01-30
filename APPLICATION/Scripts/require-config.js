@@ -9,8 +9,7 @@
         tristate: 'Libs/tristate',
         vistaTextbox: 'Libs/vistaTextbox',
         Plupload: 'Libs/Plupload',
-        soundmanager2: 'Libs/soundmanager/soundmanager2',
-        sm2: 'Libs/soundmanager/soundmanagerWrapper',           //<- use this alias for SoundManager
+        soundmanager2: 'Libs/soundmanager/soundmanager2',        
         vkApiSource: 'http://vk.com/js/api/xd_connection.js?2',
         vk: 'Libs/vkWrapper',                                   //<- use this alias for VK Api
         jqueryui: 'Libs/jquery-ui-1.10.0',
