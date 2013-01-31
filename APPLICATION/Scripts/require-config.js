@@ -14,6 +14,8 @@
         vk: 'Libs/vkWrapper',                                   //<- use this alias for VK Api
         jqueryui: 'Libs/jquery-ui-1.10.0',
         //jqueryui: 'Libs/jquery-ui-1.10.0.min',
+        scroll: 'Libs/scroll/scrollWraper',
+         
         placeHolder: ""
     },
     shim: {

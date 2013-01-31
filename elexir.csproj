@@ -84,8 +84,9 @@
     <Content Include="APPLICATION\Scripts\app.js" />
     <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.js" />
     <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.min.js" />
-    <Content Include="APPLICATION\Scripts\Libs\jquery.mCustomScrollbar.js" />
-    <Content Include="APPLICATION\Scripts\Libs\jquery.mousewheel.min.js" />
+    <Content Include="APPLICATION\Scripts\Libs\scroll\scrollWraper.js" />
+    <Content Include="APPLICATION\Scripts\Libs\scroll\jquery.mCustomScrollbar.js" />
+    <Content Include="APPLICATION\Scripts\Libs\scroll\jquery.mousewheel.min.js" />
     <Content Include="APPLICATION\Scripts\Libs\vkWrapper.js" />
     <Content Include="APPLICATION\Scripts\require-config.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.debug.js" />

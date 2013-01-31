@@ -24,7 +24,7 @@ $.ajaxSetup({
 require(["require-config"], function () {
 
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
-        var componets = ["vkApi", "soundManager"];
+        var componets = [/*"vkApi", */"soundManager"];
         var componentCount = componets.length;
 
         domReady(function () {
@@ -36,7 +36,7 @@ require(["require-config"], function () {
                 var completedEventCount = componentCount - componets.length;
                 var progress = completedEventCount / componentCount;
                 var barWidth = progress * $("#loaderContainer").width();
-                $("#loaderBar").animate({ width: barWidth }, /*25*/0, "linear", function () {                    
+                $("#loaderBar").animate({ width: barWidth }, /*25*/0, "linear", function () {
                     if ($("#loaderBar").width() == $("#loaderContainer").width())
                         $("#splashContent").fadeOut("slow");    // hide splash once loaded
                 });
@@ -49,16 +49,16 @@ require(["require-config"], function () {
             });
         });
 
-        // start VK initialization
-        require(["vk"], function (vk) {
-            vk.init(function () {                
-                pubSub.pub("componentInited", "vkApi");                
-                window.vk = vk;
-                window.parent.vk = vk;
-            }, function () {
-                alert("VK api initialization failed;");
-            });
-        });
+        //// start VK initialization
+        //require(["vk"], function (vk) {
+        //    vk.init(function () {                
+        //        pubSub.pub("componentInited", "vkApi");                
+        //        window.vk = vk;
+        //        window.parent.vk = vk;
+        //    }, function () {
+        //        alert("VK api initialization failed;");
+        //    });
+        //});
 
         // start SoundManager2 initialization
         require(["soundmanager2"], function (soundManager) {
