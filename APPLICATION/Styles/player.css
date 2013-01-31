@@ -3,18 +3,17 @@
     bottom: 0;
     right: 0;
     width: 509px;
+    z-index: 999999;
 }
 .playerMainBlock
 {
-/*    position: fixed; */
     width: 509px;
     height: 33px;
     background: url(../Images/Player/player_bg.png) left top no-repeat;
     top: 555px;
-/*    right: -12px; */
     padding: 3px 6px 6px 6px; 
     z-index: 999999;
-    }
+}
 .playerButton
 {
     float: left;
@@ -28,7 +27,7 @@
 .buttonBlock
 {
     margin:8px 0 0 8px; 
-    }
+}
 
 .playerMainBlock .prev
 {
@@ -69,17 +68,41 @@
 {
     background-position: 0 -22px;
 }
+
+.playerMainBlock .buttonBlock .repeat {
+    display: none;
+}
+
+.playerMainBlock.fillView .buttonBlock .repeat
+{
+    display: block;
+    background-position: -42px -43px;
+    margin-left: 4px;
+}
+
+.playerMainBlock.fillView .buttonBlock .repeat:hover, 
+.playerMainBlock.fillView .buttonBlock .repeating
+{
+    background-position: -42px -65px;
+    margin-left: 4px;
+}
+
 .buttonBlock
 {
     width: 120px;
     float: left;
     }
     
-.songActions
+.playerMainBlock .buttonBlock .songActions
 {
     width: 22px;
     margin-left: 8px;
-    }
+}
+    
+.playerMainBlock.fillView .buttonBlock .songActions
+{
+    display: none;
+}
     
 .buttonBlock .addToWall 
 {
@@ -110,6 +133,26 @@
 {
     background-position: -66px -66px;
     }
+/* full for center */
+.playerMainBlock.fillView .cover, .playerMainBlock.fillView .trackName, .playerMainBlock.fillView .switchToFullView {
+    display: none;
+}
+
+.playerMainBlock.fillView .centerPart {
+    padding: 13px 0 0 15px;
+}
+
+/*
+.buttonBlock .loop
+{
+    background-position: -66px -44px;
+}
+
+.buttonBlock .loop:hover, .buttonBlock .loop.active
+{
+    background-position: -66px -66px;
+}
+*/
 
 .centerPart
 {
@@ -151,9 +194,19 @@
     border-radius: 1px;
 }
 
+.playerMainBlock.fillView .centerPart .trackSlider
+{
+    width: 215px;
+}
+
 .centerPart .trackSlider, .centerPart .trackVolume 
 {
     background: url(../Images/Player/sliderBg.jpg) repeat-x;
+}
+
+.playerMainBlock.fillView .centerPart 
+{
+    width: 345px;
 }
 
     
@@ -182,7 +235,7 @@
 
 .centerPart .trackTimer 
 {
-    width: 45px;
+    width: 40px;
     height: 14px;
     font-size: 9px;
     color: #777;
@@ -195,10 +248,31 @@
     width: 50px;
     height: 4px;
     float: left;
-    margin-top: 2px;
+    margin-top: 3px;
     }
     
-.playerMainBlock .rightPart
+.playerMainBlock.fillView .centerPart .soundIco {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background: url(../images/Player/sound.png) -22px 0 no-repeat;
+    float: left;
+    margin: -5px 3px 0 0;
+}
+
+.playerMainBlock.fillView .centerPart .soundIco:hover {
+    background-position: -22px -22px;
+}
+
+.playerMainBlock.fillView .centerPart .soundIco.mute {
+    background: url(../images/Player/sound.png) 0 0 no-repeat;
+}
+
+.playerMainBlock.fillView .centerPart .soundIco.mute:hover {
+    background-position: 0 -22px;
+}
+
+.playerMainBlock .switchToFullView
 {
     width: 22px;
     height: 22px;
@@ -208,13 +282,15 @@
     cursor: pointer;
     }
 
-.playerMainBlock .rightPart:hover
+.playerMainBlock .switchToFullView:hover
 {
     background-position: -88px -52px;
     }
     
 /* header */
-.playerHeader {
+.playerHeader 
+{
+    display: none;
     width: 505px;
     height: 122px;
     padding-top: 10px;
@@ -277,6 +353,7 @@
 {
     position: relative;
     margin-top: 95px;
+    z-index: 1000;
 }
 
 .playerHeader .btnRotator {
@@ -304,7 +381,9 @@
     background-position: -85px -12px;
 }
 
-.playerPlaylistBlock {
+.playerPlaylistBlock 
+{
+    display: none;
     width: 505px;
     height: 335px;
     background: url(../images/Player/playList.png) center top no-repeat;
@@ -323,7 +402,6 @@
 .bottomButtonsBlock .menuTriangle .dropDownBlock {
     top: 20px;
 }
-
 
 .menuTriangle ul.subNavigation .subnavIcons {
      background: url(../images/Player/playerBtns.png) 0 0 no-repeat;
@@ -367,7 +445,8 @@
     background-position: -88px -15px;
     }
 
-.menuTriangle:hover .dropDownBlock {
+.menuTriangle:hover .dropDownBlock 
+{
     display: block !important;
 }
 
@@ -433,7 +512,7 @@
 
 .playerPlaylistBlock  .trackListBlock {
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     z-index: 999;
     height: 280px;
 }
@@ -446,7 +525,7 @@
     -moz-box-shadow: 0 1px 2px 0 #fff!important;
     -webkit-box-shadow: 0 1px 2px 0 #fff !important;
     box-shadow: 0 1px 2px 0 #fff!important;
-    margin: 1px auto 0;
+    margin: 1px 0 auto 3px;
     cursor: pointer;
 }
 
@@ -498,6 +577,16 @@
     float: left;
     background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
     margin: 5px 0 0 -15px;
+    display: none;
+}
+.lockBackground {
+    position: absolute;
+    z-index: 99999;
+    background: #868686;
+    width: 730px;
+    height: 100%;
+    filter: alpha(opacity=25);
+    opacity: 0.25;
     display: none;
 }
 
