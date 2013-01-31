@@ -1,7 +1,6 @@
 ﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackSearcher", "Types/TrackSearchResult", /*plugins w/o export*/ "jqueryui", "scroll"],
     function (ko, viewBase, pubSub, Track, TrackSearcher, TrackSearchResult) {
         
-
         // player ui setup
         $('#playerMainBlock .trackSlider').slider({
             range: "min",
@@ -25,8 +24,38 @@
             }
         });
 
-        $(".trackListBlock").mCustomScrollbar();
-        
+//        $(".trackListBlock").mCustomScrollbar();
+
+//        /* player switch between full and compact view */
+//        $('.compactViewBtn').click(function () {
+//            $('.playerHeader').animate({
+//                height: ['toggle', 'swing'],
+//                opacity: 'toggle'
+//            }, 200, 'linear');
+
+//            $('.playerPlaylistBlock').animate({
+//                height: ['toggle', 'swing'],
+//                opacity: 'toggle'
+//            }, 200, 'linear');
+//            $('.lockBackground').hide();
+//            $('.playerMainBlock').removeClass('fillView');
+//        });
+
+//        $('.switchToFullView').click(function () {
+//            $('.playerHeader').animate({
+//                height: ['toggle', 'swing'],
+//                opacity: 'toggle'
+//            }, 200, 'linear');
+
+//            $('.playerPlaylistBlock').animate({
+//                height: ['toggle', 'swing'],
+//                opacity: 'toggle'
+//            }, 200, 'linear');
+
+//            $('.lockBackground').show();
+//            $('.playerMainBlock').addClass('fillView');
+//        });
+
         //View Player View Model
         function Player(mainVm) {
             var self = this;

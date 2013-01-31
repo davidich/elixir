@@ -2,6 +2,7 @@
 if (!window.console) {
     window.console = {};
 }
+
 var debugLevels = ["log", "info", "warn", "error", "assert", "dir", "clear", "profile", "profileEnd"];
 for (var i = 0; i < debugLevels.length; i++) {
     if (!window.console[debugLevels[i]] || typeof window.console[debugLevels[i]] != "function")
@@ -24,7 +25,7 @@ $.ajaxSetup({
 require(["require-config"], function () {
 
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
-        var componets = [/*"vkApi", */"soundManager"];
+        var componets = [/*"vkApi", */"soundManager", "player"];
         var componentCount = componets.length;
 
         domReady(function () {
@@ -79,5 +80,8 @@ require(["require-config"], function () {
 
             return soundManager;
         });
+        
+
+
     });
 });

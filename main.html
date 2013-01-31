@@ -16,7 +16,8 @@
         <script type="text/javascript" src="./Scripts/jquery-1.9.0.js"></script> 
         <script type="text/javascript" src="./Scripts/jquery-ui-1.10.0.js"></script> 
         <script type="text/javascript" src="Scripts/jquery.mCustomScrollbar.js"></script> 
-        <script type="text/javascript" src="Scripts/jquery.mousewheel.min.js"></script> 
+        <script type="text/javascript" src="Scripts/jquery.mousewheel.min.js"></script>
+        <script>            pubSub.pub("viewChanged", "player");</script>
     </head>
     <body>
         <div id='headerBlock'>
@@ -152,15 +153,30 @@
 
 
                 $('.compactViewBtn').click(function () {
-                    $('.playerHeader').hide();
-                    $('.playerPlaylistBlock').hide();
+                    $('.playerHeader').animate({
+                        height: ['toggle', 'swing'],
+                        opacity: 'toggle'
+                    }, 200, 'linear');
+
+                    $('.playerPlaylistBlock').animate({
+                        height: ['toggle', 'swing'],
+                        opacity: 'toggle'
+                    }, 200, 'linear');
                     $('.lockBackground').hide();
                     $('.playerMainBlock').removeClass('fillView');
                 });
 
                 $('.switchToFullView').click(function () {
-                    $('.playerHeader').show();
-                    $('.playerPlaylistBlock').show();
+                    $('.playerHeader').animate({
+                        height: ['toggle', 'swing'],
+                        opacity: 'toggle'
+                    }, 200, 'linear');
+
+                    $('.playerPlaylistBlock').animate({
+                        height: ['toggle', 'swing'],
+                        opacity: 'toggle'
+                    }, 200, 'linear');
+                    
                     $('.lockBackground').show();
                     $('.playerMainBlock').addClass('fillView');
                 });
