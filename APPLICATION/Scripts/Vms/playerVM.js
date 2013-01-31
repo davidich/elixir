@@ -1,4 +1,4 @@
-﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackSearcher", "Types/TrackSearchResult", /*plugins w/o export*/ "jqueryui"],
+﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackSearcher", "Types/TrackSearchResult", /*plugins w/o export*/ "jqueryui", "scroll"],
     function (ko, viewBase, pubSub, Track, TrackSearcher, TrackSearchResult) {
         
 
@@ -23,8 +23,10 @@
             slide: function (event, ui) {
                 console.log('volume', ui.value);
             }
-        });       
+        });
 
+        $(".trackListBlock").mCustomScrollbar();
+        
         //View Player View Model
         function Player(mainVm) {
             var self = this;

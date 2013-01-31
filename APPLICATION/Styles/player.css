@@ -3,31 +3,31 @@
     bottom: 0;
     right: 0;
     width: 509px;
+    z-index: 999999;
 }
 .playerMainBlock
 {
-/*    position: fixed; */
     width: 509px;
     height: 33px;
     background: url(../Images/Player/player_bg.png) left top no-repeat;
     top: 555px;
-    right: -12px;
-    padding: 6px 6px 8px 6px;
+    padding: 3px 6px 6px 6px; 
     z-index: 999999;
-    }
+}
 .playerButton
 {
     float: left;
-    width: 28px;
+    width: 22px;
     height: 22px;
     cursor: pointer;
     background: url(../Images/player/playerBtns.png) no-repeat;
+    margin-right: 6px;
 }
 
-.butonBlock
+.buttonBlock
 {
     margin:8px 0 0 8px; 
-    }
+}
 
 .playerMainBlock .prev
 {
@@ -68,47 +68,91 @@
 {
     background-position: 0 -22px;
 }
-.butonBlock
+
+.playerMainBlock .buttonBlock .repeat {
+    display: none;
+}
+
+.playerMainBlock.fillView .buttonBlock .repeat
+{
+    display: block;
+    background-position: -42px -43px;
+    margin-left: 4px;
+}
+
+.playerMainBlock.fillView .buttonBlock .repeat:hover, 
+.playerMainBlock.fillView .buttonBlock .repeating
+{
+    background-position: -42px -65px;
+    margin-left: 4px;
+}
+
+.buttonBlock
 {
     width: 120px;
     float: left;
     }
     
-.songActions
+.playerMainBlock .buttonBlock .songActions
 {
     width: 22px;
     margin-left: 8px;
-    }
+}
     
-.butonBlock .addToWall 
+.playerMainBlock.fillView .buttonBlock .songActions
+{
+    display: none;
+}
+    
+.buttonBlock .addToWall 
 {
     background-position: 0 -44px;
     }
 
-.butonBlock .addToWall:hover
+.buttonBlock .addToWall:hover
 {
     background-position: 0 -66px;
     }
 
-.butonBlock .addToFavorit 
+.buttonBlock .addToFavorit 
 {
     background-position: -22px -44px;
     }
 
-.butonBlock .addToFavorit:hover
+.buttonBlock .addToFavorit:hover
 {
     background-position: -22px -66px;
     }
 
-.butonBlock .share
+.buttonBlock .share
 {
     background-position: -66px -44px;
     }
 
-.butonBlock .share:hover
+.buttonBlock .share:hover
 {
     background-position: -66px -66px;
     }
+/* full for center */
+.playerMainBlock.fillView .cover, .playerMainBlock.fillView .trackName, .playerMainBlock.fillView .switchToFullView {
+    display: none;
+}
+
+.playerMainBlock.fillView .centerPart {
+    padding: 13px 0 0 15px;
+}
+
+/*
+.buttonBlock .loop
+{
+    background-position: -66px -44px;
+}
+
+.buttonBlock .loop:hover, .buttonBlock .loop.active
+{
+    background-position: -66px -66px;
+}
+*/
 
 .centerPart
 {
@@ -121,7 +165,7 @@
     width: 35px;
     height: 35px;
     background: url(../Images/Player/cover.jpg) no-repeat;
-    margin: 0 8px 0 4px;
+    margin: 0 8px 0 2px;
     float: left;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
@@ -150,9 +194,19 @@
     border-radius: 1px;
 }
 
+.playerMainBlock.fillView .centerPart .trackSlider
+{
+    width: 215px;
+}
+
 .centerPart .trackSlider, .centerPart .trackVolume 
 {
     background: url(../Images/Player/sliderBg.jpg) repeat-x;
+}
+
+.playerMainBlock.fillView .centerPart 
+{
+    width: 345px;
 }
 
     
@@ -181,7 +235,7 @@
 
 .centerPart .trackTimer 
 {
-    width: 45px;
+    width: 40px;
     height: 14px;
     font-size: 9px;
     color: #777;
@@ -194,21 +248,49 @@
     width: 50px;
     height: 4px;
     float: left;
-    margin-top: 2px;
+    margin-top: 3px;
     }
     
-.playerMainBlock .rightPart
+.playerMainBlock.fillView .centerPart .soundIco {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background: url(../images/Player/sound.png) -22px 0 no-repeat;
+    float: left;
+    margin: -5px 3px 0 0;
+}
+
+.playerMainBlock.fillView .centerPart .soundIco:hover {
+    background-position: -22px -22px;
+}
+
+.playerMainBlock.fillView .centerPart .soundIco.mute {
+    background: url(../images/Player/sound.png) 0 0 no-repeat;
+}
+
+.playerMainBlock.fillView .centerPart .soundIco.mute:hover {
+    background-position: 0 -22px;
+}
+
+.playerMainBlock .switchToFullView
 {
     width: 22px;
     height: 22px;
     float: right;
-    background: url(../images/Player/toggleView.png) center top no-repeat;
+    background: url(../images/Player/playerBtns.png) -88px -30px no-repeat;
     margin: 7px 15px 0 0;
     cursor: pointer;
     }
+
+.playerMainBlock .switchToFullView:hover
+{
+    background-position: -88px -52px;
+    }
     
 /* header */
-.playerHeader {
+.playerHeader 
+{
+    display: none;
     width: 505px;
     height: 122px;
     padding-top: 10px;
@@ -226,15 +308,9 @@
 }
 
 .playerHeader .trackDetails {
-    font-size: 11px;
     width: 340px;
     overflow: hidden;
     float: left;
-}
-
-.playerHeader .trackDetails a{
-    text-decoration: none;
-    color: #3c79ab;
 }
 
 .playerHeader .trackQuality {
@@ -243,7 +319,6 @@
 
 .playerHeader .detailDescription 
 {
-    font-size: 11px;
     color: #b3b3b3;
     text-align: left;
     line-height: 17px;
@@ -278,6 +353,7 @@
 {
     position: relative;
     margin-top: 95px;
+    z-index: 1000;
 }
 
 .playerHeader .btnRotator {
@@ -305,7 +381,9 @@
     background-position: -85px -12px;
 }
 
-.playerPlaylistBlock {
+.playerPlaylistBlock 
+{
+    display: none;
     width: 505px;
     height: 335px;
     background: url(../images/Player/playList.png) center top no-repeat;
@@ -324,3 +402,191 @@
 .bottomButtonsBlock .menuTriangle .dropDownBlock {
     top: 20px;
 }
+
+.menuTriangle ul.subNavigation .subnavIcons {
+     background: url(../images/Player/playerBtns.png) 0 0 no-repeat;
+}
+
+.bottomButtonsBlock .menuTriangle li a .addTofavorite {
+    background-position: -25px -46px;
+}
+
+.bottomButtonsBlock .menuTriangle li a:hover .addTofavorite {
+    background-position: -25px -68px;
+}
+
+.bottomButtonsBlock .menuTriangle li a .share
+{
+    background-position: -69px -46px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a:hover .share
+{
+    background-position: -69px -68px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a .sendToWall
+{
+    background-position: -4px -46px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a:hover .sendToWall
+{
+    background-position: -4px -68px;
+    }
+
+.bottomButtonsBlock .menuTriangle li a .addToPLaylist
+{
+    background-position: -88px 0;
+    }
+
+.bottomButtonsBlock .menuTriangle li a:hover .addToPLaylist
+{
+    background-position: -88px -15px;
+    }
+
+.menuTriangle:hover .dropDownBlock 
+{
+    display: block !important;
+}
+
+/* playlistHeader */
+.playlistHeader {
+    width: 480px;
+    height: 25px;
+    margin: auto;
+}
+
+.playlistHeader .songAmount{
+    width: 100px;
+    height: 15px;
+    color: #b3b3b3;
+    float: left;
+    text-align: left;
+    margin: 6px 0 0 0;
+}
+
+.playlistHeader .playlistHeaderButtons {
+    float: right;
+}
+
+.playlistHeader .playlistHeaderButtons div 
+{
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 5px 0 0 8px;
+    cursor: pointer;
+    background: url(../images/Player/headerIcons.png) 0 0 no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.goToPlaylist
+{
+    background: url(../images/Player/headerIcons.png) -54px 1px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.goToPlaylist:hover
+{
+    background: url(../images/Player/headerIcons.png) -54px -14px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.shuffle
+{
+    background: url(../images/Player/headerIcons.png) -68px 1px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.shuffle:hover
+{
+    background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.clearPlaylist
+{
+    background: url(../images/Player/headerIcons.png) -23px 1px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.clearPlaylist:hover
+{
+    background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
+}
+
+.playerPlaylistBlock  .trackListBlock {
+    position: relative;
+    overflow: hidden;
+    z-index: 999;
+    height: 280px;
+}
+
+.playerPlaylistBlock .plTrack {
+    display: block;
+    width: 498px;
+    height: 26px;
+    border-bottom: 1px solid #ebebeb;
+    -moz-box-shadow: 0 1px 2px 0 #fff!important;
+    -webkit-box-shadow: 0 1px 2px 0 #fff !important;
+    box-shadow: 0 1px 2px 0 #fff!important;
+    margin: 1px 0 auto 3px;
+    cursor: pointer;
+}
+
+.playerPlaylistBlock .plTrack:hover {
+    background: #f0f0f0;
+    border-bottom: 1px solid #e3e3e3;
+    cursor: pointer;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+.playerPlaylistBlock .plTrack:hover .deleteTrack {
+    display: block;
+}
+
+.playerPlaylistBlock .plTrack div{
+    line-height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.playerPlaylistBlock .trackName {
+    width: 190px;
+    font-weight: normal;
+    color: #666;
+    float: left;
+    margin-left: 15px;
+}
+
+.playerPlaylistBlock .trackArtist {
+    float: left;
+    height: 26px;
+    margin: 0 5px;
+    width: 225px;
+}
+
+.playerPlaylistBlock .trackTime {
+    width: 45px;
+    color: #666;
+    float: right;
+}
+
+.playerPlaylistBlock .deleteTrack 
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
+    margin: 5px 0 0 -15px;
+    display: none;
+}
+.lockBackground {
+    position: absolute;
+    z-index: 99999;
+    background: #868686;
+    width: 730px;
+    height: 100%;
+    filter: alpha(opacity=25);
+    opacity: 0.25;
+    display: none;
+}
+

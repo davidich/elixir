@@ -6,8 +6,17 @@
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/main.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/player.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/jquery-ui-1.10.0.custom.min.css" />
-        <script type="text/javascript" src="Scripts/jquery-1.9.0.min.js"></script> 
-        <script type="text/javascript" src="Scripts/jquery-ui-1.10.0.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/jquery.mCustomScrollbar.css" />
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/scroll.css" />
+        
+        <!--[if IE 7]>
+            <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/ie7.css" />
+        <![endif]-->
+
+        <script type="text/javascript" src="./Scripts/jquery-1.9.0.js"></script> 
+        <script type="text/javascript" src="./Scripts/jquery-ui-1.10.0.js"></script> 
+        <script type="text/javascript" src="Scripts/jquery.mCustomScrollbar.js"></script> 
+        <script type="text/javascript" src="Scripts/jquery.mousewheel.min.js"></script> 
     </head>
     <body>
         <div id='headerBlock'>
@@ -61,24 +70,25 @@
                     <div class="bottomButtonsBlock">
                         <div class="btnRotator"></div>
                         <div class="menuTriangle">
-                            <div class='dropDownBlock playerDropmenuShift'>
+                            <div class='dropDownBlock playerDropmenuShift' style="display: none;">
                                 <div class='dropmenuArrow'></div>
                                 <ul class='subNavigation'>
-                                    <li><a href='#'><div class='subnavIcons music'></div>Добавить в избранное</a></li>
-                                    <li><a href='#'><div class='subnavIcons video'></div>Поделиться</a></li>
-                                    <li><a href='#'><div class='subnavIcons events'></div>Отправить на стену</a></li>
-                                    <li><a href='#'><div class='subnavIcons subscribe'></div>Добавить в плейлист</a></li>
+                                    <li><a href='#'><div class='subnavIcons addTofavorite'></div>Добавить в избранное</a></li>
+                                    <li><a href='#'><div class='subnavIcons share'></div>Поделиться</a></li>
+                                    <li><a href='#'><div class='subnavIcons sendToWall'></div>Отправить на стену</a></li>
+                                    <li><a href='#'><div class='subnavIcons addToPLaylist'></div>Добавить в плейлист</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class='playerMainBlock'>
-                    <div class='butonBlock'>
+                    <div class='buttonBlock'>
                         <div class='playerButton prev'></div>
                         <div class='playerButton playPause pause'></div>
                         <div class='playerButton next'></div>
                         <div class='playerButton songActions share'></div>
+                        <div class='playerButton repeat repeating'></div>
                         <div style='clear: both;'></div>
                     </div>
                     <div class='centerPart'>
@@ -86,12 +96,32 @@
                         <div class='trackName'>Climax - Usher</div>
                         <div class='trackSlider'></div>
                         <div class='trackTimer'>-3:05</div>
+                        <div class='soundIco mute'></div>
                         <div class='trackVolume'></div>
                     </div>
-                    <div class='rightPart'></div>
+                    <div class='switchToFullView'></div>
                 </div>
-                <div class="playerPlaylistBlock"></div>
+                <div class="playerPlaylistBlock">
+                    
+                    <div class="playlistHeader">
+                        <div class="songAmount">1000</div>
+                        <div class="playlistHeaderButtons">
+                            <div class="goToPlaylist"></div>
+                            <div class="shuffle"></div>
+                            <div class="clearPlaylist"></div>
+                        </div>
+                    </div>
+                    <div class="trackListBlock">
+                        <div class="plTrack">
+                            <div class="trackName">Between Angels And Insects</div>
+                            <div class="trackArtist"><a href="#">Damian Jr Gong Marle1</a></div>
+                            <div class='deleteTrack'></div>
+                            <div class="trackTime">8:35</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="lockBackground"></div>
             <!--<img src='./Images/wellcome_bg.jpg' />-->
         </div>
 
@@ -118,7 +148,24 @@
                         console.log('volume', ui.value);
                     }
                 });
+                $(".trackListBlock").mCustomScrollbar();
+
+
+                $('.compactViewBtn').click(function () {
+                    $('.playerHeader').hide();
+                    $('.playerPlaylistBlock').hide();
+                    $('.lockBackground').hide();
+                    $('.playerMainBlock').removeClass('fillView');
+                });
+
+                $('.switchToFullView').click(function () {
+                    $('.playerHeader').show();
+                    $('.playerPlaylistBlock').show();
+                    $('.lockBackground').show();
+                    $('.playerMainBlock').addClass('fillView');
+                });
+
             });
         </script>
-    </body
+    </body>
 </html>
