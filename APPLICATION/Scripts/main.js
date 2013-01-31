@@ -36,7 +36,7 @@ require(["require-config"], function () {
                 var completedEventCount = componentCount - componets.length;
                 var progress = completedEventCount / componentCount;
                 var barWidth = progress * $("#loaderContainer").width();
-                $("#loaderBar").animate({ width: barWidth }, /*25*/0, "linear", function () {                    
+                $("#loaderBar").animate({ width: barWidth }, /*25*/0, "linear", function () {
                     if ($("#loaderBar").width() == $("#loaderContainer").width())
                         $("#splashContent").fadeOut("slow");    // hide splash once loaded
                 });
@@ -48,36 +48,39 @@ require(["require-config"], function () {
                 }
             });
         });
-
-        // start VK initialization
-        require(["vk"], function (vk) {
-            vk.init(function () {                
-                pubSub.pub("componentInited", "vkApi");                
-                window.vk = vk;
-                window.parent.vk = vk;
-            }, function () {
-                alert("VK api initialization failed;");
-            });
-        });
-
-        // start SoundManager2 initialization
-        require(["soundmanager2"], function (soundManager) {
-            soundManager.setup({
-                preferFlash: true,
-                url: ' http://davidich.la.net.ua/elexir/APPLICATION/Scripts/Libs/soundmanager/swfs/',
-                //allowScriptAccess: 'sameDomain',
-                //debugMode: true,
-                //debugFlash: true,
-                //flashVersion: 9, // optional: shiny features (default = 8)
-                //useFlashBlock: false, // optionally, enable when you're ready to dive in
-                onready: function () {
-                    pubSub.pub("componentInited", "soundManager");
-                    window.sm = soundManager;
-                    window.parent.sm = soundManager;
-                }
+        
+       
+        if (window.location.href.indexOf("file://") != -1 || window.location.href.indexOf("localhost") != -1) {
+            pubSub.pub("componentInited", "vkApi");
+            pubSub.pub("componentInited", "soundManager");
+        } else {
+            // start VK initialization
+            require(["vk"], function (vk) {
+                vk.init(function () {
+                    pubSub.pub("componentInited", "vkApi");
+                    window.vk = vk;
+                    window.parent.vk = vk;
+                }, function () {
+                    alert("VK api initialization failed;");
+                });
             });
 
-            return soundManager;
-        });
+            // start SoundManager2 initialization
+            require(["soundmanager2"], function (soundManager) {
+                soundManager.setup({
+                    preferFlash: true,
+                    url: ' http://davidich.la.net.ua/elexir/APPLICATION/Scripts/Libs/soundmanager/swfs/',
+                    //allowScriptAccess: 'sameDomain',
+                    //debugMode: true,                    
+                    onready: function () {
+                        pubSub.pub("componentInited", "soundManager");
+                        window.sm = soundManager;
+                        window.parent.sm = soundManager;
+                    }
+                });
+
+                return soundManager;
+            });
+        }
     });
 });
