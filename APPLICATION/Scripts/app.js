@@ -1,5 +1,4 @@
 ﻿define(["jquery", "ko", "pubSub", "Vms/mainVM", "Vms/musicVM", "Vms/playerVM"], function ($, ko, pubSub, MainVM, MusicVM, PlayerVM) {
-
     //alert("UserID: " + vk.args["user_id"]);        
 
     var mainVM = new MainVM("main");
@@ -17,12 +16,7 @@
     // set main as active view
     pubSub.pub("viewChanged", "main");
 
-    //TODO: REMOVE AFTER DEBUG
-    window.mainVM = window.parent.mainVM = mainVM;
-    window.musicVM = window.parent.musicVM = musicVM;
-    window.playerVM = window.parent.playerVM = playerVM;
-
-
+    
     $("#playPause").click(function () {
         var buttonText = $(this).text();
         if (buttonText == ">")

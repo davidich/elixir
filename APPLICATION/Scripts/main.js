@@ -22,6 +22,10 @@ $.ajaxSetup({
 });
 
 require(["require-config"], function () {
+    
+    //$.get("http://api.elixirvk.com/services/tracks/?by=all&genre=4&style=0&query=us&hq=0&order=interesting&timerange=year&page=1&artist=0&json=1", function (data) {
+    //    console.log(data);
+    //});
 
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
         var componets = ["vkApi", "soundManager"];
@@ -50,26 +54,27 @@ require(["require-config"], function () {
         });
         
        
-        if (window.location.href.indexOf("file://") != -1 || window.location.href.indexOf("localhost") != -1) {
+        // start VK initialization
+        if (window.location.href.indexOf("localhost") != -1) {
             pubSub.pub("componentInited", "vkApi");
             pubSub.pub("componentInited", "soundManager");
-        } else {
-            // start VK initialization
+        } else {            
             require(["vk"], function (vk) {
                 vk.init(function () {
                     pubSub.pub("componentInited", "vkApi");
                     window.vk = vk;
-                    window.parent.vk = vk;
+                    //window.parent.vk = vk;
                 }, function () {
                     alert("VK api initialization failed;");
                 });
             });
-
+        
             // start SoundManager2 initialization
             require(["soundmanager2"], function (soundManager) {
+                pubSub.pub("componentInited", "soundManager");
                 soundManager.setup({
                     preferFlash: true,
-                    url: ' http://davidich.la.net.ua/elexir/APPLICATION/Scripts/Libs/soundmanager/swfs/',
+                    url: 'Scripts/Libs/soundmanager/swfs/reg/',
                     //allowScriptAccess: 'sameDomain',
                     //debugMode: true,                    
                     onready: function () {

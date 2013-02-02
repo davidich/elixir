@@ -1,2 +1,2 @@
-elexir
+elixir
 ======

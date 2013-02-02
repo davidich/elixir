@@ -1,8 +1,8 @@
 ﻿var config = {
     waitSeconds: 60,
     paths: {
-        knockout: 'Libs/knockout/knockout-2.2.1.debug',         //don't remove that alias as it is needed for custom bindings
-        ko: 'Libs/knockout/knockoutWrapper',                    //<- use this alias for Knockout
+        knockout: 'Libs/knockout/knockout-2.2.1.debug',                 //don't remove that alias as it is needed for custom bindings
+        ko: 'Libs/knockout/knockoutWrapper',                            //<- use this alias for Knockout
         autoNumeric: 'Libs/autoNumeric',
         pubSub: 'Libs/pubSub',
         json: 'Libs/json',
@@ -11,7 +11,8 @@
         Plupload: 'Libs/Plupload',
         soundmanager2: 'Libs/soundmanager/soundmanager2',        
         vkApiSource: 'http://vk.com/js/api/xd_connection.js?2',
-        vk: 'Libs/vkWrapper',                                   //<- use this alias for VK Api
+        vk: 'Modules/vkWrapper',                                        //<- use this alias for VK Api
+        elixir: 'Modules/elixirWrapper',
         jqueryui: 'Libs/jquery-ui-1.10.0',
         //jqueryui: 'Libs/jquery-ui-1.10.0.min',
         scroll: 'Libs/scroll/scrollWraper',
