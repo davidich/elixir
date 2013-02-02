@@ -50,10 +50,14 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elexir.html" />
+    <Content Include="APPLICATION\Images\checkbox.png" />
     <Content Include="APPLICATION\Images\dropdownblock_arrow.png" />
     <Content Include="APPLICATION\Images\dropdownblock_bg.jpg" />
     <Content Include="APPLICATION\Images\header_bg.jpg" />
+    <Content Include="APPLICATION\Images\hr_ganre.png" />
     <Content Include="APPLICATION\Images\logo.png" />
+    <Content Include="APPLICATION\Images\main_bg.jpg" />
+    <Content Include="APPLICATION\Images\musicFilterIco.png" />
     <Content Include="APPLICATION\Images\navigation\events.png" />
     <Content Include="APPLICATION\Images\navigation\icons.png" />
     <Content Include="APPLICATION\Images\navigation\menu_hover.jpg" />
@@ -63,6 +67,7 @@
     <Content Include="APPLICATION\Images\navigation\notice_dot.jpg" />
     <Content Include="APPLICATION\Images\navigation\people.png" />
     <Content Include="APPLICATION\Images\navigation\video.png" />
+    <Content Include="APPLICATION\Images\note.png" />
     <Content Include="APPLICATION\Images\player\cover.jpg" />
     <Content Include="APPLICATION\Images\player\cover100x100.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />
@@ -76,12 +81,14 @@
     <Content Include="APPLICATION\Images\player\sliderBgLeft.jpg" />
     <Content Include="APPLICATION\Images\player\sound.png" />
     <Content Include="APPLICATION\Images\player\toggleView.png" />
+    <Content Include="APPLICATION\Images\select.png" />
     <Content Include="APPLICATION\Images\splash\splash.jpg" />
     <Content Include="APPLICATION\Images\splash\splash_load.png" />
     <Content Include="APPLICATION\Images\splash\splash_load_bg.png" />
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\app.js" />
+    <Content Include="APPLICATION\Scripts\Libs\custom-form-elements.js" />
     <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.js" />
     <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.min.js" />
     <Content Include="APPLICATION\Scripts\Libs\scroll\scrollWraper.js" />
@@ -124,6 +131,8 @@
     <Content Include="APPLICATION\Scripts\Vms\playerVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\viewBase.js" />
     <Content Include="APPLICATION\Styles\cssreset-min.css" />
+    <Content Include="APPLICATION\Styles\checkbox.css" />
+    <Content Include="APPLICATION\Styles\genderNavigation.css" />
     <Content Include="APPLICATION\Styles\ie7.css" />
     <Content Include="APPLICATION\Styles\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="APPLICATION\Styles\jquery.mCustomScrollbar.css" />

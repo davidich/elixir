@@ -8,6 +8,8 @@
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/jquery-ui-1.10.0.custom.min.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/jquery.mCustomScrollbar.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/scroll.css" />
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/genderNavigation.css" />
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/checkbox.css" />
         
         <!--[if IE 7]>
             <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/ie7.css" />
@@ -17,117 +19,176 @@
         <script type="text/javascript" src="./Scripts/jquery-ui-1.10.0.js"></script> 
         <script type="text/javascript" src="Scripts/jquery.mCustomScrollbar.js"></script> 
         <script type="text/javascript" src="Scripts/jquery.mousewheel.min.js"></script>
-        <script>            pubSub.pub("viewChanged", "player");</script>
+        <script type="text/javascript" src="./APPLICATION/Scripts/Libs/custom-form-elements.js"></script>
     </head>
     <body>
-        <div id='headerBlock'>
-            <a href='#' id='headerLogo'></a>
-            <div id='headerNavigation'>
-                <ul>
-                    <li id='navigationMyPage' class='topNavigatiobEl'>
-                        <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
-                            <div class='dropmenuArrow'></div>
-                            <ul class='subNavigation'>
-                                <li><a href='#'><div class='subnavIcons allPage'></div>Вся страница</a></li>
-                                <li><a href='#'><div class='subnavIcons music'></div>Музыка</a></li>
-                                <li><a href='#'><div class='subnavIcons video'></div>Видео</a></li>
-                                <li><a href='#'><div class='subnavIcons events'></div>События</a></li>
-                                <li><a href='#'><div class='subnavIcons subscribe'></div>Подписки</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li id='navigationMyNews'class='topNavigatiobEl'>
-                        <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
-                            <div class='dropmenuArrow'></div>
-                            <ul class='subNavigation'>
-                                <li><a href='#'><div class='subnavIcons music'></div>Музыка<div class='noticeDot'></div></a></li>
-                                <li><a href='#'><div class='subnavIcons video'></div>Видео</a></li>
-                                <li><a href='#'><div class='subnavIcons events'></div>События</a></li>
-                                <li><a href='#'><div class='subnavIcons subscribe'></div>Подписки</a></li>
-                                <li><a href='#'><div class='subnavIcons notice'></div>Уведомления<div class='noticeDot'></div></a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li id='navigationMusic' class='topNavigatiobEl'></li>
-                    <li id='navigationVideo' class='topNavigatiobEl'></li>
-                    <li id='navigationEvents' class='topNavigatiobEl'></li>
-                    <li id='navigationPeople' class='topNavigatiobEl'></li>
-                </ul>
-            </div>
-        </div>
-        <div id='mainContent'>
-            <div class='playerBlock'>
-                <div class="playerHeader">
-                    <a class="albumCover"><img src="./APPLICATION/Images/player/cover100x100.jpg" alt=""/></a>
-                    <div class="trackDetails">
-                        <div><span class="detailDescription">Трек: </span><a href="#">Climax</a></div>
-                        <div><span class="detailDescription">Исполнитель: </span><a href="#">Climax, </a> <a href="#">Climax</a></div>
-                        <div><span class="detailDescription">Жанр: </span><a href="#"> R&B, </a> <a href="#">HipHop</a></div>
-                        <div><span class="detailDescription">Стиль: </span><a href="#">Soul, </a> <a href="#">Jazz</a></div>
-                        <div><a href='#'><span class="heart"></span> 35 000</a></div>
-                        <div class="trackQuality"><span class="detailDescription">HQ</span></div>
-                    </div>
-                    <div class="compactViewBtn"></div>
-                    <div class="bottomButtonsBlock">
-                        <div class="btnRotator"></div>
-                        <div class="menuTriangle">
-                            <div class='dropDownBlock playerDropmenuShift' style="display: none;">
+        <div class="topContainer">
+            <div id='headerBlock'>
+                <a href='#' id='headerLogo'></a>
+                <div id='headerNavigation'>
+                    <ul>
+                        <li id='navigationMyPage' class='topNavigatiobEl'>
+                            <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
                                 <div class='dropmenuArrow'></div>
                                 <ul class='subNavigation'>
-                                    <li><a href='#'><div class='subnavIcons addTofavorite'></div>Добавить в избранное</a></li>
-                                    <li><a href='#'><div class='subnavIcons share'></div>Поделиться</a></li>
-                                    <li><a href='#'><div class='subnavIcons sendToWall'></div>Отправить на стену</a></li>
-                                    <li><a href='#'><div class='subnavIcons addToPLaylist'></div>Добавить в плейлист</a></li>
+                                    <li><a href='#'><div class='subnavIcons allPage'></div>Вся страница</a></li>
+                                    <li><a href='#'><div class='subnavIcons music'></div>Музыка</a></li>
+                                    <li><a href='#'><div class='subnavIcons video'></div>Видео</a></li>
+                                    <li><a href='#'><div class='subnavIcons events'></div>События</a></li>
+                                    <li><a href='#'><div class='subnavIcons subscribe'></div>Подписки</a></li>
                                 </ul>
+                            </div>
+                        </li>
+                        <li id='navigationMyNews'class='topNavigatiobEl'>
+                            <div class='dropDownBlock mainNavShift' style='width: 120px; display: none;'>
+                                <div class='dropmenuArrow'></div>
+                                <ul class='subNavigation'>
+                                    <li><a href='#'><div class='subnavIcons music'></div>Музыка<div class='noticeDot'></div></a></li>
+                                    <li><a href='#'><div class='subnavIcons video'></div>Видео</a></li>
+                                    <li><a href='#'><div class='subnavIcons events'></div>События</a></li>
+                                    <li><a href='#'><div class='subnavIcons subscribe'></div>Подписки</a></li>
+                                    <li><a href='#'><div class='subnavIcons notice'></div>Уведомления<div class='noticeDot'></div></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li id='navigationMusic' class='topNavigatiobEl'></li>
+                        <li id='navigationVideo' class='topNavigatiobEl'></li>
+                        <li id='navigationEvents' class='topNavigatiobEl'></li>
+                        <li id='navigationPeople' class='topNavigatiobEl'></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="title"><span></span>Music</a>
+            <div class="genderFilterBlock">
+                <ul>
+                    <li class="allGenders">Все жанры</li>
+                    <li><span>Rock</span></li>
+                    <li class="active">
+                        <span>House</span>
+                        <ul class="subGenders">
+                            <li>sub1</li>
+                            <li>sub2</li>
+                            <li>sub3</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="leftSearchfilter">
+                    <div class="filterBLock">
+                        <div class="selectedText" style="float: left;">Новинки</div>
+
+                        <div class="triangleblock"></div>
+                        <div class='dropDownBlock filtershift' style='width: 120px;'>
+                            <div class='dropmenuArrow'></div>
+                            <ul class='subNavigation'>
+                                <li><a href='#'><div class='subnavIcons recomenadation'></div>Рекомендации</a></li>
+                                <li><a href='#'><div class='subnavIcons popular'></div>Популярное</a></li>
+                                <li><a href='#'><div class='subnavIcons new'></div>Новинки</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filterBLock">
+                        <div  class="selectedText">За все время</div>
+                        <div class="triangleblock"></div>
+                        <div class='dropDownBlock filtershift datefilter' style='width: 120px;'>
+                            <div class='dropmenuArrow'></div>
+                            <ul class='subNavigation'>
+                                <li><a href='#'>За все время</a></li>
+                                <li><a href='#'>За год</a></li>
+                                <li><a href='#'>За месяц</a></li>
+                                <li><a href='#'>За неделю</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hqBlock">
+                        <input id="isHqCk" type="checkbox"  class="styled" /><label for="isHqCk">HQ</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rightBlock">
+                <ul class="tabNavigation">
+                    <li><a href="#" class="active">Треки</a></li>
+                    <li><a href="#">Альбомы</a></li>
+                    <li><a href="#">Плейлисты</a></li>
+                </ul>
+            </div>
+
+            <div id='mainContent'>
+                <div class='playerBlock'>
+                    <div class="playerHeader">
+                        <a class="albumCover"><img src="./APPLICATION/Images/player/cover100x100.jpg" alt=""/></a>
+                        <div class="trackDetails">
+                            <div><span class="detailDescription">Трек: </span><a href="#">Climax</a></div>
+                            <div><span class="detailDescription">Исполнитель: </span><a href="#">Climax, </a> <a href="#">Climax</a></div>
+                            <div><span class="detailDescription">Жанр: </span><a href="#"> R&B, </a> <a href="#">HipHop</a></div>
+                            <div><span class="detailDescription">Стиль: </span><a href="#">Soul, </a> <a href="#">Jazz</a></div>
+                            <div><a href='#'><span class="heart"></span> 35 000</a></div>
+                            <div class="trackQuality"><span class="detailDescription">HQ</span></div>
+                        </div>
+                        <div class="compactViewBtn"></div>
+                        <div class="bottomButtonsBlock">
+                            <div class="btnRotator"></div>
+                            <div class="menuTriangle">
+                                <div class='dropDownBlock playerDropmenuShift' style="display: none;">
+                                    <div class='dropmenuArrow'></div>
+                                    <ul class='subNavigation'>
+                                        <li><a href='#'><div class='subnavIcons addTofavorite'></div>Добавить в избранное</a></li>
+                                        <li><a href='#'><div class='subnavIcons share'></div>Поделиться</a></li>
+                                        <li><a href='#'><div class='subnavIcons sendToWall'></div>Отправить на стену</a></li>
+                                        <li><a href='#'><div class='subnavIcons addToPLaylist'></div>Добавить в плейлист</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='playerMainBlock'>
+                        <div class='buttonBlock'>
+                            <div class='playerButton prev'></div>
+                            <div class='playerButton playPause pause'></div>
+                            <div class='playerButton next'></div>
+                            <div class='playerButton songActions share'></div>
+                            <div class='playerButton repeat repeating'></div>
+                            <div style='clear: both;'></div>
+                        </div>
+                        <div class='centerPart'>
+                            <div class='cover'></div>
+                            <div class='trackName'>Climax - Usher</div>
+                            <div class='trackSlider'></div>
+                            <div class='trackTimer'>-3:05</div>
+                            <div class='soundIco mute'></div>
+                            <div class='trackVolume'></div>
+                        </div>
+                        <div class='switchToFullView'></div>
+                    </div>
+                    <div class="playerPlaylistBlock">
+                    
+                        <div class="playlistHeader">
+                            <div class="songAmount">1000</div>
+                            <div class="playlistHeaderButtons">
+                                <div class="goToPlaylist"></div>
+                                <div class="shuffle"></div>
+                                <div class="clearPlaylist"></div>
+                            </div>
+                        </div>
+                        <div class="trackListBlock">
+                            <div class="plTrack">
+                                <div class="trackName">Between Angels And Insects</div>
+                                <div class="trackArtist"><a href="#">Damian Jr Gong Marle1</a></div>
+                                <div class='deleteTrack'></div>
+                                <div class="trackTime">8:35</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class='playerMainBlock'>
-                    <div class='buttonBlock'>
-                        <div class='playerButton prev'></div>
-                        <div class='playerButton playPause pause'></div>
-                        <div class='playerButton next'></div>
-                        <div class='playerButton songActions share'></div>
-                        <div class='playerButton repeat repeating'></div>
-                        <div style='clear: both;'></div>
-                    </div>
-                    <div class='centerPart'>
-                        <div class='cover'></div>
-                        <div class='trackName'>Climax - Usher</div>
-                        <div class='trackSlider'></div>
-                        <div class='trackTimer'>-3:05</div>
-                        <div class='soundIco mute'></div>
-                        <div class='trackVolume'></div>
-                    </div>
-                    <div class='switchToFullView'></div>
-                </div>
-                <div class="playerPlaylistBlock">
-                    
-                    <div class="playlistHeader">
-                        <div class="songAmount">1000</div>
-                        <div class="playlistHeaderButtons">
-                            <div class="goToPlaylist"></div>
-                            <div class="shuffle"></div>
-                            <div class="clearPlaylist"></div>
-                        </div>
-                    </div>
-                    <div class="trackListBlock">
-                        <div class="plTrack">
-                            <div class="trackName">Between Angels And Insects</div>
-                            <div class="trackArtist"><a href="#">Damian Jr Gong Marle1</a></div>
-                            <div class='deleteTrack'></div>
-                            <div class="trackTime">8:35</div>
-                        </div>
-                    </div>
-                </div>
+                <div class="lockBackground"></div>
             </div>
-            <div class="lockBackground"></div>
-            <!--<img src='./Images/wellcome_bg.jpg' />-->
         </div>
+        
 
         <script>
             $(function () {
+
                 $('.trackSlider').slider({
                     range: "min",
                     min: 0,

@@ -16,10 +16,47 @@ a:hover {
     color: #72b4ec;
 }
 
- #headerBlock 
+.topContainer {
+    background: url(../images/main_bg.jpg) center top no-repeat;
+    width: 730px;
+    height: 599px;
+    overflow: hidden;    
+}
+
+a.title {
+    color: #777777;
+    font-weight: bold;
+    height: 15px;
+    line-height: 14px;
+    width: 100px;
+    display: block;
+    margin-left: 20px;
+    margin-bottom: 11px;
+}
+
+a.title:hover {
+    color: #72b4ec;
+}
+
+a.title span
+{
+    width: 15px;
+    height: 15px;
+    background: url(../Images/note.png) 0 0 no-repeat;
+    float: left;
+    display: block;
+    margin-right: 3px;
+}
+
+.title:hover span {
+    background-position: 0 -15px;
+}
+
+#headerBlock 
 {
     height: 34px;
     background: url(../Images/header_bg.jpg) no-repeat;
+    margin-bottom: 23px;
 }
 
     #headerLogo
@@ -109,7 +146,6 @@ a:hover {
         {
             color: #777777;
             border: 1px solid transparent;
-            font-family: Verdana, Geneva, sans-serif;
             line-height: 22px;
             height: 22px;
             text-decoration: none;
