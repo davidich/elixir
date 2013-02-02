@@ -1,5 +1,5 @@
-﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackSearcher", "Types/TrackSearchResult", /*plugins w/o export*/ "jqueryui", "scroll"],
-    function (ko, viewBase, pubSub, Track, TrackSearcher, TrackSearchResult) {
+﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackSearchResults", /*plugins w/o export*/ "jqueryui", "scroll"],
+    function (ko, viewBase, pubSub, Track, TrackSearchResults) {
         
 
         // player ui setup

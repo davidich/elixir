@@ -91,15 +91,15 @@
         <hr />
         <div id="searchBlock">
             <div>
-                <input id="trackSearch" data-bind="value: searchQuery" />
+                <input id="trackSearch" data-bind="value: $data.searchParams.query" />
                 <button data-bind="click: search">Search</button>
             </div>
             <hr />
             <div>
-                <span style="font-weight: bold">Results (<span data-bind="text: searchResult.totalCount() || '0'"></span>):</span>
-                <div id="searchResults" data-bind="foreach: searchResult.tracks()">
+                <span style="font-weight: bold">Results (<span data-bind="text: searchResults.totalCount() || '0'"></span>):</span>
+                <div id="searchResults" data-bind="foreach: searchResults.tracks()">
                     <div>
-                        <span data-bind="text: artist"></span>- <span data-bind="text: title"></span>(<span data-bind="text: time"></span>)
+                        <span data-bind="text: artists()[0].name"></span> - <span data-bind="text: title"></span>(<span data-bind="text: time"></span>)
                         <button data-bind="click: $root.addToPlayList">Play</button>
                     </div>
 

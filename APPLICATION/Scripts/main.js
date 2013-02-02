@@ -17,16 +17,24 @@ GLOBAL = Global = global =
 };
 
 // disable ajax caching (I don't we need it but anyways)
-$.ajaxSetup({
-    cache: false
-});
+//$.ajaxSetup({
+//    cache: false
+//});
 
-require(["require-config"], function () {
+// for getting wrongly parsed XML colletions
+$.getNamedArray = function(source, collectionName) {
+    if (!source[collectionName])
+        return [];
     
-    //$.get("http://api.elixirvk.com/services/tracks/?by=all&genre=4&style=0&query=us&hq=0&order=interesting&timerange=year&page=1&artist=0&json=1", function (data) {
-    //    console.log(data);
-    //});
+    var propName = collectionName.substring(0, collectionName.length - 1);
+    var collection = source[collectionName][propName];
 
+    return $.isArray(collection)
+        ? collection
+        : [collection];
+};
+
+require(["require-config"], function () {    
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
         var componets = ["vkApi", "soundManager"];
         var componentCount = componets.length;
@@ -48,7 +56,7 @@ require(["require-config"], function () {
                 // did we get all awaited events?
                 if (componets.length == 0) {
                     pubSub.unsub("componentInited");        // remove event subscription                
-                    require(["app"], function () { });      // start app
+                    require(["app"], function () { });      // start app                                       
                 }
             });
         });
@@ -63,7 +71,7 @@ require(["require-config"], function () {
                 vk.init(function () {
                     pubSub.pub("componentInited", "vkApi");
                     window.vk = vk;
-                    //window.parent.vk = vk;
+                    //window.parent.vk = vk;                                        
                 }, function () {
                     alert("VK api initialization failed;");
                 });
@@ -71,7 +79,6 @@ require(["require-config"], function () {
         
             // start SoundManager2 initialization
             require(["soundmanager2"], function (soundManager) {
-                pubSub.pub("componentInited", "soundManager");
                 soundManager.setup({
                     preferFlash: true,
                     url: 'Scripts/Libs/soundmanager/swfs/reg/',
@@ -79,12 +86,9 @@ require(["require-config"], function () {
                     //debugMode: true,                    
                     onready: function () {
                         pubSub.pub("componentInited", "soundManager");
-                        window.sm = soundManager;
-                        window.parent.sm = soundManager;
+                        window.sm = soundManager;                        
                     }
-                });
-
-                return soundManager;
+                });                
             });
         }
     });

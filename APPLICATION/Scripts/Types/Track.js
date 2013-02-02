@@ -1,24 +1,58 @@
-﻿define(["ko"], function(ko) {
-    function Track(track_vk) {
+﻿define(["ko"], function (ko) {
+
+    function toTimeString(duration) {
+        var mins = parseInt(duration / 60);
+        var secs = duration % 60;
+        return mins + ":" + (secs < 10 ? "0" + secs : secs);
+    }
+
+    function Track(metadata, url) {
         var self = this;
 
-        //VK FORMAT EXAMPLE
-        //<aid>60830458</aid>
-        //<owner_id>1234</owner_id>
-        //<artist>Unknown</artist>
-        //<title>Bosco</title>
-        //<duration>195</duration>
-        //<url>httр://cs40.vkоntakte.ru/u06492/audio/2ce49d2b88.mp3</url>
-        self.id = ko.observable(track_vk.aid);
-        self.url =  ko.observable(track_vk.url);
-        self.artist = ko.observable(track_vk.artist);
-        self.title =  ko.observable(track_vk.title);
-        self.duration = ko.observable(track_vk.duration);
-        self.time = ko.computed(function() {
-            var mins = parseInt(self.duration() / 60);
-            var secs = self.duration() % 60;
-            return mins + ":" + (secs < 10 ? "0" + secs : secs);
-        });
+        self.metadata = metadata;
+        /* METADATA EXAMPLE:
+         * {
+         *    "id": 261850,
+         *    "artists": {
+         *        "artist": {
+         *            "id": 782972,
+         *            "name": "Damien Rice"
+         *        }
+         *    },
+         *    "duration": 210,
+         *    "ownerId": 3089436,
+         *    "stats": {
+         *        "rank": 564401,
+         *        "likes": 0
+         *    },
+         *    "album": {
+         *        "id": 193747,
+         *        "name": "O",
+         *        "image": 17436
+         *    },
+         *    "name": "Cannonball",
+         *    "styles": "",
+         *    "aid": 72014244
+         * } 
+         */
+
+        // Properties
+        self.id = ko.observable(metadata.id);        
+        self.artists = ko.observableArray($.getNamedArray(metadata, "artists"));
+        self.title = ko.observable(metadata.name);
+        self.album = ko.observable(metadata.album);
+
+        self.duration = ko.observable(metadata.duration);
+        self.time = ko.observable(toTimeString(metadata.duration));
+        
+        self.aid = ko.observable(metadata.aid);
+        self.ownerId = ko.observable(metadata.ownerId);
+        self.url = ko.observable(url);
+        
+
+        // Behavior
+        
+        
     }
 
     return Track;

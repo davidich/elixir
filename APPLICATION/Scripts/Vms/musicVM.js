@@ -1,32 +1,31 @@
-﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "Types/Track", "Types/TrackSearcher", "Types/TrackSearchResult"],
-    function (jqueryui, ko, pubSub, viewBase, Track, TrackSearcher, TrackSearchResult) {
-       
-    function MusicVM(viewName) {
-        var self = this;
+﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/TrackSearchResults", "Types/TrackSearchParams"],
+    function (jqueryui, ko, pubSub, viewBase, elixir, Track, TrackSearchResults, TrackSearchParams) {
 
-        self.setName(viewName);
+        function MusicVM(viewName) {
+            var self = this;
 
-        // Properties
-        self.searchQuery = ko.observable();
-        self.searchResult = new TrackSearchResult();
-        
-        
-        // Behavior
-        self.goToMain = function() {
-            self.activateView("main");
+            self.setName(viewName);
+           
+            // Properties
+            self.searchParams = new TrackSearchParams();
+            self.searchResults = new TrackSearchResults();
+            
+            // Behavior
+            self.goToMain = function () {
+                self.activateView("main");
+            };
+
+            self.search = function () {                
+                elixir.searchTracks(self.searchParams.toJS(), self.searchResults);                               
+            };
+
+            self.addToPlayList = function (track) {
+                pubSub.pub("player.playTrack", track);
+            };
+
         };
-        
-        self.search = function () {
-            TrackSearcher.search(self.searchQuery(), self.searchResult);
-        };
 
-        self.addToPlayList = function(track) {
-            pubSub.pub("player.playTrack", track);
-        };
+        MusicVM.prototype = new viewBase();
 
-    };
-
-    MusicVM.prototype = new viewBase();
-        
-    return MusicVM;
-})
+        return MusicVM;
+    })
