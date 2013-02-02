@@ -55,7 +55,9 @@
     <Content Include="APPLICATION\Images\dropdownblock_bg.jpg" />
     <Content Include="APPLICATION\Images\header_bg.jpg" />
     <Content Include="APPLICATION\Images\hr_ganre.png" />
+    <Content Include="APPLICATION\Images\loader.gif" />
     <Content Include="APPLICATION\Images\logo.png" />
+    <Content Include="APPLICATION\Images\magnifier.png" />
     <Content Include="APPLICATION\Images\main_bg.jpg" />
     <Content Include="APPLICATION\Images\musicFilterIco.png" />
     <Content Include="APPLICATION\Images\navigation\events.png" />
@@ -137,8 +139,10 @@
     <Content Include="APPLICATION\Styles\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="APPLICATION\Styles\jquery.mCustomScrollbar.css" />
     <Content Include="APPLICATION\Styles\main.css" />
+    <Content Include="APPLICATION\Styles\headerNavigation.css" />
     <Content Include="APPLICATION\Styles\player.css" />
     <Content Include="APPLICATION\Styles\scroll.css" />
+    <Content Include="APPLICATION\Styles\searchBar.css" />
     <Content Include="APPLICATION\Styles\splash.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\styles.css" />

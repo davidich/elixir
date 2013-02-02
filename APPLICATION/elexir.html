@@ -12,6 +12,12 @@
     
     <link rel="stylesheet" type="text/css" href="Styles/jquery.mCustomScrollbar.css" />
     <link rel="stylesheet" type="text/css" href="Styles/scroll.css" />
+    
+    <link rel="stylesheet" type="text/css" href="Styles/genderNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/checkbox.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/headerNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/searchBar.css" />
+
 
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
@@ -91,6 +97,55 @@
         <img src='Images/wellcome_bg.jpg' alt="" />
     </div>
     <!--main block END-->
+    
+    <!--filter block-->
+    
+    <a class="title"><span></span>Music</a>
+    <div class="genderFilterBlock">
+        <ul>
+            <li class="allGenders">Все жанры</li>
+            <li><span>Rock</span></li>
+            <li class="active">
+                <span>House</span>
+                <ul class="subGenders">
+                    <li>sub1</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="leftSearchfilter">
+            <div class="filterBLock">
+                <div class="selectedText" style="float: left;">Новинки</div>
+
+                <div class="triangleblock"></div>
+                <div class='dropDownBlock filtershift' style='width: 120px;'>
+                    <div class='dropmenuArrow'></div>
+                    <ul class='subNavigation'>
+                        <li><a href='#'><div class='subnavIcons recomenadation'></div>Рекомендации</a></li>
+                        <li><a href='#'><div class='subnavIcons popular'></div>Популярное</a></li>
+                        <li><a href='#'><div class='subnavIcons new'></div>Новинки</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="filterBLock">
+                <div  class="selectedText">За все время</div>
+                <div class="triangleblock"></div>
+                <div class='dropDownBlock filtershift datefilter' style='width: 120px;'>
+                    <div class='dropmenuArrow'></div>
+                    <ul class='subNavigation'>
+                        <li><a href='#'>За все время</a></li>
+                        <li><a href='#'>За год</a></li>
+                        <li><a href='#'>За месяц</a></li>
+                        <li><a href='#'>За неделю</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hqBlock">
+                <input id="isHqCk" type="checkbox"  class="styled" /><label for="isHqCk">HQ</label>
+            </div>
+        </div>
+    </div>
+    <!--filter block END->
 
     <!--music block-->
     <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
