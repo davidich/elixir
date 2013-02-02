@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/jquery.mCustomScrollbar.css" />
     <link rel="stylesheet" type="text/css" href="Styles/scroll.css" />
     
-    <link rel="stylesheet" type="text/css" href="Styles/genderNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/genreNavigation.css" />
     <link rel="stylesheet" type="text/css" href="Styles/checkbox.css" />
     <link rel="stylesheet" type="text/css" href="Styles/headerNavigation.css" />
     <link rel="stylesheet" type="text/css" href="Styles/searchBar.css" />
@@ -99,10 +99,14 @@
         </div>
     <!--main block END-->
 
-    <!--filter block-->
+
+
+    <!--music block-->
+    <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
+        <!--filter block-->
     
         <a class="title"><span></span>Music</a>
-        <div class="genderFilterBlock">
+        <div class="genreFilterBlock">
             <ul>
                 <li class="allGenders">Все жанры</li>
                 <li><span>Rock</span></li>
@@ -122,7 +126,7 @@
                     <div class='dropDownBlock filtershift' style='width: 120px;'>
                         <div class='dropmenuArrow'></div>
                         <ul class='subNavigation'>
-                            <li><a href='#'><div class='subnavIcons recomenadation'></div>Рекомендации</a></li>
+                            <li><a href='#'><div class='subnavIcons recomenadation'></div>Интересное</a></li>
                             <li><a href='#'><div class='subnavIcons popular'></div>Популярное</a></li>
                             <li><a href='#'><div class='subnavIcons new'></div>Новинки</a></li>
                         </ul>
@@ -146,29 +150,37 @@
                 </div>
             </div>
         </div>
-    <!--filter block END->
-
-    <!--music block-->
-    <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
-        <button data-bind="click: goToMain">back </button>        
-        <hr/>
-        <div id="searchBlock">
-            <div>
-                <input id="trackSearch" data-bind="value: searchQuery" />
-                <button data-bind="click: search">Search</button>
-            </div>
-            <hr/>
-            <div>
-                <span style="font-weight: bold">Results (<span data-bind="text: searchResult.totalCount() || '0'"></span>):</span>
-                <div id="searchResults" data-bind="foreach: searchResult.tracks()">
-                    <div>
-                        <span data-bind="text: artist"></span>- <span data-bind="text: title"></span> (<span data-bind="text: time"></span>)
-                        <button data-bind="click: $root.addToPlayList">Play</button>
+        
+        <div class="rightBlock">
+            <ul class="tabNavigation">
+                <li><a href="#" class="active">Треки</a></li>
+                <li><a href="#">Альбомы</a></li>
+                <li><a href="#">Плейлисты</a></li>
+            </ul>
+            <div style="clear: both;"></div>
+            <div class="rightContainer">
+                <!-- class="cancel" -->
+                <div id="rightSearchBlock" >
+                    <input id="searchBar" value="" placeholder="Поиск по"></input>
+                    <div class="searchCriterion"><div style="float: left;">по исполнителю</div>
+                        <div class="triangle">
+                            <div class='dropDownBlock shiftSearch' style='width: 120px;'>
+                                <div class='dropmenuArrow'></div>
+                                <ul class='subNavigation'>
+                                    <li><a href='#'>по всему</a></li>
+                                    <li><a href='#'>по треку</a></li>
+                                    <li><a href='#'>по исполнителю</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-
+                    <div class="searchLoader"><img src="APPLICATION/Images/loader.gif" alt=""/></div>
+                    <div style="clear: both;"></div>
+                    <div class="searchResultInfo">У нас <span>10000</span> треков</div>
                 </div>
             </div>
         </div>
+        <!--filter block END->
     </div>
     <!--music block END-->
 

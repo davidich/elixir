@@ -1,4 +1,10 @@
-﻿.rightBlock #searchBar 
+﻿.rightBlock #rightSearchBlock
+{
+    text-align: left;
+    position: relative;
+}
+
+.rightBlock #rightSearchBlock #searchBar 
 {
     width: 430px;
     height: 20px;
@@ -8,9 +14,11 @@
     line-height: 18px;
     outline: none;
     border: 0;
+    display: block; /* f u ie */
+    float: left; /* f u ie */
 }
 
-.rightBlock .searchResultInfo {
+.rightBlock #rightSearchBlock .searchResultInfo {
     width: 100%;
     height: 20px;
     line-height: 20px;
@@ -19,4 +27,64 @@
     text-indent: 5px;
     border-top: 1px solid #ededed;
     border-bottom: 1px solid #ededed;
+}
+
+.rightBlock  #rightSearchBlock .searchLoader {
+    float: right;
+    margin-top: -17px;
+    margin-right: 10px;
+    display: none;
+}
+
+.rightBlock #rightSearchBlock .searchCriterion {
+    float: right;
+    cursor: pointer;
+    line-height: 18px;
+    height: 22px;
+    color: #cacaca;
+    position: relative;
+}
+
+.rightBlock #rightSearchBlock .searchCriterion div.triangle {
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+    background: url(../images/select.png) 0 0 no-repeat;
+    float: right;
+    padding-left: 5px;
+}
+
+.rightBlock #rightSearchBlock .searchCriterion:hover div.triangle {
+    background-position: 0 -15px;
+}
+
+.rightBlock #rightSearchBlock .searchCriterion:hover {
+    color: #bfbfbf;
+}
+
+#rightSearchBlock.cancel .searchLoader{
+    display: block;
+}
+
+#rightSearchBlock.cancel #searchBar 
+{
+    background-position: 4px -23px;
+}
+
+#rightSearchBlock .shiftSearch
+{
+    display: none;
+    margin-top: -15px;
+    margin-left: -105px;
+}
+
+#rightSearchBlock .shiftSearch .dropmenuArrow {
+    left: 101px;
+}
+
+#rightSearchBlock .searchCriterion:hover .dropDownBlock {
+    display: block;
+}
+#rightSearchBlock .shiftSearch .subNavigation a {
+    padding-left: 5px;
 }
