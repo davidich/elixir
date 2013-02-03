@@ -69,24 +69,27 @@
 ul.subNavigation li a
 {
     color: #777777;
-    border: 1px solid transparent;
-    line-height: 22px;
-    height: 22px;
-    text-decoration: none;
-    display: block;
 }
-        
-ul.subNavigation li a:hover
-{
-    border: 1px solid #eee;
-    background: url(../Images/navigation/menu_hover.jpg) left top repeat-x;
-    color: #528fc2;
-}
-        
+
 ul.subNavigation li
 {
     border: 1px solid transparent; 
     text-align: left;
+    line-height: 20px;
+    height: 22px;
+    display: block;
+    padding-left: 5px;
+}
+
+ul.subNavigation li:hover
+{
+    border: 1px solid #eee;
+    background: url(../Images/navigation/menu_hover.jpg) left top repeat-x;
+}
+
+ul.subNavigation li:hover a
+{
+    color: #528fc2;
 }
         
 ul.subNavigation li a div.subnavIcons
@@ -95,7 +98,7 @@ ul.subNavigation li a div.subnavIcons
     height: 15px;
     float: left;
     background-image: url('../Images/navigation/icons.png');
-    margin: 3px 3px 0 3px;
+    margin: 3px 3px 0 0;
 }
         
 #headerNavigation ul.subNavigation li div.noticeDot

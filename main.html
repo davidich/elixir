@@ -73,37 +73,38 @@
                     </li>
                 </ul>
 
-                <div class="leftSearchfilter">
-                    <div class="filterBLock">
-                        <div class="selectedText" style="float: left;">Новинки</div>
+            <div class="leftSearchfilter">
+                <div class="filterBLock" data-bind="fancyDrop: searchParams.orderTypes, value: searchParams.orderType"></div>
+                <!--<div class="filterBLock">
+                    <div class="selectedText" style="float: left;">Новинки</div>
 
-                        <div class="triangleblock"></div>
-                        <div class='dropDownBlock filtershift' style='width: 120px;'>
-                            <div class='dropmenuArrow'></div>
-                            <ul class='subNavigation'>
-                                <li><a href='#'><div class='subnavIcons interesting'></div>Интересное</a></li>
-                                <li><a href='#'><div class='subnavIcons popular'></div>Популярное</a></li>
-                                <li><a href='#'><div class='subnavIcons new'></div>Новинки</a></li>
-                            </ul>
-                        </div>
+                    <div class="triangleblock"></div>
+                    <div class='dropDownBlock filtershift' style='width: 120px;'>
+                        <div class='dropmenuArrow'></div>
+                        <ul class='subNavigation'>
+                            <li><a href='#'><div class='subnavIcons recomenadation'></div>Интересное</a></li>
+                            <li><a href='#'><div class='subnavIcons popular'></div>Популярное</a></li>
+                            <li><a href='#'><div class='subnavIcons new'></div>Новинки</a></li>
+                        </ul>
                     </div>
-                    <div class="filterBLock">
-                        <div  class="selectedText">За все время</div>
-                        <div class="triangleblock"></div>
-                        <div class='dropDownBlock filtershift datefilter' style='width: 120px;'>
-                            <div class='dropmenuArrow'></div>
-                            <ul class='subNavigation'>
-                                <li><a href='#'>За все время</a></li>
-                                <li><a href='#'>За год</a></li>
-                                <li><a href='#'>За месяц</a></li>
-                                <li><a href='#'>За неделю</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="hqBlock">
-                        <input id="isHqCk" type="checkbox"  class="styled" /><label for="isHqCk">HQ</label>
+                </div>-->
+                <div class="filterBLock">
+                    <div  class="selectedText">За все время</div>
+                    <div class="triangleblock"></div>
+                    <div class='dropDownBlock filtershift' style='width: 120px; display: block;'>
+                        <div class='dropmenuArrow'></div>
+                        <ul class='subNavigation'>
+                            <li><a href='#'>За все время</a></li>
+                            <li><a href='#'>За год</a></li>
+                            <li><a href='#'>За месяц</a></li>
+                            <li><a href='#'>За неделю</a></li>
+                        </ul>
                     </div>
                 </div>
+                <div class="hqBlock">
+                    <input id="isHqCk" type="checkbox"  class="styled" /><label for="isHqCk">HQ</label>
+                </div>
+            </div>
             </div>
             
             <div class="rightBlock">
