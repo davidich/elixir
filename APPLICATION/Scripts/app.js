@@ -14,7 +14,8 @@
     ko.applyBindings(playerVM, $playerBlock.get(0));
 
     // set main as active view
-    pubSub.pub("viewChanged", "main");
+    //pubSub.pub("viewChanged", "main");
+    pubSub.pub("viewChanged", "music");
 
     
     $("#playPause").click(function () {

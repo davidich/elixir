@@ -1,34 +1,36 @@
 ﻿define(["ko", "Types/FancyDropItem"], function (ko, FancyDropItem) {
+    
+    // Munu items
+    var searchModes = [
+            new FancyDropItem("all", "По всему"),
+            new FancyDropItem("artist", "По исполнителю"),
+            new FancyDropItem("title", "По треку")
+    ];
 
-    // SEARCH_PARAM_OBJ:
-    // query: string
-    // [searchMode]: all, artist, title
-    // [orderType]:  popular, interesting, new
-    // [timerange]: all, year, month, week
-    // [artistId]: int
-    // [genreId]: int
-    // [styleId]: int
-    // [isHighQuality]: bool
-    // [page]: int
+    var timeRanges = [
+        new FancyDropItem("all", "За все время"),
+        new FancyDropItem("year", "За год"),
+        new FancyDropItem("month", "За месяц"),
+        new FancyDropItem("week", "За неделю")
+    ];
+
+    var orderTypes = [
+        new FancyDropItem("popular", "Популярное", /*cssClass*/"popular"),
+        new FancyDropItem("interesting", "Рекомендации", /*cssClass*/"recomenadation"),
+        new FancyDropItem("new", "Новинки", /*cssClass*/"new")
+    ];
+
     function TrackSearhParams() {
-        var self = this;
-
-        var orderTypes = [
-            new FancyDropItem(/*value*/"popular", "Популярное", /*cssClass*/"popular"),
-            new FancyDropItem(/*value*/"interesting", "Рекомендации", /*cssClass*/"recomenadation"),
-            new FancyDropItem(/*value*/"new", "Новинки")
-        ];
-        
-        self.orderType = ko.observable("popular");
-        self.orderTypes = ko.observableArray(orderTypes);
+        var self = this;        
 
         // Props
         self.query = ko.observable();
         self.searchMode = ko.observable("all");
-        self.searchModes = ko.observableArray(["all", "artist", "title"]);
-        
-        self.timerange = ko.observable("all");
-        self.timeranges = ko.observableArray(["all", "year", "month", "week"]);
+        self.searchModes = ko.observableArray(searchModes);
+        self.timeRange = ko.observable("all");
+        self.timeRanges = ko.observableArray(timeRanges);
+        self.orderType = ko.observable("popular");
+        self.orderTypes = ko.observableArray(orderTypes);
         self.artistId = ko.observable(0);
         self.genreId = ko.observable(0);
         self.styleId = ko.observable(0);
