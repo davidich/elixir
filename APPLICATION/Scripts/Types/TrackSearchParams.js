@@ -1,4 +1,4 @@
-﻿define(["ko", "Types/FancyDropItem"], function (ko, FancyDropItem) {
+﻿define(["ko", "elixir", "Types/FancyDropItem", "Types/GenreSelector"], function (ko, elixir, FancyDropItem, GenreSelector) {
     
     // Munu items
     var searchModes = [
@@ -20,21 +20,25 @@
         new FancyDropItem("new", "Новинки", /*cssClass*/"new")
     ];
 
+    var genres;
+
     function TrackSearhParams() {
         var self = this;        
 
         // Props
         self.query = ko.observable();
         self.searchMode = ko.observable("all");
-        self.searchModes = ko.observableArray(searchModes);
         self.timeRange = ko.observable("all");
-        self.timeRanges = ko.observableArray(timeRanges);
         self.orderType = ko.observable("popular");
-        self.orderTypes = ko.observableArray(orderTypes);
         self.artistId = ko.observable(0);
-        self.genreId = ko.observable(0);
+        self.genreId = ko.observable(0);        
         self.styleId = ko.observable(0);
         self.isHighQuality = ko.observable(false);
+        
+        self.searchModes = ko.observableArray(searchModes);
+        self.timeRanges = ko.observableArray(timeRanges);
+        self.orderTypes = ko.observableArray(orderTypes);
+        self.genreSelector = new GenreSelector(self);
 
         // Behavior
         self.toJS = function (page) {
@@ -44,10 +48,41 @@
             delete unwraped.searchModes;
             delete unwraped.orderTypes;
             delete unwraped.timeranges;
+            delete unwraped.genres;
 
             return unwraped;
         };
+
+        self.preloadGenres = function(onComplete) {
+            elixir.getGenres(function (response) {
+                var genres = $.getNamedArray(response, "genres");
+
+                for (var i = 0; i < genres.length; i++) {
+                    var genre = {
+                        id: genres[i].id,
+                        name: [genres[i].name],
+                        styles: []
+                    };
+
+                    var styles = $.getNamedArray(genres[i], "styles");
+                    for (var j = 0; j < styles.length; j++) {
+                        var style = {
+                            id: styles[j].id,
+                            name: styles[j].name
+                        };
+
+                        genre.styles.push(style);
+                    }
+
+                    allGenres.push(genre);
+                }
+
+                onComplete();
+            });            
+        };
     }
+    
+
 
     return TrackSearhParams;
 })

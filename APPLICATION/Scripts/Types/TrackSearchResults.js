@@ -5,14 +5,10 @@
         // Data
         self.totalCount = ko.observable(0);
         self.tracks = ko.observableArray();
-        self.areLoading = ko.observable(true);
+        self.areLoading = ko.observable();
         
         // Behavior
-        // nothing yet
-        
-        self.areLoading.subscribe(function (newValue) {
-            console.log("areLoading = " + newValue);
-        });
+        // nothing yet               
     }
 
     return TrackSearchResults;

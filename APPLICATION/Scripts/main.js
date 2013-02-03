@@ -54,7 +54,7 @@ $.getNamedArray = function (source, collectionName) {
 
 require(["require-config"], function () {
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
-        var componets = ["vkApi", "soundManager"];
+        var componets = ["vkApi", "soundManager", "genreSelector"];
         var componentCount = componets.length;
 
         domReady(function () {
@@ -83,45 +83,65 @@ require(["require-config"], function () {
             });
         });
 
-
-        // start VK initialization
-        if (window.location.href.indexOf("localhost") != -1) {
-            pubSub.pub("componentInited", "vkApi");
+        initSm(function () {
             pubSub.pub("componentInited", "soundManager");
-        } else {
-            try {
-                require(["vk"], function (vk) {
-                    vk.init(function () {
+
+            initVk(function () {
+                pubSub.pub("componentInited", "vkApi");
+            });
+
+            initGenreSelector(function() {
+                pubSub.pub("componentInited", "genreSelector");
+            });
+        });        
+    });
+
+    function initVk(onComplete) {
+        require(["vk", "pubSub"], function (vk, pubSub) {
+            if (window.location.href.indexOf("localhost") != -1) {
+                pubSub.pub("componentInited", "vkApi");
+            } else {
+                try {
+                    vk.init(function() {
                         window.vk = vk;
                         console.log("vk has finished initialization");
-                        pubSub.pub("componentInited", "vkApi");
-                    }, function () {
+                        onComplete();
+                    }, function() {
                         alert("VK api initialization failed;");
                     });
+
+                } catch(e) {
+                    console.log("Exception in vk.init: " + e);
+                    onComplete();
+                }
+            }
+        });
+    }
+
+    function initSm(onComplete) {
+        require(["soundmanager2"], function (soundManager) {
+            console.log("sm module loaded");
+            try {
+                soundManager.setup({
+                    preferFlash: true,
+                    url: 'Scripts/Libs/soundmanager/swfs/reg/',
+                    allowScriptAccess: "always", //"sameDomain",
+                    onready: function () {
+                        window.sm = soundManager;
+                        console.log("sm has finished initialization");
+                        onComplete();
+                    }
                 });
             } catch (e) {
-                console.log("Exception in vk.init: " + e);
+                console.log("Exception in sm.setup: " + e);
+                onComplete();
             }
+        });
+    }
 
-            // start SoundManager2 initialization
-            console.log("before sm module load");
-            require(["soundmanager2"], function (soundManager) {
-                console.log("sm module loaded");
-                try {
-                    soundManager.setup({
-                        preferFlash: true,
-                        url: 'Scripts/Libs/soundmanager/swfs/reg/',
-                        allowScriptAccess: "always", //"sameDomain",
-                        onready: function () {
-                            window.sm = soundManager;
-                            console.log("sm has finished initialization");
-                            pubSub.pub("componentInited", "soundManager");
-                        }
-                    });
-                } catch (e) {
-                    console.log("Exception in sm.setup: " + e);
-                }
-            });
-        }
-    });
+    function initGenreSelector(onComplete) {
+        require(["Types/GenreSelector"], function (selector) {
+            selector.loadData(onComplete);
+        });
+    }
 });

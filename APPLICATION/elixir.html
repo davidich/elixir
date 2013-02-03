@@ -103,7 +103,7 @@
         <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
             <!--filter block-->
             <a class="title"><span></span>Music</a>
-            <div class="genreFilterBlock">
+            <div class="genreFilterBlock" data-bind="with: $root.searchParams">
                 <ul>
                     <li class="allGenders">Все жанры</li>
                     <li><span>Rock</span></li>
@@ -115,7 +115,7 @@
                     </li>
                 </ul>
 
-                <div class="leftSearchfilter" data-bind="with: $root.searchParams">
+                <div class="leftSearchfilter">
                     <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
                     <div id="filterByTime" class="filterBLock" data-bind="fancyDrop: timeRanges, value: timeRange"></div>
                     <div class="hqBlock">
