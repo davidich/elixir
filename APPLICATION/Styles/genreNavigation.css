@@ -33,10 +33,6 @@ ul.subGenders li {
     
 }
 
-li.allGenders {
-    margin-bottom: 3px; 
-}
-
 .genreFilterBlock ul li, .leftSearchfilter .filterBLock {
     color: #777777;
     border: 1px solid transparent;

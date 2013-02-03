@@ -403,44 +403,44 @@
     top: 20px;
 }
 
-.trackBlock .triangle ul.subNavigation .subnavIcons {
+.playerHeader .menuTriangle ul.subNavigation .subnavIcons {
      background: url(../images/Player/playerBtns.png) 0 0 no-repeat;
 }
 
-.trackBlock .triangle  li a .addTofavorite {
+.playerHeader .menuTriangle .dropDownBlock li a .addTofavorite {
     background-position: -25px -46px;
 }
 
-.trackBlock .triangle  li a:hover .addTofavorite {
+.playerHeader .menuTriangle .dropDownBlock  li a:hover .addTofavorite {
     background-position: -25px -68px;
 }
 
-.bottomButtonsBlock .menuTriangle li a .share
+.bottomButtonsBlock .menuTriangle .dropDownBlock  li a .share
 {
     background-position: -69px -46px;
     }
 
-.bottomButtonsBlock .menuTriangle li a:hover .share
+.bottomButtonsBlock .menuTriangle .dropDownBlock li a:hover .share
 {
     background-position: -69px -68px;
     }
 
-.bottomButtonsBlock .menuTriangle li a .sendToWall
+.bottomButtonsBlock .menuTriangle .dropDownBlock li a .sendToWall
 {
     background-position: -4px -46px;
     }
 
-.bottomButtonsBlock .menuTriangle li a:hover .sendToWall
+.bottomButtonsBlock .menuTriangle .dropDownBlock li a:hover .sendToWall
 {
     background-position: -4px -68px;
     }
 
-.bottomButtonsBlock .menuTriangle li a .addToPLaylist
+.bottomButtonsBlock .menuTriangle .dropDownBlock li a .addToPLaylist
 {
     background-position: -88px 0;
     }
 
-.bottomButtonsBlock .menuTriangle li a:hover .addToPLaylist
+.bottomButtonsBlock .menuTriangle .dropDownBlock li a:hover .addToPLaylist
 {
     background-position: -88px -15px;
     }

@@ -107,6 +107,21 @@
                 <ul>
                     <li class="allGenders">Все жанры</li>
                     <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
+                    <li><span>Rock</span></li>
                     <li class="active">
                         <span>House</span>
                         <ul class="subGenders">
@@ -118,8 +133,12 @@
                 
                 <script>
                     $('.genreFilterBlock ul li').click(function () {
-                        $(this).addClass('.active');
-                        $('.genreFilterBlock ul li:not(.active):not(.allGenders)').hide();
+                        $('.genreFilterBlock ul li').removeClass('active');
+                        $(this).addClass('active');
+                        console.log($('.genreFilterBlock ul li:not(.active):not(.allGenders)'));
+                        $('.genreFilterBlock ul li:not(.active):not(.allGenders)').animate({
+                            height: 'toggle'
+                        }, 300, null);
                     });
                 </script>
                 
