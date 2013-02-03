@@ -6,18 +6,16 @@
 
 .rightBlock #rightSearchBlock #searchBar 
 {
-    width: 430px;
+    width: 420px;
     height: 20px;
-    background: url(../images/magnifier.png) 4px 2px no-repeat;
     color: #b4b4b4;
-    text-indent: 22px;
+    margin-left: 10px;
     line-height: 18px;
     outline: none;
     border: 0;
     display: block; /* f u ie */
     float: left; /* f u ie */
 }
-
 
 
 .rightBlock  #rightSearchBlock .searchLoader {
@@ -57,7 +55,15 @@
     display: block;
 }
 
-#searchBar.cancel 
+.searchCancel {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background: url(../images/magnifier.png) 4px 2px no-repeat;
+    cursor: pointer;
+}
+
+.searchCancel.cancel 
 {
     background-position: 4px -23px !important;
 }
