@@ -28,19 +28,28 @@
 .rightBlock #rightSearchBlock .searchCriterion {
     float: right;
     cursor: pointer;
-    line-height: 18px;
+    line-height: 20px;
     height: 22px;
     color: #cacaca;
     position: relative;
 }
 
-.rightBlock #rightSearchBlock .searchCriterion div.triangle {
+.rightBlock #rightSearchBlock .searchCriterion div.triangleblock {
     width: 15px;
     height: 15px;
-    margin-top: 2px;
+    margin-top: 3px;
     background: url(../images/select.png) 0 0 no-repeat;
     float: right;
     padding-left: 5px;
+}
+
+.rightBlock #rightSearchBlock .searchCriterion .dropDownBlock{
+    margin-top: -15px;
+    right: -10px
+}
+
+#rightSearchBlock .searchCriterion .dropDownBlock .dropmenuArrow {
+    left: 101px;
 }
 
 .rightBlock #rightSearchBlock .searchCriterion:hover div.triangle {
@@ -48,6 +57,10 @@
 }
 
 .rightBlock #rightSearchBlock .searchCriterion:hover {
+    color: #bfbfbf;
+}
+
+.rightBlock #rightSearchBlock .searchCriterion  {
     color: #bfbfbf;
 }
 
@@ -68,20 +81,6 @@
     background-position: 4px -23px !important;
 }
 
-#rightSearchBlock .shiftSearch
-{
-    display: none;
-    margin-top: -15px;
-    margin-left: -105px;
-}
-
-#rightSearchBlock .shiftSearch .dropmenuArrow {
-    left: 101px;
-}
-
 #rightSearchBlock .searchCriterion:hover .dropDownBlock {
     display: block;
-}
-#rightSearchBlock .shiftSearch .subNavigation a {
-    padding-left: 5px;
 }

@@ -86,22 +86,29 @@ li.allGenders {
     background: url(../Images/select.png) 0 -15px no-repeat;
 }
 
-.genreFilterBlock .filtershift {
+
+.genreFilterBlock #filterByTime .dropDownBlock {
     margin-left: -9px;
-    margin-top: -17px;
+    margin-top: -15px;
     display: none;
     z-index: 100;
 }
 
-.genreFilterBlock .filtershift .dropmenuArrow {
+.genreFilterBlock #filterByTime  .dropmenuArrow {
     left: 105px;
 }
-/*
-.dropDownBlock.filtershift ul li{
-    border: 0px;
-    padding-left: 0px;
+
+.genreFilterBlock #filterByType .dropDownBlock {
+    margin-left: -9px;
+    margin-top: -15px;
+    display: none;
+    z-index: 100;
 }
-*/
+
+.genreFilterBlock #filterByType  .dropmenuArrow {
+    left: 105px;
+}
+
 .genreFilterBlock .dropDownBlock .subNavigation .subnavIcons {
     background: url(../Images/musicFilterIco.png) 0 0 no-repeat;
 }

@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/searchBar.css" />
     <link rel="stylesheet" type="text/css" href="Styles/musicSearchResilt.css" />
 
+
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
     <![endif]-->
@@ -118,8 +119,8 @@
                 </ul>
 
                 <div class="leftSearchfilter" data-bind="with: $root.searchParams">
-                    <div class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
-                    <div class="filterBLock" data-bind="fancyDrop: timeRanges, value: timeRange"></div>
+                    <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
+                    <div id="filterByTime" class="filterBLock" data-bind="fancyDrop: timeRanges, value: timeRange"></div>
                     <div class="hqBlock">
                         <input id="isHqCk" type="checkbox" class="styled" data-bind="checked: isHighQuality" /><label for="isHqCk">HQ</label>
                     </div>
@@ -135,32 +136,19 @@
                 <div style="clear: both;"></div>
                 <div class="rightContainer">
                     <!-- class="cancel" -->
-                <div class="rightContainer">
                     <div id="rightSearchBlock">
-                        <!-- class="cancel" -->
-                        <div class="searchCancel"></div><input id="searchBar"  value="" placeholder="Поиск по"></input>
-                        <div class="searchCriterion"><div style="float: left;">по исполнителю</div>
-                            <div class="triangle">
-                                <div class='dropDownBlock shiftSearch' style='width: 120px;'>
-                                    <div class='dropmenuArrow'></div>
-                                    <ul class='subNavigation'>
-                                        <li><a href='#'>по всему</a></li>
-                                        <li><a href='#'>по треку</a></li>
-                                        <li><a href='#'>по исполнителю</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <input id="searchBar" value="" placeholder="Поиск по"></input>
+                        <div class="searchCriterion" data-bind="fancyDrop: searchParams.searchModes, value: searchParams.searchMode"></div>
+                        <div class="searchLoader">
+                            <img src="./Images/loader.gif" alt="" />
                         </div>
-                        <div class="searchLoader"><img src="./Images/loader.gif" alt=""/></div>
                         <div style="clear: both;"></div>
                     </div>
                     <div class="searchResult">
                         <div class="searchResultInfo">У нас <span>10000</span> треков</div>
                         <div class="trackBlock">
-                            
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
             <!--filter block END-->
