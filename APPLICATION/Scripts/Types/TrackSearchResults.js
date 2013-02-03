@@ -3,21 +3,16 @@
         var self = this;
 
         // Data
-        self.totalCount = ko.observable();
+        self.totalCount = ko.observable(0);
         self.tracks = ko.observableArray();
+        self.areLoading = ko.observable(true);
         
         // Behavior
-        self.onSearchStarted = function () {
-            // update ui
-        };
+        // nothing yet
         
-        self.onSearchCompleted = function (error) {
-            if (!error) {
-                // update ui    
-            } else {
-                //show error
-            }
-        };
+        self.areLoading.subscribe(function (newValue) {
+            console.log("areLoading = " + newValue);
+        });
     }
 
     return TrackSearchResults;

@@ -111,7 +111,7 @@ require(["require-config"], function () {
                     soundManager.setup({
                         preferFlash: true,
                         url: 'Scripts/Libs/soundmanager/swfs/reg/',
-                        allowScriptAccess: "sameDomain",
+                        allowScriptAccess: "always", //"sameDomain",
                         onready: function () {
                             window.sm = soundManager;
                             console.log("sm has finished initialization");

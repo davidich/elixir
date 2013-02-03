@@ -99,8 +99,6 @@
         </div>
         <!--main block END-->
 
-
-
         <!--music block-->
         <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
             <!--filter block-->
@@ -134,12 +132,11 @@
                 </ul>
                 <div style="clear: both;"></div>
                 <div class="rightContainer">
-                    <!-- class="cancel" -->
-                <div class="rightContainer">
-                    <div id="rightSearchBlock">
-                        <!-- class="cancel" -->
-                        <div class="searchCancel"></div><input id="searchBar"  value="" placeholder="Поиск по"></input>
-                        <div class="searchCriterion"><div style="float: left;">по исполнителю</div>
+                    <div id="rightSearchBlock" data-bind="with: $root.searchParams">
+                        <div class="searchCancel" data-bind="click: $root.cancelSearch, css: { cancel:  $root.searchResults.areLoading }"></div>
+                        <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.search }" />
+                        <div class="searchCriterion">
+                            <div style="float: left;">по исполнителю</div>
                             <div class="triangle">
                                 <div class='dropDownBlock shiftSearch' style='width: 120px;'>
                                     <div class='dropmenuArrow'></div>
@@ -151,102 +148,105 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="searchLoader"><img src="./Images/loader.gif" alt=""/></div>
+                        <div class="searchLoader" data-bind="visible: $root.searchResults.areLoading">
+                            <img src="./Images/loader.gif" alt="" />
+                        </div>
+                        <div style="width: 10px;height: 10px; background-color: red;" data-bind="visible: $root.searchResults.areLoading"></div>
                         <div style="clear: both;"></div>
                     </div>
-                    <div class="searchResult">
-                        <div class="searchResultInfo">У нас <span>10000</span> треков</div>
-                        <div class="trackBlock">
-                            
+                    <div class="searchResult" data-bind="with: $root.searchResults">
+                        <div class="searchResultInfo">У нас <span data-bind="text: totalCount">10000</span> треков</div>
+                        <div data-bind="foreach: tracks">
+                            <div class="trackBlock" data-bind="text: title"></div>
                         </div>
+
                     </div>
-                </div>
                 </div>
             </div>
             <!--filter block END-->
         </div>
-        <!--music block END-->
+    </div>
+    <!--music block END-->
 
-        <!--player block-->
-        <div id="playerContent" style="display: none;" data-bind="visible: isVisible">
-            <div class='playerBlock'>
-                <div class="playerHeader">
-                    <a class="albumCover">
-                        <img src="./Images/player/cover100x100.jpg" alt="" /></a>
-                    <div class="trackDetails">
-                        <div><span class="detailDescription">Трек: </span><a href="#">Climax</a></div>
-                        <div><span class="detailDescription">Исполнитель: </span><a href="#">Climax, </a><a href="#">Climax</a></div>
-                        <div><span class="detailDescription">Жанр: </span><a href="#">R&B, </a><a href="#">HipHop</a></div>
-                        <div><span class="detailDescription">Стиль: </span><a href="#">Soul, </a><a href="#">Jazz</a></div>
-                        <div><a href='#'><span class="heart"></span>35 000</a></div>
-                        <div class="trackQuality"><span class="detailDescription">HQ</span></div>
-                    </div>
-                    <div class="compactViewBtn"></div>
-                    <div class="bottomButtonsBlock">
-                        <div class="btnRotator"></div>
-                        <div class="menuTriangle">
-                            <div class='dropDownBlock playerDropmenuShift' style="display: none;">
-                                <div class='dropmenuArrow'></div>
-                                <ul class='subNavigation'>
-                                    <li><a href='#'>
-                                        <div class='subnavIcons addTofavorite'></div>
-                                        Добавить в избранное</a></li>
-                                    <li><a href='#'>
-                                        <div class='subnavIcons share'></div>
-                                        Поделиться</a></li>
-                                    <li><a href='#'>
-                                        <div class='subnavIcons sendToWall'></div>
-                                        Отправить на стену</a></li>
-                                    <li><a href='#'>
-                                        <div class='subnavIcons addToPLaylist'></div>
-                                        Добавить в плейлист</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+    <!--player block-->
+    <div id="playerContent" style="display: none;" data-bind="visible: isVisible">
+        <div class='playerBlock'>
+            <div class="playerHeader">
+                <a class="albumCover">
+                    <img src="./Images/player/cover100x100.jpg" alt="" /></a>
+                <div class="trackDetails">
+                    <div><span class="detailDescription">Трек: </span><a href="#">Climax</a></div>
+                    <div><span class="detailDescription">Исполнитель: </span><a href="#">Climax, </a><a href="#">Climax</a></div>
+                    <div><span class="detailDescription">Жанр: </span><a href="#">R&B, </a><a href="#">HipHop</a></div>
+                    <div><span class="detailDescription">Стиль: </span><a href="#">Soul, </a><a href="#">Jazz</a></div>
+                    <div><a href='#'><span class="heart"></span>35 000</a></div>
+                    <div class="trackQuality"><span class="detailDescription">HQ</span></div>
                 </div>
-                <div class='playerMainBlock'>
-                    <div class='buttonBlock'>
-                        <div class='playerButton prev'></div>
-                        <div class='playerButton playPause pause'></div>
-                        <div class='playerButton next'></div>
-                        <div class='playerButton songActions share'></div>
-                        <div class='playerButton repeat repeating'></div>
-                        <div style='clear: both;'></div>
-                    </div>
-                    <div class='centerPart'>
-                        <div class='cover'></div>
-                        <div class='trackName'>Climax - Usher</div>
-                        <div class='trackSlider'></div>
-                        <div class='trackTimer'>-3:05</div>
-                        <div class='soundIco mute'></div>
-                        <div class='trackVolume'></div>
-                    </div>
-                    <div class='switchToFullView'></div>
-                </div>
-                <div class="playerPlaylistBlock">
-
-                    <div class="playlistHeader">
-                        <div class="songAmount">1000</div>
-                        <div class="playlistHeaderButtons">
-                            <div class="goToPlaylist"></div>
-                            <div class="shuffle"></div>
-                            <div class="clearPlaylist"></div>
-                        </div>
-                    </div>
-                    <div class="trackListBlock">
-                        <div class="plTrack">
-                            <div class="trackName">Between Angels And Insects</div>
-                            <div class="trackArtist"><a href="#">Damian Jr Gong Marle1</a></div>
-                            <div class='deleteTrack'></div>
-                            <div class="trackTime">8:35</div>
+                <div class="compactViewBtn"></div>
+                <div class="bottomButtonsBlock">
+                    <div class="btnRotator"></div>
+                    <div class="menuTriangle">
+                        <div class='dropDownBlock playerDropmenuShift' style="display: none;">
+                            <div class='dropmenuArrow'></div>
+                            <ul class='subNavigation'>
+                                <li><a href='#'>
+                                    <div class='subnavIcons addTofavorite'></div>
+                                    Добавить в избранное</a></li>
+                                <li><a href='#'>
+                                    <div class='subnavIcons share'></div>
+                                    Поделиться</a></li>
+                                <li><a href='#'>
+                                    <div class='subnavIcons sendToWall'></div>
+                                    Отправить на стену</a></li>
+                                <li><a href='#'>
+                                    <div class='subnavIcons addToPLaylist'></div>
+                                    Добавить в плейлист</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="lockBackground"></div>
+            <div class='playerMainBlock'>
+                <div class='buttonBlock'>
+                    <div class='playerButton prev'></div>
+                    <div class='playerButton playPause pause'></div>
+                    <div class='playerButton next'></div>
+                    <div class='playerButton songActions share'></div>
+                    <div class='playerButton repeat repeating'></div>
+                    <div style='clear: both;'></div>
+                </div>
+                <div class='centerPart'>
+                    <div class='cover'></div>
+                    <div class='trackName'>Climax - Usher</div>
+                    <div class='trackSlider'></div>
+                    <div class='trackTimer'>-3:05</div>
+                    <div class='soundIco mute'></div>
+                    <div class='trackVolume'></div>
+                </div>
+                <div class='switchToFullView'></div>
+            </div>
+            <div class="playerPlaylistBlock">
+
+                <div class="playlistHeader">
+                    <div class="songAmount">1000</div>
+                    <div class="playlistHeaderButtons">
+                        <div class="goToPlaylist"></div>
+                        <div class="shuffle"></div>
+                        <div class="clearPlaylist"></div>
+                    </div>
+                </div>
+                <div class="trackListBlock">
+                    <div class="plTrack">
+                        <div class="trackName">Between Angels And Insects</div>
+                        <div class="trackArtist"><a href="#">Damian Jr Gong Marle1</a></div>
+                        <div class='deleteTrack'></div>
+                        <div class="trackTime">8:35</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!--player block END-->
+        <div class="lockBackground"></div>
     </div>
+    <!--player block END-->
 </body>
 </html>

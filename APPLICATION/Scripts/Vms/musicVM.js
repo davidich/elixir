@@ -1,23 +1,39 @@
-﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/TrackSearchResults", "Types/TrackSearchParams"],
-    function (jqueryui, ko, pubSub, viewBase, elixir, Track, TrackSearchResults, TrackSearchParams) {
+﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/TrackSearchResults", "Types/TrackSearchParams", "Types/TrackSearchCommand"],
+    function (jqueryui, ko, pubSub, viewBase, elixir, Track, TrackSearchResults, TrackSearchParams, TrackSearchCommand) {
 
         function MusicVM(viewName) {
-            var self = this;
+            var self = this,
+                curSearchCommand;
+                
 
             self.setName(viewName);
            
             // Properties
             self.searchParams = new TrackSearchParams();
             self.searchResults = new TrackSearchResults();
-            
+
             // Behavior
             self.goToMain = function () {
                 self.activateView("main");
             };
 
             self.search = function () {
-                self.searchParams.orderType("popular");
-                //elixir.searchTracks(self.searchParams.toJS(), self.searchResults);                               
+                if ((self.searchParams.query() || "").length < 3)
+                    return;
+
+                // cancel any pending search
+                self.cancelSearch();
+                
+                // start new search
+                curSearchCommand = new TrackSearchCommand(self.searchParams, self.searchResults);
+                curSearchCommand.process();                
+            };
+
+            self.cancelSearch = function () {
+                if (curSearchCommand) {
+                    curSearchCommand.cancel();
+                    curSearchCommand = null;
+                }
             };
 
             self.addToPlayList = function (track) {
