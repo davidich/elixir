@@ -15,7 +15,7 @@
             $("<div class='triangleblock'/>")
                 .appendTo($dropContainer);
 
-            var $dropDownBlock = $("<div class='dropDownBlock filtershift' style='width: 120px; display: none'/>")
+            var $dropDownBlock = $("<div class='dropDownBlock' style='width: 120px; display: none'/>")
                 .appendTo($dropContainer);
 
             $("<div class='dropmenuArrow'/>")

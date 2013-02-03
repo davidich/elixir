@@ -116,8 +116,8 @@
                 </ul>
 
                 <div class="leftSearchfilter" data-bind="with: $root.searchParams">
-                    <div class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
-                    <div class="filterBLock" data-bind="fancyDrop: timeRanges, value: timeRange"></div>
+                    <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
+                    <div id="filterByTime" class="filterBLock" data-bind="fancyDrop: timeRanges, value: timeRange"></div>
                     <div class="hqBlock">
                         <input id="isHqCk" type="checkbox" class="styled" data-bind="checked: isHighQuality" /><label for="isHqCk">HQ</label>
                     </div>
