@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/jquery-ui-1.10.0.custom.min.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/jquery.mCustomScrollbar.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/scroll.css" />
-        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/genderNavigation.css" />
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/genreNavigation.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/checkbox.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/headerNavigation.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/searchBar.css" />
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <a class="title"><span></span>Music</a>
-            <div class="genderFilterBlock">
+            <div class="genreFilterBlock">
                 <ul>
                     <li class="allGenders">Все жанры</li>
                     <li><span>Rock</span></li>
@@ -81,7 +81,7 @@
                         <div class='dropDownBlock filtershift' style='width: 120px;'>
                             <div class='dropmenuArrow'></div>
                             <ul class='subNavigation'>
-                                <li><a href='#'><div class='subnavIcons recomenadation'></div>Рекомендации</a></li>
+                                <li><a href='#'><div class='subnavIcons interesting'></div>Интересное</a></li>
                                 <li><a href='#'><div class='subnavIcons popular'></div>Популярное</a></li>
                                 <li><a href='#'><div class='subnavIcons new'></div>Новинки</a></li>
                             </ul>
@@ -114,8 +114,25 @@
                 </ul>
                 <div style="clear: both;"></div>
                 <div class="rightContainer">
-                    <input id="searchBar" value=""></input>
-                    <div class="searchResultInfo">У нас <span>10000</span> треков</div>
+                    <!-- class="cancel" -->
+                    <div id="rightSearchBlock" >
+                        <input id="searchBar" value="" placeholder="Поиск по"></input>
+                        <div class="searchCriterion"><div style="float: left;">по исполнителю</div>
+                            <div class="triangle">
+                                <div class='dropDownBlock shiftSearch' style='width: 120px;'>
+                                    <div class='dropmenuArrow'></div>
+                                    <ul class='subNavigation'>
+                                        <li><a href='#'>по всему</a></li>
+                                        <li><a href='#'>по треку</a></li>
+                                        <li><a href='#'>по исполнителю</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="searchLoader"><img src="APPLICATION/Images/loader.gif" alt=""/></div>
+                        <div style="clear: both;"></div>
+                        <div class="searchResultInfo">У нас <span>10000</span> треков</div>
+                    </div>
                 </div>
             </div>
 
