@@ -65,9 +65,9 @@
             self.supportedViews = ["music", "video", "artists"];
 
             pubSub.sub("viewChanged", function (viewName) {
-                //var visible = $.inArray(viewName, self.supportedViews) != -1;
-                //self.isVisible(visible);
-                self.isVisible(false);
+                var visible = $.inArray(viewName, self.supportedViews) != -1;
+                self.isVisible(visible);
+                //self.isVisible(false);
             });
 
             // Data
@@ -83,13 +83,11 @@
 
                 self.currentTrack(track);
 
-                var sound = soundManager.createSound({
+                soundManager.createSound({
                     id: track.id(),
                     url: track.url()
                     //,whileloading: soundIsLoadingFunction
-                });
-
-                sound.play();
+                }).play();
             });            
 
             self.playPause = function () {               
