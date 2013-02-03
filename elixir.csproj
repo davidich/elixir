@@ -49,6 +49,7 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elixir.html" />
+    <Content Include="APPLICATION\Images\Add_playlist.png" />
     <Content Include="APPLICATION\Images\checkbox.png" />
     <Content Include="APPLICATION\Images\dropdownblock_arrow.png" />
     <Content Include="APPLICATION\Images\dropdownblock_bg.jpg" />
@@ -86,6 +87,7 @@
     <Content Include="APPLICATION\Images\splash\splash.jpg" />
     <Content Include="APPLICATION\Images\splash\splash_load.png" />
     <Content Include="APPLICATION\Images\splash\splash_load_bg.png" />
+    <Content Include="APPLICATION\Images\track_hover.jpg" />
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\app.js" />
@@ -123,7 +125,6 @@
     <Content Include="APPLICATION\Scripts\require-jquery.js" />
     <Content Include="APPLICATION\Scripts\Types\FancyDropItem.js" />
     <Content Include="APPLICATION\Scripts\Types\Track.js" />
-    <Content Include="APPLICATION\Scripts\Types\TrackSearchCommand.js" />
     <Content Include="APPLICATION\Scripts\Types\TrackSearchParams.js" />
     <Content Include="APPLICATION\Scripts\Types\TrackSearchResults.js" />
     <Content Include="APPLICATION\Scripts\Vms\musicVM.js" />
@@ -138,6 +139,7 @@
     <Content Include="APPLICATION\Styles\jquery.mCustomScrollbar.css" />
     <Content Include="APPLICATION\Styles\main.css" />
     <Content Include="APPLICATION\Styles\headerNavigation.css" />
+    <Content Include="APPLICATION\Styles\musicSearchResult.css" />
     <Content Include="APPLICATION\Styles\player.css" />
     <Content Include="APPLICATION\Styles\scroll.css" />
     <Content Include="APPLICATION\Styles\searchBar.css" />

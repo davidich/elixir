@@ -54,7 +54,7 @@
     background-position: -66px 0;
 }
   
-.playerMainBlock .playPause:hover 
+.playerMainBlock .playPause.pause:hover 
 {
     background-position: -66px -22px;
 }
@@ -389,13 +389,13 @@
     background: url(../images/Player/playList.png) center top no-repeat;
 }
 
-.playerDropmenuShift {
+.playerHeader .bottomButtonsBlock .dropDownBlock {
     margin-left: -160px;
     z-index: 999999;
     width: 170px;
 }
 
-.bottomButtonsBlock .menuTriangle .playerDropmenuShift .dropmenuArrow {
+.playerHeader .bottomButtonsBlock .dropDownBlock .dropmenuArrow {
     left: 160px
 }
 
@@ -403,15 +403,15 @@
     top: 20px;
 }
 
-.menuTriangle ul.subNavigation .subnavIcons {
+.trackBlock .triangle ul.subNavigation .subnavIcons {
      background: url(../images/Player/playerBtns.png) 0 0 no-repeat;
 }
 
-.bottomButtonsBlock .menuTriangle li a .addTofavorite {
+.trackBlock .triangle  li a .addTofavorite {
     background-position: -25px -46px;
 }
 
-.bottomButtonsBlock .menuTriangle li a:hover .addTofavorite {
+.trackBlock .triangle  li a:hover .addTofavorite {
     background-position: -25px -68px;
 }
 
