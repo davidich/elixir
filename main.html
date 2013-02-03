@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/checkbox.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/headerNavigation.css" />
         <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/searchBar.css" />
+        <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/musicSearchResilt.css" />
         
         <!--[if IE 7]>
             <link rel="stylesheet" type="text/css" href="./APPLICATION/Styles/ie7.css" />
@@ -75,19 +76,6 @@
 
             <div class="leftSearchfilter">
                 <div class="filterBLock" data-bind="fancyDrop: searchParams.orderTypes, value: searchParams.orderType"></div>
-                <!--<div class="filterBLock">
-                    <div class="selectedText" style="float: left;">Новинки</div>
-
-                    <div class="triangleblock"></div>
-                    <div class='dropDownBlock filtershift' style='width: 120px;'>
-                        <div class='dropmenuArrow'></div>
-                        <ul class='subNavigation'>
-                            <li><a href='#'><div class='subnavIcons recomenadation'></div>Интересное</a></li>
-                            <li><a href='#'><div class='subnavIcons popular'></div>Популярное</a></li>
-                            <li><a href='#'><div class='subnavIcons new'></div>Новинки</a></li>
-                        </ul>
-                    </div>
-                </div>-->
                 <div class="filterBLock">
                     <div  class="selectedText">За все время</div>
                     <div class="triangleblock"></div>
@@ -115,9 +103,9 @@
                 </ul>
                 <div style="clear: both;"></div>
                 <div class="rightContainer">
-                    <!-- class="cancel" -->
-                    <div id="rightSearchBlock" >
-                        <input id="searchBar" value="" placeholder="Поиск по"></input>
+                    <div id="rightSearchBlock">
+                        <!-- class="cancel" -->
+                        <input id="searchBar"  value="" placeholder="Поиск по"></input>
                         <div class="searchCriterion"><div style="float: left;">по исполнителю</div>
                             <div class="triangle">
                                 <div class='dropDownBlock shiftSearch' style='width: 120px;'>
@@ -132,7 +120,12 @@
                         </div>
                         <div class="searchLoader"><img src="APPLICATION/Images/loader.gif" alt=""/></div>
                         <div style="clear: both;"></div>
+                    </div>
+                    <div class="searchResult">
                         <div class="searchResultInfo">У нас <span>10000</span> треков</div>
+                        <div class="trackBlock">
+                            
+                        </div>
                     </div>
                 </div>
             </div>

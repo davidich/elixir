@@ -18,16 +18,7 @@
     float: left; /* f u ie */
 }
 
-.rightBlock #rightSearchBlock .searchResultInfo {
-    width: 100%;
-    height: 20px;
-    line-height: 20px;
-    color: #cacaca;
-    text-align: left;
-    text-indent: 5px;
-    border-top: 1px solid #ededed;
-    border-bottom: 1px solid #ededed;
-}
+
 
 .rightBlock  #rightSearchBlock .searchLoader {
     float: right;
@@ -62,13 +53,13 @@
     color: #bfbfbf;
 }
 
-#rightSearchBlock.cancel .searchLoader{
+#searchBar.cancel .searchLoader{
     display: block;
 }
 
-#rightSearchBlock.cancel #searchBar 
+#searchBar.cancel 
 {
-    background-position: 4px -23px;
+    background-position: 4px -23px !important;
 }
 
 #rightSearchBlock .shiftSearch
