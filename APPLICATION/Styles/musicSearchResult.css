@@ -123,8 +123,9 @@
 }
 
 .trackBlock .resultBnts .triangle .dropDownBlock {
-    margin: 35px 0 0 -130px;
+    margin: -15px 0 0 -130px;
     width: 160px;
+    position: relative;
 }
 
 .trackBlock .resultBnts .triangle .dropDownBlock .dropmenuArrow{

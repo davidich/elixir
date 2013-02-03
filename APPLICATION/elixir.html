@@ -114,6 +114,15 @@
                         </ul>
                     </li>
                 </ul>
+                
+                
+                <script>
+                    $('.genreFilterBlock ul li').click(function () {
+                        $(this).addClass('.active');
+                        $('.genreFilterBlock ul li:not(.active):not(.allGenders)').hide();
+                    });
+                </script>
+                
 
                 <div class="leftSearchfilter" data-bind="with: $root.searchParams">
                     <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
