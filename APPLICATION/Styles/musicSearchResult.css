@@ -1,0 +1,175 @@
+﻿.rightBlock .searchResult .searchResultInfo {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    color: #cacaca;
+    text-align: left;
+    text-indent: 5px;
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+}
+
+.trackBlock {
+    width: 533px;
+    height: 32px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ebebeb;
+    -moz-box-shadow: 0 2px 2px 0 #fff;
+    -webkit-box-shadow: 0 2px 2px 0 #fff;
+    box-shadow: 0 2px 2px 0 #fff;
+    padding: 0 13px;
+    cursor: pointer;
+    line-height: 32px;
+}
+
+.trackBlock:hover{
+    background: url(../images/track_hover.jpg) left top repeat-x !important;
+}
+
+.trackBlock:hover .resultPlayButton, .trackBlock:hover .resultaddToPlaylist{
+    display: block;
+}
+
+.trackBlock:hover .resultTrackName {
+    width: 133px;
+}
+
+.trackBlock:hover .resultTrackTime {
+    display: none;
+}
+
+.trackBlock:hover .resultBnts {
+    display: block;
+}
+
+.trackBlock .resultPlayButton {
+    float: left;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background: url(../Images/player/playerBtns.png) -22px 0 no-repeat;
+    margin: 5px 6px 0 0;
+    display: none;
+}
+
+.trackBlock .resultPlayButton:hover {
+    background-position: -22px -22px;
+}
+
+.trackBlock .resultaddToPlaylist {
+    float: left;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background: url(../Images/Add_playlist.png) 0 0 no-repeat;
+    margin: 9px 6px 0 0;
+    display: none;
+}
+
+.trackBlock .resultaddToPlaylist:hover {
+    background-position: 0 -15px;
+}
+
+.trackBlock .resultTrackName {
+    float: left;
+    width: 182px;
+    overflow: hidden;
+    color: #555;
+    padding-left: 10px;
+}
+
+.trackBlock .resultArtist {
+    float: left;
+    overflow: hidden;
+    width: 200px;
+}
+
+.trackBlock .resultLikesAmount {
+    float: left;
+}
+
+.trackBlock .resultTrackTime {
+    width: 34px;
+    color: #555;
+    float: right;
+}
+
+.trackBlock .resultBnts {
+    display: none;
+    float: right;
+    margin-top: 7px;
+    width: 35px;
+}
+
+.trackBlock .resultBnts .addToFavorit {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background: url(../Images/player/playerBtns.png) -25px -45px no-repeat;
+    float: left;
+}
+
+.trackBlock .resultBnts .triangle {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background: url(../Images/player/headerIcons.png) -85px 3px no-repeat;
+    float: right;
+}
+
+.trackBlock .resultBnts .triangle:hover .dropDownBlock {
+    display: block !important;
+}
+
+.trackBlock .resultBnts .triangle .dropDownBlock {
+    margin: -15px 0 0 -130px;
+    width: 160px;
+    position: relative;
+}
+
+.trackBlock .resultBnts .triangle .dropDownBlock .dropmenuArrow{
+    left: 129px;
+}
+
+.trackBlock .resultBnts .triangle ul.subNavigation .subnavIcons {
+     background: url(../images/Player/playerBtns.png) 0 0 no-repeat;
+}
+
+.trackBlock .resultBnts .triangle li a .addTofavorit  {
+    background-position: -25px -46px !important;
+}
+
+.trackBlock .resultBnts .triangle li a:hover .addTofavorit {
+    background-position: -25px -68px !important;
+}
+
+.trackBlock .resultBnts .triangle li a .share
+{
+    background-position: -69px -46px !important;
+    }
+
+.trackBlock .resultBnts .triangle li a:hover .share
+{
+    background-position: -69px -68px !important;
+    }
+
+.trackBlock .resultBnts .triangle li a .sendToWall
+{
+    background-position: -4px -46px !important;
+    }
+
+.trackBlock .resultBnts .triangle li a:hover .sendToWall
+{
+    background-position: -4px -68px !important;
+    }
+
+.trackBlock .resultBnts .triangle li a .addToPLaylist
+{
+    background-position: -88px 0 !important;
+    }
+
+.trackBlock .resultBnts .triangle li a:hover .addToPLaylist
+{
+    background-position: -88px -15px !important;
+    }

@@ -6,7 +6,7 @@
 
 .rightBlock #rightSearchBlock #searchBar 
 {
-    width: 420px;
+    width: 410px;
     height: 20px;
     color: #b4b4b4;
     margin-left: 10px;
@@ -19,9 +19,9 @@
 
 
 .rightBlock  #rightSearchBlock .searchLoader {
-    float: right;
-    margin-top: -17px;
-    margin-right: 10px;
+    position: absolute;
+    top: 5px;
+    left: 400px;
     display: none;
 }
 

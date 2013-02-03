@@ -2,7 +2,7 @@
     function (ko, viewBase, pubSub, Track, TrackSearchResults) {
         
         // player ui setup
-        $('#playerMainBlock .trackSlider').slider({
+        $('.trackSlider').slider({
             range: "min",
             min: 0,
             max: 100,
@@ -13,7 +13,7 @@
             }
         });
 
-        $('#playerMainBlock .trackVolume').slider({
+        $('.trackVolume').slider({
             range: "min",
             min: 0,
             max: 100,
@@ -24,37 +24,37 @@
             }
         });
 
-//        $(".trackListBlock").mCustomScrollbar();
+        $(".trackListBlock").mCustomScrollbar();
 
-//        /* player switch between full and compact view */
-//        $('.compactViewBtn').click(function () {
-//            $('.playerHeader').animate({
-//                height: ['toggle', 'swing'],
-//                opacity: 'toggle'
-//            }, 200, 'linear');
+        /* player switch between full and compact view */
+        $('.compactViewBtn').click(function () {
+            $('.playerHeader').animate({
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            }, 200, 'linear');
 
-//            $('.playerPlaylistBlock').animate({
-//                height: ['toggle', 'swing'],
-//                opacity: 'toggle'
-//            }, 200, 'linear');
-//            $('.lockBackground').hide();
-//            $('.playerMainBlock').removeClass('fillView');
-//        });
+            $('.playerPlaylistBlock').animate({
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            }, 200, 'linear');
+            $('.lockBackground').hide();
+            $('.playerMainBlock').removeClass('fillView');
+        });
 
-//        $('.switchToFullView').click(function () {
-//            $('.playerHeader').animate({
-//                height: ['toggle', 'swing'],
-//                opacity: 'toggle'
-//            }, 200, 'linear');
+        $('.switchToFullView').click(function () {
+            $('.playerHeader').animate({
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            }, 200, 'linear');
 
-//            $('.playerPlaylistBlock').animate({
-//                height: ['toggle', 'swing'],
-//                opacity: 'toggle'
-//            }, 200, 'linear');
+            $('.playerPlaylistBlock').animate({
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            }, 200, 'linear');
 
-//            $('.lockBackground').show();
-//            $('.playerMainBlock').addClass('fillView');
-//        });
+            $('.lockBackground').show();
+            $('.playerMainBlock').addClass('fillView');
+        });
 
         //View Player View Model
         function Player(mainVm) {

@@ -52,6 +52,8 @@ a.title span
     background-position: 0 -15px;
 }
 
+input.styled { display: none; } 
+
 #headerBlock 
 {
     height: 34px;

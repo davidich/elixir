@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/checkbox.css" />
     <link rel="stylesheet" type="text/css" href="Styles/headerNavigation.css" />
     <link rel="stylesheet" type="text/css" href="Styles/searchBar.css" />
-    <link rel="stylesheet" type="text/css" href="Styles/musicSearchResilt.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/musicSearchResult.css" />
 
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
@@ -114,6 +114,15 @@
                         </ul>
                     </li>
                 </ul>
+                
+                
+                <script>
+                    $('.genreFilterBlock ul li').click(function () {
+                        $(this).addClass('.active');
+                        $('.genreFilterBlock ul li:not(.active):not(.allGenders)').hide();
+                    });
+                </script>
+                
 
                 <div class="leftSearchfilter">
                     <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
@@ -135,19 +144,7 @@
                     <div id="rightSearchBlock" data-bind="with: $root.searchParams">
                         <div class="searchCancel" data-bind="click: $root.cancelSearch, css: { cancel:  $root.searchResults.areLoading }"></div>
                         <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.search }" />
-                        <div class="searchCriterion">
-                            <div style="float: left;">по исполнителю</div>
-                            <div class="triangle">
-                                <div class='dropDownBlock shiftSearch' style='width: 120px;'>
-                                    <div class='dropmenuArrow'></div>
-                                    <ul class='subNavigation'>
-                                        <li><a href='#'>по всему</a></li>
-                                        <li><a href='#'>по треку</a></li>
-                                        <li><a href='#'>по исполнителю</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="searchCriterion" data-bind="fancyDrop: searchModes, value: searchModes"></div>
                         <div class="searchLoader" data-bind="visible: $root.searchResults.areLoading">
                             <img src="./Images/loader.gif" alt="" />
                         </div>
@@ -156,10 +153,67 @@
                     </div>
                     <div class="searchResult" data-bind="with: $root.searchResults">
                         <div class="searchResultInfo">У нас <span data-bind="text: totalCount">10000</span> треков</div>
-                        <div data-bind="foreach: tracks">
-                            <div class="trackBlock" data-bind="text: title"></div>
+                        <!--<div data-bind="foreach: tracks">-->
+                        <div>
+                            <!--<div class="trackBlock" data-bind="text: title">-->
+                            <div class="trackBlock">
+                                <div class="resultPlayButton"></div>
+                                <div class="resultaddToPlaylist"></div>
+                                <div class="resultTrackName">Climax</div>
+                                <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
+                                <div class="resultLikesAmount"><a>1000</a></div>
+                                <div class="resultTrackTime">3:52</div>
+                                <div class="resultBnts">
+                                    <div class="addToFavorit"></div>
+                                    <div class="triangle">
+                                        <div class='dropDownBlock' style="display: none;">
+                                            <div class='dropmenuArrow'></div>
+                                            <ul class='subNavigation'>
+                                                <li><a href='#'><div class='subnavIcons addTofavorit'></div>
+                                                        Добавить в избранное</a></li>
+                                                <li><a href='#'>
+                                                        <div class='subnavIcons share'></div>
+                                                        Поделиться</a></li>
+                                                <li><a href='#'>
+                                                        <div class='subnavIcons sendToWall'></div>
+                                                        Отправить на стену</a></li>
+                                                <li><a href='#'>
+                                                        <div class='subnavIcons addToPLaylist'></div>
+                                                        Добавить в плейлист</a></li>
+                                            </ul>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>                            <div class="trackBlock">
+                                <div class="resultPlayButton"></div>
+                                <div class="resultaddToPlaylist"></div>
+                                <div class="resultTrackName">Climax</div>
+                                <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
+                                <div class="resultLikesAmount"><a>1000</a></div>
+                                <div class="resultTrackTime">3:52</div>
+                                <div class="resultBnts">
+                                    <div class="addToFavorit"></div>
+                                    <div class="triangle">
+                                        <div class='dropDownBlock' style="display: none;">
+                                            <div class='dropmenuArrow'></div>
+                                            <ul class='subNavigation'>
+                                                <li><a href='#'><div class='subnavIcons addTofavorit'></div>
+                                                        Добавить в избранное</a></li>
+                                                <li><a href='#'>
+                                                        <div class='subnavIcons share'></div>
+                                                        Поделиться</a></li>
+                                                <li><a href='#'>
+                                                        <div class='subnavIcons sendToWall'></div>
+                                                        Отправить на стену</a></li>
+                                                <li><a href='#'>
+                                                        <div class='subnavIcons addToPLaylist'></div>
+                                                        Добавить в плейлист</a></li>
+                                            </ul>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -186,7 +240,7 @@
                 <div class="bottomButtonsBlock">
                     <div class="btnRotator"></div>
                     <div class="menuTriangle">
-                        <div class='dropDownBlock playerDropmenuShift' style="display: none;">
+                        <div class='dropDownBlock' style="display: none;">
                             <div class='dropmenuArrow'></div>
                             <ul class='subNavigation'>
                                 <li><a href='#'>
