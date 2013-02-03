@@ -1,0 +1,169 @@
+﻿#headerNavigation
+{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 37px;
+    margin: 1px 7px 0 0;
+    float: right;
+    width: auto;
+}
+#headerNavigation ul li.topNavigatiobEl
+{
+    display: block;
+    height: 38px;
+    float: left;
+    cursor: pointer;
+}
+        
+#headerNavigation ul li.topNavigatiobEl:hover
+{
+    background-position: center -35px;
+}
+        
+#navigationMyPage
+{
+    width: 28px;
+    background: url(../Images/navigation/myPage.png) center -1px no-repeat;
+}
+        
+#navigationMyPage:hover .dropDownBlock
+{
+    display: block !important;
+}
+                
+#navigationMyNews
+{
+    width: 28px;
+    background: url(../Images/navigation/myNews.png) center -1px no-repeat;
+}
+                 
+#navigationMyNews:hover .dropDownBlock
+{
+    display: block !important;
+}
+                 
+#navigationMusic
+{
+    width: 59px;
+    background: url(../Images/navigation/music.png) center -1px no-repeat;
+}
+        
+#navigationVideo
+{
+    width: 59px;
+    background: url(../Images/navigation/video.png) center -1px no-repeat;
+}
+        
+#navigationEvents
+{
+    width: 59px;
+    background: url(../Images/navigation/events.png) center -1px no-repeat;
+}
+        
+#navigationPeople
+{
+    width: 59px;
+    background: url(../Images/navigation/people.png) center -1px no-repeat;
+}
+
+/* sub navigation */
+ul.subNavigation li a
+{
+    color: #777777;
+    border: 1px solid transparent;
+    line-height: 22px;
+    height: 22px;
+    text-decoration: none;
+    display: block;
+}
+        
+ul.subNavigation li a:hover
+{
+    border: 1px solid #eee;
+    background: url(../Images/navigation/menu_hover.jpg) left top repeat-x;
+    color: #528fc2;
+}
+        
+ul.subNavigation li
+{
+    border: 1px solid transparent; 
+    text-align: left;
+}
+        
+ul.subNavigation li a div.subnavIcons
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url('../Images/navigation/icons.png');
+    margin: 3px 3px 0 3px;
+}
+        
+#headerNavigation ul.subNavigation li div.noticeDot
+{
+    background: url('../Images/navigation/notice_dot.jpg') center right no-repeat;
+    width: 3px;
+    height: 3px;
+    float: right;
+    margin: 9px 3px 0 0 ;
+}
+        
+#headerNavigation ul.subNavigation li a div.allPage
+{
+    background-position: -15px 0; 
+}
+        
+#headerNavigation ul.subNavigation li a:hover div.allPage
+{
+    background-position: -15px -15px; 
+}
+        
+#headerNavigation ul.subNavigation li a div.music
+{
+    background-position: -30px 0; 
+}
+        
+#headerNavigation ul.subNavigation li a:hover div.music
+{
+    background-position: -30px -15px; 
+}
+        
+#headerNavigation ul.subNavigation li a div.video
+{
+    background-position: -75px 0; 
+}
+        
+#headerNavigation ul.subNavigation li a:hover div.video
+{
+    background-position: -75px -15px; 
+}
+        
+#headerNavigation ul.subNavigation li a div.events
+{
+    background-position: 0 0; 
+}
+        
+#headerNavigation ul.subNavigation li a:hover div.events
+{
+    background-position: 0 -15px; 
+}
+        
+#headerNavigation ul.subNavigation li a div.subscribe
+{
+    background-position: -60px 0; 
+}
+        
+#headerNavigation ul.subNavigation li a:hover div.subscribe
+{
+    background-position: -60px -15px; 
+}
+        
+#headerNavigation ul.subNavigation li a div.notice
+{
+    background-position: -45px 0; 
+}
+        
+#headerNavigation ul.subNavigation li a:hover div.notice
+{
+    background-position: -45px -15px; 
+}
+        

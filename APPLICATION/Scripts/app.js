@@ -8,8 +8,8 @@
     var musicVM = new MusicVM("music");
     var $musicBlock = $("#musicContent");
     ko.applyBindings(musicVM, $musicBlock.get(0));
-
-    var playerVM = new PlayerVM();
+    
+    var playerVM = new PlayerVM("player");
     var $playerBlock = $("#playerContent");
     ko.applyBindings(playerVM, $playerBlock.get(0));
 

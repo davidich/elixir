@@ -588,5 +588,9 @@
     filter: alpha(opacity=25);
     opacity: 0.25;
     display: none;
+    top: 0;
 }
 
+.leftSearchfilter {
+    padding-top: 35px;
+}

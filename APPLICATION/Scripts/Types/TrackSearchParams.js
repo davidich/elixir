@@ -1,4 +1,4 @@
-﻿define(["ko"], function (ko) {
+﻿define(["ko", "Types/FancyDropItem"], function (ko, FancyDropItem) {
 
     // SEARCH_PARAM_OBJ:
     // query: string
@@ -13,21 +13,29 @@
     function TrackSearhParams() {
         var self = this;
 
+        var orderTypes = [
+            new FancyDropItem(/*value*/"popular", "Популярное", /*cssClass*/"popular"),
+            new FancyDropItem(/*value*/"interesting", "Рекомендации", /*cssClass*/"recomenadation"),
+            new FancyDropItem(/*value*/"new", "Новинки")
+        ];
+        
+        self.orderType = ko.observable("popular");
+        self.orderTypes = ko.observableArray(orderTypes);
+
         // Props
         self.query = ko.observable();
         self.searchMode = ko.observable("all");
         self.searchModes = ko.observableArray(["all", "artist", "title"]);
-        self.orderType = ko.observable("popular");
-        self.orderTypes = ko.observableArray(["popular", "interesting", "new"]);
+        
         self.timerange = ko.observable("all");
         self.timeranges = ko.observableArray(["all", "year", "month", "week"]);
         self.artistId = ko.observable(0);
         self.genreId = ko.observable(0);
         self.styleId = ko.observable(0);
         self.isHighQuality = ko.observable(false);
-        
+
         // Behavior
-        self.toJS = function(page) {
+        self.toJS = function (page) {
             var unwraped = ko.mapping.toJS(self);
             unwraped.page = page || 1;
 

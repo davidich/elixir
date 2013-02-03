@@ -3,19 +3,19 @@
 
 
     function getUrlParams() {
-        var params = {};
-        
-        var url = location.href;
-        url = url.replace(/.*\?(.*?)/, "$1");
-        var pairs = url.split("&");
-        for (var i = 0; i < pairs.length; i++) {
-            var parts = pairs[i].split("=");
-            var argName = parts[0];
-            var argValue = decodeURIComponent(parts[1].replace(/\+/g, " "));
-            params[argName] = argValue;
-        }
+//        var params = {};
+//        
+//        var url = location.href;
+//        url = url.replace(/.*\?(.*?)/, "$1");
+//        var pairs = url.split("&");
+//        for (var i = 0; i < pairs.length; i++) {
+//            var parts = pairs[i].split("=");
+//            var argName = parts[0];
+//            var argValue = decodeURIComponent(parts[1].replace(/\+/g, " "));
+//            params[argName] = argValue;
+//        }
 
-        return params;
+//        return params;
     }
 
     function getUrlParam(name) {

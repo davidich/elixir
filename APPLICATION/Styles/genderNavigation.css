@@ -1,0 +1,142 @@
+﻿.genderFilterBlock {
+    float: left;
+    width: 120px;
+    margin-left: 12px;
+    color: #666
+    
+}
+
+.genderFilterBlock .active{
+    font-weight: bold;
+    cursor: default;
+}
+
+.genderFilterBlock .active:hover 
+{
+    color: #777777;
+    font-weight: bold;
+    cursor: default;
+    border: 1px solid transparent;
+    background-image: none;
+}
+
+ul.subGenders {
+    background: url(../images/hr_ganre.png) center top no-repeat !important;
+    display: block;
+    padding-top: 8px;
+    margin-top: 8px;
+    
+}
+
+ul.subGenders li {
+    font-weight: normal;
+    
+}
+
+li.allGenders {
+    margin-bottom: 3px; 
+}
+
+.genderFilterBlock ul li, .leftSearchfilter .filterBLock {
+    color: #777777;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding-left: 8px;
+    line-height: 20px;
+
+}
+
+.filterBLock {
+    height: 20px;
+}
+
+.filterBLock div.selectedText {
+    float: left; 
+}
+
+.leftSearchfilter  .dropDownBlock.filtershift.datefilter a 
+{
+    padding-left: 5px; 
+}
+
+.leftSearchfilter .filterBLock {
+    position: relative;
+}
+
+.genderFilterBlock ul li:hover, .leftSearchfilter .filterBLock:hover {
+    border-color: #eee;
+    color: #72b4ec;
+    background: url(../Images/navigation/menu_hover.jpg)left top repeat-x;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 20px;
+}
+
+
+.leftSearchfilter .filterBLock .triangleblock {
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    background: url(../Images/select.png) 0 0 no-repeat;
+    margin-top: 3px;
+}
+
+.leftSearchfilter .filterBLock:hover .triangleblock {
+    background: url(../Images/select.png) 0 -15px no-repeat;
+}
+
+.genderFilterBlock .filtershift {
+    margin-left: -9px;
+    margin-top: -15px;
+    display: none;
+    z-index: 100;
+}
+
+.genderFilterBlock .filtershift .dropmenuArrow {
+    left: 102px;
+}
+
+.dropDownBlock.filtershift ul li{
+    border: 0px;
+    padding-left: 0px;
+}
+
+.genderFilterBlock .dropDownBlock .subNavigation .subnavIcons {
+    background: url(../Images/musicFilterIco.png) 0 0 no-repeat;
+}
+
+.genderFilterBlock ul.subNavigation a .subnavIcons.recomenadation {
+    background-position: -30px 0;
+}
+
+.genderFilterBlock ul.subNavigation a:hover div.recomenadation {
+    background-position: -30px -15px;
+}
+
+.genderFilterBlock ul.subNavigation a .subnavIcons.popular {
+    background-position: -15px 0;
+}
+
+.genderFilterBlock ul.subNavigation a:hover div.popular {
+    background-position: -15px -15px;
+}
+
+.genderFilterBlock ul.subNavigation a .subnavIcons.new {
+    background-position: 0 0;
+}
+
+.genderFilterBlock ul.subNavigation a:hover div.new {
+    background-position: 0 -15px;
+}
+
+.leftSearchfilter .hqBlock {
+    color: #666;
+    padding-left: 6px;
+}
+
+.leftSearchfilter .hqBlock label, .leftSearchfilter .hqBlock span.checkbox{
+    cursor: pointer;
+}
+

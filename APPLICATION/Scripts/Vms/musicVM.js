@@ -15,8 +15,9 @@
                 self.activateView("main");
             };
 
-            self.search = function () {                
-                elixir.searchTracks(self.searchParams.toJS(), self.searchResults);                               
+            self.search = function () {
+                self.searchParams.orderType("popular");
+                //elixir.searchTracks(self.searchParams.toJS(), self.searchResults);                               
             };
 
             self.addToPlayList = function (track) {
