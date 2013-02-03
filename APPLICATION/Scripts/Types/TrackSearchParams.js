@@ -52,34 +52,6 @@
 
             return unwraped;
         };
-
-        self.preloadGenres = function(onComplete) {
-            elixir.getGenres(function (response) {
-                var genres = $.getNamedArray(response, "genres");
-
-                for (var i = 0; i < genres.length; i++) {
-                    var genre = {
-                        id: genres[i].id,
-                        name: [genres[i].name],
-                        styles: []
-                    };
-
-                    var styles = $.getNamedArray(genres[i], "styles");
-                    for (var j = 0; j < styles.length; j++) {
-                        var style = {
-                            id: styles[j].id,
-                            name: styles[j].name
-                        };
-
-                        genre.styles.push(style);
-                    }
-
-                    allGenres.push(genre);
-                }
-
-                onComplete();
-            });            
-        };
     }
     
 

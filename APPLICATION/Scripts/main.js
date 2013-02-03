@@ -141,7 +141,7 @@ require(["require-config"], function () {
 
     function initGenreSelector(onComplete) {
         require(["Types/GenreSelector"], function (selector) {
-            selector.loadData(onComplete);
+            selector.preloadGenres(onComplete);
         });
     }
 });

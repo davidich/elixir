@@ -104,25 +104,12 @@
             <!--filter block-->
             <a class="title"><span></span>Music</a>
             <div class="genreFilterBlock" data-bind="with: $root.searchParams">
-                <ul>
-                    <li class="allGenders">Все жанры</li>
-                    <li><span>Rock</span></li>
-                    <li class="active">
-                        <span>House</span>
-                        <ul class="subGenders">
-                            <li>sub1</li>
-                        </ul>
-                    </li>
+                <ul data-bind="foreach: genreSelector.genres">
+                    <li data-bind="slideVisible: isVisible, click: onClick, css: {active: isActive}"><span data-bind="text: name"></span></li>
+                    <ul data-bind="foreach: styles, slideVisible: (isSelected() && id != 0)" class="subGenders">
+                        <li data-bind="click: onClick, clickBubble: false, css: {active: isActive}"><span data-bind="text: name"></span></li>
+                    </ul>
                 </ul>
-                
-                
-                <script>
-                    $('.genreFilterBlock ul li').click(function () {
-                        $(this).addClass('.active');
-                        $('.genreFilterBlock ul li:not(.active):not(.allGenders)').hide();
-                    });
-                </script>
-                
 
                 <div class="leftSearchfilter">
                     <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
@@ -148,7 +135,7 @@
                         <div class="searchLoader" data-bind="visible: $root.searchResults.areLoading">
                             <img src="./Images/loader.gif" alt="" />
                         </div>
-                        <div style="width: 10px;height: 10px; background-color: red;" data-bind="visible: $root.searchResults.areLoading"></div>
+                        <div style="width: 10px; height: 10px; background-color: red;" data-bind="visible: $root.searchResults.areLoading"></div>
                         <div style="clear: both;"></div>
                     </div>
                     <div class="searchResult" data-bind="with: $root.searchResults">
@@ -169,22 +156,24 @@
                                         <div class='dropDownBlock' style="display: none;">
                                             <div class='dropmenuArrow'></div>
                                             <ul class='subNavigation'>
-                                                <li><a href='#'><div class='subnavIcons addTofavorit'></div>
-                                                        Добавить в избранное</a></li>
                                                 <li><a href='#'>
-                                                        <div class='subnavIcons share'></div>
-                                                        Поделиться</a></li>
+                                                    <div class='subnavIcons addTofavorit'></div>
+                                                    Добавить в избранное</a></li>
                                                 <li><a href='#'>
-                                                        <div class='subnavIcons sendToWall'></div>
-                                                        Отправить на стену</a></li>
+                                                    <div class='subnavIcons share'></div>
+                                                    Поделиться</a></li>
                                                 <li><a href='#'>
-                                                        <div class='subnavIcons addToPLaylist'></div>
-                                                        Добавить в плейлист</a></li>
+                                                    <div class='subnavIcons sendToWall'></div>
+                                                    Отправить на стену</a></li>
+                                                <li><a href='#'>
+                                                    <div class='subnavIcons addToPLaylist'></div>
+                                                    Добавить в плейлист</a></li>
                                             </ul>
                                         </div>
-                                     </div>
+                                    </div>
                                 </div>
-                            </div>                            <div class="trackBlock">
+                            </div>
+                            <div class="trackBlock">
                                 <div class="resultPlayButton"></div>
                                 <div class="resultaddToPlaylist"></div>
                                 <div class="resultTrackName">Climax</div>
@@ -197,20 +186,21 @@
                                         <div class='dropDownBlock' style="display: none;">
                                             <div class='dropmenuArrow'></div>
                                             <ul class='subNavigation'>
-                                                <li><a href='#'><div class='subnavIcons addTofavorit'></div>
-                                                        Добавить в избранное</a></li>
                                                 <li><a href='#'>
-                                                        <div class='subnavIcons share'></div>
-                                                        Поделиться</a></li>
+                                                    <div class='subnavIcons addTofavorit'></div>
+                                                    Добавить в избранное</a></li>
                                                 <li><a href='#'>
-                                                        <div class='subnavIcons sendToWall'></div>
-                                                        Отправить на стену</a></li>
+                                                    <div class='subnavIcons share'></div>
+                                                    Поделиться</a></li>
                                                 <li><a href='#'>
-                                                        <div class='subnavIcons addToPLaylist'></div>
-                                                        Добавить в плейлист</a></li>
+                                                    <div class='subnavIcons sendToWall'></div>
+                                                    Отправить на стену</a></li>
+                                                <li><a href='#'>
+                                                    <div class='subnavIcons addToPLaylist'></div>
+                                                    Добавить в плейлист</a></li>
                                             </ul>
                                         </div>
-                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

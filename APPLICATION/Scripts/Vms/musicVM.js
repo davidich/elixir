@@ -1,5 +1,5 @@
-﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/TrackSearchResults", "Types/TrackSearchParams", "Types/TrackSearchCommand", "checkbox"],
-    function (jqueryui, ko, pubSub, viewBase, elixir, Track, TrackSearchResults, TrackSearchParams, TrackSearchCommand) {
+﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/TrackSearchResults", "Types/TrackSearchParams", "Types/TrackSearchCommand", "Types/GenreSelector", "checkbox"],
+    function (jqueryui, ko, pubSub, viewBase, elixir, Track, TrackSearchResults, TrackSearchParams, TrackSearchCommand, GenreSelector) {
 
         function MusicVM(viewName) {
             var self = this,
@@ -11,7 +11,7 @@
             // Properties
             self.searchParams = new TrackSearchParams();
             self.searchResults = new TrackSearchResults();
-
+            
             // Behavior
             self.goToMain = function () {
                 self.activateView("main");
