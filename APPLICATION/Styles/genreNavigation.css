@@ -1,4 +1,4 @@
-﻿.genderFilterBlock {
+﻿.genreFilterBlock {
     float: left;
     width: 120px;
     margin-left: 12px;
@@ -6,12 +6,12 @@
     
 }
 
-.genderFilterBlock .active{
+.genreFilterBlock .active{
     font-weight: bold;
     cursor: default;
 }
 
-.genderFilterBlock .active:hover 
+.genreFilterBlock .active:hover 
 {
     color: #777777;
     font-weight: bold;
@@ -37,13 +37,12 @@ li.allGenders {
     margin-bottom: 3px; 
 }
 
-.genderFilterBlock ul li, .leftSearchfilter .filterBLock {
+.genreFilterBlock ul li, .leftSearchfilter .filterBLock {
     color: #777777;
     border: 1px solid transparent;
     cursor: pointer;
     padding-left: 8px;
     line-height: 20px;
-
 }
 
 .filterBLock {
@@ -63,7 +62,7 @@ li.allGenders {
     position: relative;
 }
 
-.genderFilterBlock ul li:hover, .leftSearchfilter .filterBLock:hover {
+.genreFilterBlock ul li:hover, .leftSearchfilter .filterBLock:hover {
     border-color: #eee;
     color: #72b4ec;
     background: url(../Images/navigation/menu_hover.jpg)left top repeat-x;
@@ -87,14 +86,14 @@ li.allGenders {
     background: url(../Images/select.png) 0 -15px no-repeat;
 }
 
-.genderFilterBlock .filtershift {
+.genreFilterBlock .filtershift {
     margin-left: -9px;
     margin-top: -15px;
     display: none;
     z-index: 100;
 }
 
-.genderFilterBlock .filtershift .dropmenuArrow {
+.genreFilterBlock .filtershift .dropmenuArrow {
     left: 102px;
 }
 
@@ -103,31 +102,35 @@ li.allGenders {
     padding-left: 0px;
 }
 
-.genderFilterBlock .dropDownBlock .subNavigation .subnavIcons {
+.genreFilterBlock .dropDownBlock .subNavigation .subnavIcons {
     background: url(../Images/musicFilterIco.png) 0 0 no-repeat;
 }
 
-.genderFilterBlock ul.subNavigation a .subnavIcons.recomenadation {
+.genreFilterBlock ul.subNavigation a .subnavIcons.recomenadation {
     background-position: -30px 0;
 }
 
-.genderFilterBlock ul.subNavigation a:hover div.recomenadation {
+.genreFilterBlock ul.subNavigation a .subnavIcons.interesting {
+    background-position: -30px 0; /* TODO: GET ICON*/
+}
+
+.genreFilterBlock ul.subNavigation a:hover div.recomenadation {
     background-position: -30px -15px;
 }
 
-.genderFilterBlock ul.subNavigation a .subnavIcons.popular {
+.genreFilterBlock ul.subNavigation a .subnavIcons.popular {
     background-position: -15px 0;
 }
 
-.genderFilterBlock ul.subNavigation a:hover div.popular {
+.genreFilterBlock ul.subNavigation a:hover div.popular {
     background-position: -15px -15px;
 }
 
-.genderFilterBlock ul.subNavigation a .subnavIcons.new {
+.genreFilterBlock ul.subNavigation a .subnavIcons.new {
     background-position: 0 0;
 }
 
-.genderFilterBlock ul.subNavigation a:hover div.new {
+.genreFilterBlock ul.subNavigation a:hover div.new {
     background-position: 0 -15px;
 }
 
