@@ -132,10 +132,9 @@
                         <div class="searchCancel" data-bind="click: $root.cancelSearch, css: { cancel:  $root.searchResults.areLoading }"></div>
                         <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.search }" />
                         <div class="searchCriterion" data-bind="fancyDrop: searchModes, value: searchModes"></div>
-                        <div class="searchLoader" data-bind="visible: $root.searchResults.areLoading">
+                        <div class="searchLoader" data-bind="visible: $root.searchResults.areLoading" style="display: none;">
                             <img src="./Images/loader.gif" alt="" />
-                        </div>
-                        <div style="width: 10px; height: 10px; background-color: red;" data-bind="visible: $root.searchResults.areLoading"></div>
+                        </div>                        
                         <div style="clear: both;"></div>
                     </div>
                     <div class="searchResult" data-bind="with: $root.searchResults">

@@ -39,7 +39,7 @@
                     url: urls.tracksMetadata,
                     data: params,
                     error: function (jqXHR, textStatus, errorThrown) {
-                        log.error("ajax error in elixirApi.getTracksMetadata. Status: " + textStatus + "; error: " + errorThrown);
+                        console.error("ajax error in elixirApi.getTracksMetadata. Status: " + textStatus + "; error: " + errorThrown);
                     },
                     success: function (response) {
                         if (response.error)
@@ -78,7 +78,7 @@
             //    $.ajax({
             //        url: urls.genres,
             //        error: function (jqXHR, textStatus, errorThrown) {
-            //            log.error("ajax error in elixirApi.getGenres. Status: " + textStatus + "; error: " + errorThrown);
+            //            console.error("ajax error in elixirApi.getGenres. Status: " + textStatus + "; error: " + errorThrown);
             //        },
             //        success: function (response) {
             //            if (response.error)

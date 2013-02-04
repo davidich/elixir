@@ -22,7 +22,7 @@
     position: absolute;
     top: 5px;
     left: 400px;
-    display: none;
+    /*display: none;*/
 }
 
 .rightBlock #rightSearchBlock .searchCriterion {
