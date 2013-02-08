@@ -54,7 +54,7 @@ $.getNamedArray = function (source, collectionName) {
 
 require(["require-config"], function () {
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
-        var componets = ["vkApi", "soundManager", "genreSelector"];
+        var componets = ["vkApi", "soundManager", "genreSelector", "customFormElement"];
         var componentCount = componets.length;
 
         domReady(function () {
@@ -92,6 +92,10 @@ require(["require-config"], function () {
 
             initGenreSelector(function() {
                 pubSub.pub("componentInited", "genreSelector");
+            });
+
+            initCustomFormElement(function() {
+                pubSub.pub("componentInited", "customFormElement");
             });
         });        
     });
@@ -142,6 +146,15 @@ require(["require-config"], function () {
     function initGenreSelector(onComplete) {
         require(["Types/GenreSelector"], function (selector) {
             selector.preloadGenres(onComplete);
+        });
+    }
+
+    function initCustomFormElement(onComplete) {
+        require(["domReady", "customFormElem"], function (domReady, customFormElem) {
+            domReady(function() {
+                customFormElem.init();
+                onComplete();
+            });
         });
     }
 });

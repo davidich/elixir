@@ -1,4 +1,4 @@
-﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/SearchResults", "Types/SearchParams", "Types/SearchCommand", "Types/GenreSelector", "checkbox"],
+﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/SearchResults", "Types/SearchParams", "Types/SearchCommand", "Types/GenreSelector"],
     function (jqueryui, ko, pubSub, viewBase, elixir, Track, SearchResults, SearchParams, SearchCommand) {
 
         function MusicVM(viewName) {
@@ -84,10 +84,7 @@
 
             self.addToPlayList = function (track) {
                 pubSub.pub("player.playTrack", track);
-            };
-
-
-            Custom.init(); //init custom checkbox
+            };            
         };
 
         MusicVM.prototype = new viewBase();

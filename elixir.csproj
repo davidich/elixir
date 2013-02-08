@@ -100,7 +100,6 @@
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\app.js" />
-    <Content Include="APPLICATION\Scripts\Libs\controlCustomization\customControllWrapper.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\fancyDrop.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\slideVisible.js" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\reg\soundmanager2.swf" />
@@ -112,7 +111,7 @@
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\xdomain\soundmanager2_flash9.swf" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\xdomain\soundmanager2_flash9_debug.swf" />
     <Content Include="APPLICATION\Scripts\Modules\elixirWrapper.js" />
-    <Content Include="APPLICATION\Scripts\Libs\controlCustomization\customFormElements.js" />
+    <Content Include="APPLICATION\Scripts\Libs\customFormElements.js" />
     <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.js" />
     <Content Include="APPLICATION\Scripts\Libs\jquery-ui-1.10.0.min.js" />
     <Content Include="APPLICATION\Scripts\Libs\scroll\scrollWraper.js" />
