@@ -129,8 +129,8 @@
                 <div style="clear: both;"></div>
                 <div class="rightContainer">
                     <div id="rightSearchBlock" data-bind="with: oSearchParams">
-                        <div class="searchCancel" data-bind="click: $root.cancelSearch, css: { cancel:  $root.hasPendingSearch }"></div>
-                        <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.search }" />
+                        <div class="searchCancel" data-bind="click: $root.clearQuery, css: { cancel:  $root.hasQuery }"></div>
+                        <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.onQueryKeyUp }" />
                         <div class="searchCriterion" data-bind="fancyDrop: searchModes, value: searchModes"></div>
                         <div class="searchLoader" data-bind="visible: $root.hasPendingSearch" style="display: none;">
                             <img src="./Images/loader.gif" alt="" />

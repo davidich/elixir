@@ -21,14 +21,25 @@
                 self.activateView("main");
             };
 
-            self.hasPendingSearch = ko.computed(function() {
-                return self.searchState() == "postponed" || self.searchState() == "working";
+            self.clearQuery = function() {
+                self.oSearchParams.query("");
+            };
+
+            self.onQueryKeyUp = function (data, event) {
+                if (event.keyCode == 27) { //esc
+                    self.clearQuery();
+                }
+            };
+
+            self.hasQuery = ko.computed(function() {
+                return self.oSearchParams.query() && self.oSearchParams.query().length > 0;
             });
             
-            self.searchState.subscribe(function(newVal) {
-                console.log("state:" + newVal);
-            })
+            self.hasPendingSearch = ko.computed(function () {
+                return self.searchState() == "postponed" || self.searchState() == "working";
+            });
 
+            
             // SEARCH            
             pubSub.sub("searchParams.onChange", function() {
                 // if we canceled and continued typing then revive search
