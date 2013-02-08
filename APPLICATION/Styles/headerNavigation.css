@@ -91,6 +91,13 @@ ul.subNavigation li:hover a
 {
     color: #528fc2;
 }
+
+ul.subNavigation li.hr
+{
+    height: 1px;
+    border-top: 1px solid #ebebeb;
+    margin: 3px auto
+}
         
 ul.subNavigation li a div.subnavIcons
 {

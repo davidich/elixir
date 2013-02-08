@@ -14,7 +14,7 @@
         vk: 'Modules/vkWrapper',                                        //<- use this alias for VK Api
         elixir: 'Modules/elixirWrapper',
         jqueryui: 'Libs/jquery-ui-1.10.0',
-        checkbox: 'Libs/custom-form-elements',
+        checkbox: 'Libs/controlCustomization/customControllWrapper',
         scroll: 'Libs/scroll/scrollWraper',
          
         placeHolder: ""
