@@ -140,112 +140,113 @@
                     </div>
                     <div class="searchResult" data-bind="with: oSearchResults">
                         <div class="searchResultInfo">У нас <span data-bind="text: totalCount">10000</span> треков</div>
-                        <!--<div data-bind="foreach: tracks">-->
                         <div>
-                            <!--<div class="trackInfo" data-bind="text: title">-->
-                            <div class="trackInfo">
-                                <div class="resultPlayButton"></div>
-                                <div class="resultaddToPlaylist"></div>
-                                <div class="resultTrackName">Did you get my message?</div>
-                                <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
-                                <div class="resultLikesAmount"><a>1000</a></div>
-                                <div class="resultTrackTime">3:52</div>
-                                <div class="resultBnts">
-                                    <div class="addToFavorit"></div>
-                                    <div class="triangle">
-                                        <div class='dropDownBlock' style="display: none;">
-                                            <div class='dropmenuArrow'></div>
-                                            <ul class='subNavigation'>
-                                                <li><a href='#'>
-                                                        <div class='subnavIcons addTofavorit'></div>
-                                                        Добавить в избранное</a></li>
-                                                <li><a href='#'>
-                                                        <div class='subnavIcons share'></div>
-                                                        Поделиться</a></li>
-                                                <li><a href='#'>
-                                                        <div class='subnavIcons sendToWall'></div>
-                                                        Отправить на стену</a></li>
-                                                <li><a href='#'>
-                                                        <div class='subnavIcons addToPLaylist'></div>
-                                                        Добавить в плейлист</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="trackBlock">
+                            <div data-bind="foreach: items">
                                 <div class="trackInfo">
                                     <div class="resultPlayButton"></div>
                                     <div class="resultaddToPlaylist"></div>
-                                    <div class="resultTrackName">Climax</div>
-                                    <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
-                                    <div class="resultLikesAmount"><a>1000</a></div>
-                                    <div class="resultTrackTime">3:52</div>
+                                    <div class="resultTrackName" data-bind="text: title"></div>
+                                    <div class="resultArtist" data-bind="foreach: artists"><a data-bind="text: name"></a></div>
+                                    <div class="resultLikesAmount"><a data-bind="text: stats().rank"></a></div>
+                                    <div class="resultTrackTime" data-bind="text: time"></div>
                                     <div class="resultBnts">
-                                        <div class="addToFavorit"></div>
-                                        <div class="triangle">
-                                            <div class='dropDownBlock' style="display: none;">
-                                                <div class='dropmenuArrow'></div>
-                                                <ul class='subNavigation'>
-                                                    <li><a href='#'>
-                                                            <div class='subnavIcons addTofavorit'></div>
-                                                            Добавить в избранное</a></li>
-                                                    <li><a href='#'>
-                                                            <div class='subnavIcons share'></div>
-                                                            Поделиться</a></li>
-                                                    <li class="hr"></li>
-                                                    <li><a href='#'>
-                                                            <div class='subnavIcons sendToWall'></div>
-                                                            Отправить на стену</a></li>
-                                                    <li><a href='#'>
-                                                            <div class='subnavIcons addToPLaylist'></div>
-                                                            Добавить в плейлист</a></li>
-                                                </ul>
+                                        <div class="resultBnts">
+                                            <div class="addToFavorit"></div>
+                                            <div class="triangle">
+                                                <div class='dropDownBlock' style="display: none;">
+                                                    <div class='dropmenuArrow'></div>
+                                                    <ul class='subNavigation'>
+                                                        <li><a href='#'>
+                                                                <div class='subnavIcons addTofavorit'></div>
+                                                                Добавить в избранное</a></li>
+                                                        <li><a href='#'>
+                                                                <div class='subnavIcons share'></div>
+                                                                Поделиться</a></li>
+                                                        <li><a href='#'>
+                                                                <div class='subnavIcons sendToWall'></div>
+                                                                Отправить на стену</a></li>
+                                                        <li><a href='#'>
+                                                                <div class='subnavIcons addToPLaylist'></div>
+                                                                Добавить в плейлист</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                                <div class="albumBlock">
-                                    <div class="cover">
-                                        <img src="Images/player/cover100x100.jpg" alt="" />
-                                        <div class="number">1</div>
-                                        <div class="coverHover" style="display: none;">
-                                            <div class="playBtn"></div>
-                                            <div class="playListBtn"></div>
+                                    <div class="trackBlock">
+                                        <div class="trackInfo">
+                                            <div class="resultPlayButton"></div>
+                                            <div class="resultaddToPlaylist"></div>
+                                            <div class="resultTrackName">Climax</div>
+                                            <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
+                                            <div class="resultLikesAmount"><a>1000</a></div>
+                                            <div class="resultTrackTime">3:52</div>
+                                            <div class="resultBnts">
+                                                <div class="addToFavorit"></div>
+                                                <div class="triangle">
+                                                    <div class='dropDownBlock' style="display: none;">
+                                                        <div class='dropmenuArrow'></div>
+                                                        <ul class='subNavigation'>
+                                                            <li><a href='#'>
+                                                                    <div class='subnavIcons addTofavorit'></div>
+                                                                    Добавить в избранное</a></li>
+                                                            <li><a href='#'>
+                                                                    <div class='subnavIcons share'></div>
+                                                                    Поделиться</a></li>
+                                                            <li class="hr"></li>
+                                                            <li><a href='#'>
+                                                                    <div class='subnavIcons sendToWall'></div>
+                                                                    Отправить на стену</a></li>
+                                                            <li><a href='#'>
+                                                                    <div class='subnavIcons addToPLaylist'></div>
+                                                                    Добавить в плейлист</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                        <div class="albumBlock">
+                                            <div class="cover">
+                                                <img src="Images/player/cover100x100.jpg" alt="" />
+                                                <div class="number">1</div>
+                                                <div class="coverHover" style="display: none;">
+                                                    <div class="playBtn"></div>
+                                                    <div class="playListBtn"></div>
+                                                </div>
+                                            </div>
+                                            <div class="albumInfo">
+                                                <div><span>Альбом:</span> <a href="#">Scream</a></div>
+                                                <div><span>Дата:</span> 08.06.2012</div>
+                                                <div><span>Жанр:</span> <a href="#">R&B</a></div>
+                                                <div><span>Стиль:</span ><a href="#">Soul,</a><a href="#">Soul</a></div>
+                                                <div><span>Загрузил:</span> <a href="#">хуй с горы</a></div>
+                                            </div>
+                                            <div class="albumInfoIcos">
+                                                <div class="cameraIcon"></div>
+                                                <div class="playlistaIcon"></div>
+                                                <div style="clear: both;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="trackInfoFooter">
+                                            <div class="leftPart">
+                                                <div class="alsoLikedIco"></div>
+                                                <span>Оценившие этот трек так же оценили: </span>
+                                            </div>
+                                            <div class="rightPart">
+                                                <div class="numberOfTracks">12</div>
+                                                <div class="playBtn"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="albumInfo">
-                                        <div><span>Альбом:</span> <a href="#">Scream</a></div>
-                                        <div><span>Дата:</span> 08.06.2012</div>
-                                        <div><span>Жанр:</span> <a href="#">R&B</a></div>
-                                        <div><span>Стиль:</span ><a href="#">Soul,</a><a href="#">Soul</a></div>
-                                        <div><span>Загрузил:</span> <a href="#">хуй с горы</a></div>
-                                    </div>
-                                    <div class="albumInfoIcos">
-                                        <div class="cameraIcon"></div>
-                                        <div class="playlistaIcon"></div>
-                                        <div style="clear: both;"></div>
-                                    </div>
                                 </div>
-                                <div class="trackInfoFooter">
-                                    <div class="leftPart">
-                                        <div class="alsoLikedIco"></div>
-                                        <span>Оценившие этот трек так же оценили: </span>
-                                    </div>
-                                    <div class="rightPart">
-                                        <div class="numberOfTracks">12</div>
-                                        <div class="playBtn"></div>
-                                    </div>
-                                </div>
-                            </div>
+                           </div>
                         </div>
                     </div>
                 </div>
+                <!--filter block END-->
             </div>
-            <!--filter block END-->
         </div>
-    </div>
     
     <script>
         $(function () {
