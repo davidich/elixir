@@ -13,32 +13,14 @@
         
         // Behavior
         self.onGenreClick = function (genre) {
-            //// update UI
-            //for (var i = 0; i < allGenres.length; i++) {
-            //    var gnr = allGenres[i];
-
-            //    // show clicked and all items
-            //    gnr.isVisible(gnr.id == 0 || clickedGenre.id == gnr.id || clickedGenre.id == 0);
-                
-            //    // make clicked as selected
-            //    gnr.isSelected(gnr.id == clickedGenre.id);
-            //}
-
-            //for (var j = 0; j < clickedGenre.styles.length; j++) {
-            //    var style = clickedGenre.styles[j];
-            //    style.isSelected(false);
-            //}
-            
-            // update model
             searchParam.styleId(0);         // !!!keep this line first
             searchParam.genreId(genre.id);
-
-            console.log("genre seleted: " + genre.name);
+            //console.log("genre seleted: " + genre.name);
         };
 
         self.onStyleClick = function(style) {
             searchParam.styleId(style.id);
-            console.log("style seleted: " + style.name);
+            //console.log("style seleted: " + style.name);
         };
     }
     

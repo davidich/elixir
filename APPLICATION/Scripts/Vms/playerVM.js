@@ -1,5 +1,5 @@
-﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackSearchResults", /*plugins w/o export*/ "jqueryui", "scroll"],
-    function (ko, viewBase, pubSub, Track, TrackSearchResults) {
+﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/SearchResults", /*plugins w/o export*/ "jqueryui", "scroll"],
+    function (ko, viewBase, pubSub, Track, SearchResults) {
         
         // player ui setup
         $('.trackSlider').slider({

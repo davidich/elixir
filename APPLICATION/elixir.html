@@ -103,7 +103,7 @@
         <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
             <!--filter block-->
             <a class="title"><span></span>Music</a>
-            <div class="genreFilterBlock" data-bind="with: $root.searchParams">
+            <div class="genreFilterBlock" data-bind="with: oSearchParams">
                 <ul data-bind="foreach: genreSelector.genres">
                     <li data-bind="slideVisible: isVisible, click: onClick, css: {active: isActive}"><span data-bind="text: name"></span></li>
                     <ul data-bind="foreach: styles, slideVisible: (isSelected() && id != 0)" class="subGenders">
@@ -128,27 +128,26 @@
                 </ul>
                 <div style="clear: both;"></div>
                 <div class="rightContainer">
-                    <div id="rightSearchBlock" data-bind="with: $root.searchParams">
-                        <div class="searchCancel" data-bind="click: $root.cancelSearch, css: { cancel:  $root.searchResults.areLoading }"></div>
+                    <!--with: oSearchParams-->
+                    <div id="rightSearchBlock" data-bind="with: oSearchParams">
+                        <div class="searchCancel" data-bind="click: $root.cancelSearch, css: { cancel:  $root.hasPendingSearch }"></div>
                         <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.search }" />
                         <div class="searchCriterion" data-bind="fancyDrop: searchModes, value: searchModes"></div>
-                        <div class="searchLoader" data-bind="visible: $root.searchResults.areLoading" style="display: none;">
+                        <div class="searchLoader" data-bind="visible: $root.hasPendingSearch" style="display: none;">
                             <img src="./Images/loader.gif" alt="" />
-                        </div>                        
+                        </div>
                         <div style="clear: both;"></div>
                     </div>
-                    <div class="searchResult" data-bind="with: $root.searchResults">
+                    <div class="searchResult" data-bind="with: oSearchResults">
                         <div class="searchResultInfo">У нас <span data-bind="text: totalCount">10000</span> треков</div>
-                        <!--<div data-bind="foreach: tracks">-->
-                        <div>
-                            <!--<div class="trackBlock" data-bind="text: title">-->
+                        <div data-bind="foreach: items">
                             <div class="trackBlock">
                                 <div class="resultPlayButton"></div>
                                 <div class="resultaddToPlaylist"></div>
-                                <div class="resultTrackName">Climax</div>
-                                <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
-                                <div class="resultLikesAmount"><a>1000</a></div>
-                                <div class="resultTrackTime">3:52</div>
+                                <div class="resultTrackName" data-bind="text: title"></div>
+                                <div class="resultArtist" data-bind="foreach: artists"><a data-bind="text: name"></a></div>
+                                <div class="resultLikesAmount"><a data-bind="text: stats().rank"></a></div>
+                                <div class="resultTrackTime" data-bind="text: time"></div>
                                 <div class="resultBnts">
                                     <div class="addToFavorit"></div>
                                     <div class="triangle">
@@ -171,37 +170,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="trackBlock">
-                                <div class="resultPlayButton"></div>
-                                <div class="resultaddToPlaylist"></div>
-                                <div class="resultTrackName">Climax</div>
-                                <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
-                                <div class="resultLikesAmount"><a>1000</a></div>
-                                <div class="resultTrackTime">3:52</div>
-                                <div class="resultBnts">
-                                    <div class="addToFavorit"></div>
-                                    <div class="triangle">
-                                        <div class='dropDownBlock' style="display: none;">
-                                            <div class='dropmenuArrow'></div>
-                                            <ul class='subNavigation'>
-                                                <li><a href='#'>
-                                                    <div class='subnavIcons addTofavorit'></div>
-                                                    Добавить в избранное</a></li>
-                                                <li><a href='#'>
-                                                    <div class='subnavIcons share'></div>
-                                                    Поделиться</a></li>
-                                                <li><a href='#'>
-                                                    <div class='subnavIcons sendToWall'></div>
-                                                    Отправить на стену</a></li>
-                                                <li><a href='#'>
-                                                    <div class='subnavIcons addToPLaylist'></div>
-                                                    Добавить в плейлист</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>
