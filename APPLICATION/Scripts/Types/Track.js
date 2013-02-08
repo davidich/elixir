@@ -44,6 +44,7 @@
 
         self.duration = ko.observable(metadata.duration);
         self.time = ko.observable(toTimeString(metadata.duration));
+        self.stats = ko.observable(metadata.stats);
         
         self.aid = ko.observable(metadata.aid);
         self.ownerId = ko.observable(metadata.ownerId);

@@ -1,15 +1,14 @@
 ﻿define(["ko"], function(ko) {
-    function TrackSearchResults() {
+    function SearchResults() {
         var self = this;
 
         // Data
         self.totalCount = ko.observable(0);
-        self.tracks = ko.observableArray();
-        self.areLoading = ko.observable();
+        self.items = ko.observableArray();
         
         // Behavior
         // nothing yet               
     }
 
-    return TrackSearchResults;
+    return SearchResults;
 })

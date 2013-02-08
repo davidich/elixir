@@ -1,4 +1,4 @@
-﻿define(["ko", "elixir", "Types/FancyDropItem", "Types/GenreSelector"], function (ko, elixir, FancyDropItem, GenreSelector) {
+﻿define(["ko", "pubSub", "elixir", "Types/FancyDropItem", "Types/GenreSelector"], function (ko, pubSub, elixir, FancyDropItem, GenreSelector) {
     
     // Munu items
     var searchModes = [
@@ -20,9 +20,7 @@
         new FancyDropItem("new", "Новинки", /*cssClass*/"new")
     ];
 
-    var genres;
-
-    function TrackSearhParams() {
+    function SearhParams() {
         var self = this;        
 
         // Props
@@ -52,9 +50,21 @@
 
             return unwraped;
         };
+
+        
+        // Set up search triggers
+        function onChange() { pubSub.pub("searchParams.onChange"); }
+        
+        var triggers = ["query", "searchMode", "timeRange", "orderType", "artistId", "genreId", "isHighQuality"];
+        for (var i = 0; i < triggers.length; i++) self[triggers[i]].subscribe(onChange);
+        
+        self.styleId.subscribe(function(newValue) {
+            // ignore 0 values to prevent search duplication
+            // as zero styleId id set only before genre selection
+            // and genreId subsriber will start searh itself
+            if (newValue != 0) onChange();
+        });
     }
     
-
-
-    return TrackSearhParams;
+    return SearhParams;
 })
