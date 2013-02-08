@@ -43,20 +43,20 @@
                             <div class='dropmenuArrow'></div>
                             <ul class='subNavigation'>
                                 <li><a href='#'>
-                                        <div class='subnavIcons allPage'></div>
-                                        Вся страница</a></li>
+                                    <div class='subnavIcons allPage'></div>
+                                    Вся страница</a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons music'></div>
-                                        Музыка</a></li>
+                                    <div class='subnavIcons music'></div>
+                                    Музыка</a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons video'></div>
-                                        Видео</a></li>
+                                    <div class='subnavIcons video'></div>
+                                    Видео</a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons events'></div>
-                                        События</a></li>
+                                    <div class='subnavIcons events'></div>
+                                    События</a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons subscribe'></div>
-                                        Подписки</a></li>
+                                    <div class='subnavIcons subscribe'></div>
+                                    Подписки</a></li>
                             </ul>
                         </div>
                     </li>
@@ -65,22 +65,22 @@
                             <div class='dropmenuArrow'></div>
                             <ul class='subNavigation'>
                                 <li><a href='#'>
-                                        <div class='subnavIcons music'></div>
-                                        Музыка<div class='noticeDot'></div>
-                                    </a></li>
+                                    <div class='subnavIcons music'></div>
+                                    Музыка<div class='noticeDot'></div>
+                                </a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons video'></div>
-                                        Видео</a></li>
+                                    <div class='subnavIcons video'></div>
+                                    Видео</a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons events'></div>
-                                        События</a></li>
+                                    <div class='subnavIcons events'></div>
+                                    События</a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons subscribe'></div>
-                                        Подписки</a></li>
+                                    <div class='subnavIcons subscribe'></div>
+                                    Подписки</a></li>
                                 <li><a href='#'>
-                                        <div class='subnavIcons notice'></div>
-                                        Уведомления<div class='noticeDot'></div>
-                                    </a></li>
+                                    <div class='subnavIcons notice'></div>
+                                    Уведомления<div class='noticeDot'></div>
+                                </a></li>
                             </ul>
                         </div>
                     </li>
@@ -128,7 +128,6 @@
                 </ul>
                 <div style="clear: both;"></div>
                 <div class="rightContainer">
-                    <!--with: oSearchParams-->
                     <div id="rightSearchBlock" data-bind="with: oSearchParams">
                         <div class="searchCancel" data-bind="click: $root.cancelSearch, css: { cancel:  $root.hasPendingSearch }"></div>
                         <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.search }" />
@@ -173,93 +172,95 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="trackBlock">
-                                        <div class="trackInfo">
-                                            <div class="resultPlayButton"></div>
-                                            <div class="resultaddToPlaylist"></div>
-                                            <div class="resultTrackName">Climax</div>
-                                            <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
-                                            <div class="resultLikesAmount"><a>1000</a></div>
-                                            <div class="resultTrackTime">3:52</div>
-                                            <div class="resultBnts">
-                                                <div class="addToFavorit"></div>
-                                                <div class="triangle">
-                                                    <div class='dropDownBlock' style="display: none;">
-                                                        <div class='dropmenuArrow'></div>
-                                                        <ul class='subNavigation'>
-                                                            <li><a href='#'>
-                                                                    <div class='subnavIcons addTofavorit'></div>
-                                                                    Добавить в избранное</a></li>
-                                                            <li><a href='#'>
-                                                                    <div class='subnavIcons share'></div>
-                                                                    Поделиться</a></li>
-                                                            <li class="hr"></li>
-                                                            <li><a href='#'>
-                                                                    <div class='subnavIcons sendToWall'></div>
-                                                                    Отправить на стену</a></li>
-                                                            <li><a href='#'>
-                                                                    <div class='subnavIcons addToPLaylist'></div>
-                                                                    Добавить в плейлист</a></li>
-                                                        </ul>
+                                    <!--<div class="trackBlock">
+                                            <div class="trackInfo">
+                                                <div class="resultPlayButton"></div>
+                                                <div class="resultaddToPlaylist"></div>
+                                                <div class="resultTrackName">Climax</div>
+                                                <div class="resultArtist"><a href="">Usher,</a> <a href="">Usher2</a></div>
+                                                <div class="resultLikesAmount"><a>1000</a></div>
+                                                <div class="resultTrackTime">3:52</div>
+                                                <div class="resultBnts">
+                                                    <div class="addToFavorit"></div>
+                                                    <div class="triangle">
+                                                        <div class='dropDownBlock' style="display: none;">
+                                                            <div class='dropmenuArrow'></div>
+                                                            <ul class='subNavigation'>
+                                                                <li><a href='#'>
+                                                                        <div class='subnavIcons addTofavorit'></div>
+                                                                        Добавить в избранное</a></li>
+                                                                <li><a href='#'>
+                                                                        <div class='subnavIcons share'></div>
+                                                                        Поделиться</a></li>
+                                                                <li class="hr"></li>
+                                                                <li><a href='#'>
+                                                                        <div class='subnavIcons sendToWall'></div>
+                                                                        Отправить на стену</a></li>
+                                                                <li><a href='#'>
+                                                                        <div class='subnavIcons addToPLaylist'></div>
+                                                                        Добавить в плейлист</a></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div style="clear: both;"></div>
-                                        </div>
-                                        <div class="albumBlock">
-                                            <div class="cover">
-                                                <img src="Images/player/cover100x100.jpg" alt="" />
-                                                <div class="number">1</div>
-                                                <div class="coverHover" style="display: none;">
-                                                    <div class="playBtn"></div>
-                                                    <div class="playListBtn"></div>
-                                                </div>
-                                            </div>
-                                            <div class="albumInfo">
-                                                <div><span>Альбом:</span> <a href="#">Scream</a></div>
-                                                <div><span>Дата:</span> 08.06.2012</div>
-                                                <div><span>Жанр:</span> <a href="#">R&B</a></div>
-                                                <div><span>Стиль:</span ><a href="#">Soul,</a><a href="#">Soul</a></div>
-                                                <div><span>Загрузил:</span> <a href="#">хуй с горы</a></div>
-                                            </div>
-                                            <div class="albumInfoIcos">
-                                                <div class="cameraIcon"></div>
-                                                <div class="playlistaIcon"></div>
                                                 <div style="clear: both;"></div>
                                             </div>
-                                        </div>
-                                        <div class="trackInfoFooter">
-                                            <div class="leftPart">
-                                                <div class="alsoLikedIco"></div>
-                                                <span>Оценившие этот трек так же оценили: </span>
+                                            <div class="albumBlock">
+                                                <div class="cover">
+                                                    <img src="Images/player/cover100x100.jpg" alt="" />
+                                                    <div class="number">1</div>
+                                                    <div class="coverHover" style="display: none;">
+                                                        <div class="playBtn"></div>
+                                                        <div class="playListBtn"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="albumInfo">
+                                                    <div><span>Альбом:</span> <a href="#">Scream</a></div>
+                                                    <div><span>Дата:</span> 08.06.2012</div>
+                                                    <div><span>Жанр:</span> <a href="#">R&B</a></div>
+                                                    <div><span>Стиль:</span><a href="#">Soul,</a><a href="#">Soul</a></div>
+                                                    <div><span>Загрузил:</span> <a href="#">хуй с горы</a></div>
+                                                </div>
+                                                <div class="albumInfoIcos">
+                                                    <div class="cameraIcon"></div>
+                                                    <div class="playlistaIcon"></div>
+                                                    <div style="clear: both;"></div>
+                                                </div>
                                             </div>
-                                            <div class="rightPart">
-                                                <div class="numberOfTracks">12</div>
-                                                <div class="playBtn"></div>
+                                            <div class="trackInfoFooter">
+                                                <div class="leftPart">
+                                                    <div class="alsoLikedIco"></div>
+                                                    <span>Оценившие этот трек так же оценили: </span>
+                                                </div>
+                                                <div class="rightPart">
+                                                    <div class="numberOfTracks">12</div>
+                                                    <div class="playBtn"></div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </div>-->
                                 </div>
-                           </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--filter block END-->
+                </div>                
             </div>
+            <!--filter block END-->
         </div>
-    
+        <!--music block END-->
+    </div>
+
     <script>
         $(function () {
             $('.albumBlock .cover').hover(
             function () {
                 $(this).find('.coverHover').animate({
-                        height: 'toggle'
-                    }, {
-                        duration: 600,
-                        specialEasing: {
-                            height: 'easeOutBounce'
-                        }
-                    });
+                    height: 'toggle'
+                }, {
+                    duration: 600,
+                    specialEasing: {
+                        height: 'easeOutBounce'
+                    }
+                });
 
             }, function () {
                 $(this).find('.coverHover').animate({
