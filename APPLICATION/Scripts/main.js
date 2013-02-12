@@ -90,14 +90,17 @@ require(["require-config"], function () {
                 pubSub.pub("componentInited", "vkApi");
             });
 
-            initGenreSelector(function() {
+            initGenreSelector(function () {
                 pubSub.pub("componentInited", "genreSelector");
             });
 
-            initCustomFormElement(function() {
+            initCustomFormElement(function () {
                 pubSub.pub("componentInited", "customFormElement");
             });
-        });        
+        });
+
+        var t = $(document).tooltip();
+        t.tooltip( "open" );
     });
 
     function initVk(onComplete) {
@@ -106,15 +109,15 @@ require(["require-config"], function () {
                 pubSub.pub("componentInited", "vkApi");
             } else {
                 try {
-                    vk.init(function() {
+                    vk.init(function () {
                         window.vk = vk;
                         console.log("vk has finished initialization");
                         onComplete();
-                    }, function() {
+                    }, function () {
                         alert("VK api initialization failed;");
                     });
 
-                } catch(e) {
+                } catch (e) {
                     console.log("Exception in vk.init: " + e);
                     onComplete();
                 }
@@ -151,7 +154,7 @@ require(["require-config"], function () {
 
     function initCustomFormElement(onComplete) {
         require(["domReady", "customFormElem"], function (domReady, customFormElem) {
-            domReady(function() {
+            domReady(function () {
                 customFormElem.init();
                 onComplete();
             });

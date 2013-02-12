@@ -112,9 +112,9 @@
                 </ul>
 
                 <div class="leftSearchfilter">
-                    <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType"></div>
+                    <div id="filterByType" class="filterBLock" data-bind="fancyDrop: orderTypes, value: orderType" title="По дате добавления"></div>
                     <div id="filterByTime" class="filterBLock" data-bind="fancyDrop: timeRanges, value: timeRange"></div>
-                    <div class="hqBlock">
+                    <div class="hqBlock" title="Только высокое качество">
                         <input id="isHqCk" type="checkbox" class="styled" data-bind="checked: isHighQuality" /><label for="isHqCk">HQ</label>
                     </div>
                 </div>
@@ -331,7 +331,9 @@
                     <div class='soundIco mute'></div>
                     <div class='trackVolume'></div>
                 </div>
-                <div class='switchToFullView'></div>
+                <div class="swithViewWrapper">
+                    <div class='switchToFullView' title="Развернуть плеер"></div>
+                </div>
             </div>
             <div class="playerPlaylistBlock">
 

@@ -134,7 +134,7 @@
     background-position: -66px -66px;
     }
 /* full for center */
-.playerMainBlock.fillView .cover, .playerMainBlock.fillView .trackName, .playerMainBlock.fillView .switchToFullView {
+.playerMainBlock.fillView .cover, .playerMainBlock.fillView .trackName, .playerMainBlock.fillView .swithViewWrapper {
     display: none;
 }
 
@@ -278,13 +278,21 @@
     height: 22px;
     float: right;
     background: url(../images/Player/playerBtns.png) -88px -30px no-repeat;
-    margin: 7px 15px 0 0;
+    margin: 7px 16px 0 0;
     cursor: pointer;
     }
 
 .playerMainBlock .switchToFullView:hover
 {
     background-position: -88px -52px;
+    }
+
+.playerMainBlock .swithViewWrapper
+{
+    background: url("../images/player/toggleViewBorder.png") 0 0 no-repeat;
+    width: 45px;
+    height: 38px;
+    float: right;
     }
     
 /* header */

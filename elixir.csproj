@@ -89,11 +89,13 @@
     <Content Include="APPLICATION\Images\player\sliderBgLeft.jpg" />
     <Content Include="APPLICATION\Images\player\sound.png" />
     <Content Include="APPLICATION\Images\player\toggleView.png" />
+    <Content Include="APPLICATION\Images\player\toggleViewBorder.png" />
     <Content Include="APPLICATION\Images\playlist.png" />
     <Content Include="APPLICATION\Images\select.png" />
     <Content Include="APPLICATION\Images\splash\splash.jpg" />
     <Content Include="APPLICATION\Images\splash\splash_load.png" />
     <Content Include="APPLICATION\Images\splash\splash_load_bg.png" />
+    <Content Include="APPLICATION\Images\tooltipBg.jpg" />
     <Content Include="APPLICATION\Images\trackInfoFooterBg.png" />
     <Content Include="APPLICATION\Images\trackPlayBtn.png" />
     <Content Include="APPLICATION\Images\track_hover.jpg" />

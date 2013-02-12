@@ -45,7 +45,7 @@
             $('.playerHeader').animate({
                 height: ['toggle', 'swing'],
                 opacity: 'toggle'
-            }, 200, 'easein');
+            }, 200, 'linear');
 
 
             $('.playerPlaylistBlock').animate({
