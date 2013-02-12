@@ -13,6 +13,7 @@
         vkApiSource: 'http://vk.com/js/api/xd_connection.js?2',
         vk: 'Modules/vkWrapper',                                        //<- use this alias for VK Api
         elixir: 'Modules/elixirWrapper',
+        htmlBuilder: 'Modules/htmlBuilder',
         jqueryui: 'Libs/jquery-ui-1.10.0',
         customFormElem: 'Libs/customFormElements',
         scroll: 'Libs/scroll/scrollWraper',

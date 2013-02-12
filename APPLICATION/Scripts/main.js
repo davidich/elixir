@@ -54,7 +54,7 @@ $.getNamedArray = function (source, collectionName) {
 
 require(["require-config"], function () {
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
-        var componets = ["vkApi", "soundManager", "genreSelector", "customFormElement"];
+        var componets = ["vkApi", "soundManager", "genreSelector", "customFormElement", "html"];
         var componentCount = componets.length;
 
         domReady(function () {
@@ -83,6 +83,10 @@ require(["require-config"], function () {
             });
         });
 
+        initHtml(function() {
+            pubSub.pub("componentInited", "html");
+        });
+        
         initSm(function () {
             pubSub.pub("componentInited", "soundManager");
 
@@ -90,14 +94,14 @@ require(["require-config"], function () {
                 pubSub.pub("componentInited", "vkApi");
             });
 
-            initGenreSelector(function() {
+            initGenreSelector(function () {
                 pubSub.pub("componentInited", "genreSelector");
             });
 
-            initCustomFormElement(function() {
+            initCustomFormElement(function () {
                 pubSub.pub("componentInited", "customFormElement");
             });
-        });        
+        });
     });
 
     function initVk(onComplete) {
@@ -155,6 +159,12 @@ require(["require-config"], function () {
                 customFormElem.init();
                 onComplete();
             });
+        });
+    }
+
+    function initHtml(onComplete) {
+        require(["htmlBuilder"], function(builder) {
+            builder.build(onComplete);
         });
     }
 });

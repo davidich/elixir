@@ -49,6 +49,11 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elixir.html" />
+    <Content Include="APPLICATION\Html\welcome.html" />
+    <Content Include="APPLICATION\Html\player.html" />
+    <Content Include="APPLICATION\Html\tracks.html" />
+    <Content Include="APPLICATION\Html\filter.html" />
+    <Content Include="APPLICATION\Html\header.html" />
     <Content Include="APPLICATION\Images\Add_playlist.png" />
     <Content Include="APPLICATION\Images\alsoLiked.png" />
     <Content Include="APPLICATION\Images\camera.png" />
@@ -117,6 +122,7 @@
     <Content Include="APPLICATION\Scripts\Libs\scroll\scrollWraper.js" />
     <Content Include="APPLICATION\Scripts\Libs\scroll\jquery.mCustomScrollbar.js" />
     <Content Include="APPLICATION\Scripts\Libs\scroll\jquery.mousewheel.min.js" />
+    <Content Include="APPLICATION\Scripts\Modules\htmlBuilder.js" />
     <Content Include="APPLICATION\Scripts\Modules\vkWrapper.js" />
     <Content Include="APPLICATION\Scripts\require-config.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\knockout-2.2.1.debug.js" />
