@@ -54,7 +54,7 @@ $.getNamedArray = function (source, collectionName) {
 
 require(["require-config"], function () {
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
-        var componets = ["vkApi", "soundManager", "genreSelector", "customFormElement"];
+        var componets = ["vkApi", "soundManager", "genreSelector", "customFormElement", "html"];
         var componentCount = componets.length;
 
         domReady(function () {
@@ -83,6 +83,10 @@ require(["require-config"], function () {
             });
         });
 
+        initHtml(function() {
+            pubSub.pub("componentInited", "html");
+        });
+        
         initSm(function () {
             pubSub.pub("componentInited", "soundManager");
 
@@ -98,9 +102,6 @@ require(["require-config"], function () {
                 pubSub.pub("componentInited", "customFormElement");
             });
         });
-
-        var t = $(document).tooltip();
-        t.tooltip( "open" );
     });
 
     function initVk(onComplete) {
@@ -109,15 +110,15 @@ require(["require-config"], function () {
                 pubSub.pub("componentInited", "vkApi");
             } else {
                 try {
-                    vk.init(function () {
+                    vk.init(function() {
                         window.vk = vk;
                         console.log("vk has finished initialization");
                         onComplete();
-                    }, function () {
+                    }, function() {
                         alert("VK api initialization failed;");
                     });
 
-                } catch (e) {
+                } catch(e) {
                     console.log("Exception in vk.init: " + e);
                     onComplete();
                 }
@@ -154,10 +155,16 @@ require(["require-config"], function () {
 
     function initCustomFormElement(onComplete) {
         require(["domReady", "customFormElem"], function (domReady, customFormElem) {
-            domReady(function () {
+            domReady(function() {
                 customFormElem.init();
                 onComplete();
             });
+        });
+    }
+
+    function initHtml(onComplete) {
+        require(["htmlBuilder"], function(builder) {
+            builder.build(onComplete);
         });
     }
 });
