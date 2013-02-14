@@ -26,26 +26,26 @@
     <script>
         $(function () {
             $('.albumBlock .cover').hover(
-            function () {
-                $(this).find('.coverHover').animate({
-                    height: 'toggle'
-                }, {
-                    duration: 600,
-                    specialEasing: {
-                        height: 'easeOutBounce'
-                    }
-                });
+                function () {
+                    $(this).find('.coverHover').animate({
+                            height: 'toggle'
+                        }, {
+                            duration: 600,
+                            specialEasing: {
+                                height: 'easeOutBounce'
+                            }
+                        });
 
-            }, function () {
-                $(this).find('.coverHover').animate({
-                    height: 'toggle'
-                }, {
-                    duration: 300,
-                    specialEasing: {
-                        height: 'linear'
-                    }
+                }, function () {
+                    $(this).find('.coverHover').animate({
+                            height: 'toggle'
+                        }, {
+                            duration: 300,
+                            specialEasing: {
+                                height: 'linear'
+                            }
+                        });
                 });
-            });
         });
     </script>
 </head>
@@ -65,9 +65,11 @@
             <a class="title"><span></span>Music</a>
             <div class="stub filter"></div>
             <div class="stub tracks"></div>
+            <div style="clear: both;"></div>
         </div>
     </div>
 
     <div class="stub player"></div>
+
 </body>
 </html>

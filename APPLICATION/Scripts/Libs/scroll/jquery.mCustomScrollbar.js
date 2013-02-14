@@ -4,6 +4,33 @@ version: 2.3.2
 author: malihu (http://manos.malihu.gr) 
 plugin home: http://manos.malihu.gr/jquery-custom-content-scroller 
 */
+
+(function ($) {
+    var ua = navigator.userAgent.toLowerCase(),
+        match = /(chrome)[ \/]([\w.]+)/.exec(ua) ||
+            /(webkit)[ \/]([\w.]+)/.exec(ua) ||
+            /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) ||
+            /(msie) ([\w.]+)/.exec(ua) ||
+            ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua) || [],
+        browser = match[1] || "",
+        version =  match[2] || "0";
+ 
+    jQuery.browser = {};
+ 
+    if (browser) {
+        jQuery.browser[browser] = true;
+        jQuery.browser.version = version;
+    }
+ 
+    // Chrome is Webkit, but Webkit is also Safari.
+    if (jQuery.browser.chrome) {
+        jQuery.browser.webkit = true;
+    } else if (jQuery.browser.webkit) {
+        jQuery.browser.safari = true;
+    }
+})(jQuery);
+
+
 (function($){
 	var methods={
 		init:function(options){
@@ -404,7 +431,7 @@ plugin home: http://manos.malihu.gr/jquery-custom-content-scroller
 			if($this.data("scrollButtons_enable")){
 				if($this.data("scrollButtons_scrollType")==="pixels"){ /*scroll by pixels*/
 					var pixelsScrollTo;
-					if($.browser.msie && parseInt($.browser.version)<9){ /*stupid ie8*/
+					if(jQuery.browser.msie && parseInt(jQuery.browser.version)<9){ /*stupid ie8*/
 						$this.data("scrollInertia",0);
 					}
 					if($this.data("horizontalScroll")){
@@ -664,7 +691,7 @@ plugin home: http://manos.malihu.gr/jquery-custom-content-scroller
 					thisY=mCSB_container.position().top,
 					posY=Math.round(thisY-targY);
 			}
-			if($.browser.webkit){ /*fix webkit zoom and jquery animate*/
+			if(jQuery.browser.webkit){ /*fix webkit zoom and jquery animate*/
 				var screenCssPixelRatio=(window.outerWidth-8)/window.innerWidth,
 					isZoomed=(screenCssPixelRatio<.98 || screenCssPixelRatio>1.02);
 			}

@@ -38,7 +38,7 @@
                 opacity: 'toggle'
             }, 200, 'linear');
             $('.lockBackground').hide();
-            $('.playerMainBlock').removeClass('fillView');
+            $('.playerBlock').removeClass('fullView');
         });
 
         $('.switchToFullView').click(function () {
@@ -54,7 +54,7 @@
             }, 200, 'linear');
 
             $('.lockBackground').show();
-            $('.playerMainBlock').addClass('fillView');
+            $('.playerBlock').addClass('fullView');
         });
 
         //View Player View Model

@@ -73,15 +73,15 @@
     display: none;
 }
 
-.playerMainBlock.fillView .buttonBlock .repeat
+.playerBlock.fullView .playerMainBlock .buttonBlock .repeat
 {
     display: block;
     background-position: -42px -43px;
     margin-left: 4px;
 }
 
-.playerMainBlock.fillView .buttonBlock .repeat:hover, 
-.playerMainBlock.fillView .buttonBlock .repeating
+.playerBlock.fullView .playerMainBlock .buttonBlock .repeat:hover, 
+.playerBlock.fullView .playerMainBlock .repeating
 {
     background-position: -42px -65px;
     margin-left: 4px;
@@ -99,7 +99,7 @@
     margin-left: 8px;
 }
     
-.playerMainBlock.fillView .buttonBlock .songActions
+.playerBlock.fullView .playerMainBlock .buttonBlock .songActions
 {
     display: none;
 }
@@ -134,11 +134,15 @@
     background-position: -66px -66px;
     }
 /* full for center */
-.playerMainBlock.fillView .cover, .playerMainBlock.fillView .trackName, .playerMainBlock.fillView .swithViewWrapper {
+.playerBlock.fullView .playerMainBlock .cover, 
+.playerBlock.fullView .playerMainBlock .trackName, 
+.playerBlock.fullView .playerMainBlock .swithViewWrapper,
+.playerBlock.fullView .playerMainBlock .switchToFullView
+ {
     display: none;
 }
 
-.playerMainBlock.fillView .centerPart {
+.playerBlock.fullView .playerMainBlock  .centerPart {
     padding: 13px 0 0 15px;
 }
 
@@ -194,17 +198,18 @@
     border-radius: 1px;
 }
 
-.playerMainBlock.fillView .centerPart .trackSlider
+.playerBlock.fullView .playerMainBlock .centerPart .trackSlider
 {
     width: 215px;
 }
 
-.centerPart .trackSlider, .centerPart .trackVolume 
+.centerPart .trackSlider, 
+.centerPart .trackVolume 
 {
     background: url(../Images/Player/sliderBg.jpg) repeat-x;
 }
 
-.playerMainBlock.fillView .centerPart 
+.playerBlock.fullView .playerMainBlock .centerPart 
 {
     width: 345px;
 }
@@ -215,7 +220,8 @@
     background: url(../Images/Player/sliderBgLeft.jpg) center top repeat-x;
 }
     
-.centerPart .trackSlider .ui-slider-handle, .centerPart .trackVolume .ui-slider-handle
+.centerPart .trackSlider .ui-slider-handle, 
+.centerPart .trackVolume .ui-slider-handle
 {
     width: 15px;
     height: 15px;
@@ -250,8 +256,8 @@
     float: left;
     margin-top: 3px;
     }
-    
-.playerMainBlock.fillView .centerPart .soundIco {
+
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco {
     width: 22px;
     height: 22px;
     cursor: pointer;
@@ -260,15 +266,15 @@
     margin: -5px 3px 0 0;
 }
 
-.playerMainBlock.fillView .centerPart .soundIco:hover {
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco:hover {
     background-position: -22px -22px;
 }
 
-.playerMainBlock.fillView .centerPart .soundIco.mute {
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute {
     background: url(../images/Player/sound.png) 0 0 no-repeat;
 }
 
-.playerMainBlock.fillView .centerPart .soundIco.mute:hover {
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute:hover {
     background-position: 0 -22px;
 }
 
@@ -533,8 +539,20 @@
     -moz-box-shadow: 0 1px 2px 0 #fff!important;
     -webkit-box-shadow: 0 1px 2px 0 #fff !important;
     box-shadow: 0 1px 2px 0 #fff!important;
-    margin: 1px 0 auto 3px;
+    margin: 0 0 auto 3px;
     cursor: pointer;
+}
+
+.playerPlaylistBlock .plTrack.playing{
+    background: url('../Images/player/activeSongBg.png');
+}
+
+.playerPlaylistBlock .plTrack.playing:hover{
+    background: url('../Images/player/activeSongBg.png');
+}
+
+.playerPlaylistBlock .plTrack.playing div, .playerPlaylistBlock .plTrack.playing a{
+    color: #fff !important;
 }
 
 .playerPlaylistBlock .plTrack:hover {
@@ -569,7 +587,7 @@
     float: left;
     height: 26px;
     margin: 0 5px;
-    width: 225px;
+    width: 217px;
 }
 
 .playerPlaylistBlock .trackTime {
@@ -583,8 +601,8 @@
     width: 15px;
     height: 15px;
     float: left;
-    background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
-    margin: 5px 0 0 -15px;
+    background: url(../images/Player/headerIcons.png) -22px -14px no-repeat;
+    margin: 5px 0 0 0;
     display: none;
 }
 .lockBackground {

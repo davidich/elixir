@@ -81,6 +81,7 @@
     <Content Include="APPLICATION\Images\navigation\people.png" />
     <Content Include="APPLICATION\Images\navigation\video.png" />
     <Content Include="APPLICATION\Images\note.png" />
+    <Content Include="APPLICATION\Images\player\activeSongBg.png" />
     <Content Include="APPLICATION\Images\player\cover.jpg" />
     <Content Include="APPLICATION\Images\player\cover100x100.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />
