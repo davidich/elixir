@@ -239,7 +239,7 @@
 
 .playerBlock.fullView .playerMainBlock .centerPart 
 {
-    width: 345px;
+    width: 348px;
 }
 
     
@@ -269,12 +269,15 @@
 
 .centerPart .trackTimer 
 {
-    width: 40px;
+    width: 35px;
     height: 14px;
     font-size: 9px;
     color: #777;
     float: left;
-    margin: -2px 0 0 5px;
+    margin: -1px 0 0 5px;
+    padding-right: 10px;
+    cursor: pointer;
+    text-align: right;
 }   
 
 .centerPart .trackVolume
@@ -291,7 +294,7 @@
     cursor: pointer;
     background: url(../images/Player/sound.png) -22px 0 no-repeat;
     float: left;
-    margin: -5px 3px 0 0;
+    margin: -5px 3px 0 -3px;
 }
 
 .playerBlock.fullView .playerMainBlock .centerPart .soundIco:hover {
@@ -551,6 +554,11 @@
 }
 
 .playlistHeader .playlistHeaderButtons div.shuffle:hover
+{
+    background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
+}
+
+.playlistHeader .playlistHeaderButtons div.shuffle.active
 {
     background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
 }

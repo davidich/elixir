@@ -1,14 +1,8 @@
-﻿<div class="rightBlock">
-    <ul class="tabNavigation">
-        <li><a href="#" class="active">Треки</a></li>
-        <li><a href="#">Альбомы</a></li>
-        <li><a href="#">Плейлисты</a></li>
-    </ul>
-    <div style="clear: both;"></div>
+﻿<div class="tracksBlock">
     <div class="rightContainer">
-        <div id="rightSearchBlock" data-bind="with: oSearchParams">
+        <div class="rightSearchBlock" data-bind="with: oSearchParams">
             <div class="searchCancel" data-bind="click: $root.clearQuery, css: { cancel:  $root.hasQuery }"></div>
-            <input id="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.onQueryKeyUp }" />
+            <input class="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.onQueryKeyUp }" />
             <div class="searchCriterion" data-bind="fancyDrop: searchModes, value: searchModes"></div>
             <div class="searchLoader" data-bind="visible: $root.hasPendingSearch" style="display: none;">
                 <img src="./Images/loader.gif" alt="" />

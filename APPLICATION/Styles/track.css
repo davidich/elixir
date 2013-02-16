@@ -20,14 +20,14 @@
     margin: 12px 12px 0 0;
 }
 
-.trackBlock .albumBlock {
+.albumBlock {
     height: 135px;
     text-align: left;
     padding: 12px 12px 0 12px;
     border-bottom: 1px solid #ebebeb;
 }
 
-.trackBlock .albumBlock .cover {
+.albumBlock .cover {
     float: left;
     width: 114px;
     height: 111px;
@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.trackBlock .albumBlock .cover .number{
+.albumBlock .cover .number{
     background: url(../images/coverNumberBg.png);
     width: 29px;
     height: 19px;
@@ -50,62 +50,55 @@
     text-align: center;
 }
 
-.trackBlock .albumBlock .cover .coverHover {
+.albumBlock .cover .coverHover {
     width: 76px;
     height: 35px;
     background: url(../images/cover_hover.png) 0 0 no-repeat;
     position: relative;
     margin: -20px 0 0 -4px;
     padding: 4px 16px 0 16px;
-/*
-    -webkit-transition: all 0.1s ease-out;
-    -moz-transition: all 0.1s ease-out;
-    -o-transition: all 0.1s ease-out;
-    -ms-transition: all 0.1s ease-out;
-    transition: all 0.1s linear;
-*/
 }
 
-.trackBlock .albumBlock .cover .coverHover .playBtn{
+.albumBlock .cover .coverHover .playBtn{
     width: 30px;
     height: 30px;
     background: url(../images/coverHoverPlay.png) 0 -30px no-repeat;
     float: left;
 }
 
-.trackBlock .albumBlock .cover .coverHover .playBtn:hover {
+.albumBlock .cover .coverHover .playBtn:hover {
     background-position: 0 0;
 }
 
-.trackBlock .albumBlock .cover .coverHover .playListBtn {
+.albumBlock .cover .coverHover .playListBtn {
     width: 30px;
     height: 30px;
     background: url(../images/coverHoverPlaylist.png) 0 -30px no-repeat;
     float: right;
 }
 
-.trackBlock .albumBlock .cover .coverHover .playListBtn:hover {
+.albumBlock .cover .coverHover .playListBtn:hover {
     background-position: 0 0;
 }
 
-.trackBlock .albumBlock .albumInfo {
+.albumBlock .albumInfo {
     float: left;
     overflow: hidden;
     width: 355px;
     cursor: default;
 }
 
-.trackBlock .albumBlock .albumInfo div {
+.albumBlock .albumInfo div {
     color: #b3b3b3;
     line-height: 20px;
 }
 
-.trackBlock .albumBlock .albumInfoIcos {
+.albumBlock .albumInfoIcos {
     float: right;
     width: 35px;
 }
 
-.trackBlock .albumBlock .albumInfoIcos .cameraIcon {
+.albumBlock .albumInfoIcos .cameraIcon {
     float: left;
     width: 15px;
     height: 15px;
@@ -114,11 +107,11 @@
     cursor: pointer;
 }
 
-.trackBlock .albumBlock .albumInfoIcos .cameraIcon:hover{
+.albumBlock .albumInfoIcos .cameraIcon:hover{
     background-position: 0 -15px;
 }
 
-.trackBlock .albumBlock .albumInfoIcos .playlistaIcon{
+.albumBlock .albumInfoIcos .playlistaIcon{
     float: right;
     width: 15px;
     height: 15px;
@@ -126,7 +119,7 @@
     cursor: pointer;
 }
 
-.trackBlock .albumBlock .albumInfoIcos .playlistaIcon:hover{
+.albumBlock .albumInfoIcos .playlistaIcon:hover{
     background-position: 0 -15px;
 }
 

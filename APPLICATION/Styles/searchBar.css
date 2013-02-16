@@ -1,10 +1,10 @@
-﻿.rightBlock #rightSearchBlock
+﻿.rightSearchBlock
 {
     text-align: left;
     position: relative;
 }
 
-.rightBlock #rightSearchBlock #searchBar 
+.rightSearchBlock .searchBar 
 {
     width: 410px;
     height: 20px;
@@ -18,14 +18,14 @@
 }
 
 
-.rightBlock  #rightSearchBlock .searchLoader {
+.rightSearchBlock .searchLoader {
     position: absolute;
     top: 5px;
     left: 400px;
     /*display: none;*/
 }
 
-.rightBlock #rightSearchBlock .searchCriterion {
+.rightSearchBlock .searchCriterion {
     float: right;
     cursor: pointer;
     line-height: 20px;
@@ -34,7 +34,7 @@
     position: relative;
 }
 
-.rightBlock #rightSearchBlock .searchCriterion div.triangleblock {
+.rightSearchBlock .searchCriterion div.triangleblock {
     width: 15px;
     height: 15px;
     margin-top: 3px;
@@ -43,28 +43,28 @@
     padding-left: 5px;
 }
 
-.rightBlock #rightSearchBlock .searchCriterion .dropDownBlock{
+.rightSearchBlock .searchCriterion .dropDownBlock{
     margin-top: -15px;
     right: -10px
 }
 
-#rightSearchBlock .searchCriterion .dropDownBlock .dropmenuArrow {
+.rightSearchBlock .searchCriterion .dropDownBlock .dropmenuArrow {
     left: 101px;
 }
 
-.rightBlock #rightSearchBlock .searchCriterion:hover div.triangle {
+.rightSearchBlock .searchCriterion:hover div.triangle {
     background-position: 0 -15px;
 }
 
-.rightBlock #rightSearchBlock .searchCriterion:hover {
+.rightSearchBlock .searchCriterion:hover {
     color: #bfbfbf;
 }
 
-.rightBlock #rightSearchBlock .searchCriterion  {
+.rightSearchBlock .searchCriterion  {
     color: #bfbfbf;
 }
 
-#searchBar.cancel .searchLoader{
+.searchBar.cancel .searchLoader{
     display: block;
 }
 
@@ -81,6 +81,6 @@
     background-position: 4px -23px !important;
 }
 
-#rightSearchBlock .searchCriterion:hover .dropDownBlock {
+.rightSearchBlock .searchCriterion:hover .dropDownBlock {
     display: block;
 }

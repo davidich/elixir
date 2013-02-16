@@ -50,6 +50,7 @@
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elixir.html" />
     <Content Include="APPLICATION\Html\albums.html" />
+    <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
     <Content Include="APPLICATION\Html\welcome.html" />
     <Content Include="APPLICATION\Html\player.html" />
@@ -174,6 +175,7 @@
     <Content Include="APPLICATION\Styles\scroll.css" />
     <Content Include="APPLICATION\Styles\searchBar.css" />
     <Content Include="APPLICATION\Styles\splash.css" />
+    <Content Include="APPLICATION\Styles\tabNavigation.css" />
     <Content Include="APPLICATION\Styles\track.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\styles.css" />
