@@ -162,6 +162,7 @@
     <Content Include="APPLICATION\Scripts\Vms\mainVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\playerVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\viewBase.js" />
+    <Content Include="APPLICATION\Styles\albums.css" />
     <Content Include="APPLICATION\Styles\cssreset-min.css" />
     <Content Include="APPLICATION\Styles\checkbox.css" />
     <Content Include="APPLICATION\Styles\genreNavigation.css" />
