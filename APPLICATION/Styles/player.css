@@ -96,7 +96,7 @@
 .playerBlock.fullView .playerMainBlock .buttonBlock .repeat
 {
     display: block;
-    background-position: -42px -43px;
+    background: url(../Images/player/playerBtns.png) -42px -43px no-repeat;
     margin-left: 4px;
 }
 
