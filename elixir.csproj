@@ -73,7 +73,6 @@
     <Content Include="APPLICATION\Images\loader.gif" />
     <Content Include="APPLICATION\Images\logo.png" />
     <Content Include="APPLICATION\Images\magnifier.png" />
-    <Content Include="APPLICATION\Images\mainBgCenter.png" />
     <Content Include="APPLICATION\Images\main_bg.jpg" />
     <Content Include="APPLICATION\Images\musicFilterIco.png" />
     <Content Include="APPLICATION\Images\navigation\events.png" />

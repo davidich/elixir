@@ -115,7 +115,7 @@ input.styled { display: none; }
         }
 
 /* Right block */
-.rightBlock {
+.rightBlock, .trackBlock {
     width: 560px;
     height: auto;
     float: right;
