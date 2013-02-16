@@ -49,6 +49,8 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elixir.html" />
+    <Content Include="APPLICATION\Html\albums.html" />
+    <Content Include="APPLICATION\Html\track.html" />
     <Content Include="APPLICATION\Html\welcome.html" />
     <Content Include="APPLICATION\Html\player.html" />
     <Content Include="APPLICATION\Html\tracks.html" />
@@ -56,6 +58,8 @@
     <Content Include="APPLICATION\Html\header.html" />
     <Content Include="APPLICATION\Images\Add_playlist.png" />
     <Content Include="APPLICATION\Images\alsoLiked.png" />
+    <Content Include="APPLICATION\Images\arrowDown.png" />
+    <Content Include="APPLICATION\Images\arrowUp.png" />
     <Content Include="APPLICATION\Images\camera.png" />
     <Content Include="APPLICATION\Images\checkbox.png" />
     <Content Include="APPLICATION\Images\coverHoverPlay.png" />
@@ -69,6 +73,7 @@
     <Content Include="APPLICATION\Images\loader.gif" />
     <Content Include="APPLICATION\Images\logo.png" />
     <Content Include="APPLICATION\Images\magnifier.png" />
+    <Content Include="APPLICATION\Images\mainBgCenter.png" />
     <Content Include="APPLICATION\Images\main_bg.jpg" />
     <Content Include="APPLICATION\Images\musicFilterIco.png" />
     <Content Include="APPLICATION\Images\navigation\events.png" />
@@ -81,7 +86,9 @@
     <Content Include="APPLICATION\Images\navigation\people.png" />
     <Content Include="APPLICATION\Images\navigation\video.png" />
     <Content Include="APPLICATION\Images\note.png" />
+    <Content Include="APPLICATION\Images\note1.png" />
     <Content Include="APPLICATION\Images\player\activeSongBg.png" />
+    <Content Include="APPLICATION\Images\player\btnPartition.png" />
     <Content Include="APPLICATION\Images\player\cover.jpg" />
     <Content Include="APPLICATION\Images\player\cover100x100.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />
@@ -89,6 +96,7 @@
     <Content Include="APPLICATION\Images\player\header.png" />
     <Content Include="APPLICATION\Images\player\headerIcons.png" />
     <Content Include="APPLICATION\Images\player\playerBtns.png" />
+    <Content Include="APPLICATION\Images\player\playerBtnsV2.png" />
     <Content Include="APPLICATION\Images\player\player_bg.png" />
     <Content Include="APPLICATION\Images\player\playList.png" />
     <Content Include="APPLICATION\Images\player\sliderBg.jpg" />
@@ -167,6 +175,7 @@
     <Content Include="APPLICATION\Styles\scroll.css" />
     <Content Include="APPLICATION\Styles\searchBar.css" />
     <Content Include="APPLICATION\Styles\splash.css" />
+    <Content Include="APPLICATION\Styles\track.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\styles.css" />
     <Content Include="index.html" />
@@ -253,6 +262,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
