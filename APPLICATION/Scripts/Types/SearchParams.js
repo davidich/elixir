@@ -24,7 +24,7 @@
         var self = this;        
 
         // Props
-        self.query = ko.observable();
+        self.query = ko.observable("");
         self.searchMode = ko.observable("all");
         self.timeRange = ko.observable("all");
         self.orderType = ko.observable("popular");
@@ -55,15 +55,8 @@
         // Set up search triggers
         function onChange() { pubSub.pub("searchParams.onChange"); }
         
-        var triggers = ["query", "searchMode", "timeRange", "orderType", "artistId", "genreId", "isHighQuality"];
-        for (var i = 0; i < triggers.length; i++) self[triggers[i]].subscribe(onChange);
-        
-        self.styleId.subscribe(function(newValue) {
-            // ignore 0 values to prevent search duplication
-            // as zero styleId id set only before genre selection
-            // and genreId subsriber will start searh itself
-            if (newValue != 0) onChange();
-        });
+        var triggers = ["query", "searchMode", "timeRange", "orderType", "artistId", "genreId", "styleId", "isHighQuality"];
+        for (var i = 0; i < triggers.length; i++) self[triggers[i]].subscribe(onChange);               
     }
     
     return SearhParams;

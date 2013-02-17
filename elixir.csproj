@@ -49,6 +49,7 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elixir.html" />
+    <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
@@ -58,6 +59,12 @@
     <Content Include="APPLICATION\Html\filter.html" />
     <Content Include="APPLICATION\Html\header.html" />
     <Content Include="APPLICATION\Images\Add_playlist.png" />
+    <Content Include="APPLICATION\Images\album\albumCoverHover.png" />
+    <Content Include="APPLICATION\Images\album\albumCoverHoverAddBtn.png" />
+    <Content Include="APPLICATION\Images\album\albumCoverHoverPLayBtn.png" />
+    <Content Include="APPLICATION\Images\album\albumLikeBig.png" />
+    <Content Include="APPLICATION\Images\album\albumLikeBigHover.png" />
+    <Content Include="APPLICATION\Images\album\CoverBorder.png" />
     <Content Include="APPLICATION\Images\alsoLiked.png" />
     <Content Include="APPLICATION\Images\arrowDown.png" />
     <Content Include="APPLICATION\Images\arrowUp.png" />
@@ -69,7 +76,9 @@
     <Content Include="APPLICATION\Images\cover_hover.png" />
     <Content Include="APPLICATION\Images\dropdownblock_arrow.png" />
     <Content Include="APPLICATION\Images\dropdownblock_bg.jpg" />
+    <Content Include="APPLICATION\Images\folderIcon.png" />
     <Content Include="APPLICATION\Images\header_bg.jpg" />
+    <Content Include="APPLICATION\Images\headingRow.png" />
     <Content Include="APPLICATION\Images\hr_ganre.png" />
     <Content Include="APPLICATION\Images\loader.gif" />
     <Content Include="APPLICATION\Images\logo.png" />
@@ -91,12 +100,12 @@
     <Content Include="APPLICATION\Images\note1.png" />
     <Content Include="APPLICATION\Images\player\activeSongBg.png" />
     <Content Include="APPLICATION\Images\player\btnPartition.png" />
-    <Content Include="APPLICATION\Images\player\cover.jpg" />
-    <Content Include="APPLICATION\Images\player\cover100x100.jpg" />
+    <Content Include="APPLICATION\Images\tempImages\cover35x35.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />
     <Content Include="APPLICATION\Images\player\handle.png" />
     <Content Include="APPLICATION\Images\player\header.png" />
     <Content Include="APPLICATION\Images\player\headerIcons.png" />
+    <Content Include="APPLICATION\Images\player\mute.png" />
     <Content Include="APPLICATION\Images\player\playerBtns.png" />
     <Content Include="APPLICATION\Images\player\playerBtnsV2.png" />
     <Content Include="APPLICATION\Images\player\player_bg.png" />
@@ -111,8 +120,9 @@
     <Content Include="APPLICATION\Images\splash\splash.jpg" />
     <Content Include="APPLICATION\Images\splash\splash_load.png" />
     <Content Include="APPLICATION\Images\splash\splash_load_bg.png" />
+    <Content Include="APPLICATION\Images\tempImages\albumCover322x322.jpg" />
+    <Content Include="APPLICATION\Images\tempImages\cover100x100.jpg" />
     <Content Include="APPLICATION\Images\tooltipBg.jpg" />
-    <Content Include="APPLICATION\Images\trackInfoFooterBg.png" />
     <Content Include="APPLICATION\Images\trackPlayBtn.png" />
     <Content Include="APPLICATION\Images\track_hover.jpg" />
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
@@ -164,6 +174,7 @@
     <Content Include="APPLICATION\Scripts\Vms\mainVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\playerVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\viewBase.js" />
+    <Content Include="APPLICATION\Styles\album.css" />
     <Content Include="APPLICATION\Styles\albums.css" />
     <Content Include="APPLICATION\Styles\cssreset-min.css" />
     <Content Include="APPLICATION\Styles\checkbox.css" />

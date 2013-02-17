@@ -1,10 +1,4 @@
-﻿define(["ko"], function (ko) {
-
-    function toTimeString(duration) {
-        var mins = parseInt(duration / 60);
-        var secs = duration % 60;
-        return mins + ":" + (secs < 10 ? "0" + secs : secs);
-    }
+﻿define(["ko", "pubSub", "Types/TrackForPlayer"], function (ko, pubSub, TrackForPlayer) {
 
     function Track(metadata, url) {
         var self = this;
@@ -37,24 +31,45 @@
          */
 
         // Properties
-        self.id = ko.observable(metadata.id);        
-        self.artists = ko.observableArray($.getNamedArray(metadata, "artists"));
-        self.title = ko.observable(metadata.name);
-        self.album = ko.observable(metadata.album);
+        self.id = "id_" + metadata.id;
+        self.title = metadata.name;
+        self.album = metadata.album;
+        self.artists = $.getNamedArray(metadata, "artists");
+        self.styles = $.getNamedArray(metadata, "styles");
 
-        self.duration = ko.observable(metadata.duration);
-        self.time = ko.observable(toTimeString(metadata.duration));
-        self.stats = ko.observable(metadata.stats);
+        self.duration = metadata.duration;
+        self.time = Track.toTimeString(metadata.duration);
+        self.stats = metadata.stats;
         
-        self.aid = ko.observable(metadata.aid);
-        self.ownerId = ko.observable(metadata.ownerId);
-        self.url = ko.observable(url);
-        
+        self.aid = metadata.aid;
+        self.ownerId = metadata.ownerId;
+        self.url = url;
+
+        self.isAdded = ko.computed(function() {
+            var addedTracks = global.player.tracks();
+            var match = $.grep(addedTracks, function (elem) {
+                return self.id == elem.id;
+            });
+
+            return match.length > 0;
+
+        });
 
         // Behavior
+        self.addToStart = function(track) {
+            pubSub.pub("track.addToStart", new TrackForPlayer(track));
+        };
         
-        
+        self.addToEnd = function (track) {
+            pubSub.pub("track.addToEnd", new TrackForPlayer(track));
+        };
     }
 
+    Track.toTimeString = function(durationInSecs) {
+        var mins = parseInt(durationInSecs / 60);
+        var secs = parseInt(durationInSecs % 60);
+        return mins + ":" + (secs < 10 ? "0" + secs : secs);
+    };
+    
     return Track;
 })

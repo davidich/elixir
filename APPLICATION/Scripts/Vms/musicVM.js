@@ -39,25 +39,34 @@
                 return self.searchState() == "postponed" || self.searchState() == "working";
             });
 
-            
-            // SEARCH            
-            pubSub.sub("searchParams.onChange", function() {
+            // SEARCH
+            self.search = function (immediate) {
                 // if we canceled and continued typing then revive search
                 if (self.searchState() == "canceled") {
                     self.searchState("postponed");
                     return;
                 }
-                    
+
                 // if search is already postponed then just return
                 if (self.searchState() == "postponed")
                     return;
-                
+
                 // for idle, work => postpone new search
-                setTimeout(startSearch, 1000);
-                self.searchState("postponed");
+                if (immediate)
+                    startSearch();
+                else {
+                    setTimeout(startSearch, 1000);
+                    self.searchState("postponed");
+                }                
+            };
+            
+            pubSub.sub("searchParams.onChange", function() {
+                self.search();
             });
             
             pubSub.sub("searchCommand.onComplete", function (error) {
+                console.timeEnd("search time took");
+
                 // show error if we have some
                 if (error) console.error(error);
 
@@ -66,6 +75,8 @@
             });
             
             function startSearch() {
+                console.log("searchStarted");
+                console.time("search time took");
                 // check if results are still needed
                 if (self.searchState() == "canceled") {
                     self.searchState("idle");
@@ -76,7 +87,7 @@
                 if (searchCommand) searchCommand.cancel();
                 
                 // we get here => we need to work
-                self.searchState("work");
+                self.searchState("working");
                 searchCommand = new SearchCommand(self.oSearchParams, self.oSearchResults);
             }
             

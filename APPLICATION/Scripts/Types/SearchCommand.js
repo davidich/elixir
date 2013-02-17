@@ -13,22 +13,26 @@
         self.cancel = function () {
             isCanceled = true;
         };
-        
-
 
         // Process request       
         try {
+            console.time("elexir search time took");
             elixir.getTracksMetadata(params, function (metadata) {
+                console.timeEnd("elexir search time took");
+
                 // are results still needed? is that what we are waiting for
                 if (isCanceled) return;
-                
+
                 // do we have any searchResults?
                 if (metadata.totalResults == 0) {
                     onComplete(metadata.totalResults);
                     return;
                 }
 
+                console.time("vk search time took");
                 vk.constructTracks(metadata, function (aTracks) {
+                    console.timeEnd("vk search time took");
+
                     // are results still needed?
                     if (isCanceled) return;
 
@@ -44,11 +48,11 @@
         } catch (e) {
             onComplete(0, e);
         }
-                
-        function onComplete(totalCount, error) {            
+
+        function onComplete(totalCount, error) {
             outResults.totalCount(totalCount);
             console.log("searchCommand.onComplete: " + query);
-            pubSub.pub("searchCommand.onComplete", error);            
+            pubSub.pub("searchCommand.onComplete", error);
         }
     }
 

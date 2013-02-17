@@ -13,9 +13,13 @@
     var $playerBlock = $("#playerContent");
     ko.applyBindings(playerVM, $playerBlock.get(0));
 
+    global.player = playerVM;
+
     // set main as active view
     //pubSub.pub("viewChanged", "main");
+    musicVM.search(true);   //do initial search with empty params
     pubSub.pub("viewChanged", "music");
+    
 
     
     $("#playPause").click(function () {

@@ -30,7 +30,7 @@ if (showConsoleLog) {
     };
 }
 
-window.console.error = window.console.log;
+//window.console.error = window.console.log;
 
 
 // place to keep some global values (I doubt we'll need it but let's have it for now)
@@ -127,7 +127,7 @@ require(["require-config"], function () {
     }
 
     function initSm(onComplete) {
-        require(["soundmanager2"], function (soundManager) {
+        require(["soundManager"], function () {
             console.log("sm module loaded");
             try {
                 soundManager.setup({
@@ -135,14 +135,11 @@ require(["require-config"], function () {
                     url: 'Scripts/Libs/soundmanager/swfs/reg/',
                     allowScriptAccess: "always", //"sameDomain",
                     onready: function () {
-                        window.sm = soundManager;
-                        console.log("sm has finished initialization");
                         onComplete();
                     }
                 });
-            } catch (e) {
-                console.log("Exception in sm.setup: " + e);
-                onComplete();
+            } catch (e) {                
+                console.error("Exception in sm.setup: " + e);
             }
         });
     }
