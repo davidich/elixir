@@ -210,6 +210,12 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             self.position(parseInt(positionInSecs));
         };
 
+        self.clearPlaylist = function() {
+            stop();
+            self.tracks.removeAll();
+            self.track(null);
+        };
+
 
         // EVENTS
         pubSub.sub("track.addToStart", function (track) {
@@ -259,7 +265,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             self.state("stoped");
             if (!self.track()) return;
 
-            soundManager.stopAll();
+            soundManager.stopAll();            
             refreshSliderLength();
         }
 
