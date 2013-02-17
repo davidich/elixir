@@ -141,6 +141,8 @@
     <Content Include="APPLICATION\Scripts\Libs\Plupload.js" />
     <Content Include="APPLICATION\Scripts\Libs\pubSub.js" />
     <Content Include="APPLICATION\Scripts\require-jquery.js" />
+    <Content Include="APPLICATION\Scripts\Types\SequenceMananager.js" />
+    <Content Include="APPLICATION\Scripts\Types\TrackForPlayer.js" />
     <Content Include="APPLICATION\Scripts\Types\GenreSelector.js" />
     <Content Include="APPLICATION\Scripts\Types\FancyDropItem.js" />
     <Content Include="APPLICATION\Scripts\Types\Genre.js" />

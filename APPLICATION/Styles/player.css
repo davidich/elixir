@@ -537,6 +537,10 @@
     cursor: pointer;
 }
 
+.playerPlaylistBlock .plTrack.current {
+    background: #c0c0c0;
+}
+
 .playerPlaylistBlock .plTrack:hover {
     background: #f0f0f0;
     border-bottom: 1px solid #e3e3e3;

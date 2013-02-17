@@ -24,7 +24,7 @@
         var self = this;        
 
         // Props
-        self.query = ko.observable();
+        self.query = ko.observable("");
         self.searchMode = ko.observable("all");
         self.timeRange = ko.observable("all");
         self.orderType = ko.observable("popular");
