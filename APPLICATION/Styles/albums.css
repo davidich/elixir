@@ -39,13 +39,13 @@
 }
 
 .albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock.albumDropListShist {
-    margin-left: -90px;
+    margin-left: -150px;
     margin-top: 40px;
-    width: 100px;
+    width: 160px;
 }
 
-.albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock.albumDropListShist .dropmenuArrow{
-    left: 88px;
+.albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock.albumDropListShist .dropmenuArrow {
+    left: 148px;
 }
 
 .albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock .subnavIcons {
@@ -56,11 +56,18 @@
     background: url("../Images/player/headerIcons.png") 0 0 no-repeat;
 }
 
-
 .albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock .subnavIcons.likeIt {
     background-position: -37px 0;
 }
 
-.albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock a:hover .subnavIcons.likeIt  {
+.albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock a:hover .likeIt  {
     background-position: -37px -15px;
+}
+
+.albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock .subnavIcons.addToFavorite {
+    background: url(../images/Player/playerBtns.png) -25px -47px no-repeat;
+}
+
+.albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock a:hover .addToFavorite  {
+    background-position: -25px -69px;
 }

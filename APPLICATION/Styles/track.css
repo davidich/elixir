@@ -13,11 +13,7 @@
 }
 
 .trackBlock .trackInfoHeader .icon{
-    width: 15px;
-    height: 15px;
     background: url(../Images/note1.png) 0 0 no-repeat;
-    float: left;
-    margin: 12px 12px 0 0;
 }
 
 .albumBlock {
@@ -88,6 +84,10 @@
     cursor: default;
 }
 
+.albumBlock .albumInfo span{
+    color:#3c79ab;
+}
+
 .albumBlock .albumInfo div {
     color: #b3b3b3;
     line-height: 20px;
@@ -121,17 +121,6 @@
 
 .albumBlock .albumInfoIcos .playlistaIcon:hover{
     background-position: 0 -15px;
-}
-
-.trackBlock .trackInfoFooter, .trackBlock .trackInfoHeader
-{
-    height: 38px;
-    background: url(../images/trackInfoFooterBg.png) center top no-repeat;
-    margin: -3px auto -2px auto;
-    text-align: left;
-    line-height: 38px;
-    color: #b3b3b3;
-    padding: 0 13px;
 }
 
 .trackBlock .trackInfoFooter .leftPart

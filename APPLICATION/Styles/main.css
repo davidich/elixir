@@ -7,6 +7,7 @@ body
 a {
     text-decoration: none;
     color: #3c79ab;
+    cursor: pointer;
 }
 
 a:hover {
@@ -116,14 +117,16 @@ input.styled { display: none; }
 
 /* Right block */
 .tracksBlock, .trackBlock, 
-.albumsBLock {
+.albumsBLock, .fullAlbumInfoBlock {
     width: 560px;
     height: auto;
     float: right;
     margin-right: 20px;
 }
 
-.tracksBlock .rightContainer, .albumsBLock .rightContainer  {
+.tracksBlock .rightContainer, 
+.albumsBLock .rightContainer,
+.fullAlbumInfoBlock .rightContainer  {
     border: 1px solid #fff;
     width: 560px;
     height: auto;
@@ -154,4 +157,19 @@ body .ui-tooltip {
     border-width: 1px !important;
 }
 
-  
+.headingRow {
+    height: 38px;
+    background: url(../images/headingRow.png) center top no-repeat;
+    margin: -3px auto -2px auto;
+    text-align: left;
+    line-height: 38px;
+    color: #b3b3b3;
+    padding: 0 13px;
+}
+
+.headingRow .icon {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 12px 12px 0 0;
+}

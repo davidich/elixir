@@ -1,0 +1,83 @@
+﻿.fullAlbumInfoBlock .albumInfoHeader .icon {
+    background: url(../Images/folderIcon.png) no-repeat;
+}
+
+.fullAlbumInfoBlock .albumLikeArea {
+    width: 125px;
+    height: 62px;
+    top: 2px;
+    left: -125px;
+    background: url(../Images/album/albumLikeBig.png) no-repeat;
+    margin: 0 0 -62px auto;
+    position: relative;
+    z-index: 300;
+}
+
+.fullAlbumInfoBlock .albumLikeArea:hover {
+    background: url(../Images/album/albumLikeBigHover.png) no-repeat;
+}
+
+.fullAlbumInfoBlock .albumCover {
+    width: 376px;
+    height: 349px;
+    margin: 20px auto;
+    background: url(../Images/album/CoverBorder.png) 0 0 no-repeat;
+    cursor: pointer;
+
+}
+
+.fullAlbumInfoBlock .albumCover img {
+    margin:  1px 0 0 27px;
+    position: relative;
+    z-index: 200;
+    border: 1px solid #fcfcfc;
+}
+
+.fullAlbumInfoBlock .albumCover .albumCoverHover {
+    width: 320px;
+    height: 101px;
+    background: url(../Images/album/albumCoverHover.png) center top no-repeat;
+    margin: -101px auto 0 auto;
+    position: relative;
+    z-index: 300;
+}
+.fullAlbumInfoBlock .albumCover .albumCoverHover {
+    position: relative;
+    padding-top: 30px;
+}
+
+.fullAlbumInfoBlock .albumCover .albumCoverHover .playBtn {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-left: 76px;
+    background: url(../Images/album/albumCoverHoverPLayBtn.png) 0 0 no-repeat;
+}
+
+.fullAlbumInfoBlock .albumCover .albumCoverHover .playBtn:hover {
+    background-position: 0 -50px;
+}
+
+.fullAlbumInfoBlock .albumCover .albumCoverHover .addToPLaylistBtn {
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-right: 76px;
+    background: url(../Images/album/albumCoverHoverAddBtn.png) 0 0 no-repeat;
+}
+
+.fullAlbumInfoBlock .albumCover .albumCoverHover .addToPLaylistBtn:hover {
+    background-position: 0 -50px;
+}
+
+
+.fullAlbumInfoBlock .fullAlbumInfodescription  {
+    height: 185px;
+    width: 520px;
+    margin: 0 auto;
+    color: #b3b3b3;
+}
+
+.fullAlbumInfoBlock .fullAlbumInfodescription span{
+    color: #3c79ab;
+}

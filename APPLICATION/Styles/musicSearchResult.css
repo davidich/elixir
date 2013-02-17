@@ -75,7 +75,7 @@
     display: none;
 }
 
-.trackInfo .resultaddToPlaylist:hover {
+.trackInfo .resultaddToPlaylist:hover, .trackInfo .resultaddToPlaylist.active {
     background-position: 0 -15px;
 }
 
@@ -84,13 +84,21 @@
     width: 182px;
     overflow: hidden;
     color: #555;
-    padding-left: 10px;
+    padding: 0 10px;
+    white-space:nowrap;
 }
 
 .trackInfo .resultArtist {
     float: left;
     overflow: hidden;
     width: 200px;
+    white-space:nowrap;
+    margin-right: 10px;
+}
+
+.trackInfo .resultArtist span
+{
+    color: #3c79ab;
 }
 
 .trackInfo .resultLikesAmount {

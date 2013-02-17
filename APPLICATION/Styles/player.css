@@ -96,15 +96,21 @@
 .playerBlock.fullView .playerMainBlock .buttonBlock .repeat
 {
     display: block;
-    background: url(../Images/player/playerBtns.png) -42px -43px no-repeat;
+    background-position: -130px 0;
     margin-left: 4px;
 }
 
 .playerBlock.fullView .playerMainBlock .buttonBlock .repeat:hover, 
 .playerBlock.fullView .playerMainBlock .buttonBlock .active
 {
-    background-position: -42px -65px;
+    background-position: -130px -22px;
     margin-left: 4px;
+}
+
+.playerBlock.fullView .playerMainBlock.locked .buttonBlock .repeat
+{
+    background-position: -130px -44px;
+    cursor: default;
 }
 
 .buttonBlock
@@ -262,6 +268,12 @@
     border: 0;
 }
 
+.playerMainBlock.locked .centerPart .trackSlider .ui-slider-handle, 
+.playerMainBlock.locked .centerPart .trackVolume .ui-slider-handle
+{
+    cursor: default;
+}
+
 .centerPart .trackSlider .ui-slider-handle:hover
 {
     background-position:  center bottom;
@@ -292,17 +304,22 @@
     width: 22px;
     height: 22px;
     cursor: pointer;
-    background: url(../images/Player/sound.png) -22px 0 no-repeat;
+    background: url(../images/Player/sound.png) 0 0 no-repeat;
     float: left;
     margin: -5px 3px 0 -3px;
 }
 
 .playerBlock.fullView .playerMainBlock .centerPart .soundIco:hover {
-    background-position: -22px -22px;
+    background-position: 0 -22px;
+}
+
+.playerBlock.fullView .playerMainBlock.locked .centerPart .soundIco {
+    background-position: 0 -44px;
+    cursor: default;
 }
 
 .playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute {
-    background: url(../images/Player/sound.png) 0 0 no-repeat;
+    background: url(../images/Player/mute.png) 0 0 no-repeat;
 }
 
 .playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute:hover {
@@ -315,7 +332,7 @@
     height: 22px;
     float: right;
     background: url(../images/Player/playerBtnsV2.png) -66px -0 no-repeat;
-    margin: 7px 18px 0 0;
+    margin: 7px 17px 0 0;
     cursor: pointer;
     }
 
@@ -373,7 +390,7 @@
     background: url(../images/no-image100x100.png) center top no-repeat;
 }
 
-.playerHeader .albumCover img{
+.playerHeader .albumCover img {
     border: 1px solid transparent;
 }
 
@@ -387,11 +404,15 @@
     float: left;
 }
 
+.playerHeader .trackDetails  span{
+    color: #3c79ab;
+}
+
 .playerHeader .trackQuality {
     margin-top: 2px;
 }
 
-.playerHeader .detailDescription 
+.playerHeader div span.detailDescription 
 {
     color: #b3b3b3;
     text-align: left;
@@ -463,13 +484,13 @@
 }
 
 .playerHeader .bottomButtonsBlock .dropDownBlock {
-    margin-left: -160px;
+    margin-left: -165px;
     z-index: 999999;
     width: 170px;
 }
 
 .playerHeader .bottomButtonsBlock .dropDownBlock .dropmenuArrow {
-    left: 160px
+    left: 164px
 }
 
 .bottomButtonsBlock .menuTriangle .dropDownBlock {
