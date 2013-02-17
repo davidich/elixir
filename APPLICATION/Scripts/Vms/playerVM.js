@@ -118,6 +118,14 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                     }
                 });
         };
+        self.hasImage = ko.computed(function () {
+            return self.track() && self.track().imageId;
+        });
+        self.imageUrl = function (size) {
+            return self.hasImage() && self.state() != "stopped"
+                ? "http://94.242.214.22/getimage/?id=" + self.track().imageId + "&size=" + size
+                : "";
+        };
         
 
         // BEHAVIOR        
@@ -196,6 +204,9 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             // try to start playing next track
             if (self.track() == deletedTrack && self.tracks().length > 1)
                 self.next();
+            else
+                self.track(null);
+
 
             // is that was last instance of that track in playlist?
             var itemsWithTheSameId = $.grep(self.tracks(), function (elem) { return elem.id() == deletedTrack.id(); });
@@ -244,8 +255,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 $slider.slider("option", "max", 0);
             else
                 $slider.slider("option", "max", self.track().duration());
-        }
-       
+        }        
     }
 
     Player.prototype = new viewBase();

@@ -3,7 +3,7 @@
         <div class="playerHeader">
             <a class="albumCover">
                 <div class="noImageHolder">
-                    <img src="./Images/player/cover100x100.jpg" alt="" />
+                    <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('large')}" />
                 </div>
             </a>
             <div class="trackDetails">
@@ -49,7 +49,7 @@
             </div>
             <div class='centerPart'>
                 <div class='cover'>
-                    <img src="./Images/Player/cover.jpg" alt="" />
+                    <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('small')}" />
                 </div>
                 <div class='trackName'>Climax - Usher</div>
                 <div class='trackSlider'></div>
