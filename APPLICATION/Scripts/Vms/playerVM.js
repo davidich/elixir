@@ -212,11 +212,14 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
 
 
         // EVENTS
-        pubSub.sub("track.onPlayClick", function (track) {
-            var tr = new TrackForPlayer(track);
-            self.tracks.push(tr);
-            self.track(tr);
+        pubSub.sub("track.addToStart", function (track) {
+            self.tracks.splice(0, 0, track);            
+            self.track(track);
             play();
+        });
+        
+        pubSub.sub("track.addToEnd", function (track) {
+            self.tracks.push(track);            
         });
 
         pubSub.sub("trackForPlayer.onDeleteClick", function (deletedTrack) {

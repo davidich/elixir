@@ -1,4 +1,4 @@
-﻿define(["ko", "pubSub"], function (ko, pubSub) {
+﻿define(["ko", "pubSub", "Types/TrackForPlayer"], function (ko, pubSub, TrackForPlayer) {
 
     function Track(metadata, url) {
         var self = this;
@@ -44,12 +44,25 @@
         self.aid = metadata.aid;
         self.ownerId = metadata.ownerId;
         self.url = url;
-        
+
+        self.isAdded = ko.computed(function() {
+            var addedTracks = global.player.tracks();
+            var match = $.grep(addedTracks, function (elem) {
+                return self.id == elem.id;
+            });
+
+            return match.length > 0;
+
+        });
 
         // Behavior
-        self.onPlayClick = function(track) {
-            pubSub.pub("track.onPlayClick", track);
-        };        
+        self.addToStart = function(track) {
+            pubSub.pub("track.addToStart", new TrackForPlayer(track));
+        };
+        
+        self.addToEnd = function (track) {
+            pubSub.pub("track.addToEnd", new TrackForPlayer(track));
+        };
     }
 
     Track.toTimeString = function(durationInSecs) {

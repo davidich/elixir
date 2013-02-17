@@ -89,7 +89,9 @@
                 <div class="trackListBlock" data-bind="foreach: tracks">
                     <div class="plTrack" data-bind="css:{current: $data == $root.track()}">
                         <div class="trackName" data-bind="text: title"></div>
-                        <div class="trackArtist"><a href="#">Artist Name</a></div>
+                        <div class="trackArtist" data-bind="foreach: artists">
+                            <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                        </div>
                         <div class='deleteTrack' data-bind="click: onDeleteClick"></div>
                         <div class="trackTime" data-bind="text: time"></div>
                     </div>
