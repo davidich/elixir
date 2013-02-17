@@ -6,13 +6,28 @@
                     <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('large')}" />
                 </div>
             </a>
-            <div class="trackDetails">
-                <div><span class="detailDescription">Трек: </span><a href="#">Climax</a></div>
-                <div><span class="detailDescription">Исполнитель: </span><a href="#">Climax, </a><a href="#">Climax</a></div>
-                <div><span class="detailDescription">Жанр: </span><a href="#">R&B, </a><a href="#">HipHop</a></div>
-                <div><span class="detailDescription">Стиль: </span><a href="#">Soul, </a><a href="#">Jazz</a></div>
-                <div><a href='#'><span class="heart"></span>35 000</a></div>
-                <div class="trackQuality"><span class="detailDescription">HQ</span></div>
+            <div class="trackDetails" data-bind="with: track">
+                <div><span class="detailDescription">Трек: </span><a href="#" data-bind="text: title"></a></div>
+                <div>
+                    <span class="detailDescription">Исполнитель: </span>
+                    <span data-bind="foreach: artists">
+                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                    </span>
+                </div>
+                <div>
+                    <span class="detailDescription">Жанр: </span>
+                    <span data-bind="foreach: genres">
+                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                    </span>                   
+                </div>
+                <div>
+                    <span class="detailDescription">Стиль: </span>
+                    <span data-bind="foreach: styles">
+                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                    </span>                   
+                </div>
+                <div><a href='#'><span class="heart"></span><span  data-bind="text: rank"></span></a></div>
+                <!--<div class="trackQuality"><span class="detailDescription">HQ</span></div>-->
             </div>
             <div class="compactViewBtn"></div>
             <div class="bottomButtonsBlock">
@@ -22,17 +37,17 @@
                         <div class='dropmenuArrow'></div>
                         <ul class='subNavigation'>
                             <li><a href='#'>
-                                    <div class='subnavIcons addTofavorite'></div>
-                                    Добавить в избранное</a></li>
+                                <div class='subnavIcons addTofavorite'></div>
+                                Добавить в избранное</a></li>
                             <li><a href='#'>
-                                    <div class='subnavIcons share'></div>
-                                    Поделиться</a></li>
+                                <div class='subnavIcons share'></div>
+                                Поделиться</a></li>
                             <li><a href='#'>
-                                    <div class='subnavIcons sendToWall'></div>
-                                    Отправить на стену</a></li>
+                                <div class='subnavIcons sendToWall'></div>
+                                Отправить на стену</a></li>
                             <li><a href='#'>
-                                    <div class='subnavIcons addToPLaylist'></div>
-                                    Добавить в плейлист</a></li>
+                                <div class='subnavIcons addToPLaylist'></div>
+                                Добавить в плейлист</a></li>
                         </ul>
                     </div>
                 </div>
@@ -51,10 +66,10 @@
                 <div class='cover'>
                     <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('small')}" />
                 </div>
-                <div class='trackName'>Climax - Usher</div>
+                <div class='trackName' data-bind="text: trackCaption"></div>
                 <div class='trackSlider'></div>
                 <div class='trackTimer' data-bind="text: time, toggleButton: isElapsed"></div>
-                <div class='soundIco' data-bind="toggleButton: isMuted, activeCss: 'mute', onToggle: refreshVolume"></div>                
+                <div class='soundIco' data-bind="toggleButton: isMuted, activeCss: 'mute', onToggle: refreshVolume"></div>
                 <div class='trackVolume'></div>
             </div>
             <div class="btnPartial"></div>

@@ -32,7 +32,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             $('.lockBackground').show();
             $('.playerBlock').addClass('fullView');
         });
-        
+
         $(".trackListBlockScrollWrapper").mCustomScrollbar();
     })();
 
@@ -47,7 +47,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
         pubSub.sub("viewChanged", function (viewName) {
             self.isVisible($.inArray(viewName, ["music", "video", "artists"]) != -1);
         });
-        
+
 
         // Build UI
         var $slider = $('.trackSlider').slider({
@@ -58,7 +58,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             animate: true,
             slide: function (event, ui) { self.refreshPosition(ui.value); }
         });
-        
+
         var $volume = $('.trackVolume').slider({
             range: "min",
             min: 0,
@@ -71,7 +71,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 self.refreshVolume();
             }
         });
-        
+
 
         // DATA
         self.track = ko.observable();
@@ -82,7 +82,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
         self.isElapsed = ko.observable(true);
         self.isShuffled = ko.observable(false);
         self.isLooped = ko.observable(false);
-        self.isMuted = ko.observable(false);        
+        self.isMuted = ko.observable(false);
         self.time = ko.computed(function () {
             if (!self.track()) return "0:00";
 
@@ -91,7 +91,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 pos = self.position();
                 return Track.toTimeString(pos);
             } else {
-                pos = self.track().duration() - self.position();
+                pos = self.track().duration - self.position();
                 return "-" + Track.toTimeString(pos);
             }
         });
@@ -99,8 +99,8 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             if (!self.track())
                 return null;
 
-            var id = self.track().id();
-            var url = self.track().url();
+            var id = self.track().id;
+            var url = self.track().url;
 
             return soundManager.getSoundById(id)
                 || soundManager.createSound({
@@ -110,7 +110,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                         var posInSecs = this.position / 1000;
                         self.refreshPosition(posInSecs, true /*skipSoundUpdate*/);
                     },
-                    onfinish: function() {
+                    onfinish: function () {
                         if (self.isLooped())
                             play();
                         else
@@ -126,7 +126,26 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 ? "http://94.242.214.22/getimage/?id=" + self.track().imageId + "&size=" + size
                 : "";
         };
-        
+        self.trackCaption = ko.computed(function () {
+            var title,
+                i,
+                track = self.track();
+
+            if (!track)
+                title = "";
+            else {
+                title = track.title + " - ";
+                for (i = 0; i < track.artists.length; i++) {
+                    var artist = track.artists[i];
+                    var isLast = i == track.artists.length - 1;
+                    title += artist.name;
+                    if (!isLast) title += ", ";
+                }
+            }
+            
+            return title;
+        });
+
 
         // BEHAVIOR        
         self.playPause = function () {
@@ -174,7 +193,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             if (sound && sound.volume != resolvedVolume) sound.setVolume(resolvedVolume);
         };
 
-        self.refreshPosition = function(positionInSecs, skipSoundUpdate) {
+        self.refreshPosition = function (positionInSecs, skipSoundUpdate) {
             var sound = self.sound();
             if (!sound) return;
 
@@ -190,7 +209,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             if (!skipSoundUpdate) sound.setPosition(positionInSecs * 1000);
             self.position(parseInt(positionInSecs));
         };
-        
+
 
         // EVENTS
         pubSub.sub("track.onPlayClick", function (track) {
@@ -237,7 +256,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
         function stop() {
             self.state("stoped");
             if (!self.track()) return;
-            
+
             soundManager.stopAll();
             refreshSliderLength();
         }
@@ -245,17 +264,17 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
         function pause() {
             var sound = self.sound();
             if (!sound) return;
-            
+
             sound.pause();
             self.state("paused");
         }
 
         function refreshSliderLength() {
-            if(!self.track() || self.state() == "stopped")
+            if (!self.track() || self.state() == "stopped")
                 $slider.slider("option", "max", 0);
             else
-                $slider.slider("option", "max", self.track().duration());
-        }        
+                $slider.slider("option", "max", self.track().duration);
+        }
     }
 
     Player.prototype = new viewBase();

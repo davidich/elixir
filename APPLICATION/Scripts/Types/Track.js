@@ -31,18 +31,19 @@
          */
 
         // Properties
-        self.id = ko.observable("id_" + metadata.id);        
-        self.artists = ko.observableArray($.getNamedArray(metadata, "artists"));
-        self.title = ko.observable(metadata.name);
-        self.album = ko.observable(metadata.album);
+        self.id = "id_" + metadata.id;
+        self.title = metadata.name;
+        self.album = metadata.album;
+        self.artists = $.getNamedArray(metadata, "artists");
+        self.styles = $.getNamedArray(metadata, "styles");
 
-        self.duration = ko.observable(metadata.duration);
-        self.time = ko.observable(Track.toTimeString(metadata.duration));
-        self.stats = ko.observable(metadata.stats);
+        self.duration = metadata.duration;
+        self.time = Track.toTimeString(metadata.duration);
+        self.stats = metadata.stats;
         
-        self.aid = ko.observable(metadata.aid);
-        self.ownerId = ko.observable(metadata.ownerId);
-        self.url = ko.observable(url);
+        self.aid = metadata.aid;
+        self.ownerId = metadata.ownerId;
+        self.url = url;
         
 
         // Behavior
