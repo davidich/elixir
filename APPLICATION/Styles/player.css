@@ -404,11 +404,15 @@
     float: left;
 }
 
+.playerHeader .trackDetails  span{
+    color: #3c79ab;
+}
+
 .playerHeader .trackQuality {
     margin-top: 2px;
 }
 
-.playerHeader .detailDescription 
+.playerHeader div span.detailDescription 
 {
     color: #b3b3b3;
     text-align: left;
