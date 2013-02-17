@@ -1,4 +1,5 @@
-.playerBlock {
+.playerBlock 
+{
     position: fixed;
     bottom: 0;
     right: 0;
@@ -14,74 +15,93 @@
     padding: 3px 6px 6px 6px; 
     z-index: 999999;
 }
+
 .playerButton
 {
     float: left;
     width: 22px;
     height: 22px;
     cursor: pointer;
-    background: url(../Images/player/playerBtns.png) no-repeat;
+    background: url(../Images/player/playerBtnsV2.png) no-repeat;
     margin-right: 6px;
 }
 
 .buttonBlock
 {
-    margin:8px 0 0 8px; 
+    margin: 8px 0 0 8px; 
 }
 
 .playerMainBlock .prev
 {
-    background-position: -44px 0;
+    background-position: -22px 0;
 }
   
 .playerMainBlock .prev:hover 
 {
-    background-position: -44px -22px;
+    background-position: -22px -22px;
+}
+
+.playerMainBlock.locked .prev 
+{
+    background-position: -22px -44px;
+    cursor: default;
 }
 
 .playerMainBlock .playPause
 {
-    background-position: -22px 0;
+    background-position: 0 0;
 }
   
 .playerMainBlock .playPause:hover 
 {
-    background-position: -22px -22px;
+    background-position: 0 -22px;
 }
 
-.playerMainBlock .pause
+.playerMainBlock.locked .playPause 
 {
-    background-position: -66px 0;
+    background-position: 0 -44px;
+    cursor: pointer;
+}
+
+.playerMainBlock .playPause.pause
+{
+    background-position: -110px 0;
 }
   
 .playerMainBlock .playPause.pause:hover 
 {
-    background-position: -66px -22px;
+    background-position: -110px -22px;
 }
       
 .playerMainBlock .next
 {
-    background-position: 0 0;
+    background-position: -44px 0;
 }
   
 .playerMainBlock .next:hover 
 {
-    background-position: 0 -22px;
+    background-position: -44px -22px;
+}
+
+.playerMainBlock.locked .next 
+{
+    background-position: -44px -44px;
+    cursor: default;
 }
 
 .playerMainBlock .buttonBlock .repeat {
     display: none;
 }
 
-.playerMainBlock.fillView .buttonBlock .repeat
+.playerBlock.fullView .playerMainBlock .buttonBlock .repeat
 {
     display: block;
-    background-position: -42px -43px;
+    background: url(../Images/player/playerBtns.png) -42px -43px no-repeat;
     margin-left: 4px;
 }
 
-.playerMainBlock.fillView .buttonBlock .repeat:hover, 
-.playerMainBlock.fillView .buttonBlock .repeating
+.playerBlock.fullView .playerMainBlock .buttonBlock .repeat:hover, 
+.playerBlock.fullView .playerMainBlock .repeating
 {
     background-position: -42px -65px;
     margin-left: 4px;
@@ -99,7 +119,7 @@
     margin-left: 8px;
 }
     
-.playerMainBlock.fillView .buttonBlock .songActions
+.playerBlock.fullView .playerMainBlock .buttonBlock .songActions
 {
     display: none;
 }
@@ -124,21 +144,33 @@
     background-position: -22px -66px;
     }
 
-.buttonBlock .share
+.playerMainBlock .buttonBlock .share
 {
-    background-position: -66px -44px;
-    }
+    background-position: -88px 0;
+}
 
-.buttonBlock .share:hover
+.playerMainBlock .buttonBlock .share:hover
 {
-    background-position: -66px -66px;
-    }
+    background-position: -88px -22px;
+}
+    
+.playerMainBlock.locked .buttonBlock .share
+{
+    background-position: -88px -44px;
+    cursor: default;
+}
+    
 /* full for center */
-.playerMainBlock.fillView .cover, .playerMainBlock.fillView .trackName, .playerMainBlock.fillView .swithViewWrapper {
+.playerBlock.fullView .playerMainBlock .cover, 
+.playerBlock.fullView .playerMainBlock .trackName, 
+.playerBlock.fullView .playerMainBlock .swithViewWrapper,
+.playerBlock.fullView .playerMainBlock .switchToFullView,
+.playerBlock.fullView .playerMainBlock .btnPartial
+ {
     display: none;
 }
 
-.playerMainBlock.fillView .centerPart {
+.playerBlock.fullView .playerMainBlock  .centerPart {
     padding: 13px 0 0 15px;
 }
 
@@ -194,19 +226,20 @@
     border-radius: 1px;
 }
 
-.playerMainBlock.fillView .centerPart .trackSlider
+.playerBlock.fullView .playerMainBlock .centerPart .trackSlider
 {
     width: 215px;
 }
 
-.centerPart .trackSlider, .centerPart .trackVolume 
+.centerPart .trackSlider, 
+.centerPart .trackVolume 
 {
     background: url(../Images/Player/sliderBg.jpg) repeat-x;
 }
 
-.playerMainBlock.fillView .centerPart 
+.playerBlock.fullView .playerMainBlock .centerPart 
 {
-    width: 345px;
+    width: 348px;
 }
 
     
@@ -215,7 +248,8 @@
     background: url(../Images/Player/sliderBgLeft.jpg) center top repeat-x;
 }
     
-.centerPart .trackSlider .ui-slider-handle, .centerPart .trackVolume .ui-slider-handle
+.centerPart .trackSlider .ui-slider-handle, 
+.centerPart .trackVolume .ui-slider-handle
 {
     width: 15px;
     height: 15px;
@@ -235,12 +269,15 @@
 
 .centerPart .trackTimer 
 {
-    width: 40px;
+    width: 35px;
     height: 14px;
     font-size: 9px;
     color: #777;
     float: left;
-    margin: -2px 0 0 5px;
+    margin: -1px 0 0 5px;
+    padding-right: 10px;
+    cursor: pointer;
+    text-align: right;
 }   
 
 .centerPart .trackVolume
@@ -250,25 +287,25 @@
     float: left;
     margin-top: 3px;
     }
-    
-.playerMainBlock.fillView .centerPart .soundIco {
+
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco {
     width: 22px;
     height: 22px;
     cursor: pointer;
     background: url(../images/Player/sound.png) -22px 0 no-repeat;
     float: left;
-    margin: -5px 3px 0 0;
+    margin: -5px 3px 0 -3px;
 }
 
-.playerMainBlock.fillView .centerPart .soundIco:hover {
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco:hover {
     background-position: -22px -22px;
 }
 
-.playerMainBlock.fillView .centerPart .soundIco.mute {
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute {
     background: url(../images/Player/sound.png) 0 0 no-repeat;
 }
 
-.playerMainBlock.fillView .centerPart .soundIco.mute:hover {
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute:hover {
     background-position: 0 -22px;
 }
 
@@ -277,15 +314,28 @@
     width: 22px;
     height: 22px;
     float: right;
-    background: url(../images/Player/playerBtns.png) -88px -30px no-repeat;
-    margin: 7px 16px 0 0;
+    background: url(../images/Player/playerBtnsV2.png) -66px -0 no-repeat;
+    margin: 7px 18px 0 0;
     cursor: pointer;
     }
 
 .playerMainBlock .switchToFullView:hover
 {
-    background-position: -88px -52px;
-    }
+    background-position: -66px -22px;
+}
+
+.playerMainBlock.locked .switchToFullView
+{
+    background-position: -66px -44px;
+    cursor: default;
+}
+
+.playerMainBlock .btnPartial {
+    width: 2px;
+    height: 34px;
+    background: url(../Images/player/btnPartition.png) 0 0 no-repeat;
+    float: left;
+}
 
 .playerMainBlock .swithViewWrapper
 {
@@ -508,6 +558,11 @@
     background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
 }
 
+.playlistHeader .playlistHeaderButtons div.shuffle.active
+{
+    background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
+}
+
 .playlistHeader .playlistHeaderButtons div.clearPlaylist
 {
     background: url(../images/Player/headerIcons.png) -23px 1px no-repeat;
@@ -533,12 +588,20 @@
     -moz-box-shadow: 0 1px 2px 0 #fff!important;
     -webkit-box-shadow: 0 1px 2px 0 #fff !important;
     box-shadow: 0 1px 2px 0 #fff!important;
-    margin: 1px 0 auto 3px;
+    margin: 0 0 auto 3px;
     cursor: pointer;
 }
 
-.playerPlaylistBlock .plTrack.current {
-    background: #c0c0c0;
+.playerPlaylistBlock .plTrack.current{
+    background: url('../Images/player/activeSongBg.png');
+}
+
+.playerPlaylistBlock .plTrack.current:hover{
+    background: url('../Images/player/activeSongBg.png');
+}
+
+.playerPlaylistBlock .plTrack.current div{
+    color: #333;
 }
 
 .playerPlaylistBlock .plTrack:hover {
@@ -573,7 +636,7 @@
     float: left;
     height: 26px;
     margin: 0 5px;
-    width: 225px;
+    width: 217px;
 }
 
 .playerPlaylistBlock .trackTime {
@@ -587,10 +650,11 @@
     width: 15px;
     height: 15px;
     float: left;
-    background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
-    margin: 5px 0 0 -15px;
+    background: url(../images/Player/headerIcons.png) -22px -14px no-repeat;
+    margin: 5px 0 0 0;
     display: none;
 }
+
 .lockBackground {
     position: absolute;
     z-index: 99999;
@@ -606,3 +670,4 @@
 .leftSearchfilter {
     padding-top: 35px;
 }
+

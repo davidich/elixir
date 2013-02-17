@@ -20,7 +20,12 @@ a:hover {
     background: url(../images/main_bg.jpg) center top no-repeat;
     width: 730px;
     height: 599px;
-    overflow: hidden;    
+}
+
+#musicContent {
+    width: 730px;
+    height: 542px;
+    overflow: hidden;
 }
 
 a.title {
@@ -110,37 +115,15 @@ input.styled { display: none; }
         }
 
 /* Right block */
-.rightBlock {
+.tracksBlock, .trackBlock, 
+.albumsBLock {
     width: 560px;
     height: auto;
     float: right;
     margin-right: 20px;
 }
 
-.rightBlock ul.tabNavigation li {
-    width: auto;
-    height: 20px;
-    line-height: 20px;
-    padding-right: 18px;
-    float: left;
-    font-family: Tahoma, Geneva, sans-serif;
-}
-
-.rightBlock ul.tabNavigation li a{
-    color: #666;
-}
-
-.rightBlock ul.tabNavigation li a:hover{
-    color: #3c79ab;
-}
-
-.rightBlock ul.tabNavigation li a.active{
-    color: #666;
-    font-weight: bold;
-    cursor: default;
-}
-
-.rightBlock .rightContainer {
+.tracksBlock .rightContainer, .albumsBLock .rightContainer  {
     border: 1px solid #fff;
     width: 560px;
     height: auto;
@@ -149,7 +132,7 @@ input.styled { display: none; }
     -moz-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid #e0e0e0;
-    min-height: 600px;
+    /*min-height: 600px;*/
     position: relative;
 }
 

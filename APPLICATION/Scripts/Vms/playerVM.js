@@ -14,7 +14,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 opacity: 'toggle'
             }, 200, 'linear');
             $('.lockBackground').hide();
-            $('.playerMainBlock').removeClass('fillView');
+            $('.playerBlock').removeClass('fullView');
         });
 
         $('.switchToFullView').click(function () {
@@ -30,7 +30,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             }, 200, 'linear');
 
             $('.lockBackground').show();
-            $('.playerMainBlock').addClass('fillView');
+            $('.playerBlock').addClass('fullView');
         });
         
         $(".trackListBlockScrollWrapper").mCustomScrollbar();

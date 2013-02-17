@@ -18,6 +18,9 @@
     <link rel="stylesheet" type="text/css" href="Styles/headerNavigation.css" />
     <link rel="stylesheet" type="text/css" href="Styles/searchBar.css" />
     <link rel="stylesheet" type="text/css" href="Styles/musicSearchResult.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/track.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/tabNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/albums.css" />
 
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
@@ -26,26 +29,26 @@
     <script>
         $(function () {
             $('.albumBlock .cover').hover(
-            function () {
-                $(this).find('.coverHover').animate({
-                    height: 'toggle'
-                }, {
-                    duration: 600,
-                    specialEasing: {
-                        height: 'easeOutBounce'
-                    }
-                });
+                function () {
+                    $(this).find('.coverHover').animate({
+                            height: 'toggle'
+                        }, {
+                            duration: 600,
+                            specialEasing: {
+                                height: 'easeOutBounce'
+                            }
+                        });
 
-            }, function () {
-                $(this).find('.coverHover').animate({
-                    height: 'toggle'
-                }, {
-                    duration: 300,
-                    specialEasing: {
-                        height: 'linear'
-                    }
+                }, function () {
+                    $(this).find('.coverHover').animate({
+                            height: 'toggle'
+                        }, {
+                            duration: 300,
+                            specialEasing: {
+                                height: 'linear'
+                            }
+                        });
                 });
-            });
         });
     </script>
 </head>
@@ -63,11 +66,16 @@
 
         <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
             <a class="title"><span></span>Music</a>
-            <div class="stub filter"></div>
+            <div class="stub filter" ></div>
+            <div class="stub tabNaviation"></div>
             <div class="stub tracks"></div>
+            <!--<div class="stub albums"></div>-->
+      <!--      <div class="stub track"></div>-->
+            <div style="clear: both;"></div>
         </div>
     </div>
 
     <div class="stub player"></div>
+
 </body>
 </html>

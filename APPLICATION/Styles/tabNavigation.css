@@ -1,0 +1,29 @@
+﻿.tabNavigationBLock {
+    width: 560px;
+    height: auto;
+    float: right;
+    margin-right: 20px;
+}
+.tabNavigationBLock ul.tabNavigation li {
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    padding-right: 18px;
+    float: left;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+.tabNavigationBLock ul.tabNavigation li span{
+    color: #666;
+    cursor: pointer;
+}
+
+.tabNavigationBLock ul.tabNavigation li span:hover{
+    color: #3c79ab;
+}
+
+.tabNavigationBLock ul.tabNavigation li span.active{
+    color: #666;
+    font-weight: bold;
+    cursor: default;
+}
