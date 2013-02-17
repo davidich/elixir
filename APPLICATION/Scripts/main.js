@@ -69,60 +69,62 @@ require(["require-config"], function () {
                 var completedEventCount = componentCount - componets.length;
                 var progress = completedEventCount / componentCount;
                 var barWidth = progress * $("#loaderContainer").width();
-                $("#loaderBar").animate({ width: barWidth }, /*25*/0, "linear", function () {
-                    if ($("#loaderBar").width() == $("#loaderContainer").width())
-                        $("#splashContent").fadeOut("slow");    // hide splash once loaded
+                $("#loaderBar").animate({ width: barWidth }, 250, "linear", function() {
+                    if ($("#loaderBar").width() == $("#loaderContainer").width()) {
+                        $("#splashContent").fadeOut("slow");
+                    }
                 });
 
                 // did we get all awaited events?
                 if (componets.length == 0) {
-                    pubSub.unsub("componentInited");        // remove event subscription                
-                    console.log("starting app.js");
-                    require(["app"], function () { });      // start app                                       
+                    pubSub.unsub("componentInited");        // remove event subscription                                    
+                    require(["app"], function () { });       // start app
                 }
             });
         });
 
-        initHtml(function() {
-            pubSub.pub("componentInited", "html");
-        });
-        
-        initSm(function () {
-            pubSub.pub("componentInited", "soundManager");
+        initVk(function () {
+            pubSub.pub("componentInited", "vkApi");
 
-            initVk(function () {
-                pubSub.pub("componentInited", "vkApi");
-            });
+            setTimeout(function () {
+                initHtml(function () {
+                    pubSub.pub("componentInited", "html");
+                });
 
-            initGenreSelector(function () {
-                pubSub.pub("componentInited", "genreSelector");
-            });
+                initSm(function () {
+                    pubSub.pub("componentInited", "soundManager");
+                });
 
-            initCustomFormElement(function () {
-                pubSub.pub("componentInited", "customFormElement");
-            });
+                initGenreSelector(function () {
+                    pubSub.pub("componentInited", "genreSelector");
+                });
+
+                initCustomFormElement(function () {
+                    pubSub.pub("componentInited", "customFormElement");
+                });
+            }, 500);
         });
     });
 
     function initVk(onComplete) {
         require(["vk", "pubSub"], function (vk, pubSub) {
-            if (window.location.href.indexOf("localhost") != -1) {
-                pubSub.pub("componentInited", "vkApi");
-            } else {
-                try {
-                    vk.init(function() {
-                        window.vk = vk;
-                        console.log("vk has finished initialization");
-                        onComplete();
-                    }, function() {
-                        alert("VK api initialization failed;");
-                    });
-
-                } catch(e) {
-                    console.log("Exception in vk.init: " + e);
+            //if (window.location.href.indexOf("localhost") != -1) {
+            //    pubSub.pub("componentInited", "vkApi");
+            //} else {
+            try {
+                vk.init(function () {
+                    window.vk = vk;
+                    console.log("vk has finished initialization");
                     onComplete();
-                }
+                }, function () {
+                    alert("VK api initialization failed;");
+                });
+
+            } catch (e) {
+                console.log("Exception in vk.init: " + e);
+                onComplete();
             }
+            //}
         });
     }
 
@@ -138,7 +140,7 @@ require(["require-config"], function () {
                         onComplete();
                     }
                 });
-            } catch (e) {                
+            } catch (e) {
                 console.error("Exception in sm.setup: " + e);
             }
         });
@@ -152,7 +154,7 @@ require(["require-config"], function () {
 
     function initCustomFormElement(onComplete) {
         require(["domReady", "customFormElem"], function (domReady, customFormElem) {
-            domReady(function() {
+            domReady(function () {
                 customFormElem.init();
                 onComplete();
             });
@@ -160,7 +162,7 @@ require(["require-config"], function () {
     }
 
     function initHtml(onComplete) {
-        require(["htmlBuilder"], function(builder) {
+        require(["htmlBuilder"], function (builder) {
             builder.build(onComplete);
         });
     }

@@ -231,8 +231,8 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
 
 
             // is that was last instance of that track in playlist?
-            var itemsWithTheSameId = $.grep(self.tracks(), function (elem) { return elem.id() == deletedTrack.id(); });
-            if (itemsWithTheSameId.length <= 1) soundManager.destroySound(deletedTrack.id());
+            var itemsWithTheSameId = $.grep(self.tracks(), function (elem) { return elem.id == deletedTrack.id; });
+            if (itemsWithTheSameId.length <= 1) soundManager.destroySound(deletedTrack.id);
 
             // remove item from playlist
             var index = self.tracks.indexOf(deletedTrack);

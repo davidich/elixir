@@ -4,7 +4,7 @@
     bottom: 0;
     right: 0;
     width: 509px;
-    z-index: 999999;
+    z-index: 5000;
 }
 .playerMainBlock
 {
@@ -13,7 +13,7 @@
     background: url(../Images/Player/player_bg.png) left top no-repeat;
     top: 555px;
     padding: 3px 6px 6px 6px; 
-    z-index: 999999;
+    z-index: 5000;
 }
 
 .playerButton
@@ -672,7 +672,7 @@
 
 .lockBackground {
     position: absolute;
-    z-index: 99999;
+    z-index: 4999;
     background: #868686;
     width: 730px;
     height: 100%;
