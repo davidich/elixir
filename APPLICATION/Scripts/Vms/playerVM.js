@@ -77,12 +77,12 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
         self.track = ko.observable();
         self.tracks = ko.observableArray();
         self.state = ko.observable("paused"); //playing, paused, stoped
+        self.position = ko.observable(0);
+        self.volume = ko.observable(100);
         self.isElapsed = ko.observable(true);
         self.isShuffled = ko.observable(false);
         self.isLooped = ko.observable(false);
-        self.position = ko.observable(0);
         self.isMuted = ko.observable(false);        
-        self.volume = ko.observable(100);                
         self.time = ko.computed(function () {
             if (!self.track()) return "0:00";
 
@@ -109,6 +109,12 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                     whileplaying: function () {
                         var posInSecs = this.position / 1000;
                         self.refreshPosition(posInSecs, true /*skipSoundUpdate*/);
+                    },
+                    onfinish: function() {
+                        if (self.isLooped())
+                            play();
+                        else
+                            self.next();
                     }
                 });
         };
