@@ -101,7 +101,7 @@
 }
 
 .playerBlock.fullView .playerMainBlock .buttonBlock .repeat:hover, 
-.playerBlock.fullView .playerMainBlock .repeating
+.playerBlock.fullView .playerMainBlock .buttonBlock .active
 {
     background-position: -42px -65px;
     margin-left: 4px;
@@ -349,11 +349,12 @@
 .playerHeader 
 {
     display: none;
-    width: 505px;
+    width: 495px;
     height: 122px;
     padding-top: 10px;
     background: url(../images/Player/header.png) center top no-repeat;
     margin-bottom: -3px;
+    padding-right: 10px;
 }
 
 .playerHeader .albumCover {
@@ -381,7 +382,7 @@
 }
 
 .playerHeader .trackDetails {
-    width: 340px;
+    width: 333px;
     overflow: hidden;
     float: left;
 }
@@ -412,7 +413,6 @@
 .playerHeader .compactViewBtn {
     width: 22px;
     height: 22px;
-    margin-right: 5px;
     background: url("../Images/player/headerIcons.png") 0 0 no-repeat;
     float: right;
     cursor: pointer;
