@@ -116,6 +116,7 @@
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\app.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\toggleButton.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\fancyDrop.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\slideVisible.js" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\reg\soundmanager2.swf" />

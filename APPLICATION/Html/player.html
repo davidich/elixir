@@ -1,4 +1,4 @@
-﻿<div id="playerContent" style="display: none;" data-bind="visible: isVisible, css: {locked: tracks().length == 0}">
+﻿<div id="playerContent" style="display: none;" data-bind="visible: isVisible">
     <div class='playerBlock'>
         <div class="playerHeader">
             <a class="albumCover">
@@ -35,22 +35,21 @@
                 </div>
             </div>
         </div>
-        <!-- add 'locked' class for greyout all buttons -->
-        <div class='playerMainBlock'>
+        <div class='playerMainBlock' data-bind="css: {locked: tracks().length == 0}">
             <div class='buttonBlock'>
                 <div class='playerButton prev' data-bind="click: prev"></div>
                 <div class='playerButton playPause' data-bind="click: playPause, css:{ pause: state() == 'playing'}"></div>
                 <div class='playerButton next' data-bind="click: next"></div>
-                <div class='playerButton songActions share' data-bind="click: test"></div>
-                <div class='playerButton repeat repeating'></div>
+                <div class='playerButton songActions share' data-bind=""></div>
+                <div class='playerButton repeat repeating' data-bind="toggleButton: isLooped, whenActive: 'repeating'"></div>
                 <div style='clear: both;'></div>
             </div>
             <div class='centerPart'>
                 <div class='cover'></div>
                 <div class='trackName'>Climax - Usher</div>
                 <div class='trackSlider'></div>
-                <div class='trackTimer' data-bind="text: time, click: switchTimeMode"></div>
-                <div class='soundIco' data-bind="css: {mute: isMuted}, click: mute"></div>
+                <div class='trackTimer' data-bind="text: time, toggleButton: isElapsed"></div>
+                <div class='soundIco' data-bind="toggleButton: isMuted, activeCss: 'mute', onToggle: refreshVolume"></div>                
                 <div class='trackVolume'></div>
             </div>
             <div class="btnPartial"></div>
@@ -59,10 +58,10 @@
         <div class="playerPlaylistBlock">
 
             <div class="playlistHeader">
-                <div class="songAmount">1000</div>
+                <div class="songAmount" data-bind="text: tracks().length">1000</div>
                 <div class="playlistHeaderButtons">
                     <div class="goToPlaylist"></div>
-                    <div class="shuffle" data-bind="click: shuffle, css: {active: isShuffled}"></div>
+                    <div class="shuffle" data-bind="toggleButton: isShuffled"></div>
                     <div class="clearPlaylist"></div>
                 </div>
             </div>
