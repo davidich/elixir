@@ -85,6 +85,8 @@
     <Content Include="APPLICATION\Images\navigation\notice_dot.jpg" />
     <Content Include="APPLICATION\Images\navigation\people.png" />
     <Content Include="APPLICATION\Images\navigation\video.png" />
+    <Content Include="APPLICATION\Images\no-image100x100.png" />
+    <Content Include="APPLICATION\Images\no-image35x35.png" />
     <Content Include="APPLICATION\Images\note.png" />
     <Content Include="APPLICATION\Images\note1.png" />
     <Content Include="APPLICATION\Images\player\activeSongBg.png" />

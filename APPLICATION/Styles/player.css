@@ -101,7 +101,7 @@
 }
 
 .playerBlock.fullView .playerMainBlock .buttonBlock .repeat:hover, 
-.playerBlock.fullView .playerMainBlock .repeating
+.playerBlock.fullView .playerMainBlock .buttonBlock .active
 {
     background-position: -42px -65px;
     margin-left: 4px;
@@ -196,7 +196,7 @@
 {
     width: 35px;
     height: 35px;
-    background: url(../Images/Player/cover.jpg) no-repeat;
+    background: url(../Images/no-image35x35.png) no-repeat;
     margin: 0 8px 0 2px;
     float: left;
     -webkit-border-radius: 1px;
@@ -349,11 +349,12 @@
 .playerHeader 
 {
     display: none;
-    width: 505px;
+    width: 495px;
     height: 122px;
     padding-top: 10px;
     background: url(../images/Player/header.png) center top no-repeat;
     margin-bottom: -3px;
+    padding-right: 10px;
 }
 
 .playerHeader .albumCover {
@@ -361,12 +362,27 @@
     width: 114px;
     height: 111px;
     background: url(../images/player/Cover_Border.png) center top no-repeat;
-    padding: 2px 0 0 14px;
+    padding: 1px 0 0 13px;
     float: left;
 }
 
+.playerHeader .albumCover .noImageHolder 
+{
+    width: 100px;
+    height: 100px;
+    background: url(../images/no-image100x100.png) center top no-repeat;
+}
+
+.playerHeader .albumCover img{
+    border: 1px solid transparent;
+}
+
+.playerHeader .albumCover:hover img{
+    border: 1px solid #72b4ec;
+}
+
 .playerHeader .trackDetails {
-    width: 340px;
+    width: 333px;
     overflow: hidden;
     float: left;
 }
@@ -397,7 +413,6 @@
 .playerHeader .compactViewBtn {
     width: 22px;
     height: 22px;
-    margin-right: 5px;
     background: url("../Images/player/headerIcons.png") 0 0 no-repeat;
     float: right;
     cursor: pointer;

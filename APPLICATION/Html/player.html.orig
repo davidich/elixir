@@ -2,10 +2,14 @@
     <div class='playerBlock'>
         <div class="playerHeader">
             <a class="albumCover">
+<<<<<<< HEAD
+                <img src="./Images/player/cover100x100.jpg" alt="" /></a>
+=======
                 <div class="noImageHolder">
                     <img src="./Images/player/cover100x100.jpg" alt="" />
                 </div>
             </a>
+>>>>>>> a449129a8ad86df7a868049fe4774a062836f4e0
             <div class="trackDetails">
                 <div><span class="detailDescription">Трек: </span><a href="#">Climax</a></div>
                 <div><span class="detailDescription">Исполнитель: </span><a href="#">Climax, </a><a href="#">Climax</a></div>
@@ -38,13 +42,31 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class='playerMainBlock' data-bind="css: {locked: tracks().length == 0}">
             <div class='buttonBlock'>
                 <div class='playerButton prev' data-bind="click: prev"></div>
                 <div class='playerButton playPause' data-bind="click: playPause, css:{ pause: state() == 'playing'}"></div>
                 <div class='playerButton next' data-bind="click: next"></div>
                 <div class='playerButton songActions share' data-bind=""></div>
-                <div class='playerButton repeat' data-bind="toggleButton: isLooped, whenActive: 'repeating'"></div>
+                <div class='playerButton repeat repeating' data-bind="toggleButton: isLooped, whenActive: 'repeating'"></div>
+                <div style='clear: both;'></div>
+            </div>
+            <div class='centerPart'>
+                <div class='cover'></div>
+                <div class='trackName'>Climax - Usher</div>
+                <div class='trackSlider'></div>
+                <div class='trackTimer' data-bind="text: time, toggleButton: isElapsed"></div>
+                <div class='soundIco' data-bind="toggleButton: isMuted, activeCss: 'mute', onToggle: refreshVolume"></div>                
+=======
+        <!-- add 'locked' class for greyout all buttons -->
+        <div class='playerMainBlock'>
+            <div class='buttonBlock'>
+                <div class='playerButton prev'></div>
+                <div class='playerButton playPause'></div>
+                <div class='playerButton next'></div>
+                <div class='playerButton songActions share'></div>
+                <div class='playerButton repeat'></div>
                 <div style='clear: both;'></div>
             </div>
             <div class='centerPart'>
@@ -53,8 +75,9 @@
                 </div>
                 <div class='trackName'>Climax - Usher</div>
                 <div class='trackSlider'></div>
-                <div class='trackTimer' data-bind="text: time, toggleButton: isElapsed"></div>
-                <div class='soundIco' data-bind="toggleButton: isMuted, activeCss: 'mute', onToggle: refreshVolume"></div>                
+                <div class='trackTimer'>-3:05</div>
+                <div class='soundIco mute'></div>
+>>>>>>> a449129a8ad86df7a868049fe4774a062836f4e0
                 <div class='trackVolume'></div>
             </div>
             <div class="btnPartial"></div>
@@ -63,6 +86,7 @@
         <div class="playerPlaylistBlock">
 
             <div class="playlistHeader">
+<<<<<<< HEAD
                 <div class="songAmount" data-bind="text: tracks().length">1000</div>
                 <div class="playlistHeaderButtons">
                     <div class="goToPlaylist"></div>
@@ -78,6 +102,21 @@
                         <div class='deleteTrack' data-bind="click: onDeleteClick"></div>
                         <div class="trackTime" data-bind="text: time"></div>
                     </div>
+=======
+                <div class="songAmount">1000</div>
+                <div class="playlistHeaderButtons">
+                    <div class="goToPlaylist"></div>
+                    <div class="shuffle active"></div>
+                    <div class="clearPlaylist"></div>
+                </div>
+            </div>
+            <div class="trackListBlock">
+                <div class="plTrack">
+                    <div class="trackName">Between Angels And Insects</div>
+                    <div class="trackArtist"><a href="#">Damian Jr Gong Marle1</a></div>
+                    <div class='deleteTrack'></div>
+                    <div class="trackTime">8:35</div>
+>>>>>>> a449129a8ad86df7a868049fe4774a062836f4e0
                 </div>
             </div>
         </div>
