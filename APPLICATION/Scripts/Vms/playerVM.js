@@ -214,6 +214,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             stop();
             self.tracks.removeAll();
             self.track(null);
+            refreshSliderLength();
         };
 
 
@@ -242,6 +243,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             self.tracks.splice(index, 1);
             
             if (self.tracks().length == 0) self.track(null);
+            refreshSliderLength();
         });
 
 
