@@ -60,7 +60,7 @@
 .playerMainBlock.locked .playPause 
 {
     background-position: 0 -44px;
-    cursor: pointer;
+    cursor: default;
 }
 
 .playerMainBlock .playPause.pause
@@ -69,6 +69,11 @@
 }
   
 .playerMainBlock .playPause.pause:hover 
+{
+    background-position: -110px -22px;
+}
+      
+.playerMainBlock.locked .playPause.pause:hover 
 {
     background-position: -110px -22px;
 }
@@ -306,20 +311,11 @@
     cursor: pointer;
     background: url(../images/Player/sound.png) 0 0 no-repeat;
     float: left;
-    margin: -5px 3px 0 -3px;
+    margin: -5px 0 0 -3px;
 }
 
 .playerBlock.fullView .playerMainBlock .centerPart .soundIco:hover {
     background-position: 0 -22px;
-}
-
-.playerBlock.fullView .playerMainBlock.locked .centerPart .soundIco {
-    background-position: 0 -44px;
-    cursor: default;
-}
-
-.playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute {
-    background: url(../images/Player/mute.png) 0 0 no-repeat;
 }
 
 .playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute:hover {
@@ -404,6 +400,10 @@
     float: left;
 }
 
+.playerHeader .trackDetails div{
+    line-height: 20px;
+}
+
 .playerHeader .trackDetails  span{
     color: #3c79ab;
 }
@@ -424,11 +424,11 @@
     float: left;
     width: 15px;
     height: 15px;
-    background: url("../Images/player/headerIcons.png") -37px 0 no-repeat;
+    background: url("../Images/player/headerIcons.png") -37px 3px no-repeat;
 }
 
-.playerHeader .heart:hover {
-    background-position: -37px -15px;
+.playerHeader .rankBlock:hover .heart {
+    background-position: -37px -12px;
 }
 
 .playerHeader .compactViewBtn {

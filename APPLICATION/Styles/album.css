@@ -78,6 +78,21 @@
     color: #b3b3b3;
 }
 
-.fullAlbumInfoBlock .fullAlbumInfodescription span{
+.fullAlbumInfoBlock .fullAlbumInfodescription  div{
+    line-height: 20px;
+}
+
+.fullAlbumInfoBlock .fullAlbumInfodescription span {
     color: #3c79ab;
 }
+
+.fullAlbumInfoBlock .fullAlbumInfodescription .heart {
+    float: left;
+    width: 15px;
+    height: 15px;
+    background: url("../Images/player/headerIcons.png") -37px 3px no-repeat;
+ }
+ 
+ .fullAlbumInfoBlock .fullAlbumInfodescription .rankBlock:hover {
+    background-position: -37px -13px;
+ }
