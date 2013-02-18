@@ -51,6 +51,7 @@
     <Content Include="APPLICATION\elixir.html" />
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
+    <Content Include="APPLICATION\Html\pager.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
     <Content Include="APPLICATION\Html\welcome.html" />
@@ -98,6 +99,7 @@
     <Content Include="APPLICATION\Images\no-image35x35.png" />
     <Content Include="APPLICATION\Images\note.png" />
     <Content Include="APPLICATION\Images\note1.png" />
+    <Content Include="APPLICATION\Images\pagerBg.png" />
     <Content Include="APPLICATION\Images\player\activeSongBg.png" />
     <Content Include="APPLICATION\Images\player\btnPartition.png" />
     <Content Include="APPLICATION\Images\tempImages\cover35x35.jpg" />
@@ -185,6 +187,7 @@
     <Content Include="APPLICATION\Styles\main.css" />
     <Content Include="APPLICATION\Styles\headerNavigation.css" />
     <Content Include="APPLICATION\Styles\musicSearchResult.css" />
+    <Content Include="APPLICATION\Styles\pager.css" />
     <Content Include="APPLICATION\Styles\player.css" />
     <Content Include="APPLICATION\Styles\scroll.css" />
     <Content Include="APPLICATION\Styles\searchBar.css" />
