@@ -36,6 +36,11 @@
     display: block;
 }
 
+.trackInfo .trackNumber {
+    float: left;
+    color: #b3b3b3;
+}
+
 .trackInfo:hover .resultTrackName {
     width: 130px;
     overflow: hidden;
@@ -43,7 +48,7 @@
     margin-right: 10px;
 }
 
-.trackInfo:hover .resultTrackTime {
+.trackInfo:hover .resultTrackTime, .trackInfo:hover .trackNumber  {
     display: none;
 }
 

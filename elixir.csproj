@@ -125,6 +125,7 @@
     <Content Include="APPLICATION\Images\tempImages\albumCover322x322.jpg" />
     <Content Include="APPLICATION\Images\tempImages\cover100x100.jpg" />
     <Content Include="APPLICATION\Images\tooltipBg.jpg" />
+    <Content Include="APPLICATION\Images\trackList.png" />
     <Content Include="APPLICATION\Images\trackPlayBtn.png" />
     <Content Include="APPLICATION\Images\track_hover.jpg" />
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
