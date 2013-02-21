@@ -23,7 +23,7 @@ a:hover {
     height: 599px;
 }
 
-#musicContent {
+#musicContent, #albumContent {
     width: 730px;
     height: 542px;
     overflow: scroll;
@@ -165,6 +165,7 @@ body .ui-tooltip {
     line-height: 35px;
     color: #b3b3b3;
     padding: 0 13px;
+    clear: both;
 }
 
 .headingRow .icon {
@@ -172,4 +173,9 @@ body .ui-tooltip {
     height: 15px;
     float: left;
     margin: 12px 12px 0 0;
+}
+
+.lineLoader {
+    padding: 10px 0;
+    text-align: center;
 }
