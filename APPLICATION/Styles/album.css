@@ -83,7 +83,7 @@
 }
 
 .fullAlbumInfoBlock .fullAlbumInfodescription span {
-    color: #3c79ab;
+/*    color: #3c79ab; */
 }
 
 .fullAlbumInfoBlock .fullAlbumInfodescription .heart {
@@ -135,6 +135,10 @@
      margin-right: 5px;
  }
  
+ .fullAlbumInfoBlock .alsoLiked {
+     margin-bottom: 10px;
+ }
+
  .fullAlbumInfoBlock .alsoLiked .icon{
      background: url(../images/alsoLiked.png) 0 0 no-repeat;
  }
@@ -146,3 +150,4 @@
  .fullAlbumInfoBlock .alsoLiked div.likesAmount{
      float: right;
  }
+ 

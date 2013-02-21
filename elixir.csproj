@@ -102,6 +102,9 @@
     <Content Include="APPLICATION\Images\pagerBg.png" />
     <Content Include="APPLICATION\Images\player\activeSongBg.png" />
     <Content Include="APPLICATION\Images\player\btnPartition.png" />
+    <Content Include="APPLICATION\Images\slider\albumCover.png" />
+    <Content Include="APPLICATION\Images\slider\left.png" />
+    <Content Include="APPLICATION\Images\slider\right.png" />
     <Content Include="APPLICATION\Images\tempImages\cover35x35.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />
     <Content Include="APPLICATION\Images\player\handle.png" />
@@ -131,8 +134,10 @@
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\app.js" />
+    <Content Include="APPLICATION\Scripts\Libs\jquery.carouFredSel-6.2.0.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\fancyDrop.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\slideVisible.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\visibleExt.js" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\reg\soundmanager2.swf" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\reg\soundmanager2_debug.swf" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\reg\soundmanager2_flash9.swf" />
@@ -173,6 +178,7 @@
     <Content Include="APPLICATION\Scripts\Types\SearchCommand.js" />
     <Content Include="APPLICATION\Scripts\Types\SearchParams.js" />
     <Content Include="APPLICATION\Scripts\Types\SearchResults.js" />
+    <Content Include="APPLICATION\Scripts\Vms\albumVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\musicVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\mainVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\playerVM.js" />
@@ -192,6 +198,7 @@
     <Content Include="APPLICATION\Styles\player.css" />
     <Content Include="APPLICATION\Styles\scroll.css" />
     <Content Include="APPLICATION\Styles\searchBar.css" />
+    <Content Include="APPLICATION\Styles\slider.css" />
     <Content Include="APPLICATION\Styles\splash.css" />
     <Content Include="APPLICATION\Styles\tabNavigation.css" />
     <Content Include="APPLICATION\Styles\track.css" />

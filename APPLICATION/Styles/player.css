@@ -72,6 +72,11 @@
 {
     background-position: -110px -22px;
 }
+
+.playerMainBlock.locked .playPause.pause 
+{
+    background-position: -110px -44px !important;
+}
       
 .playerMainBlock.locked .playPause.pause:hover 
 {
@@ -266,7 +271,7 @@
     height: 15px;
     position: absolute;
     top: -6px;
-    background: url(../Images/Player/handle.png) center top no-repeat;
+    background: url(../Images/Player/handle.png)  0 0 no-repeat;
     cursor: pointer;
     text-decoration: none;
     outline: none;
@@ -281,7 +286,12 @@
 
 .centerPart .trackSlider .ui-slider-handle:hover
 {
-    background-position:  center bottom;
+    background-position:  0 -15px;
+}
+
+.playerMainBlock.locked .centerPart .trackSlider .ui-slider-handle
+{
+    background-position:  0 -30px;
 }
 
 .centerPart .trackTimer 

@@ -1,4 +1,4 @@
-﻿define(["jquery", "ko", "pubSub", "Vms/mainVM", "Vms/musicVM", "Vms/playerVM"], function ($, ko, pubSub, MainVM, MusicVM, PlayerVM) {
+﻿define(["jquery", "ko", "pubSub", "Vms/mainVM", "Vms/musicVM", "Vms/playerVM", "Vms/albumVM"], function ($, ko, pubSub, MainVM, MusicVM, PlayerVM, AlbumVM) {
     //alert("UserID: " + vk.args["user_id"]);        
 
     var mainVM = new MainVM("main");
@@ -13,9 +13,13 @@
     var playerVM = new PlayerVM("player");
     var $playerBlock = $("#playerContent");
     ko.applyBindings(playerVM, $playerBlock.get(0));
-    global.player = playerVM;
+    global.player = playerVM;    
+    
+    var albumVM = new AlbumVM("album");
+    var $albumBlock = $("#albumContent");
+    ko.applyBindings(albumVM, $albumBlock.get(0));
 
 
     //pubSub.pub("viewChanged", "main");
-    pubSub.pub("viewChanged", "music");
+    pubSub.pub("viewChanged", "album");
 })
