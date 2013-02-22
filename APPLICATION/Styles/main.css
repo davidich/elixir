@@ -178,6 +178,10 @@ body .ui-tooltip {
 }
 
 .lineLoader {
-    padding: 10px 0;
+    height: 34px;
     text-align: center;
+}
+
+.lineLoader img {
+    margin-top: 15px;
 }
