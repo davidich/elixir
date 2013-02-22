@@ -36,6 +36,26 @@
     display: block;
 }
 
+.trackInfo .trackNumber {
+    float: left;
+    width: 15px;
+    color: #b3b3b3;
+}
+
+.trackInfo .resultTrackName {
+    float: left;
+    width: 182px;
+    overflow: hidden;
+    color: #555;
+    padding: 0 10px;
+    white-space:nowrap;
+}
+
+.trackInfo.withTrackNumber .resultTrackName {
+    width: 167px;
+}
+
+
 .trackInfo:hover .resultTrackName {
     width: 130px;
     overflow: hidden;
@@ -43,7 +63,7 @@
     margin-right: 10px;
 }
 
-.trackInfo:hover .resultTrackTime {
+.trackInfo:hover .resultTrackTime, .trackInfo:hover .trackNumber  {
     display: none;
 }
 
@@ -77,15 +97,6 @@
 
 .trackInfo .resultaddToPlaylist:hover, .trackInfo .resultaddToPlaylist.active {
     background-position: 0 -15px;
-}
-
-.trackInfo .resultTrackName {
-    float: left;
-    width: 182px;
-    overflow: hidden;
-    color: #555;
-    padding: 0 10px;
-    white-space:nowrap;
 }
 
 .trackInfo .resultArtist {

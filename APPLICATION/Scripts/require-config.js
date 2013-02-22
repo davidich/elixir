@@ -17,7 +17,8 @@
         jqueryui: 'Libs/jquery-ui-1.10.0',
         customFormElem: 'Libs/customFormElements',        
         rollbar: "Libs/scroll/jquery.rollbar",
-         
+        slider: 'Libs/jquery.carouFredSel-6.2.0',
+
         placeHolder: ""
     },
     shim: {

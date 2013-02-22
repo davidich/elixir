@@ -1,0 +1,84 @@
+﻿.sliderContainer {
+    margin-bottom: 10px;    
+}
+
+ul.sliderBlock li.slide {
+    width: 111px;
+    height: 117px;
+    background: url(../images/slider/albumCover.png) center top no-repeat;
+    float: left;
+    display: block;
+	float: left;
+    cursor: pointer;
+
+}
+
+ul.sliderBlock li.slide .albumName  {
+    height: 24px;
+    width: 100px;
+    padding: 5px;
+    overflow: hidden; 
+    color: #bdbdbd;
+    text-align: center;
+}
+ .sliderBlock .likesBlock {
+     padding-left: 33px;
+     color: #3c79ab;
+ }
+
+ .sliderBlock .likesBlock:hover {
+     color: #72b4ec;
+     cursor: default;
+ }
+
+ .sliderBlock .likesBlock:hover div {
+     background-position: -36px -15px;
+ }
+
+ .sliderBlock .likesBlock div{
+     width: 15px;
+     height: 15px;
+     background: url("../Images/player/headerIcons.png") -36px 0 no-repeat;
+     float: left;
+     margin-right: 5px; 
+ }
+ 
+ ul.sliderBlock {
+	margin: 0;
+	padding-left: 2px;
+	list-style: none;
+	display: block;
+}
+
+ul.sliderBlock .slide img {
+    padding: 2px  0 0 6px;
+}
+
+.slide_prev {
+    position: relative;
+    z-index: 200;
+    top: 96px;
+    width: 40px;
+    height: 80px;
+    background: url("../Images/slider/left.png") -40px 0 no-repeat;
+    cursor: pointer;
+}
+
+.slide_prev:hover {
+    background-position: 0 0;
+}
+
+.slider_next {
+    position: relative;
+    z-index: 200;
+    top: -133px;
+    left: 520px;
+    width: 40px;
+    height: 80px;
+    background: url("../Images/slider/right.png") -40px 0 no-repeat;
+    cursor: pointer;
+}
+
+.slider_next:hover {
+    background-position: 0 0;
+}

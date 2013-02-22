@@ -23,9 +23,10 @@ a:hover {
     height: 599px;
 }
 
-#musicContent {
+#musicContent, #albumContent {
     width: 730px;
     height: 560px;
+    /*overflow: scroll;*/
     overflow: hidden;
     padding-top: 23px;
 }
@@ -163,9 +164,10 @@ body .ui-tooltip {
     background: url(../images/headingRow.png) center top no-repeat;
     margin: -3px auto -2px auto;
     text-align: left;
-    line-height: 38px;
+    line-height: 35px;
     color: #b3b3b3;
     padding: 0 13px;
+    clear: both;
 }
 
 .headingRow .icon {
@@ -173,4 +175,9 @@ body .ui-tooltip {
     height: 15px;
     float: left;
     margin: 12px 12px 0 0;
+}
+
+.lineLoader {
+    padding: 10px 0;
+    text-align: center;
 }
