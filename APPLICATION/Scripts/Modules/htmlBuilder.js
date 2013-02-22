@@ -3,6 +3,11 @@
         build: function (onComplete) {
             var $allStubs = $(".stub");
             var stubToReplace = $allStubs.length;
+            
+            if (stubToReplace == 0) {
+                onComplete();
+                return;
+            }
 
             $allStubs.each(function () {
 

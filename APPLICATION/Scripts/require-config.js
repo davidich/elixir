@@ -15,8 +15,8 @@
         elixir: 'Modules/elixirWrapper',
         htmlBuilder: 'Modules/htmlBuilder',
         jqueryui: 'Libs/jquery-ui-1.10.0',
-        customFormElem: 'Libs/customFormElements',
-        scroll: 'Libs/scroll/scrollWraper',
+        customFormElem: 'Libs/customFormElements',        
+        rollbar: "Libs/scroll/jquery.rollbar",
          
         placeHolder: ""
     },

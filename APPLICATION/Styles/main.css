@@ -25,8 +25,9 @@ a:hover {
 
 #musicContent {
     width: 730px;
-    height: 542px;
+    height: 560px;
     overflow: hidden;
+    padding-top: 23px;
 }
 
 a.title {
@@ -64,7 +65,7 @@ input.styled { display: none; }
 {
     height: 34px;
     background: url(../Images/header_bg.jpg) no-repeat;
-    margin-bottom: 23px;
+    /*margin-bottom: 23px;*/
 }
 
     #headerLogo

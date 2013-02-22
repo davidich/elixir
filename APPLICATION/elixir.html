@@ -4,15 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Elixir</title>
     <script type="text/javascript" src="Scripts/require-jquery.js" data-main="Scripts/main"></script>
+
+    <!--<script src="Scripts/Libs/scroll/jquery.easing.1.3.js"></script>
+    <script src="Scripts/Libs/scroll/jquery.mousewheel.js"></script>
+    <script src="Scripts/Libs/scroll/jquery.rollbar.js"></script>-->
+
     <link rel="stylesheet" type="text/css" href="Styles/splash.css" />
     <link rel="stylesheet" type="text/css" href="Styles/main.css" />
     <link rel="stylesheet" type="text/css" href="Styles/cssreset-min.css" />
     <link rel="stylesheet" type="text/css" href="Styles/player.css" />
     <link rel="stylesheet" type="text/css" href="Styles/jquery-ui-1.10.0.custom.min.css" />
-
-    <link rel="stylesheet" type="text/css" href="Styles/jquery.mCustomScrollbar.css" />
-    <link rel="stylesheet" type="text/css" href="Styles/scroll.css" />
-
+    <link rel="stylesheet" type="text/css" href="Styles/jquery.rollbar.css" />
     <link rel="stylesheet" type="text/css" href="Styles/genreNavigation.css" />
     <link rel="stylesheet" type="text/css" href="Styles/checkbox.css" />
     <link rel="stylesheet" type="text/css" href="Styles/headerNavigation.css" />
@@ -21,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/track.css" />
     <link rel="stylesheet" type="text/css" href="Styles/tabNavigation.css" />
     <link rel="stylesheet" type="text/css" href="Styles/albums.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/pager.css" />
 
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
@@ -31,28 +34,49 @@
             $('.albumBlock .cover').hover(
                 function () {
                     $(this).find('.coverHover').animate({
-                            height: 'toggle'
-                        }, {
-                            duration: 600,
-                            specialEasing: {
-                                height: 'easeOutBounce'
-                            }
-                        });
+                        height: 'toggle'
+                    }, {
+                        duration: 600,
+                        specialEasing: {
+                            height: 'easeOutBounce'
+                        }
+                    });
 
                 }, function () {
                     $(this).find('.coverHover').animate({
-                            height: 'toggle'
-                        }, {
-                            duration: 300,
-                            specialEasing: {
-                                height: 'linear'
-                            }
-                        });
+                        height: 'toggle'
+                    }, {
+                        duration: 300,
+                        specialEasing: {
+                            height: 'linear'
+                        }
+                    });
                 });
         });
     </script>
 </head>
 <body>
+
+    <!--<div style="">
+        <button>
+            Add
+        </button>
+    </div >
+
+    
+    <span>Page #</span><span id="pageNmb"></span>
+    <span>Requested Page #</span><span id="requestedPageNmb"></span>
+    <div id="container" style="width: 500px; height: 200px; border: 1px solid red">
+        <div id="header" style="height: 73px; border: 1px solid red">
+            Header            
+        </div>
+        
+        <div id="results">
+            
+        </div>
+        
+        <div id="footer" style="height: 48px; border: 1px solid red">fotter</div>
+    </div>-->
     <div id="splashContent" style="position: absolute; top: 0; left: 0; z-index: 5001">
         <div id="loaderContainer">
             <span id="loaderBar"></span>
@@ -66,11 +90,10 @@
 
         <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
             <a class="title"><span></span>Music</a>
-            <div class="stub filter" ></div>
+            <div class="stub pager"></div>
+            <div class="stub filter"></div>
             <div class="stub tabNaviation"></div>
             <div class="stub tracks"></div>
-            <!--<div class="stub albums"></div>-->
-      <!--      <div class="stub track"></div>-->
             <div style="clear: both;"></div>
         </div>
     </div>

@@ -1,15 +1,15 @@
 ﻿<div class="tracksBlock">
     <div class="rightContainer">
-        <div class="rightSearchBlock" data-bind="with: oSearchParams">
-            <div class="searchCancel" data-bind="click: $root.clearQuery, css: { cancel:  $root.hasQuery }"></div>
-            <input class="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: $root.onQueryKeyUp }" />
-            <div class="searchCriterion" data-bind="fancyDrop: searchModes, value: searchModes"></div>
-            <div class="searchLoader" data-bind="visible: $root.hasPendingSearch" style="display: none;">
+        <div class="rightSearchBlock" data-bind="with: loadManager">
+            <div class="searchCancel" data-bind="click: clearQuery, css: { cancel:  hasQuery }"></div>
+            <input class="searchBar" placeholder="Поиск по" data-bind="value: searchParams.query, valueUpdate: 'afterkeydown', event: { keyup: onQueryKeyUp }" />
+            <div class="searchCriterion" data-bind="fancyDrop: searchParams.searchModes, value: searchParams.searchMode"></div>
+            <div class="searchLoader" data-bind="visible: hasPendingSearch" style="display: none;">
                 <img src="./Images/loader.gif" alt="" />
             </div>
             <div style="clear: both;"></div>
         </div>
-        <div class="searchResult" data-bind="with: oSearchResults">
+        <div class="searchResult">
             <div class="searchResultInfo">У нас <span data-bind="text: totalCount"></span> треков</div>
             <div>
                 <div data-bind="foreach: items">

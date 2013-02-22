@@ -1,28 +1,45 @@
-﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/SearchResults", "Types/SearchParams", "Types/SearchCommand", "Types/GenreSelector"],
-    function (jqueryui, ko, pubSub, viewBase, elixir, Track, SearchResults, SearchParams, SearchCommand) {
+﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/SearchParams", "Types/LoadCommand", "Types/TrackForPlayer", "rollbar"],
+    function (jqueryui, ko, pubSub, viewBase, elixir, Track, SearchParams, LoadCommand, TrackForPlayer) {
 
-        function MusicVM(viewName) {
-
+        function LoadManager($container, headerHeight, itemHeight, pagedModel) {
             var self = this,
-                searchCommand;
+                i,
+                lastCommand,
+                loadedPageItems = []; // ex: value 48 at 2nd index means that page1 + page2 + page3 together have 48 items
 
-            // init base class logic
-            self.setName(viewName);
-            
+            var rollbar = $container.rollbar({
+                minThumbSize: '25%',
+                pathPadding: '3px',
+                zIndex: 100,
+                onScroll: onScrollMoved
+            });
 
-            // Properties                        
-            self.oSearchParams = new SearchParams();
-            self.oSearchResults = new SearchResults();
-            self.searchState = ko.observable("idle");   // idle, postponed, working, canceled
+            // Data
+            self.pageNmb = ko.observable();
+            self.state = ko.observable("idle");   // idle, delayedSearch (postponed), activeSearch (working), loadingPage
+            self.searchParams = new SearchParams(onSearchUpdate);
             
+            // Computed Data
+            self.hasQuery = ko.computed(function () {
+                return self.searchParams.query() && self.searchParams.query().length > 0;
+            });
+
+            self.hasPendingSearch = ko.computed(function () {
+                return self.state() == "delayedSearch" || self.state() == "activeSearch";
+            });
             
+            self.hasPendingPage = ko.computed(function () {
+                return self.state() == "loadingPage";
+            });
+
             // Behavior
-            self.goToMain = function () {
-                self.activateView("main");
-            };
-
-            self.clearQuery = function() {
-                self.oSearchParams.query("");
+            self.clearQuery = function () {
+                if (self.state() == "delayedSearch") {
+                    self.searchParams.query("");
+                    self.state("canceled");     // cancel only if we were in delayedSearch before self.searchParams.query("")
+                } else {
+                    self.searchParams.query("");
+                }
             };
 
             self.onQueryKeyUp = function (data, event) {
@@ -31,82 +48,136 @@
                 }
             };
 
-            self.hasQuery = ko.computed(function() {
-                return self.oSearchParams.query() && self.oSearchParams.query().length > 0;
-            });
-            
-            self.hasPendingSearch = ko.computed(function () {
-                return self.searchState() == "postponed" || self.searchState() == "working";
-            });
+            self.addPage = function () {
+                var curPageIndex = self.pageNmb() - 1;
+                var prevPageIndex = curPageIndex - 1;
+                var indexOfFirstTrack = prevPageIndex < 0 ? 0 : loadedPageItems[prevPageIndex];
+                var indexOfLastTrack = loadedPageItems[curPageIndex] - 1;
 
-            // SEARCH
-            self.search = function (immediate) {
-                // if we canceled and continued typing then revive search
-                if (self.searchState() == "canceled") {
-                    self.searchState("postponed");
+                var tracksOnPage = [];
+                for (i = indexOfFirstTrack; i <= indexOfLastTrack; i++) {
+                    tracksOnPage.push(pagedModel.items()[i]);
+                }                
+                pubSub.pub("player.addToStartAndPlayFirst", tracksOnPage);
+            };
+
+            // Methods            
+            function onScrollMoved(scrollState) {
+                // refresh page number
+                var indexOfMiddleItem = (scrollState.vPxl + scrollState.vVisiblePxl / 2 - headerHeight) / itemHeight;
+                var pageNmb = null;
+                for (i = 0; i < loadedPageItems.length; i++) {
+                    if (indexOfMiddleItem < loadedPageItems[i]) {
+                        pageNmb = i + 1;
+                        break;
+                    }
+                }
+                if (pageNmb == null) throw "Check the logic: pageNmb should be always resolved";
+                self.pageNmb(pageNmb);
+
+                // check if we get to the bottom
+                if (scrollState.vPcnt == 1) {
+                    loadPage(loadedPageItems.length + 1);
+                }
+            };
+
+            function onSearchUpdate() {
+                // if we canceled and continued typing then revive pending request
+                if (self.state() == "canceled") {
+                    self.state("delayedSearch");
                     return;
                 }
 
                 // if search is already postponed then just return
-                if (self.searchState() == "postponed")
+                if (self.state() == "delayedSearch")
                     return;
 
                 // for idle, work => postpone new search
-                if (immediate)
-                    startSearch();
-                else {
-                    setTimeout(startSearch, 1000);
-                    self.searchState("postponed");
-                }                
-            };
-            
-            pubSub.sub("searchParams.onChange", function() {
-                self.search();
-            });
-            
-            pubSub.sub("searchCommand.onComplete", function (error) {
-                console.timeEnd("search time took");
+                setTimeout(function () { loadSearch(); }, 1000);
+                self.state("delayedSearch");
+            }
 
-                // show error if we have some
-                if (error) console.error(error);
+            function loadSearch() {
+                if (self.state() == "canceled") return;
 
-                // only if we have pending request we won't become idle
-                if (self.searchState() != "postponed") self.searchState("idle");
-            });
-            
-            function startSearch() {
-                console.log("searchStarted");
-                console.time("search time took");
-                // check if results are still needed
-                if (self.searchState() == "canceled") {
-                    self.searchState("idle");
+                if (lastCommand) lastCommand.cancel();
+
+                self.state("activeSearch");
+                lastCommand = new LoadCommand(self.searchParams, 1, onLoadSuccess, onLoadFail);
+            }
+
+            function loadPage(page) {
+                // load page if we are not waiting for searchResults
+                if (self.state() == "delayedSearch" || self.state() == "activeSearch" || self.state() == "loadingPage")
                     return;
+
+                self.state("loadingPage");
+                lastCommand = new LoadCommand(self.searchParams, page, onLoadSuccess, onLoadFail);
+                console.log("loadPage: " + page);
+            }
+
+            function onLoadSuccess(items, page, totalCount) {
+                console.log("onLoadSuccess: " + page);
+                // only if we have pending request we won't become idle
+                if (self.state() != "delayedSearch")
+                    self.state("idle");
+
+                // if that is search load, then clear up old results
+                if (page == 1) {
+                    pagedModel.items.removeAll();
+                    rollbar.reset();
+                    loadedPageItems = [];
+                    self.pageNmb(1);
                 }
                 
-                // if we have some command => disregard pending results
-                if (searchCommand) searchCommand.cancel();
-                
-                // we get here => we need to work
-                self.searchState("working");
-                searchCommand = new SearchCommand(self.oSearchParams, self.oSearchResults);
+                // set total count
+                pagedModel.totalCount(totalCount);
+
+                // add items                
+                for (i = 0; i < items.length; i++) {
+                    pagedModel.items.push(items[i]);
+                }
+
+                // update page info (!!! only after items are added)
+                var lastLoadedItemAmount = loadedPageItems.length == 0 ? 0 : loadedPageItems[loadedPageItems.length - 1];
+                loadedPageItems.push(lastLoadedItemAmount + items.length);
+                rollbar.update();
+            }
+
+            function onLoadFail(error) {
+                // TODO: report error
+                //...
+
+                // return to initial state
+                self.state("idle");
             }
             
-            self.cancelSearch = function() {
-                if (self.searchState() == "postponed" || self.searchState() == "working") {
-                    if (searchCommand) searchCommand.cancel();
-                    self.searchState("canceled");
-                }
+            // do initial emtpy search
+            loadPage(1);
+        }
+
+        function MusicVM(viewName) {
+
+            var self = this;
+
+            // init base class logic
+            self.setName(viewName);
+
+            // PAGED MODEL PROPERTIES
+            self.loadManager = new LoadManager($('#musicContent'), 90, 34, self);            
+            self.items = ko.observableArray();
+            self.totalCount = ko.observable();
+            // PAGED MODEL PROPERTIES end
+
+
+            // Behavior
+            self.goToMain = function () {
+                self.activateView("main");
             };
-            // SEARCH END
-
-
-
-
-
 
             self.addToPlayList = function (track) {
                 pubSub.pub("player.playTrack", track);
-            };            
+            };
         };
 
         MusicVM.prototype = new viewBase();

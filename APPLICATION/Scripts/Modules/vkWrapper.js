@@ -35,7 +35,7 @@
             for (i = 0; i < vkObj.response.length; i++) {
                 var vkTrack = vkObj.response[i];
                 var match = $.grep(tracks, function (track) { return track.aid == vkTrack.aid; });
-                if (match.length > 0) constructedTracks.push(new Track(match[0], vkTrack.url));                    
+                if (match.length > 0) constructedTracks.push(new Track(match[0], vkTrack.url, vkTrack.duration));
             }
 
             callback(constructedTracks);            

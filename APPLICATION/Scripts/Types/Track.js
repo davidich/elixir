@@ -1,6 +1,6 @@
 ﻿define(["ko", "pubSub", "Types/TrackForPlayer"], function (ko, pubSub, TrackForPlayer) {
 
-    function Track(metadata, url) {
+    function Track(metadata, url, duration) {
         var self = this;
 
         self.metadata = metadata;
@@ -37,8 +37,8 @@
         self.artists = $.getNamedArray(metadata, "artists");
         self.styles = $.getNamedArray(metadata, "styles");
 
-        self.duration = metadata.duration;
-        self.time = Track.toTimeString(metadata.duration);
+        self.duration = duration;
+        self.time = Track.toTimeString(duration);
         self.stats = metadata.stats;
         
         self.aid = metadata.aid;

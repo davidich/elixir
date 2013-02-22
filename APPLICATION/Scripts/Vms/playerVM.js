@@ -1,8 +1,8 @@
-﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "scroll"],
+﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
 function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
 
     // player ui setup
-    (function () {
+    
         $('.compactViewBtn').click(function () {
             $('.playerHeader').animate({
                 height: ['toggle', 'swing'],
@@ -18,10 +18,16 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
         });
 
         $('.switchToFullView').click(function () {
-            $('.playerHeader').animate({
-                height: ['toggle', 'swing'],
-                opacity: 'toggle'
-            }, 200, 'linear');
+            $('.playerHeader').animate(
+                {
+                    height: ['toggle', 'swing'],
+                    opacity: 'toggle'
+                },
+                200,
+                'linear',
+                function() {
+                    rollbar.update();
+                });
 
 
             $('.playerPlaylistBlock').animate({
@@ -33,8 +39,13 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             $('.playerBlock').addClass('fullView');
         });
 
-        $(".trackListBlockScrollWrapper").mCustomScrollbar();
-    })();
+    var rollbar = $(".trackListBlock").rollbar({
+            minThumbSize: '25%',
+            pathPadding: '3px',
+            zIndex: 100
+        });
+            
+    
 
 
     //View Player View Model
@@ -142,7 +153,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                     if (!isLast) title += ", ";
                 }
             }
-            
+
             return title;
         });
 
@@ -210,7 +221,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             self.position(parseInt(positionInSecs));
         };
 
-        self.clearPlaylist = function() {
+        self.clearPlaylist = function () {
             stop();
             self.tracks.removeAll();
             self.track(null);
@@ -220,20 +231,43 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
 
         // EVENTS
         pubSub.sub("track.addToStart", function (track) {
-            self.tracks.splice(0, 0, track);            
+            self.tracks.splice(0, 0, track);
             self.track(track);
             play();
         });
-        
+
         pubSub.sub("track.addToEnd", function (track) {
-            self.tracks.push(track);            
+            self.tracks.push(track);
+        });
+
+        pubSub.sub("player.addToStartAndPlayFirst", function (tracks) {
+            while (tracks.length > 0) {
+                self.tracks.splice(0, 0, new TrackForPlayer(tracks.pop()));
+            }
+
+            self.track(self.tracks()[0]);
+            play();
+        });
+
+        var hasPendingRedraw = false;
+        self.tracks.subscribe(function () {
+            if (hasPendingRedraw)
+                return;
+
+            hasPendingRedraw = true;
+           
+            setTimeout(function() {
+                rollbar.update();
+                hasPendingRedraw = false;
+            }, 300);
+
         });
 
         pubSub.sub("trackForPlayer.onDeleteClick", function (deletedTrack) {
             // try to start playing next track
             if (self.track() == deletedTrack && self.tracks().length > 1)
                 self.next();
-            
+
             // is that was last instance of that track in playlist?
             var itemsWithTheSameId = $.grep(self.tracks(), function (elem) { return elem.id == deletedTrack.id; });
             if (itemsWithTheSameId.length <= 1) soundManager.destroySound(deletedTrack.id);
@@ -241,7 +275,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             // remove item from playlist
             var index = self.tracks.indexOf(deletedTrack);
             self.tracks.splice(index, 1);
-            
+
             if (self.tracks().length == 0) self.track(null);
             refreshSliderLength();
         });
@@ -267,7 +301,7 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             self.state("stoped");
             if (!self.track()) return;
 
-            soundManager.stopAll();            
+            soundManager.stopAll();
             refreshSliderLength();
         }
 

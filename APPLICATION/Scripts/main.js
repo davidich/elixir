@@ -2,7 +2,7 @@
 if (!window.console) {
     window.console = {};
 }
-var debugLevels = ["log", "info", "warn", "error", "assert", "dir", "clear", "profile", "profileEnd"];
+var debugLevels = ["log", "info", "warn", "error", "assert", "dir", "clear", "profile", "profileEnd", "time", "timeEnd"];
 for (var i = 0; i < debugLevels.length; i++) {
     if (!window.console[debugLevels[i]] || typeof window.console[debugLevels[i]] != "function")
         window.console[debugLevels[i]] = function () {

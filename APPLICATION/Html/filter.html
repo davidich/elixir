@@ -1,4 +1,4 @@
-﻿<div class="genreFilterBlock" data-bind="with: oSearchParams">
+﻿<div class="genreFilterBlock" data-bind="with: loadManager.searchParams">
     <ul data-bind="foreach: genreSelector.genres">
         <li data-bind="slideVisible: isVisible, click: onClick, css: {active: isActive}"><span data-bind="text: name"></span></li>
         <ul data-bind="foreach: styles, slideVisible: (isSelected() && id != 0)" class="subGenders">

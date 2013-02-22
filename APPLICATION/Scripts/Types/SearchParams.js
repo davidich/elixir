@@ -20,9 +20,12 @@
         new FancyDropItem("new", "Новинки", /*cssClass*/"new")
     ];
 
-    function SearhParams() {
-        var self = this;        
-
+    function SearhParams(onChangeCallback) {
+        var self = this,
+            i,
+            nonConditionalTriggers = ["query", "artistId", "genreId", "styleId", "isHighQuality"],
+            onlyWithQueryTriggers = ["orderType", "timeRange", "searchMode"];
+        
         // Props
         self.query = ko.observable("");
         self.searchMode = ko.observable("all");
@@ -36,7 +39,7 @@
         self.searchModes = ko.observableArray(searchModes);
         self.timeRanges = ko.observableArray(timeRanges);
         self.orderTypes = ko.observableArray(orderTypes);
-        self.genreSelector = new GenreSelector(self);
+        self.genreSelector = new GenreSelector(self);       
 
         // Behavior
         self.toJS = function (page) {
@@ -52,11 +55,13 @@
         };
 
         
-        // Set up search triggers
-        function onChange() { pubSub.pub("searchParams.onChange"); }
-        
-        var triggers = ["query", "searchMode", "timeRange", "orderType", "artistId", "genreId", "styleId", "isHighQuality"];
-        for (var i = 0; i < triggers.length; i++) self[triggers[i]].subscribe(onChange);               
+        for (i = 0; i < nonConditionalTriggers.length; i++)
+            self[nonConditionalTriggers[i]].subscribe(onChangeCallback);
+
+        for (i = 0; i < onlyWithQueryTriggers.length; i++)
+            self[onlyWithQueryTriggers[i]].subscribe(function() {
+                if (self.query()) onChangeCallback();
+            });               
     }
     
     return SearhParams;
