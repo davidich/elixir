@@ -328,8 +328,12 @@
     background-position: 0 -22px;
 }
 
+.playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute {
+    background: url(../Images/player/mute.png) 0 0;
+}
+
 .playerBlock.fullView .playerMainBlock .centerPart .soundIco.mute:hover {
-    background-position: 0 -22px;
+    background: url(../Images/player/mute.png) 0 -22px;
 }
 
 .playerMainBlock .switchToFullView

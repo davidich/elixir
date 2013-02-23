@@ -47,7 +47,8 @@
     width: 182px;
     overflow: hidden;
     color: #555;
-    padding: 0 10px;
+    padding-left: 10px;
+    margin-right: 10px;
     white-space:nowrap;
 }
 
@@ -57,7 +58,7 @@
 
 
 .trackInfo:hover .resultTrackName {
-    width: 130px;
+    width: 140px;
     overflow: hidden;
     white-space: nowrap;
     margin-right: 10px;
