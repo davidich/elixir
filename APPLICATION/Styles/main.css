@@ -104,7 +104,7 @@ input.styled { display: none; }
         .mainNavShift
         {
             margin-left: -48px;
-            z-index: 100;
+            z-index: 300;
         }
         
         div.dropmenuArrow

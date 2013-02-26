@@ -54,11 +54,11 @@
     <Content Include="APPLICATION\Html\pager.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
-    <Content Include="APPLICATION\Html\welcome.html" />
     <Content Include="APPLICATION\Html\player.html" />
     <Content Include="APPLICATION\Html\tracks.html" />
     <Content Include="APPLICATION\Html\filter.html" />
     <Content Include="APPLICATION\Html\header.html" />
+    <Content Include="APPLICATION\Images\0.gif" />
     <Content Include="APPLICATION\Images\Add_playlist.png" />
     <Content Include="APPLICATION\Images\album\albumCoverHover.png" />
     <Content Include="APPLICATION\Images\album\albumCoverHoverAddBtn.png" />
@@ -77,6 +77,7 @@
     <Content Include="APPLICATION\Images\cover_hover.png" />
     <Content Include="APPLICATION\Images\dropdownblock_arrow.png" />
     <Content Include="APPLICATION\Images\dropdownblock_bg.jpg" />
+    <Content Include="APPLICATION\Images\flag.png" />
     <Content Include="APPLICATION\Images\folderIcon.png" />
     <Content Include="APPLICATION\Images\header_bg.jpg" />
     <Content Include="APPLICATION\Images\headingRow.png" />
@@ -84,6 +85,7 @@
     <Content Include="APPLICATION\Images\loader.gif" />
     <Content Include="APPLICATION\Images\logo.png" />
     <Content Include="APPLICATION\Images\magnifier.png" />
+    <Content Include="APPLICATION\Images\magnifier2.png" />
     <Content Include="APPLICATION\Images\main_bg.jpg" />
     <Content Include="APPLICATION\Images\musicFilterIco.png" />
     <Content Include="APPLICATION\Images\navigation\events.png" />
@@ -104,7 +106,9 @@
     <Content Include="APPLICATION\Images\player\btnPartition.png" />
     <Content Include="APPLICATION\Images\slider\albumCover.png" />
     <Content Include="APPLICATION\Images\slider\left.png" />
+    <Content Include="APPLICATION\Images\slider\leftBig.png" />
     <Content Include="APPLICATION\Images\slider\right.png" />
+    <Content Include="APPLICATION\Images\slider\rightBig.png" />
     <Content Include="APPLICATION\Images\tempImages\cover35x35.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />
     <Content Include="APPLICATION\Images\player\handle.png" />
@@ -127,11 +131,16 @@
     <Content Include="APPLICATION\Images\splash\splash_load_bg.png" />
     <Content Include="APPLICATION\Images\tempImages\albumCover322x322.jpg" />
     <Content Include="APPLICATION\Images\tempImages\cover100x100.jpg" />
+    <Content Include="APPLICATION\Images\tempImages\wellcomenovarock.png" />
+    <Content Include="APPLICATION\Images\tempImages\wellcomeRihana.png" />
     <Content Include="APPLICATION\Images\tooltipBg.jpg" />
     <Content Include="APPLICATION\Images\trackList.png" />
     <Content Include="APPLICATION\Images\trackPlayBtn.png" />
     <Content Include="APPLICATION\Images\track_hover.jpg" />
     <Content Include="APPLICATION\Images\vk_bg.jpg" />
+    <Content Include="APPLICATION\Images\wellcome\leftHover.png" />
+    <Content Include="APPLICATION\Images\wellcome\rightHover.png" />
+    <Content Include="APPLICATION\Images\wellcome\topHover.png" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\app.js" />
     <Content Include="APPLICATION\Scripts\Libs\jquery.carouFredSel-6.2.0.js" />
@@ -183,6 +192,7 @@
     <Content Include="APPLICATION\Scripts\Types\TrackForPlayer.js" />
     <Content Include="APPLICATION\Scripts\Types\SearchResults.js" />
     <Content Include="APPLICATION\Scripts\Vms\albumVM.js" />
+    <Content Include="APPLICATION\Scripts\Vms\wellcomeVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\musicVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\mainVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\playerVM.js" />
@@ -205,6 +215,8 @@
     <Content Include="APPLICATION\Styles\splash.css" />
     <Content Include="APPLICATION\Styles\tabNavigation.css" />
     <Content Include="APPLICATION\Styles\track.css" />
+    <Content Include="APPLICATION\Html\wellcome.html" />
+    <Content Include="APPLICATION\Styles\wellcome.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\styles.css" />
     <Content Include="index.html" />

@@ -1,4 +1,4 @@
-﻿define(["jquery", "ko", "pubSub", "Vms/mainVM", "Vms/musicVM", "Vms/playerVM", "Vms/albumVM"], function ($, ko, pubSub, MainVM, MusicVM, PlayerVM, AlbumVM) {
+﻿define(["jquery", "ko", "pubSub", "Vms/mainVM", "Vms/musicVM", "Vms/playerVM", "Vms/albumVM", "slider"], function ($, ko, pubSub, MainVM, MusicVM, PlayerVM, AlbumVM) {
     //alert("UserID: " + vk.args["user_id"]);        
 
     var mainVM = new MainVM("main");

@@ -82,3 +82,37 @@ ul.sliderBlock .slide img {
 .slider_next:hover {
     background-position: 0 0;
 }
+
+
+.slide_prevBig 
+{
+    position: absolute;
+    z-index: 200;
+    top: 208px;
+    left: 0;
+    width: 58px;
+    height: 127px;
+    background: url("../Images/slider/leftBig.png") -64px 0 no-repeat;
+    cursor: pointer;
+}
+
+.slide_prevBig:hover {
+    background-position: 0 0;
+}
+
+.slider_nextBig 
+{
+    position: absolute;
+    z-index: 300;
+    top: 208px;
+    right: 0;
+    left: auto;
+    width: 58px;
+    height: 127px;
+    background: url("../Images/slider/rightBig.png") -64px 0 no-repeat;
+    cursor: pointer;
+}
+
+.slider_nextBig:hover {
+    background-position: 0 0;
+}
