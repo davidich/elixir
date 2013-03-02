@@ -1,12 +1,10 @@
 ﻿define(["ko", "pubSub", "Types/GenreSelector"], function (ko, pubSub, GenreSelector) {
-
     function TrackForPlayer(track) {
         var self = this,
-            i;
-
+            i;               
+               
+        // Data
         self.data = track;
-        
-        // shortcuts
         self.id = track.id;
         self.url = track.url;               
         self.title = track.title;
@@ -29,13 +27,17 @@
             self.styles.push(style);
         }
 
+        self.isCurrent = ko.computed(function () {            
+            return self == window.player.track();
+        });
+
         // behavior
         self.onDeleteClick = function (deletedTrack) {
             pubSub.pub("trackForPlayer.onDeleteClick", deletedTrack);
         };
 
-        self.onTrackClick = function(track) {
-            pubSub.pub("trackForPlayer.onClick", track);
+        self.onTrackClick = function(clickedTrack) {
+            pubSub.pub("trackForPlayer.onClick", clickedTrack);
         };
 
     }

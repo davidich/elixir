@@ -9,12 +9,12 @@
 
     function LoadCommand(executeLogic, params, type) {
         var self = this;
-        
+
         // data contract
         if (!executeLogic) throw "executeLogic is a mandatory parameter";
         if (!params) throw "params is a mandatory parameter";
         if (type != "search" && type != "page") throw "type value can only be 'search' or 'page'";
-        
+
         // input
         self.params = params;
         self.executeLogic = executeLogic;
@@ -24,19 +24,19 @@
         // output
         self.state = ko.observable("idle");
         self.data = null;
-        
+
         // methods
-        self.execute = function() {
+        self.execute = function () {
             self.state("working");
             executeLogic(self);
         };
-                
-        self.cancel = function() {
+
+        self.cancel = function () {
             self.state("canceled");
             self.cancellationToken.isCanceled = true;
         };
 
-        self.isAlive = function() {
+        self.isAlive = function () {
             return self.state() == "scheduled" || self.state() == "working";
         };
 
@@ -56,80 +56,77 @@
     }
 
     function LoadManager() {
-        var self = this,
-            command = null;
-                
+        var self = this;
+
         // Data
         self.command = ko.observable();
-        self.delayedSearchParams = ko.observable();
-        self.loadToken = ko.observable();
 
-        self.isSearching = ko.computed(function() {
-            return self.delayedSearchParams() || self.loadToken() && self.loadToken().type == "search";
+        self.isSearching = ko.computed(function () {
+            return self.command() && self.command().type == "search" && self.command().isAlive();
         });
 
-        self.isLoadingPage = ko.computed(function() {
-            return self.loadToken() && self.loadToken().type == "page";
+        self.isLoadingPage = ko.computed(function () {
+            return self.command() && self.command().type == "page" && self.command().isAlive();
         });
 
         // Behavior
-        self.queueCommand = function(cmd) {
-            if (cmd.type == "search") {
-                queueSearch(cmd);
+        self.queueCommand = function (cmd) {
+            switch (cmd.type) {
+                case "search":
+                    // save current command state since we need it after we override it with "canceled"
+                    var state = self.command() && self.command().state();
+
+                    // Have any command?
+                    // New search request has higher priority over page loading and privious search
+                    if (self.command()) self.command().cancel();
+
+                    // set current command
+                    self.command(cmd);
+
+                    // schedule search
+                    if (state == "scheduled") return;
+                    setTimeout(function() { self.command().execute(self); }, global.searchDelay);
+                    self.command().state("scheduled");
+                    break;
+                case "page":
+                    // disregard any page reqeuest when we have pending search request            
+                    if (self.command() && self.command().isAlive())
+                        return;
+
+                    self.command(cmd);
+                    cmd.execute(self);
+                    break;
             }
-            if (cmd.type == "page") {
-                loadPage(cmd);
-            }
-        };
-
-        
-        
-        function queueSearch (cmd) {
-            // save current command state since we need it after we override it with "canceled"
-            var state = self.command() && self.command().state();
-
-            // Have any command?
-            // New search request has higher priority over page loading and privious search
-            if (self.command()) self.command().cancel();
-
-            // set current command
-            self.command(cmd);            
-            
-            // schedule search
-            if (state == "scheduled") return;
-            setTimeout(executeCurrentCommand, global.searchDelay);
-            self.command().state("scheduled");
-        };
-
-        function loadPage (cmd) {
-            // disregard any page reqeuest when we have pending search request            
-            if (self.command().isAlive()) return;
-
-            self.command(cmd);
-            executeCurrentCommand();
-        };
-        
-        function executeCurrentCommand() {
-            //self.command().addCompleteCallback(onComplete);
-            self.command().execute(self);
-        }
-
-        //self.onComplete = function() {
-        //    self.loadToken = null;
-        //};
+        };        
     }
 
-    
+
     function TrackVm() {
-        
+
         // Private members
         var self = this,
             i,
             loadedPageItems = []; // ex: value 48 at 2nd index means that page1 + page2 + page3 together have 48 items
-            
 
-
+        // Init
+        $.extend(self, new BaseVm("tracks"));
+        self.loadMgr = new LoadManager(self.processLoadRequest);
         
+        // Data
+        self.pageNmb = ko.observable(1);
+
+        self.query = ko.observable("");
+        self.hasQuery = ko.computed(function () {
+            return self.query() && $.trim(self.query()).length > 0;
+        });
+        self.searchMode = ko.observable("all");
+        self.searchModes = ko.observableArray(searchModes);
+
+        self.tracks = ko.observableArray();
+        self.totalCount = ko.observable();
+
+
+        // Behaviour
         function getLoadParams(page) {
             var params = searchParamVm.toJS();
             params.query = $.trim(self.query());
@@ -139,38 +136,25 @@
             return params;
         }
         
-        // Init
-        $.extend(self, new BaseVm("tracks"));
-        self.loadMgr = new LoadManager(self.processLoadRequest);
-        
-        // Data
-        self.pageNmb = ko.observable();
-        
-        self.query = ko.observable("");
-        self.hasQuery = ko.computed(function () {
-            return self.query() && $.trim(self.query()).length > 0;
-        });
-        self.searchMode = ko.observable("all");
-        self.searchModes = ko.observableArray(searchModes);
-                
-        self.tracks = ko.observableArray();
-        self.totalCount = ko.observable();
-
-        
-        // Behaviour
         function doSearch() {
             var params = getLoadParams();
             var command = new LoadCommand(loadTracks, params, "search");
             self.loadMgr.queueCommand(command);
         }
-        
+
+        function doPageLoad(page) {
+            var params = getLoadParams(page);
+            var command = new LoadCommand(loadTracks, params, "page");
+            self.loadMgr.queueCommand(command);
+        }
+
         function loadTracks(cmd) {
             dal.loadTracks({
                 cancellationToken: cmd.cancellationToken,
                 params: cmd.params,
                 onSuccess: function (tracks, totalCount) {
                     cmd.state("success");
-                    
+
                     if (cmd.type == "search") {
                         loadedPageItems = [];
                         self.pageNmb(1);
@@ -179,7 +163,7 @@
                     }
 
                     self.totalCount(totalCount);
-                    $.each(tracks, function() { self.tracks.push(this); });
+                    $.each(tracks, function () { self.tracks.push(this); });
 
                     // update page info (!!! only after items are added)
                     var lastLoadedItemAmount = loadedPageItems.length == 0 ? 0 : loadedPageItems[loadedPageItems.length - 1];
@@ -193,7 +177,7 @@
                 }
             });
         }
-                      
+
         self.addPageToPlayer = function () {
             var curPageIndex = self.pageNmb() - 1;
             var prevPageIndex = curPageIndex - 1;
@@ -213,11 +197,11 @@
 
         // Search triggers
         pubSub.sub("search.changed", function (propName) {
-            if (!self.isVisible()) return;            
+            if (!self.isVisible()) return;
             if (self.query() && (propName == "orderType" || propName == "timeRange")) return;
             doSearch();
         });
-        
+
         self.query.subscribe(function () {
             doSearch();
         });
@@ -231,13 +215,13 @@
                 self.clearQuery();
             }
         };
-        
+
         // Events
-        pubSub.pub("scroll.moved", function (scrollState) {
+        pubSub.sub("scroll.moved", function (scrollState) {
             if (!self.isVisible()) return;
 
             // refresh page number
-            var indexOfMiddleItem = (scrollState.vPxl + scrollState.vVisiblePxl / 2 - global.headerHeight) / global.tracksItemHeight;
+            var indexOfMiddleItem = (scrollState.vPxl + scrollState.vVisiblePxl / 2 - global.tracks.topSpaceBeforeFirstItem) / global.tracks.itemHeight;
             var pageNmb = null;
             for (i = 0; i < loadedPageItems.length; i++) {
                 if (indexOfMiddleItem < loadedPageItems[i]) {
@@ -250,13 +234,17 @@
 
             // check if we get to the bottom
             if (scrollState.vPcnt == 1) {
-                var nextPageNmb = loadedPageItems.length + 1;                
-                var params = getLoadParams(nextPageNmb);
-                var command = new LoadCommand(loadTracks, params, "page");
-                self.loadMgr.loadPage(command);
+                var nextPageNmb = loadedPageItems.length + 1;
+                doPageLoad(nextPageNmb);
             }
-        });        
-}
+        });
+
+        self.isVisible.subscribe(function(isVisible) {
+            if (isVisible) {
+                doPageLoad(1);
+            }
+        });
+    }
 
     return new TrackVm();
 })

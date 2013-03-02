@@ -45,14 +45,12 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
     });
             
     
-
-
     //View Player View Model
     function PlayerVm() {
         var self = this;
 
         $.extend(self, new BaseVm("search"));
-
+        
         // override base isVisible logic
         self.isVisible = ko.observable();
         pubSub.sub("viewChanged", function (viewName) {
@@ -149,7 +147,7 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
         });
         self.imageUrl = function (size) {
             return self.hasImage() && self.state() != "stopped"
-                ? "http://94.242.214.22/getimage/?id=" + self.track().imageId + "&size=" + size
+                ? window.global.imageUrl + "?id=" + self.track().imageId + "&size=" + size
                 : "";
         };
         self.trackCaption = ko.computed(function () {

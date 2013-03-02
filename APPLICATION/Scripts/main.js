@@ -37,8 +37,11 @@ if (showConsoleLog) {
 GLOBAL = Global = global =
 {
     appVer: "0.0.0",
-    tracksHeaderHeight: 90,
-    tracksItemHeight: 34,
+    imageUrl: "http://94.242.214.22/getimage/",
+    tracks: {
+        topSpaceBeforeFirstItem: 90,
+        itemHeight: 34,    
+    },
     searchDelay: 1000
 };
 

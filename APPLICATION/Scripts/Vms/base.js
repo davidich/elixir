@@ -69,16 +69,25 @@
             if (route.subVm())
                 self[route.vm()].navigate(route.subRoute());
 
-            // hide inactive vms
-            $.each(self.vms, function(index, vm) {
+            // update vms visibility
+            $.each(self.vms, function (index, vm) {
+                if (route.vm() != vm.name)
+                    vm.hide();
+                else {
+                    vm.show();
+                    self.visibleSubVm(vm);
+                }
                 vm.isVisible(route.vm() == vm.name);
             });
-            for (key in self.vms) {
-               
-            }
-            
-            // update visible sub vm
-            self.visibleSubVm(self.vms[route.vm()]);
+        };
+
+        self.hide = function () {
+            $.each(self.vms, function() { this.hide(); });
+            self.isVisible(false);
+        };
+        
+        self.show = function () {
+            self.isVisible(true);
         };
     };
 

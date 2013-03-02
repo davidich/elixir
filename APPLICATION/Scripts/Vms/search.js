@@ -22,12 +22,13 @@
 
         self.params = paramsVm;
         self.player = playerVm;
+        window.player = playerVm;   // make player global to have access to its properties some vms
 
 
         pubSub.sub("scroll.reset", function () {
             rollbar.reset();
         });
-        pubSub.sub("scroll.reset", function () {
+        pubSub.sub("scroll.update", function () {
             rollbar.update();
         });
     }

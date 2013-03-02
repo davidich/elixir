@@ -1,4 +1,4 @@
-﻿define(["ko", "pubSub", "Vms/Search/player", "Types/TrackForPlayer"], function (ko,  pubSub, player, TrackForPlayer) {
+﻿define(["ko", "pubSub", "Types/TrackForPlayer"], function (ko,  pubSub, TrackForPlayer) {
 
     function Track(metadata, url, duration) {
         var self = this;
@@ -46,7 +46,7 @@
         self.url = url;
 
         self.isAdded = ko.computed(function() {
-            var addedTracks = player.tracks();
+            var addedTracks = window.player.tracks();
             var match = $.grep(addedTracks, function (elem) {
                 return self.id == elem.id;
             });
