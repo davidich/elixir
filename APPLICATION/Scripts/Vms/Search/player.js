@@ -1,57 +1,57 @@
-﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
-function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
+﻿define(["ko", "Vms/base", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
+function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
 
-    // player ui setup
-    
-        $('.compactViewBtn').click(function () {
-            $('.playerHeader').animate({
+    // player ui setup    
+    $('.compactViewBtn').click(function () {
+        $('.playerHeader').animate({
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 200, 'linear');
+
+        $('.playerPlaylistBlock').animate({
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 200, 'linear');
+        $('.lockBackground').hide();
+        $('.playerBlock').removeClass('fullView');
+    });
+
+    $('.switchToFullView').click(function () {
+        $('.playerHeader').animate(
+            {
                 height: ['toggle', 'swing'],
                 opacity: 'toggle'
-            }, 200, 'linear');
-
-            $('.playerPlaylistBlock').animate({
-                height: ['toggle', 'swing'],
-                opacity: 'toggle'
-            }, 200, 'linear');
-            $('.lockBackground').hide();
-            $('.playerBlock').removeClass('fullView');
-        });
-
-        $('.switchToFullView').click(function () {
-            $('.playerHeader').animate(
-                {
-                    height: ['toggle', 'swing'],
-                    opacity: 'toggle'
-                },
-                200,
-                'linear',
-                function() {
-                    rollbar.update();
-                });
+            },
+            200,
+            'linear',
+            function() {
+                rollbar.update();
+            });
 
 
-            $('.playerPlaylistBlock').animate({
-                height: ['toggle', 'swing'],
-                opacity: 'toggle'
-            }, 200, 'linear');
+        $('.playerPlaylistBlock').animate({
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 200, 'linear');
 
-            $('.lockBackground').show();
-            $('.playerBlock').addClass('fullView');
-        });
+        $('.lockBackground').show();
+        $('.playerBlock').addClass('fullView');
+    });
 
     var rollbar = $(".trackListBlock").rollbar({
-            minThumbSize: '25%',
-            pathPadding: '3px',
-            zIndex: 100
-        });
+        minThumbSize: '25%',
+        pathPadding: '3px',
+        zIndex: 100
+    });
             
     
 
 
     //View Player View Model
-    function Player() {
+    function PlayerVm() {
         var self = this;
 
+        $.extend(self, new BaseVm("search"));
 
         // override base isVisible logic
         self.isVisible = ko.observable();
@@ -69,19 +69,34 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             animate: true,
             slide: function (event, ui) { self.refreshPosition(ui.value); }
         });
+        self.sliderValue = function (value) {
+            return typeof value == "undefined"
+                ? $slider.slider("option", "value")
+                : $slider.slider("option", "value", value);
+        };
+        self.sliderMaxValue = function (value) {
+            return typeof value == "undefined"
+                ? $slider.slider("option", "max")
+                : $slider.slider("option", "max", value);           
+        };
 
-        var $volume = $('.trackVolume').slider({
+        var $volumeSlider = $('.trackVolume').slider({
             range: "min",
             min: 0,
             max: 100,
             value: 100,
             animate: true,
-            slide: function (event, ui) {
+            slide: function(event, ui) {
                 self.isMuted(false);
                 self.volume(ui.value);
                 self.refreshVolume();
             }
         });
+        self.volumeSilderValue = function(value) {
+            return typeof value == "undefined"
+                ? $volumeSlider.slider("option", "value")
+                : $volumeSlider.slider("option", "value", value);
+        };
 
 
         // DATA
@@ -195,9 +210,9 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 ? self.volume()
                 : 0;
 
-            // UI
-            if ($volume.slider("option", "value") != resolvedVolume)
-                $volume.slider("option", "value", resolvedVolume);
+            // UI            
+            if (self.volumeSilderValue() != resolvedVolume)
+                self.volumeSilderValue(resolvedVolume);
 
             // functional update
             var sound = self.sound();
@@ -213,8 +228,8 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             if (positionInSecs > maxPosition) positionInSecs = maxPosition;
 
             // UI
-            if ($slider.slider("option", "value") != positionInSecs)
-                $slider.slider("option", "value", positionInSecs);
+            if (self.sliderValue() != positionInSecs)
+                self.sliderValue(positionInSecs);
 
             // functional update
             if (!skipSoundUpdate) sound.setPosition(positionInSecs * 1000);
@@ -279,6 +294,14 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             if (self.tracks().length == 0) self.track(null);
             refreshSliderLength();
         });
+        
+        pubSub.sub("trackForPlayer.onClick", function (track) {
+            if (self.track() == track) 
+                return;
+            
+            self.track(track);
+            play();            
+        });
 
 
         // Helpers
@@ -315,13 +338,11 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
 
         function refreshSliderLength() {
             if (!self.track() || self.state() == "stopped")
-                $slider.slider("option", "max", 0);
+                self.sliderMaxValue(0);
             else
-                $slider.slider("option", "max", self.track().duration);
+                self.sliderMaxValue(self.track().duration);
         }
     }
 
-    Player.prototype = new viewBase();
-
-    return Player;
+    return new PlayerVm();
 })

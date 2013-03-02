@@ -33,7 +33,11 @@
         self.onDeleteClick = function (deletedTrack) {
             pubSub.pub("trackForPlayer.onDeleteClick", deletedTrack);
         };
-        
+
+        self.onTrackClick = function(track) {
+            pubSub.pub("trackForPlayer.onClick", track);
+        };
+
     }
 
     return TrackForPlayer;

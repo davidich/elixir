@@ -2,10 +2,9 @@
     .trackListBlock .rollbar-path-vertical {
         margin-right: 6px;
     }
-
 </style>
 
-<div id="playerContent" style="display: none;" data-bind="visible: isVisible">
+<div id="playerContent">
     <div class='playerBlock'>
         <div class="playerHeader">
             <a class="albumCover">
@@ -93,7 +92,7 @@
             </div>
             <div class="trackListBlock">
                 <div data-bind="foreach: tracks">
-                    <div class="plTrack" data-bind="css:{current: $data == $root.track()}">
+                    <div class="plTrack" data-bind="css:{current: $data == $root.track()}, click: onTrackClick, clickBubble: false">
                         <div class="trackName" data-bind="text: title"></div>
                         <div class="trackArtist" data-bind="foreach: artists">
                             <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>

@@ -36,7 +36,10 @@ if (showConsoleLog) {
 // place to keep some global values (I doubt we'll need it but let's have it for now)
 GLOBAL = Global = global =
 {
-    appVer: "0.0.0"
+    appVer: "0.0.0",
+    tracksHeaderHeight: 90,
+    tracksItemHeight: 34,
+    searchDelay: 1000
 };
 
 // for getting wrongly parsed XML colletions
@@ -78,7 +81,13 @@ require(["require-config"], function () {
                 // did we get all awaited events?
                 if (componets.length == 0) {
                     pubSub.unsub("componentInited");        // remove event subscription                                    
-                    require(["app"], function () { });       // start app
+
+                    // set active vm
+                    require(["ko", "Vms/root"], function (ko, rootVm) {
+                        ko.applyBindings(rootVm);
+                        //rootVm.navigate("search.music.tracks");
+                        rootVm.navigate("welcome");
+                    });
                 }
             });
         });

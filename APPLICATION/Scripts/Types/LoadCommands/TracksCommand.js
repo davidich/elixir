@@ -1,5 +1,5 @@
 ﻿define(["vk", "elixir"], function (vk, elixir) {
-    function LoadCommand(params, page, onSuccess, onError) {
+    function TracksCommand(params, page, onSuccess, onError) {
         // Code contract
         if (!params) throw "params should be passed";
         
@@ -52,5 +52,5 @@
         }        
     }    
 
-    return LoadCommand;
+    return TracksCommand;
 })

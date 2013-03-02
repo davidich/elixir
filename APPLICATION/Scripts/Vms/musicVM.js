@@ -1,21 +1,30 @@
-﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/SearchParams", "Types/LoadCommand", "Types/TrackForPlayer", "rollbar"],
-    function (jqueryui, ko, pubSub, viewBase, elixir, Track, SearchParams, LoadCommand, TrackForPlayer) {
+﻿define(["jqueryui", "ko", "pubSub", "Vms/viewBase", "elixir", "Types/Track", "Types/SearchParams", "Types/LoadCommand", "rollbar"],
+    function (jqueryui, ko, pubSub, viewBase, elixir, Track, SearchParams, LoadCommand) {
+
+        function MusicSubviewManager() {
+            var self = this;
+
+            var commandFactory = {
+                track: $.noop,
+                tracks: LoadCommand
+            };
+        }
 
         function LoadManager($container, headerHeight, itemHeight, pagedModel) {
             var self = this,
                 i,
-                lastCommand,
-                loadedPageItems = []; // ex: value 48 at 2nd index means that page1 + page2 + page3 together have 48 items
+                lastCommand;
+                
 
-            var rollbar = $container.rollbar({
-                minThumbSize: '25%',
-                pathPadding: '3px',
-                zIndex: 100,
-                onScroll: onScrollMoved
-            });
+            //var rollbar = $container.rollbar({
+            //    minThumbSize: '25%',
+            //    pathPadding: '3px',
+            //    zIndex: 100,
+            //    onScroll: onScrollMoved
+            //});
 
             // Data
-            self.pageNmb = ko.observable();
+            //self.pageNmb = ko.observable();
             self.state = ko.observable("idle");   // idle, delayedSearch (postponed), activeSearch (working), loadingPage
             self.searchParams = new SearchParams(onSearchUpdate);
             
@@ -48,38 +57,38 @@
                 }
             };
 
-            self.addPage = function () {
-                var curPageIndex = self.pageNmb() - 1;
-                var prevPageIndex = curPageIndex - 1;
-                var indexOfFirstTrack = prevPageIndex < 0 ? 0 : loadedPageItems[prevPageIndex];
-                var indexOfLastTrack = loadedPageItems[curPageIndex] - 1;
+            //self.addPageToPlayer = function () {
+            //    var curPageIndex = self.pageNmb() - 1;
+            //    var prevPageIndex = curPageIndex - 1;
+            //    var indexOfFirstTrack = prevPageIndex < 0 ? 0 : loadedPageItems[prevPageIndex];
+            //    var indexOfLastTrack = loadedPageItems[curPageIndex] - 1;
 
-                var tracksOnPage = [];
-                for (i = indexOfFirstTrack; i <= indexOfLastTrack; i++) {
-                    tracksOnPage.push(pagedModel.items()[i]);
-                }                
-                pubSub.pub("player.addToStartAndPlayFirst", tracksOnPage);
-            };
+            //    var tracksOnPage = [];
+            //    for (i = indexOfFirstTrack; i <= indexOfLastTrack; i++) {
+            //        tracksOnPage.push(pagedModel.items()[i]);
+            //    }                
+            //    pubSub.pub("player.addToStartAndPlayFirst", tracksOnPage);
+            //};
 
             // Methods            
-            function onScrollMoved(scrollState) {
-                // refresh page number
-                var indexOfMiddleItem = (scrollState.vPxl + scrollState.vVisiblePxl / 2 - headerHeight) / itemHeight;
-                var pageNmb = null;
-                for (i = 0; i < loadedPageItems.length; i++) {
-                    if (indexOfMiddleItem < loadedPageItems[i]) {
-                        pageNmb = i + 1;
-                        break;
-                    }
-                }
-                if (pageNmb == null) throw "Check the logic: pageNmb should be always resolved";
-                self.pageNmb(pageNmb);
+            //function onScrollMoved(scrollState) {
+            //    // refresh page number
+            //    var indexOfMiddleItem = (scrollState.vPxl + scrollState.vVisiblePxl / 2 - headerHeight) / itemHeight;
+            //    var pageNmb = null;
+            //    for (i = 0; i < loadedPageItems.length; i++) {
+            //        if (indexOfMiddleItem < loadedPageItems[i]) {
+            //            pageNmb = i + 1;
+            //            break;
+            //        }
+            //    }
+            //    if (pageNmb == null) throw "Check the logic: pageNmb should be always resolved";
+            //    self.pageNmb(pageNmb);
 
-                // check if we get to the bottom
-                if (scrollState.vPcnt == 1) {
-                    loadPage(loadedPageItems.length + 1);
-                }
-            };
+            //    // check if we get to the bottom
+            //    if (scrollState.vPcnt == 1) {
+            //        loadPage(loadedPageItems.length + 1);
+            //    }
+            //};
 
             function onSearchUpdate() {
                 // if we canceled and continued typing then revive pending request
