@@ -1,57 +1,53 @@
-﻿define(["ko", "Vms/viewBase", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
-function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
+﻿define(["ko", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
+function (ko, pubSub, Track, TrackForPlayer, sequenceManager) {
 
-    // player ui setup
-    
-        $('.compactViewBtn').click(function () {
-            $('.playerHeader').animate({
+    // player ui setup    
+    $('.compactViewBtn').click(function () {
+        $('.playerHeader').animate({
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 200, 'linear');
+
+        $('.playerPlaylistBlock').animate({
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 200, 'linear');
+        $('.lockBackground').hide();
+        $('.playerBlock').removeClass('fullView');
+    });
+
+    $('.switchToFullView').click(function () {
+        $('.playerHeader').animate(
+            {
                 height: ['toggle', 'swing'],
                 opacity: 'toggle'
-            }, 200, 'linear');
-
-            $('.playerPlaylistBlock').animate({
-                height: ['toggle', 'swing'],
-                opacity: 'toggle'
-            }, 200, 'linear');
-            $('.lockBackground').hide();
-            $('.playerBlock').removeClass('fullView');
-        });
-
-        $('.switchToFullView').click(function () {
-            $('.playerHeader').animate(
-                {
-                    height: ['toggle', 'swing'],
-                    opacity: 'toggle'
-                },
-                200,
-                'linear',
-                function() {
-                    rollbar.update();
-                });
+            },
+            200,
+            'linear',
+            function () {
+                rollbar.update();
+            });
 
 
-            $('.playerPlaylistBlock').animate({
-                height: ['toggle', 'swing'],
-                opacity: 'toggle'
-            }, 200, 'linear');
+        $('.playerPlaylistBlock').animate({
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 200, 'linear');
 
-            $('.lockBackground').show();
-            $('.playerBlock').addClass('fullView');
-        });
+        $('.lockBackground').show();
+        $('.playerBlock').addClass('fullView');
+    });
 
     var rollbar = $(".trackListBlock").rollbar({
-            minThumbSize: '25%',
-            pathPadding: '3px',
-            zIndex: 100
-        });
-            
-    
+        minThumbSize: '25%',
+        pathPadding: '3px',
+        zIndex: 100
+    });
 
 
     //View Player View Model
-    function Player() {
+    function PlayerVm() {
         var self = this;
-
 
         // override base isVisible logic
         self.isVisible = ko.observable();
@@ -69,8 +65,18 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             animate: true,
             slide: function (event, ui) { self.refreshPosition(ui.value); }
         });
+        self.sliderValue = function (value) {
+            return typeof value == "undefined"
+                ? $slider.slider("option", "value")
+                : $slider.slider("option", "value", value);
+        };
+        self.sliderMaxValue = function (value) {
+            return typeof value == "undefined"
+                ? $slider.slider("option", "max")
+                : $slider.slider("option", "max", value);
+        };
 
-        var $volume = $('.trackVolume').slider({
+        var $volumeSlider = $('.trackVolume').slider({
             range: "min",
             min: 0,
             max: 100,
@@ -82,6 +88,11 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 self.refreshVolume();
             }
         });
+        self.volumeSilderValue = function (value) {
+            return typeof value == "undefined"
+                ? $volumeSlider.slider("option", "value")
+                : $volumeSlider.slider("option", "value", value);
+        };
 
 
         // DATA
@@ -129,12 +140,12 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                     }
                 });
         };
-        self.hasImage = ko.computed(function () {
-            return self.track() && self.track().imageId;
+        self.imageVisibility = ko.computed(function () {
+            return self.track() && self.track().data.imageId();
         });
         self.imageUrl = function (size) {
-            return self.hasImage() && self.state() != "stopped"
-                ? "http://94.242.214.22/getimage/?id=" + self.track().imageId + "&size=" + size
+            return self.state() != "stopped" && self.track()
+                ? self.track().data.getImageUrl(size)
                 : "";
         };
         self.trackCaption = ko.computed(function () {
@@ -195,9 +206,9 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 ? self.volume()
                 : 0;
 
-            // UI
-            if ($volume.slider("option", "value") != resolvedVolume)
-                $volume.slider("option", "value", resolvedVolume);
+            // UI            
+            if (self.volumeSilderValue() != resolvedVolume)
+                self.volumeSilderValue(resolvedVolume);
 
             // functional update
             var sound = self.sound();
@@ -213,8 +224,8 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             if (positionInSecs > maxPosition) positionInSecs = maxPosition;
 
             // UI
-            if ($slider.slider("option", "value") != positionInSecs)
-                $slider.slider("option", "value", positionInSecs);
+            if (self.sliderValue() != positionInSecs)
+                self.sliderValue(positionInSecs);
 
             // functional update
             if (!skipSoundUpdate) sound.setPosition(positionInSecs * 1000);
@@ -230,23 +241,22 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
 
 
         // EVENTS
-        pubSub.sub("track.addToStart", function (track) {
-            self.tracks.splice(0, 0, track);
-            self.track(track);
-            play();
-        });
+        pubSub.sub("player.addToStart", function (tracks, playFirst) {
+            if (!$.isArray(tracks)) tracks = [tracks];
 
-        pubSub.sub("track.addToEnd", function (track) {
-            self.tracks.push(track);
-        });
-
-        pubSub.sub("player.addToStartAndPlayFirst", function (tracks) {
-            while (tracks.length > 0) {
-                self.tracks.splice(0, 0, new TrackForPlayer(tracks.pop()));
+            for (var i = tracks.length - 1; i >= 0; i--) {
+                prependTrack(tracks[i]);
             }
 
-            self.track(self.tracks()[0]);
-            play();
+            if (playFirst !== false) {
+                self.track(self.tracks()[0]);
+                play();
+            }
+        });
+
+        pubSub.sub("player.addToEnd", function (tracks) {
+            if (!$.isArray(tracks)) tracks = [tracks];
+            $.each(tracks, function () { appendTrack(this); });
         });
 
         var hasPendingRedraw = false;
@@ -255,8 +265,8 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
                 return;
 
             hasPendingRedraw = true;
-           
-            setTimeout(function() {
+
+            setTimeout(function () {
                 rollbar.update();
                 hasPendingRedraw = false;
             }, 300);
@@ -280,8 +290,24 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
             refreshSliderLength();
         });
 
+        pubSub.sub("trackForPlayer.onClick", function (track) {
+            if (self.track() == track)
+                return;
+
+            self.track(track);
+            play();
+        });
+
 
         // Helpers
+        function prependTrack(track) {
+            self.tracks.splice(0, 0, new TrackForPlayer(track));
+        }
+
+        function appendTrack(track) {
+            self.tracks.push(new TrackForPlayer(track));
+        }
+
         function play() {
             var sound = self.sound();
             if (!sound) return;
@@ -315,13 +341,11 @@ function (ko, viewBase, pubSub, Track, TrackForPlayer, sequenceManager) {
 
         function refreshSliderLength() {
             if (!self.track() || self.state() == "stopped")
-                $slider.slider("option", "max", 0);
+                self.sliderMaxValue(0);
             else
-                $slider.slider("option", "max", self.track().duration);
+                self.sliderMaxValue(self.track().duration);
         }
     }
 
-    Player.prototype = new viewBase();
-
-    return Player;
+    return new PlayerVm();
 })

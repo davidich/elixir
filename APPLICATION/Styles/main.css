@@ -39,6 +39,7 @@ a.title {
     width: 100px;
     display: block;
     margin-left: 20px;
+    padding-top: 20px;
     margin-bottom: 11px;
 }
 
@@ -46,14 +47,19 @@ a.title:hover {
     color: #72b4ec;
 }
 
-a.title span
+a.title span.icon
 {
     width: 15px;
     height: 15px;
-    background: url(../Images/note.png) 0 0 no-repeat;
+    background-position: 0 0;
+    background-repeat: no-repeat;
     float: left;
     display: block;
     margin-right: 3px;
+}
+
+a.title span.icon.music {
+    background-image: url(../Images/note.png);
 }
 
 .title:hover span {
@@ -184,4 +190,15 @@ body .ui-tooltip {
 
 .lineLoader img {
     margin-top: 15px;
+}
+
+.pageLoaderBlock {
+    position: absolute; 
+    top: 47%; 
+    left: 50%; 
+    text-align: center; 
+    width: 150px; 
+    background: url(../images/loader.gif) center top no-repeat;
+    width: 27px;
+    height: 7px;
 }

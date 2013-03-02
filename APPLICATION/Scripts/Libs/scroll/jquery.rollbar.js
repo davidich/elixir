@@ -66,19 +66,32 @@ define([/*"jquery", */"Libs/scroll/jquery.easing.1.3", "Libs/scroll/jquery.mouse
 
     //check if scrollbars are required (second time is called on window.load)
     RollBar.prototype.checkScroll = function () {
+        var self = this;
+        
         //show/hide vertical scrollbar
         this.vdiff = this.content.height() - this.container.height();
         if (this.vdiff > 0)
             this.vpath.fadeIn(this.settings.fadeTime);
-        else
+        else {
             this.vpath.fadeOut(this.settings.fadeTime);
-
+            if (parseInt(this.content.css("top")) != 0)
+                this.content.animate({ top: 0 }, "slow", function() {
+                    self.update();
+                });
+        }
+       
         //show/hide horizontal scrollbar
         this.hdiff = this.content.width() - this.container.width();
         if (this.hdiff > 0)
             this.hpath.show(this.settings.fadeTime);
-        else
+        else {
             this.hpath.hide(this.settings.fadeTime);
+            if (parseInt(this.content.css("left")) != 0)
+                self.content.animate({ left: 0 }, "slow", function() {
+                    self.update();
+                });
+        }
+            
 
         //!!! DO FOLLOWING CALCULATIONS ONLY AFTER elements are shown
         //update vertical thumb size
@@ -101,14 +114,18 @@ define([/*"jquery", */"Libs/scroll/jquery.easing.1.3", "Libs/scroll/jquery.mouse
 
 
     //need to be called after content is added (changes scroll visibility and moves thumb to a proper position)
-    RollBar.prototype.update = function () {
+    RollBar.prototype.update = function() {
         // check if scrolls need to be shown
         this.checkScroll();
 
+        var isVScrollVisible = this.vdiff > 0;
+        if (!isVScrollVisible) return;
+        
         // find current thumb top
         var curTopPxl = parseInt(this.vslider.css("top"));
 
-        // find proper thumb top
+        // find proper thumb top               
+        this.state.vPxl = parseInt(this.content.css('top')) * (-1);
         var properTopCnt = this.state.vPxl / (this.state.vTotalPxl - this.state.vVisiblePxl);
         var properTopPxl = Math.round(this.vtrack * properTopCnt);
 

@@ -43,6 +43,7 @@ ul.subGenders li {
 
 .filterBLock {
     height: 20px;
+    margin-bottom: 5px;
 }
 
 .filterBLock div.selectedText {

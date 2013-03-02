@@ -4,10 +4,10 @@
 
     var urls = {
         genres: getUrl("genres"),
-        track: getUrl("track"),
+        trackInfo: getUrl("track"),
         //tracks: getUrl("search_track"),
         tracks: getUrl("tracks"),
-        album: getUrl("album"),
+        albumInfo: getUrl("album"),
         albums: getUrl("search_album"),
         artist: getUrl("artist"),
         artists: getUrl("search_artist")
@@ -46,7 +46,10 @@
     }
 
     var elixirApi = {
-        getTracksMetadata: function (searchParams, onSuccess) {
+        get : function(requestType, params, onSuccess) {
+            ajax(urls[requestType], params, onSuccess);
+        },
+        searchTracks: function (searchParams, onSuccess) {
             var params = {
                 query: encodeURIComponent(searchParams.query),
                 artist: searchParams.artistId || 0,
@@ -110,9 +113,9 @@
                             { "id": "3290", "name": "Dani California", "artists": { "artist": { "id": "782731", "name": "Red Hot Chili Peppers" } }, "album": { "id": "174610", "name": "Stadium Arcadium", "image": "218" }, "stats": { "rank": "980273", "likes": "0" }, "similar": "", "duration": "282", "styles": { "style": "152" }, "ownerId": "58278579", "aid": "79205750" },
                             { "id": "8993", "name": "Hysteria", "artists": { "artist": { "id": "782734", "name": "Muse" } }, "album": { "id": "175537", "name": "2004-12-20: Earl's Court, London, UK", "image": "782" }, "stats": { "rank": "971634", "likes": "0" }, "similar": "", "duration": "227", "styles": { "style": "152" }, "ownerId": "-20340949", "aid": "86569263" }]
                     };
-                
+
                 setTimeout(function () { onSuccess({ totalResults: 5000, query: searchParams.query, tracks: tracks }); }, offlineDelay);
-            }                       
+            }
         },
         getGenres: function (onSuccess) {
             //if (!offlineDelay)

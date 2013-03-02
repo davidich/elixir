@@ -53,5 +53,21 @@
         return styleDict[id];
     };
 
+    GenreSelector.extendWithStyleAndGenres = function(target, styleIds) {
+        target.styles = [];
+        target.genres = [];
+        
+        $.each(styleIds, function () {
+            // add style
+            var style = styleDict[this];            
+            target.styles.push(style);
+            
+            // add genre
+            if ($.inArray(style.genre, target.genres) == -1)
+                target.genres.push(style.genre);
+        });
+
+    };
+
     return GenreSelector;
 })

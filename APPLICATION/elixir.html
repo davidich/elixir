@@ -21,36 +21,11 @@
     <link rel="stylesheet" type="text/css" href="Styles/pager.css" />
     <link rel="stylesheet" type="text/css" href="Styles/slider.css" />
     <link rel="stylesheet" type="text/css" href="Styles/welcome.css" />
-
+    <link rel="stylesheet" type="text/css" href="Styles/dialog.css" />
+ 
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
     <![endif]-->
-
-    <script>
-        $(function () {
-            $('.albumBlock .cover').hover(
-                function () {
-                    $(this).find('.coverHover').animate({
-                        height: 'toggle'
-                    }, {
-                        duration: 600,
-                        specialEasing: {
-                            height: 'easeOutBounce'
-                        }
-                    });
-
-                }, function () {
-                    $(this).find('.coverHover').animate({
-                        height: 'toggle'
-                    }, {
-                        duration: 300,
-                        specialEasing: {
-                            height: 'linear'
-                        }
-                    });
-                });
-        });
-    </script>
 </head>
 <body>
     <div id="splashContent" style="position: absolute; top: 0; left: 0; z-index: 5001">
@@ -59,24 +34,50 @@
         </div>
     </div>
 
-    <div class="topContainer">
+    <div id="rootVm" class="topContainer" style="display: none;" data-bind="visible: isVisible">
         <div class="stub header"></div>
 
-        <div class="stub welcome"></div>
+        <div data-bind="with: welcome">
+            <div class="stub welcome"></div>
+        </div>
 
-<!--        <div id='musicContent' style="display: none;" data-bind="visible: isVisible">
-            <a class="title"><span></span>Music</a>
-            <div class="stub pager"></div>
-            <div class="stub filter"></div>
-            <div class="stub tabNaviation"></div>
-            <div class="stub tracks"></div>-->
-            <!--<div class="stub albums"></div>-->
-            <!--<div class="stub track"></div>-->
-<!--            <div style="clear: both;"></div>
-        </div>-->
+        <div data-bind="with: search">
+            <div id="searchVm" data-bind="visible: isVisible" style="height: 565px;">
+                <a class="title">
+                    <span class="icon music"></span>
+                    <span data-bind="text: location"></span>
+                </a>
+                <div class="stub filter"></div>
+
+                <div data-bind="with: tracks">
+                    <div id="tracksVm" data-bind="visible: isVisible">
+                        
+                        <div class="stub pager"></div>
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub track"></div>
+                    </div>
+                </div>
+
+                <div data-bind="with: track">
+                    <div id="trackVm" data-bind="visible: isVisible">
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub track"></div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <!--<div data-bind="with: music">
+                        <div id='musicContent' data-bind="with: tracks">
+                            <div class="stub albums"></div>
+                            <div class="stub track"></div>
+                        </div>
+
+                    </div>-->
+
+                <div data-bind="with: player">
+                    <div class="stub player"></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="stub player"></div>
-
 </body>
 </html>

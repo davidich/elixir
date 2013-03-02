@@ -1,56 +1,37 @@
-﻿define(["ko", "pubSub", "vk", "elixir"], function (ko, pubSub, vk, elixir) {
-    function LoadCommand(params, page, onSuccess, onError) {
-        // Code contract
-        if (!params) throw "params should be passed";
-        
-        // private vars
-        var self = this,
-            isCanceled = false;
+﻿define(["ko"], function (ko) {
+    function LoadCommand(executeLogic, params, type) {
+        var self = this;
 
-        // convert KO object
-        params = params.toJS(page);
+        // data contract
+        if (!executeLogic) throw "executeLogic is a mandatory parameter";
+        if (!params) throw "params is a mandatory parameter";
+        if (type != "search" && type != "page") throw "type value can only be 'search' or 'page'";
 
-        // Behavior
-        self.cancel = function () {
-            isCanceled = true;
+        // input
+        self.params = params;
+        self.executeLogic = executeLogic;
+        self.type = type;
+        self.cancellationToken = { isCanceled: false };
+
+        // output
+        self.state = ko.observable("idle");
+        self.data = null;
+
+        // methods
+        self.execute = function () {
+            self.state("working");
+            executeLogic(self);
         };
 
-        // start processing
-        try {
-            elixir.getTracksMetadata(params, function (metadata) {
-                var totalCount,
-                    items = [];
-                
-                // are results still needed? is that what we are waiting for
-                if (isCanceled) return;
-                
-                // set total count
-                totalCount = metadata.totalResults;
-                
-                // do we have any searchResults?
-                if (totalCount == 0) {
-                    onSuccess(items, page, totalCount);
-                    return;
-                }
-                
-                vk.constructTracks(metadata, function (aTracks) {
-                    // are results still needed?
-                    if (isCanceled) return;
-                        
-                    // add constructed items
-                    for (var i = 0; i < aTracks.length; i++)
-                        items.push(aTracks[i]);
-                    
-                    // report success
-                    onSuccess(items, page, totalCount);
-                });
-            });
+        self.cancel = function () {
+            self.state("canceled");
+            self.cancellationToken.isCanceled = true;
+        };
 
-        } catch (e) {
-            isCanceled = true;
-            onError(e);
-        }        
-    }    
+        self.isAlive = function () {
+            return self.state() == "scheduled" || self.state() == "working";
+        };
+    }
 
     return LoadCommand;
 })

@@ -2,15 +2,14 @@
     .trackListBlock .rollbar-path-vertical {
         margin-right: 6px;
     }
-
 </style>
 
-<div id="playerContent" style="display: none;" data-bind="visible: isVisible">
+<div id="playerContent">
     <div class='playerBlock'>
         <div class="playerHeader">
             <a class="albumCover">
                 <div class="noImageHolder">
-                    <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('large')}" />
+                    <img src="" alt="" data-bind="visible: imageVisibility, attr: {src: imageUrl('large')}" />
                 </div>
             </a>
             <div class="trackDetails" data-bind="with: track">
@@ -71,7 +70,7 @@
             </div>
             <div class='centerPart'>
                 <div class='cover'>
-                    <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('small')}" />
+                    <img src="" alt="" data-bind="visible: imageVisibility, attr: {src: imageUrl('small')}" />
                 </div>
                 <div class='trackName' data-bind="text: trackCaption"></div>
                 <div class='trackSlider'></div>
@@ -93,7 +92,7 @@
             </div>
             <div class="trackListBlock">
                 <div data-bind="foreach: tracks">
-                    <div class="plTrack" data-bind="css:{current: $data == $root.track()}">
+                    <div class="plTrack" data-bind="css:{current: isCurrent}, click: onTrackClick, clickBubble: false">
                         <div class="trackName" data-bind="text: title"></div>
                         <div class="trackArtist" data-bind="foreach: artists">
                             <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
