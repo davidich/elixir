@@ -1,8 +1,6 @@
-﻿define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtension) {
+define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtension) {
 
     function WelcomeVm() {
-        debugger;
-
         var self = this;
 
         //$.extend(self, new BaseVm("welcome"));
@@ -26,6 +24,7 @@
             if (carouselInited) return;
 
             carouselInited = true;
+
             $('.welcomeSlider').carouFredSel({
                 circular: true,
                 infinite: true,

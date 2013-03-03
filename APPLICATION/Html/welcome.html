@@ -47,51 +47,7 @@
 
 
 <script>
-    $(function () {
-        setTimeout(function () {
-            $('.welcomeSlider').carouFredSel({
-                circular: true,
-                infinite: true,
-                auto: {
-                    play: true,
-                    timeoutDuration: 7000
-                },
-                scroll: {
-                    easing: 'quadratic',
-                    duration: 2000
-                },
-                prev: '.slide_prevBig',
-                next: '.slider_nextBig',
-                align: "left"
-            });
-        }, 2000);
-
-        $("<div class='customDialog' title='Концерт Rihanna в Барселоне'></div>").dialog({
-            dialogClass: 'customDialog',
-            modal: true,
-            autoOpen: false,
-            resizable: false,
-            draggable: false,
-            width: 502,
-            height: 500,
-            buttons: [
-            {
-                text: "Я принимаю участие",
-                icons: {
-                    primary: "gift"
-                }
-            },
-            {
-                text: "Закрыть",
-                icons: {
-                    primary: "close"
-                }
-            }
-            ]
-        });
-
-
-    });
+   
 
     $('body').on('mouseover', 'area', function () {
         var dataClass = $(this).attr('data-hover');
