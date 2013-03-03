@@ -1,20 +1,21 @@
-﻿define(["ko", "Vms/base", "carousel"], function (ko, BaseVm) {
+﻿define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtension) {
 
     function WelcomeVm() {
         var self = this;
 
-        $.extend(self, new BaseVm("welcome"));
+        //$.extend(self, new BaseVm("welcome"));
+        RoutingExtension(self, "welcome");
 
         self.goToTrack = function () {
             self.navigate("/search/track");
         };
 
         self.goToTracks = function () {
-            self.navigate("/search/tracks");
+            self.navigate("/search/tracks?query=dido");
         };        
 
-        self.afterVisibleApplied = function(isVisible) {
-            if (isVisible) initCarousel();
+        self.onShow = function() {
+            initCarousel();
         };
         
 
@@ -38,5 +39,5 @@
         }
     };
 
-    return WelcomeVm;
+    return new WelcomeVm();
 })

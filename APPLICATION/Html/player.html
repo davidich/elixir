@@ -9,7 +9,7 @@
         <div class="playerHeader">
             <a class="albumCover">
                 <div class="noImageHolder">
-                    <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('large')}" />
+                    <img src="" alt="" data-bind="visible: imageVisibility, attr: {src: imageUrl('large')}" />
                 </div>
             </a>
             <div class="trackDetails" data-bind="with: track">
@@ -70,7 +70,7 @@
             </div>
             <div class='centerPart'>
                 <div class='cover'>
-                    <img src="" alt="" data-bind="visible: hasImage, attr: {src: imageUrl('small')}" />
+                    <img src="" alt="" data-bind="visible: imageVisibility, attr: {src: imageUrl('small')}" />
                 </div>
                 <div class='trackName' data-bind="text: trackCaption"></div>
                 <div class='trackSlider'></div>

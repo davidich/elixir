@@ -41,15 +41,26 @@
         </div>
 
         <div data-bind="with: search">
-            <div id="searchVm" data-bind="visible: isVisible" style="position: relative; overflow: hidden; height: 565px;">
-                <a class="title"><span></span>Music</a>
+            <div id="searchVm" data-bind="visible: isVisible" style="height: 565px;">
+                <a class="title">
+                    <span class="icon music"></span>
+                    <span data-bind="text: location"></span>
+                </a>
                 <div class="stub filter"></div>
 
                 <div data-bind="with: tracks">
                     <div id="tracksVm" data-bind="visible: isVisible">
+                        
                         <div class="stub pager"></div>
                         <div class="stub tabNaviation"></div>
                         <div class="stub tracks"></div>
+                    </div>
+                </div>
+
+                <div data-bind="with: track">
+                    <div id="trackVm" data-bind="visible: isVisible">
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub track"></div>
                         <div style="clear: both;"></div>
                     </div>
                 </div>
@@ -67,32 +78,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(function () {
-            $('.albumBlock .cover').hover(
-                function () {
-                    $(this).find('.coverHover').animate({
-                        height: 'toggle'
-                    }, {
-                        duration: 600,
-                        specialEasing: {
-                            height: 'easeOutBounce'
-                        }
-                    });
-
-                }, function () {
-                    $(this).find('.coverHover').animate({
-                        height: 'toggle'
-                    }, {
-                        duration: 300,
-                        specialEasing: {
-                            height: 'linear'
-                        }
-                    });
-                });
-        });
-    </script>
-
 </body>
 </html>

@@ -46,14 +46,19 @@ a.title:hover {
     color: #72b4ec;
 }
 
-a.title span
+a.title span.icon
 {
     width: 15px;
     height: 15px;
-    background: url(../Images/note.png) 0 0 no-repeat;
+    background-position: 0 0;
+    background-repeat: no-repeat;
     float: left;
     display: block;
     margin-right: 3px;
+}
+
+a.title span.icon.music {
+    background-image: url(../Images/note.png);
 }
 
 .title:hover span {

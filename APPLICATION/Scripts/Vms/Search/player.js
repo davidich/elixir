@@ -1,5 +1,5 @@
-﻿define(["ko", "Vms/base", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
-function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
+﻿define(["ko", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
+function (ko, pubSub, Track, TrackForPlayer, sequenceManager) {
 
     // player ui setup    
     $('.compactViewBtn').click(function () {
@@ -24,7 +24,7 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
             },
             200,
             'linear',
-            function() {
+            function () {
                 rollbar.update();
             });
 
@@ -43,14 +43,12 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
         pathPadding: '3px',
         zIndex: 100
     });
-            
-    
+
+
     //View Player View Model
     function PlayerVm() {
         var self = this;
 
-        $.extend(self, new BaseVm("search"));
-        
         // override base isVisible logic
         self.isVisible = ko.observable();
         pubSub.sub("viewChanged", function (viewName) {
@@ -75,7 +73,7 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
         self.sliderMaxValue = function (value) {
             return typeof value == "undefined"
                 ? $slider.slider("option", "max")
-                : $slider.slider("option", "max", value);           
+                : $slider.slider("option", "max", value);
         };
 
         var $volumeSlider = $('.trackVolume').slider({
@@ -84,13 +82,13 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
             max: 100,
             value: 100,
             animate: true,
-            slide: function(event, ui) {
+            slide: function (event, ui) {
                 self.isMuted(false);
                 self.volume(ui.value);
                 self.refreshVolume();
             }
         });
-        self.volumeSilderValue = function(value) {
+        self.volumeSilderValue = function (value) {
             return typeof value == "undefined"
                 ? $volumeSlider.slider("option", "value")
                 : $volumeSlider.slider("option", "value", value);
@@ -142,12 +140,12 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
                     }
                 });
         };
-        self.hasImage = ko.computed(function () {
-            return self.track() && self.track().imageId;
+        self.imageVisibility = ko.computed(function () {
+            return self.track() && self.track().data.imageId();
         });
         self.imageUrl = function (size) {
-            return self.hasImage() && self.state() != "stopped"
-                ? window.global.imageUrl + "?id=" + self.track().imageId + "&size=" + size
+            return self.state() != "stopped" && self.track()
+                ? self.track().data.getImageUrl(size)
                 : "";
         };
         self.trackCaption = ko.computed(function () {
@@ -243,23 +241,22 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
 
 
         // EVENTS
-        pubSub.sub("track.addToStart", function (track) {
-            self.tracks.splice(0, 0, track);
-            self.track(track);
-            play();
-        });
+        pubSub.sub("player.addToStart", function (tracks, playFirst) {
+            if (!$.isArray(tracks)) tracks = [tracks];
 
-        pubSub.sub("track.addToEnd", function (track) {
-            self.tracks.push(track);
-        });
-
-        pubSub.sub("player.addToStartAndPlayFirst", function (tracks) {
-            while (tracks.length > 0) {
-                self.tracks.splice(0, 0, new TrackForPlayer(tracks.pop()));
+            for (var i = tracks.length - 1; i >= 0; i--) {
+                prependTrack(tracks[i]);
             }
 
-            self.track(self.tracks()[0]);
-            play();
+            if (playFirst !== false) {
+                self.track(self.tracks()[0]);
+                play();
+            }
+        });
+
+        pubSub.sub("player.addToEnd", function (tracks) {
+            if (!$.isArray(tracks)) tracks = [tracks];
+            $.each(tracks, function () { appendTrack(this); });
         });
 
         var hasPendingRedraw = false;
@@ -268,8 +265,8 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
                 return;
 
             hasPendingRedraw = true;
-           
-            setTimeout(function() {
+
+            setTimeout(function () {
                 rollbar.update();
                 hasPendingRedraw = false;
             }, 300);
@@ -292,17 +289,25 @@ function (ko, BaseVm, pubSub, Track, TrackForPlayer, sequenceManager) {
             if (self.tracks().length == 0) self.track(null);
             refreshSliderLength();
         });
-        
+
         pubSub.sub("trackForPlayer.onClick", function (track) {
-            if (self.track() == track) 
+            if (self.track() == track)
                 return;
-            
+
             self.track(track);
-            play();            
+            play();
         });
 
 
         // Helpers
+        function prependTrack(track) {
+            self.tracks.splice(0, 0, new TrackForPlayer(track));
+        }
+
+        function appendTrack(track) {
+            self.tracks.push(new TrackForPlayer(track));
+        }
+
         function play() {
             var sound = self.sound();
             if (!sound) return;

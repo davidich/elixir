@@ -1,7 +1,7 @@
 ﻿<div class="tabNavigationBLock">
     <ul class="tabNavigation">
-        <li><span class="active">Треки</span></li>
-        <li><span>Альбомы</span></li>
-        <li><span>Плейлисты</span></li>
+        <li><span data-bind="css: {active: name == 'tracks'}, click: toTracks">Треки</span></li>
+        <li><span data-bind="css: {active: name == 'albums'}, click: toAlbums">Альбомы</span></li>
+        <li><span data-bind="css: {active: name == 'playlists'}, click: toPlaylists">Плейлисты</span></li>
     </ul>
 </div>
