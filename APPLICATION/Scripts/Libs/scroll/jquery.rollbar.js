@@ -114,13 +114,22 @@ define([/*"jquery", */"Libs/scroll/jquery.easing.1.3", "Libs/scroll/jquery.mouse
 
 
     //need to be called after content is added (changes scroll visibility and moves thumb to a proper position)
-    RollBar.prototype.update = function() {
+    RollBar.prototype.update = function () {
+        // make sure content's bottom is not higher than container's bottom
+        // if it is higher, then correct it with animation and re-check on completion
+        var self = this;
+        var maxContentTop = Math.max(0, this.content.height() - this.container.height());
+        if (parseInt(this.content.css("top")) * (-1) > maxContentTop) {
+            this.content.animate({ top: -maxContentTop }, "slow", function() { self.update(); });
+            return;
+        }
+
         // check if scrolls need to be shown
         this.checkScroll();
 
         var isVScrollVisible = this.vdiff > 0;
-        if (!isVScrollVisible) return;
-        
+        if (!isVScrollVisible) return;               
+
         // find current thumb top
         var curTopPxl = parseInt(this.vslider.css("top"));
 
