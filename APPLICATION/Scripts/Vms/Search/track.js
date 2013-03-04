@@ -3,24 +3,16 @@
 
         $("#trackVm").on("mouseenter", '.albumBlock .cover', function () {
             $(this).find('.coverHover').animate({
-                height: 'toggle'
-            }, {
-                duration: 600,
-                specialEasing: {
-                    height: 'easeOutBounce'
-                }
-            });
+                height: 'toggle',
+                marginTop: -33
+            }, 300);
         });
 
         $("#trackVm").on("mouseleave", '.albumBlock .cover', function () {
             $(this).find('.coverHover').animate({
-                height: 'toggle'
-            }, {
-                duration: 300,
-                specialEasing: {
-                    height: 'linear'
-                }
-            });
+                height: 'toggle',
+                marginTop: -2
+            }, 300);
         });
 
         function TrackVm() {

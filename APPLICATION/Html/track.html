@@ -4,9 +4,7 @@
         <div>Выбранный трек</div>
     </div>
     <div data-bind="fadeoutOrShow: !track()">
-        <div style="position: absolute; top: 250px; text-align: center; background: red; width: 150px; margin-left: 200px;">
-            LOADING...
-        </div>
+        <div class="pageLoaderBlock"></div>
     </div>
     <div data-bind="fadeinOrHide: track">
         <div data-bind="with: track()">
