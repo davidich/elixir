@@ -13,7 +13,7 @@
     height: 15px;
     float: left;
     cursor: pointer;
-    background: url(../images/Player/playerBtns.png) -25px -44px no-repeat;
+    background: url(../Images/player/playerBtns.png) -25px -44px no-repeat;
 }
 
 .albumsBLock .albumBlock .albumInfoIcos .addTofavorit:hover
@@ -65,7 +65,7 @@
 }
 
 .albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock .subnavIcons.addToFavorite {
-    background: url(../images/Player/playerBtns.png) -25px -47px no-repeat;
+    background: url(../Images/player/playerBtns.png) -25px -47px no-repeat;
 }
 
 .albumsBLock .albumBlock .albumInfoIcos .triangle .dropDownBlock a:hover .addToFavorite  {

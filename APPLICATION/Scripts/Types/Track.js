@@ -1,36 +1,18 @@
 ﻿define(["ko", "pubSub", "Types/TrackForPlayer", "Types/GenreSelector"], function (ko, pubSub, TrackForPlayer, GenreSelector) {
 
-    function Track(metadata, url, duration) {
+    function genreSelector() {
+        if (!GenreSelector)
+            GenreSelector = require("Types/GenreSelector");
+
+        return GenreSelector;
+    }
+
+    function Track(metadata) {
         var self = this,
             cache = {};
 
         self.metadata = metadata;
-        /* METADATA EXAMPLE:
-         * {
-         *    "id": 261850,
-         *    "artists": {
-         *        "artist": {
-         *            "id": 782972,
-         *            "name": "Damien Rice"
-         *        }
-         *    },
-         *    "duration": 210,
-         *    "ownerId": 3089436,
-         *    "stats": {
-         *        "rank": 564401,
-         *        "likes": 0
-         *    },
-         *    "album": {
-         *        "id": 193747,
-         *        "name": "O",
-         *        "image": 17436
-         *    },
-         *    "name": "Cannonball",
-         *    "styles": "",
-         *    "aid": 72014244
-         * } 
-         */
-
+        
         // Data
         //self.id = "id_" + metadata.id;
         self.id = metadata.id;
@@ -42,7 +24,7 @@
         self.ownerId = metadata.ownerId;
 
         var styleIds = $.getNamedArray(metadata, "styles");
-        GenreSelector.extendWithStyleAndGenres(self, styleIds);        
+        genreSelector().extendWithStyleAndGenres(self, styleIds);
         
         self.similars = [];
         if (metadata.similar) {

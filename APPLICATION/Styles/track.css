@@ -27,21 +27,21 @@
     float: left;
     width: 114px;
     height: 111px;
-    background: url(../images/player/Cover_Border.png) center top no-repeat;
+    background: url(../Images/player/Cover_Border.png) center top no-repeat;
     padding: 2px 0 0 14px;
     float: left;
     cursor: pointer;
 }
 
-.albumBlock .cover .noImageHolder 
+.albumBlock .cover .noImageHolder
 {
     width: 100px;
     height: 100px;
-    background: url(../images/no-image100x100.png) center top no-repeat;
+    background: url(../Images/no-image100x100.png) center top no-repeat;
 }
 
 .albumBlock .cover .number{
-    background: url(../images/coverNumberBg.png);
+    background: url(../Images/coverNumberBg.png);
     width: 29px;
     height: 19px;
     color: #777;
@@ -53,46 +53,44 @@
     text-align: center;
 }
 
-
-
-.albumBlock .cover .copverHoverHolderSmall {
-    border: 1px solid #f00;
+.albumBlock .cover .coverHoverHolderSmall {
     height: 35px;
     width: 104px;
     overflow: hidden;
     position: relative;
     margin-top: -35px;
+    margin-left: -2px;
 
 }
 
-.albumBlock .cover .coverHover {
+.albumBlock .cover .coverHover, ul.sliderBlock .slider .coverHover{
     width: 76px;
     height: 35px;
-    background: url(../images/cover_hover.png) 0 0 no-repeat;
+    background: url(../Images/cover_hover.png) 0 0 no-repeat;
     position: relative;
-    margin: -2px 0 0 -4px;
+    margin-top: 35px;
     padding: 4px 16px 0 16px;
 }
 
-.albumBlock .cover .coverHover .playBtn{
+.albumBlock .cover .coverHover .playBtn, ul.sliderBlock .slider .coverHover .playBtn{
     width: 30px;
     height: 30px;
-    background: url(../images/coverHoverPlay.png) 0 -30px no-repeat;
+    background: url(../Images/coverHoverPlay.png) 0 -30px no-repeat;
     float: left;
 }
 
-.albumBlock .cover .coverHover .playBtn:hover {
+.albumBlock .cover .coverHover .playBtn:hover, ul.sliderBlock .slider .playBtn:hover {
     background-position: 0 0;
 }
 
-.albumBlock .cover .coverHover .playListBtn {
+.albumBlock .cover .coverHover .playListBtn, ul.sliderBlock .slider  .playListBtn{
     width: 30px;
     height: 30px;
-    background: url(../images/coverHoverPlaylist.png) 0 -30px no-repeat;
+    background: url(../Images/coverHoverPlaylist.png) 0 -30px no-repeat;
     float: right;
 }
 
-.albumBlock .cover .coverHover .playListBtn:hover {
+.albumBlock .cover .coverHover .playListBtn:hover, ul.sliderBlock .slider .playListBtn:hover {
     background-position: 0 0;
 }
 
@@ -153,7 +151,7 @@
     margin: 12px 5px 0 0;
     width: 15px;
     height: 15px;
-    background: url(../images/alsoLiked.png) 0 0 no-repeat;
+    background: url(../Images/alsoLiked.png) 0 0 no-repeat;
     float: left;
 }
 
@@ -180,7 +178,7 @@
     float: right;
     margin-top: 14px;
     cursor: pointer;
-    background: url(../images/trackPlayBtn.png) 0 0 no-repeat;
+    background: url(../Images/trackPlayBtn.png) 0 0 no-repeat;
 }
 
 .trackBlock .trackInfoFooter .rightPart .playBtn:hover

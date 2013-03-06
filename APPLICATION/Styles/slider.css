@@ -1,11 +1,12 @@
 ﻿.sliderContainer {
-    margin-bottom: 10px;    
+    margin-bottom: 10px;
+    height: 150px;
 }
 
-ul.sliderBlock li.slide {
+ul.sliderBlock li.slider {
     width: 111px;
     height: 117px;
-    background: url(../images/slider/albumCover.png) center top no-repeat;
+    background: url(../Images/slider/albumCover.png) center top no-repeat;
     float: left;
     display: block;
 	float: left;
@@ -13,7 +14,7 @@ ul.sliderBlock li.slide {
 
 }
 
-ul.sliderBlock li.slide .albumName  {
+ul.sliderBlock li.slider .albumName  {
     height: 24px;
     width: 100px;
     padding: 5px;
@@ -49,14 +50,13 @@ ul.sliderBlock li.slide .albumName  {
 	list-style: none;
 	display: block;
     position: relative;
-    top: -160px;
 }
 
-ul.sliderBlock .slide img {
-    padding: 2px  0 0 6px;
+ul.sliderBlock .slider img {
+    margin-left: -6px;
 }
 
-.slide_prev {
+.slider_prev {
     position: relative;
     z-index: 200;
     /*top: 96px;*/
@@ -64,16 +64,17 @@ ul.sliderBlock .slide img {
     height: 80px;
     background: url("../Images/slider/left.png") -40px 0 no-repeat;
     cursor: pointer;
+    top: -133px;
 }
 
-.slide_prev:hover {
+.slider_prev:hover {
     background-position: 0 0;
 }
 
 .slider_next {
     position: relative;
     z-index: 200;
-    top: -80px;
+    top: -213px;
     left: 520px;
     width: 40px;
     height: 80px;
@@ -86,7 +87,7 @@ ul.sliderBlock .slide img {
 }
 
 
-.slide_prevBig 
+.slider_prevBig 
 {
     position: absolute;
     z-index: 200;
@@ -98,7 +99,7 @@ ul.sliderBlock .slide img {
     cursor: pointer;
 }
 
-.slide_prevBig:hover {
+.slider_prevBig:hover {
     background-position: 0 0;
 }
 
@@ -117,4 +118,22 @@ ul.sliderBlock .slide img {
 
 .slider_nextBig:hover {
     background-position: 0 0;
+}
+
+ul.sliderBlock .slider .coverHoverHolderSmall {
+    height: 35px;
+    width: 104px;
+    overflow: hidden;
+    position: relative;
+    margin-top: -35px;
+    margin-left: 3px;
+}
+
+ul.sliderBlock .cover .noImageHolderNoBorder
+{
+    width: 100px;
+    height: 100px;
+    background: url(../Images/no-imageNoBorder100x100.png) center top no-repeat;
+    padding-left: 12px;
+    margin-top: 2px;
 }

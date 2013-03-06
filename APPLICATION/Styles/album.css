@@ -86,10 +86,10 @@
 
 
 .fullAlbumInfoBlock .fullAlbumInfodescription  {
-    height: 185px;
     width: 520px;
     margin: 0 auto;
     color: #b3b3b3;
+    padding-bottom: 15px;
 }
 
 .fullAlbumInfoBlock .fullAlbumInfodescription  div{
@@ -135,7 +135,7 @@
  }
  
  .fullAlbumInfoBlock .trackListInfoRow div.icon {
-     background: url(../images/trackList.png) 0 0 no-repeat;
+     background: url(../Images/trackList.png) 0 0 no-repeat;
  }
  
  .fullAlbumInfoBlock .trackListInfoRow div.trackAmount {
@@ -150,7 +150,7 @@
  }
 
  .fullAlbumInfoBlock .alsoLiked .icon{
-     background: url(../images/alsoLiked.png) 0 0 no-repeat;
+     background: url(../Images/alsoLiked.png) 0 0 no-repeat;
  }
 
  .fullAlbumInfoBlock .alsoLiked div{

@@ -10,7 +10,7 @@
 {
     width: 509px;
     height: 31px;
-    background: url(../Images/Player/player_bg.png) left top no-repeat;
+    background: url(../Images/player/player_bg.png) left top no-repeat;
     top: 555px;
     padding: 3px 6px 6px 6px; 
     z-index: 5000;
@@ -250,7 +250,7 @@
 .centerPart .trackSlider, 
 .centerPart .trackVolume 
 {
-    background: url(../Images/Player/sliderBg.jpg) repeat-x;
+    background: url(../Images/player/sliderBg.jpg) repeat-x;
 }
 
 .playerBlock.fullView .playerMainBlock .centerPart 
@@ -261,7 +261,7 @@
     
 .centerPart .ui-slider-range-min
 {
-    background: url(../Images/Player/sliderBgLeft.jpg) center top repeat-x;
+    background: url(../Images/player/sliderBgLeft.jpg) center top repeat-x;
 }
     
 .centerPart .trackSlider .ui-slider-handle, 
@@ -271,7 +271,7 @@
     height: 15px;
     position: absolute;
     top: -6px;
-    background: url(../Images/Player/handle.png)  0 0 no-repeat;
+    background: url(../Images/player/handle.png)  0 0 no-repeat;
     cursor: pointer;
     text-decoration: none;
     outline: none;
@@ -319,7 +319,7 @@
     width: 22px;
     height: 22px;
     cursor: pointer;
-    background: url(../images/Player/sound.png) 0 0 no-repeat;
+    background: url(../Images/player/sound.png) 0 0 no-repeat;
     float: left;
     margin: -5px 0 0 -3px;
 }
@@ -341,7 +341,7 @@
     width: 22px;
     height: 22px;
     float: right;
-    background: url(../images/Player/playerBtnsV2.png) -66px -0 no-repeat;
+    background: url(../Images/player/playerBtnsV2.png) -66px 0 no-repeat;
     margin: 7px 17px 0 0;
     cursor: pointer;
     }
@@ -366,7 +366,7 @@
 
 .playerMainBlock .swithViewWrapper
 {
-    background: url("../images/player/toggleViewBorder.png") 0 0 no-repeat;
+    background: url("../Images/player/toggleViewBorder.png") 0 0 no-repeat;
     width: 45px;
     height: 38px;
     float: right;
@@ -379,7 +379,7 @@
     width: 495px;
     height: 122px;
     padding-top: 10px;
-    background: url(../images/Player/header.png) center top no-repeat;
+    background: url(../Images/player/header.png) center top no-repeat;
     margin-bottom: -3px;
     padding-right: 10px;
 }
@@ -388,7 +388,7 @@
     display: block;
     width: 114px;
     height: 111px;
-    background: url(../images/player/Cover_Border.png) center top no-repeat;
+    background: url(../Images/player/Cover_Border.png) center top no-repeat;
     padding: 1px 0 0 13px;
     float: left;
 }
@@ -397,7 +397,7 @@
 {
     width: 100px;
     height: 100px;
-    background: url(../images/no-image100x100.png) center top no-repeat;
+    background: url(../Images/no-image100x100.png) center top no-repeat;
 }
 
 .playerHeader .albumCover img {
@@ -494,7 +494,7 @@
     display: none;
     width: 505px;
     height: 335px;
-    background: url(../images/Player/playList.png) center top no-repeat;
+    background: url(../Images/player/playList.png) center top no-repeat;
 }
 
 .playerHeader .bottomButtonsBlock .dropDownBlock {
@@ -512,7 +512,7 @@
 }
 
 .playerHeader .menuTriangle ul.subNavigation .subnavIcons {
-     background: url(../images/Player/playerBtns.png) 0 0 no-repeat;
+     background: url(../Images/player/playerBtns.png) 0 0 no-repeat;
 }
 
 .playerHeader .menuTriangle .dropDownBlock li a .addTofavorite {
@@ -585,42 +585,42 @@
     height: 15px;
     margin: 5px 0 0 8px;
     cursor: pointer;
-    background: url(../images/Player/headerIcons.png) 0 0 no-repeat;
+    background: url(../Images/player/headerIcons.png) 0 0 no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.goToPlaylist
 {
-    background: url(../images/Player/headerIcons.png) -54px 1px no-repeat;
+    background: url(../Images/player/headerIcons.png) -54px 1px no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.goToPlaylist:hover
 {
-    background: url(../images/Player/headerIcons.png) -54px -14px no-repeat;
+    background: url(../Images/player/headerIcons.png) -54px -14px no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.shuffle
 {
-    background: url(../images/Player/headerIcons.png) -68px 1px no-repeat;
+    background: url(../Images/player/headerIcons.png) -68px 1px no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.shuffle:hover
 {
-    background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
+    background: url(../Images/player/headerIcons.png) -68px -14px no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.shuffle.active
 {
-    background: url(../images/Player/headerIcons.png) -68px -14px no-repeat;
+    background: url(../Images/player/headerIcons.png) -68px -14px no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.clearPlaylist
 {
-    background: url(../images/Player/headerIcons.png) -23px 1px no-repeat;
+    background: url(../Images/player/headerIcons.png) -23px 1px no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.clearPlaylist:hover
 {
-    background: url(../images/Player/headerIcons.png) -23px -14px no-repeat;
+    background: url(../Images/player/headerIcons.png) -23px -14px no-repeat;
 }
 
 .playerPlaylistBlock  .trackListBlock {
@@ -700,7 +700,7 @@
     width: 15px;
     height: 15px;
     float: left;
-    background: url(../images/Player/headerIcons.png) -22px -14px no-repeat;
+    background: url(../Images/player/headerIcons.png) -22px -14px no-repeat;
     margin: 5px 0 0 0;
     display: none;
 }

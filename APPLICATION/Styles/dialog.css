@@ -63,7 +63,7 @@
 .customDialog.ui-dialog .ui-dialog-buttonpane button .ui-button-icon-primary.gift{
     width: 15px;
     height: 15px;
-    background: url('../images/gift.png') 0 0 no-repeat;
+    background: url('../Images/gift.png') 0 0 no-repeat;
 }
 
 .customDialog.ui-dialog .ui-dialog-buttonpane button.ui-state-hover .ui-button-icon-primary.gift{
@@ -73,7 +73,7 @@
 .customDialog.ui-dialog .ui-dialog-buttonpane button .ui-button-icon-primary.close{
     width: 15px;
     height: 15px;
-    background: url('../images/close.png') 0 0 no-repeat;
+    background: url('../Images/close.png') 0 0 no-repeat;
 }
 
 .customDialog.ui-dialog .ui-dialog-buttonpane button.ui-state-hover .ui-button-icon-primary.close{
@@ -109,7 +109,7 @@
     right: 10px;
     border: 0;
     outline: none;
-    background: transparent url("../images/dialog/close.png") 0 0 no-repeat;
+    background: transparent url("../Images/dialog/close.png") 0 0 no-repeat;
     height: 16px;
     width: 16px;
 }

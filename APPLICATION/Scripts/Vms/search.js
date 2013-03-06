@@ -1,5 +1,5 @@
-﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Search/track", "Vms/Search/tracks", "Vms/Search/player", "Types/FancyDropItem", "Types/GenreSelector"],
-    function (ko, pubSub, RoutingExtension, TrackVm, TracksVm, playerVm, FancyDropItem, GenreSelector) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Search/track", "Vms/Search/tracks", "Vms/Search/searchAlbums", "Vms/Search/albumDetails", "Vms/Search/player", "Types/FancyDropItem", "Types/GenreSelector"],
+    function (ko, pubSub, RoutingExtension, TrackDetailsVm, SearchTracksVm, SearchAlbumsVm, AlbumDetailsVm, playerVm, FancyDropItem, GenreSelector) {
 
     // Munu items  
     var timeRanges = [
@@ -23,10 +23,10 @@
         
         // Data
         self.location = ko.computed(function () { return self.activeSubVm() && self.activeSubVm().friendlyName; });
-        self.addVm(new TracksVm(self));
-        self.addVm(new TrackVm());
-        //self.addVm(new AlbumVm());
-        //self.addVm(new AlbumsVm());
+        self.addVm(new SearchTracksVm(self));
+        self.addVm(new TrackDetailsVm());
+        self.addVm(new SearchAlbumsVm(self));
+        self.addVm(new AlbumDetailsVm());
         //self.addVm(new PlaylistVm());
         //self.addVm(new PlaylistsVm());        
         self.player = window.player = playerVm; // make player global to have access to its properties from some vms        

@@ -25,6 +25,9 @@ define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtens
 
             carouselInited = true;
 
+            $('.centerBlock').fadeIn(1500);
+
+
             $('.welcomeSlider').carouFredSel({
                 circular: true,
                 infinite: true,
@@ -32,7 +35,7 @@ define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtens
                     play: true,
                     timeoutDuration: 7000
                 },
-                prev: '.slide_prevBig',
+                prev: '.slider_prevBig',
                 next: '.slider_nextBig',
                 align: "left"
             });

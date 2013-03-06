@@ -1,5 +1,5 @@
 ﻿.pagerBlock {
-    background: url(../images/pagerBg.png) no-repeat;
+    background: url(../Images/pagerBg.png) no-repeat;
     width: 22px;
     height: 34px;
     position: fixed;
@@ -23,7 +23,7 @@
 }
 
 .pagerBlock .playBtn {
-    background: url(../images/trackPlayBtn.png) no-repeat;
+    background: url(../Images/trackPlayBtn.png) no-repeat;
     width: 15px;
     height: 15px;
     margin: 0 auto;

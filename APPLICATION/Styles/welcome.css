@@ -10,6 +10,11 @@
     cursor: pointer;
 }
 
+.welcomeBlock .centerBlock
+{
+    display: none;
+}
+
 .welcomeBlock .areaBlock img 
 {
     position: absolute;
