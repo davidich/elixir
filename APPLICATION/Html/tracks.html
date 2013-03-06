@@ -12,8 +12,8 @@
         <div class="searchResult">
             <div class="searchResultInfo">У нас <span data-bind="text: totalCount"></span> треков</div>
             <div>
-                <div data-bind="foreach: tracks">
-                    <div class="trackInfo" data-bind="click: $parent.openTrackInfo">
+                <div data-bind="foreach: items">
+                    <div class="trackInfo" data-bind="click: $parent.openDetails">
                         <div class="resultPlayButton" data-bind="click: addToStart, clickBubble: false"></div>
                         <div class="resultaddToPlaylist" data-bind="click: addToEnd, clickBubble: false, css: {active: isAdded}"></div>
                         <div class="resultTrackName" data-bind="text: title"></div>

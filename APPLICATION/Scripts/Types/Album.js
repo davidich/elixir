@@ -1,34 +1,65 @@
-﻿define(["Types/GenreSelector", "Types/Track"], function (GenreSelector, Track) {
+﻿define(["pubSub", "Types/GenreSelector", "Types/Track"], function (pubSub, GenreSelector, Track) {
 
     function createTrack(metadata) {
         if (!Track) Track = require("Types/Track");
         return new Track(metadata);
     }
 
-    function Album(metadata) {
+    // LOAD LEVELS:
+    // lite (similar albums):   id, name, image
+    // normal (search result):  id, name, image, release, artists, styles , stats
+    // full (album details):    id, name, image, release, artists, styles , stats,  similar, tracks    
+    function Album(metadata, loadLevel) {
         var self = this;
+        self.loadLevel = loadLevel;
 
         var props = ["id", "name", "image", "release", "stats", "info"];
         $.copyProps(self, metadata, props);
-        
+
+        self.imageUrl = function(size) {
+            return window.global.imageUrl + "?id=" + self.image + "&size=" + size;
+        };               
+
         self.artists = $.getNamedArray(metadata, "artists");
 
         self.similars = [];
         if (metadata.similar) {
             var similars = $.getNamedArray(metadata, "similar", "album");
-            $.each(similars, function () {
-                self.similars.push(new Album(this));
+            $.each(similars, function() {
+                self.similars.push(new Album(this, "lite"));
             });
         }
 
         var styleIds = $.getNamedArray(metadata, "styles");
         GenreSelector.extendWithStyleAndGenres(self, styleIds);
-        
-        self.tracks = [];        
-        $.each($.getNamedArray(metadata, "tracks"), function () {
+
+        self.tracks = [];
+        $.each($.getNamedArray(metadata, "tracks"), function() {
             self.tracks.push(createTrack(this));
-        });        
+        });
+
+        self.playTracks = function() {
+            self.fullLoad(function () {
+                pubSub.pub("player.addToStart", self.tracks);
+            });
+        };
+
+        self.appendTracks = function () {
+            self.fullLoad(function () {
+                pubSub.pub("player.addToEnd", self.tracks);
+            });
+        };
+        
+        self.fullLoad = function (onComplete) {
+            if (self.loadLevel != "full") {
+                require("Modules/dal").loadAlbum(self, onComplete);
+            } else {
+                onComplete(self);
+            }
+        };
     }
 
     return Album;
 })
+
+

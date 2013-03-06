@@ -36,13 +36,16 @@ if (showConsoleLog) {
 // place to keep some global values (I doubt we'll need it but let's have it for now)
 GLOBAL = Global = global =
 {
+    mode: "dev",       // enables stub modules
     appVer: "0.0.0",
     imageUrl: "http://94.242.214.22/getimage/",
     tracks: {
         topSpaceBeforeFirstItem: 90,
         itemHeight: 34,
-    },
-    searchDelay: 1000
+    },    
+    searchDelay: 1000,  // time to accumulate search query
+    vkInitDelay: 500,   // time to wait until vk has finished initialization
+    splashStep: 250     // time for each splash loader step animation
 };
 
 // for getting wrongly parsed XML colletions
@@ -85,7 +88,8 @@ require(["require-config"], function () {
                 var completedEventCount = componentCount - componets.length;
                 var progress = completedEventCount / componentCount;
                 var barWidth = progress * $("#loaderContainer").width();
-                $("#loaderBar").animate({ width: barWidth }, 250, "linear", function () {
+                var stepTime = global.mode != "dev" ? global.splashStep : 0;
+                $("#loaderBar").animate({ width: barWidth }, stepTime, "linear", function () {
                     if ($("#loaderBar").width() == $("#loaderContainer").width()) {
                         $("#splashContent").fadeOut("slow");
                     }
@@ -123,15 +127,12 @@ require(["require-config"], function () {
                 initCustomFormElement(function () {
                     pubSub.pub("componentInited", "customFormElement");
                 });
-            }, 500);
+            }, global.mode != "dev" ? global.vkInitDelay : 0);
         });
     });
 
     function initVk(onComplete) {
         require(["vk", "pubSub"], function (vk, pubSub) {
-            //if (window.location.href.indexOf("localhost") != -1) {
-            //    pubSub.pub("componentInited", "vkApi");
-            //} else {
             try {
                 vk.init(function () {
                     window.vk = vk;
@@ -144,8 +145,7 @@ require(["require-config"], function () {
             } catch (e) {
                 console.log("Exception in vk.init: " + e);
                 onComplete();
-            }
-            //}
+            }            
         });
     }
 

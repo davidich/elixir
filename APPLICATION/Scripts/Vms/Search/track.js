@@ -1,14 +1,14 @@
 ﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tab"],
     function (ko, pubSub, dal, RoutingExtension, TabExtension) {
 
-        $("#trackVm").on("mouseenter", '.albumBlock .cover', function () {
+        $("#trackDetailsVm").on("mouseenter", '.albumBlock .cover', function () {
             $(this).find('.coverHover').animate({
                 height: 'toggle',
                 marginTop: -33
             }, 300);
         });
 
-        $("#trackVm").on("mouseleave", '.albumBlock .cover', function () {
+        $("#trackDetailsVm").on("mouseleave", '.albumBlock .cover', function () {
             $(this).find('.coverHover').animate({
                 height: 'toggle',
                 marginTop: -2
@@ -38,22 +38,20 @@
             };
 
             self.playAlbum = function () {
-                if (self.track()) {
-                    self.track().loadAlbum(function (album) {
-                        pubSub.pub("player.addToStart", album.tracks);
-                    });
-                }
+                if (!self.track()) return;                
+                self.track().loadAlbum(function (album) {
+                    album.playTracks();
+                });
             };
 
-            self.appendAlbum = function () {
-                if (self.track()) {
-                    self.track().loadAlbum(function (album) {
-                        pubSub.pub("player.addToEnd", album.tracks);
-                    });
-                }
+            self.appendAlbum = function() {
+                if (!self.track()) return;                
+                self.track().loadAlbum(function(album) {
+                    album.appendTracks();
+                });
             };
 
-            self.openTrackInfo = function (track) {
+            self.openDetails = function (track) {
                 self.navigate("/search/track?id=" + track.id);
             };
 

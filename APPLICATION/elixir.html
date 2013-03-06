@@ -50,8 +50,7 @@
                 <div class="stub filter"></div>
 
                 <div data-bind="with: tracks">
-                    <div id="tracksVm" data-bind="visible: isVisible">
-                        
+                    <div id="searchTracksVm" data-bind="visible: isVisible">                        
                         <div class="stub pager"></div>
                         <div class="stub tabNaviation"></div>
                         <div class="stub tracks"></div>
@@ -59,19 +58,18 @@
                 </div>
 
                 <div data-bind="with: track">
-                    <div id="trackVm" data-bind="visible: isVisible">
+                    <div id="trackDetailsVm" data-bind="visible: isVisible">
                         <div class="stub tabNaviation"></div>
-                        <div class="stub track"></div>
-                        <div style="clear: both;"></div>
+                        <div class="stub track"></div>                        
                     </div>
                 </div>
-                <!--<div data-bind="with: music">
-                        <div id='musicContent' data-bind="with: tracks">
-                            <div class="stub albums"></div>
-                            <div class="stub track"></div>
-                        </div>
-
-                    </div>-->
+                
+                <div data-bind="with: albums">
+                    <div id="searchAlbumsVm" data-bind="visible: isVisible">
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub albums"></div>
+                    </div>
+                </div>                
 
                 <div data-bind="with: player">
                     <div class="stub player"></div>

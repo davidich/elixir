@@ -34,6 +34,10 @@
     }
 };
 
+if (global.mode == "dev") {
+    config.paths.vk = 'Modules/vkStub';
+}
+
 if (global && global.appVer)
     config.urlArgs = "cacheFix=" + global.appVer;
 

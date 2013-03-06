@@ -32,6 +32,7 @@
             // continue routing
             if (route.subRoute()) {
                 var activeSubVm = self[route.subVm()];
+                if (!activeSubVm) throw "SubView '" + route.subVm() + "' is not added to view '" + self.name + "'";
                 self.activeSubVm(activeSubVm);
                 activeSubVm.navigate(route.subRoute());
             } 
