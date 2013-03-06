@@ -13,8 +13,15 @@
         var self = this;
         self.loadLevel = loadLevel;
 
-        var props = ["id", "name", "image", "release", "stats", "info"];
+        var props = ["id", "name", "image", "stats", "info"];
         $.copyProps(self, metadata, props);
+        
+        if (typeof metadata.release == "string" && metadata.release.length > 0) {
+            var end = metadata.release.indexOf(",") != -1 ? metadata.release.indexOf(",") : metadata.release.length;
+            self.release = metadata.release.substring(0, end);
+        } else {
+            self.release = "не известна";
+        }
 
         self.imageUrl = function(size) {
             return window.global.imageUrl + "?id=" + self.image + "&size=" + size;

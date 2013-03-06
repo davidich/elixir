@@ -52,6 +52,8 @@
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\pager.html" />
+    <Content Include="APPLICATION\Html\playlist.html" />
+    <Content Include="APPLICATION\Html\playlists.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
     <Content Include="APPLICATION\Html\player.html" />

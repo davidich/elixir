@@ -1,4 +1,4 @@
-﻿<div class="albumsBLock">
+﻿<div class="albumsBLock rightPartHolder">
     <div class="rightContainer">
         <div class="rightSearchBlock">
             <div class="searchCancel" data-bind="click: clearQuery, css: { cancel:  hasQuery }"></div>
@@ -16,7 +16,7 @@
                     <div class="albumBlock">
                         <div class="cover">
                             <div class="noImageHolder">
-                                <img src="" alt="" data-bind="visible: image, attr: {src: imageUrl('large')}"/>
+                                <img src="" alt="" data-bind="visible: image, attr: {src: imageUrl('large')}" />
                             </div>
                             <div class="number" data-bind="text: $index() + 1"></div>
                             <div class="coverHover" style="display: none;">
@@ -25,19 +25,30 @@
                             </div>
                         </div>
                         <div class="albumInfo">
-                            <div><span>Альбом:</span> <a href="#" data-bind="text: name"></a></div>
-                            <!--<div><span>Дата:</span> 08.06.2012</div>-->
+                            <div><a href="#" data-bind="text: name"></a></div>
+                            <div><span>Дата:</span> <span data-bind="text: release"></span></div>
                             <div>
+                                <span>Исполнитель:</span>
+                                <span data-bind="foreach: artists">
+                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                                </span>
+                            </div>
+                            <!--<div>
                                 <span>Жанр:</span>
                                 <span data-bind="foreach: genres">
                                     <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                                 </span>
-                            </div>
+                            </div>-->
                             <div>
                                 <span>Стиль:</span>
                                 <span data-bind="foreach: styles">
                                     <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
+                            </div>
+                            <div class="rankBlock">
+                                <a href='#'>
+                                    <div class="heart"></div>
+                                    <span data-bind="text: stats.rank"></span></a>
                             </div>
                             <!--<div><span>Загрузил:</span> <a href="#">хуй с горы</a></div>-->
                         </div>

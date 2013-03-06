@@ -32,10 +32,14 @@
 
         $('.albumCover').hover(function () {
             $(this).find('.albumLikeArea').fadeIn(300);
-            $(this).find('.albumCoverHover').fadeIn(300);
+            $(this).find('.albumCoverHover').animate({
+                'marginTop': '-31px'
+            });
         }, function () {
             $(this).find('.albumLikeArea').fadeOut(300);
-            $(this).find('.albumCoverHover').fadeOut(300);
+            $(this).find('.albumCoverHover').animate({
+                'marginTop': '60px'
+            });
         });
     };
 
