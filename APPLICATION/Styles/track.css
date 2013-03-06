@@ -53,6 +53,18 @@
     text-align: center;
 }
 
+
+
+.albumBlock .cover .copverHoverHolderSmall {
+    border: 1px solid #f00;
+    height: 35px;
+    width: 104px;
+    overflow: hidden;
+    position: relative;
+    margin-top: -35px;
+
+}
+
 .albumBlock .cover .coverHover {
     width: 76px;
     height: 35px;
@@ -92,7 +104,7 @@
 }
 
 .albumBlock .albumInfo span{
-    color:#3c79ab;
+    color: #b3b3b3;
 }
 
 .albumBlock .albumInfo div {
