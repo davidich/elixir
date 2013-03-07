@@ -204,9 +204,9 @@
     <Content Include="APPLICATION\Scripts\Types\LoadCommand.js" />
     <Content Include="APPLICATION\Scripts\Types\TrackForPlayer.js" />
     <Content Include="APPLICATION\Scripts\Types\viewManager.js" />
-    <Content Include="APPLICATION\Scripts\Vms\albumVM.js" />
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Search.js" />
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Tab.js" />
+    <Content Include="APPLICATION\Scripts\Vms\Search\albumDetails.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\searchAlbums.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\track.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\tracks.js" />

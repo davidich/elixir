@@ -1,5 +1,5 @@
-﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Search/track", "Vms/Search/tracks", "Vms/Search/searchAlbums", "Vms/Search/player", "Types/FancyDropItem", "Types/GenreSelector"],
-    function (ko, pubSub, RoutingExtension, TrackDetailsVm, SearchTracksVm, SearchAlbumsVm, playerVm, FancyDropItem, GenreSelector) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Search/track", "Vms/Search/tracks", "Vms/Search/searchAlbums", "Vms/Search/albumDetails", "Vms/Search/player", "Types/FancyDropItem", "Types/GenreSelector"],
+    function (ko, pubSub, RoutingExtension, TrackDetailsVm, SearchTracksVm, SearchAlbumsVm, AlbumDetailsVm, playerVm, FancyDropItem, GenreSelector) {
 
     // Munu items  
     var timeRanges = [
@@ -26,7 +26,7 @@
         self.addVm(new SearchTracksVm(self));
         self.addVm(new TrackDetailsVm());
         self.addVm(new SearchAlbumsVm(self));
-        //self.addVm(new AlbumsVm());
+        self.addVm(new AlbumDetailsVm());
         //self.addVm(new PlaylistVm());
         //self.addVm(new PlaylistsVm());        
         self.player = window.player = playerVm; // make player global to have access to its properties from some vms        

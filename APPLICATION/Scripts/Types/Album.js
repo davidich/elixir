@@ -1,4 +1,4 @@
-﻿define(["pubSub", "Types/GenreSelector", "Types/Track"], function (pubSub, GenreSelector, Track) {
+﻿define(["ko", "pubSub", "Types/GenreSelector", "Types/Track"], function (ko, pubSub, GenreSelector, Track) {
 
     function createTrack(metadata) {
         if (!Track) Track = require("Types/Track");

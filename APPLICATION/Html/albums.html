@@ -14,14 +14,14 @@
             <div>
                 <div data-bind="foreach: items">
                     <div class="albumBlock">
-                        <div class="cover">
+                        <div class="cover" data-bind="click: $parent.openDetails">
                             <div class="noImageHolder">
                                 <img src="" alt="" data-bind="visible: image, attr: {src: imageUrl('large')}" />
                             </div>
                             <div class="number" data-bind="text: $index() + 1"></div>
                             <div class="coverHover" style="display: none;">
-                                <div class="playBtn" data-bind="click: playTracks"></div>
-                                <div class="playListBtn" data-bind="click: appendTracks"></div>
+                                <div class="playBtn" data-bind="click: playTracks, clickBubble: false"></div>
+                                <div class="playListBtn" data-bind="click: appendTracks, clickBubble: false"></div>
                             </div>
                         </div>
                         <div class="albumInfo">

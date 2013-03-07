@@ -71,7 +71,14 @@
                         <div class="stub tabNaviation"></div>
                         <div class="stub albums"></div>
                     </div>
-                </div>                
+                </div>                               
+                
+                <div data-bind="with: album">
+                    <div id="albumDetailsVm" data-bind="visible: isVisible">
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub album"></div>
+                    </div>
+                </div>
 
                 <div data-bind="with: player">
                     <div class="stub player"></div>

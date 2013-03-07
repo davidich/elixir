@@ -22,8 +22,6 @@
             RoutingExtension(self, "track", "Музыка");
             TabExtension(self);
             self.track = ko.observable();
-            self.topFive = ko.observableArray();
-            self.bottomTwenty = ko.observableArray();
             self.showAll = ko.observable();
             self.similars = ko.observableArray();
 
@@ -61,9 +59,7 @@
                 if (!args.id) throw "id is mandatory parameter";
 
                 if (args.clean == "true") {
-                    self.track(null);
-                    self.topFive.removeAll();
-                    self.bottomTwenty.removeAll();
+                    self.track(null);                                        
                     self.showAll(false);
 
                     pubSub.pub("scroll.reset");
@@ -73,18 +69,8 @@
                 dal.trackInfo(args.id, function (track) {
                     self.track(track);
 
-                    self.topFive.removeAll();
-                    self.bottomTwenty.removeAll();
                     self.similars.removeAll();
-                    var i, similars = track.similars;
-                    for (i = 0; i < similars.length; i++) {
-                        //if (i < 5)
-                        //    self.topFive.push(similars[i]);
-                        //else
-                        //    self.bottomTwenty.push(similars[i]);
-
-                        self.similars.push(similars[i]);
-                    }
+                    $.each(track.similars, function() { self.similars.push(this); });                    
 
                     pubSub.pub("scroll.reset");
                     pubSub.pub("scroll.update");
