@@ -1,10 +1,10 @@
-п»їdefine(["ko", "pubSub", "Vms/Extensions/Search", "Types/FancyDropItem", "Modules/dal"],
+define(["ko", "pubSub", "Vms/Extensions/Search", "Types/FancyDropItem", "Modules/dal"],
     function (ko, pubSub, SearchExtention, FancyDropItem, dal) {
 
         var searchModes = [
-               new FancyDropItem("all", "РџРѕ РІСЃРµРјСѓ"),
-               new FancyDropItem("album_name", "РџРѕ Р°Р»СЊР±РѕРјСѓ"),
-               new FancyDropItem("artist_name", "РџРѕ РёСЃРїРѕР»РЅРёС‚РµР»СЋ")
+               new FancyDropItem("all", "По всему"),
+               new FancyDropItem("album_name", "По альбому"),
+               new FancyDropItem("artist_name", "По исполнителю")
         ];
 
         $("#searchAlbumsVm").on("mouseenter", '.albumBlock .cover', function () {
@@ -24,7 +24,7 @@
                 lastPage = 0;
 
             self.vmId = "albums";
-            self.sectionName = "РњСѓР·С‹РєР°";
+            self.sectionName = "Музыка";
             self.itemInfoUrl = "/search/album?clean=true&id=";
             SearchExtention(self, searchModes);
             
