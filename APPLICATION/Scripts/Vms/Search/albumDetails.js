@@ -1,4 +1,4 @@
-define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tab"],
+ï»¿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tab"],
     function (ko, pubSub, dal, RoutingExtension, TabExtension) {
         var $carousel = $("#similarAlbumsCarousel"),
             carouselSettings = {
@@ -63,7 +63,7 @@ define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions
             var self = this;
 
             // Data
-            RoutingExtension(self, "album", "Ìóçûêà");
+            RoutingExtension(self, "album", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             TabExtension(self);
             self.album = ko.observable();
             self.similars = ko.observableArray();

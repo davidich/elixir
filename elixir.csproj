@@ -107,6 +107,7 @@
     <Content Include="APPLICATION\Images\navigation\video.png" />
     <Content Include="APPLICATION\Images\no-image100x100.png" />
     <Content Include="APPLICATION\Images\no-image35x35.png" />
+    <Content Include="APPLICATION\Images\no-imageNoBorder100x100.png" />
     <Content Include="APPLICATION\Images\note.png" />
     <Content Include="APPLICATION\Images\note1.png" />
     <Content Include="APPLICATION\Images\pagerBg.png" />
