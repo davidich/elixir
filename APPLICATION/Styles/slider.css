@@ -57,6 +57,7 @@ ul.sliderBlock .slider img {
 }
 
 .slider_prev {
+    display: none;
     position: relative;
     z-index: 200;
     /*top: 96px;*/
@@ -72,6 +73,7 @@ ul.sliderBlock .slider img {
 }
 
 .slider_next {
+    display: none;
     position: relative;
     z-index: 200;
     top: -213px;

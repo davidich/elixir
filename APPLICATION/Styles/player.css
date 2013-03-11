@@ -41,7 +41,7 @@
     background-position: -22px -22px;
 }
 
-.playerMainBlock.locked .prev 
+.playerBlock.locked .prev 
 {
     background-position: -22px -44px;
     cursor: default;
@@ -57,7 +57,7 @@
     background-position: 0 -22px;
 }
 
-.playerMainBlock.locked .playPause 
+.playerBlock.locked .playPause 
 {
     background-position: 0 -44px;
     cursor: default;
@@ -73,12 +73,12 @@
     background-position: -110px -22px;
 }
 
-.playerMainBlock.locked .playPause.pause 
+.playerBlock.locked .playPause.pause 
 {
     background-position: -110px -44px !important;
 }
       
-.playerMainBlock.locked .playPause.pause:hover 
+.playerBlock.locked .playPause.pause:hover 
 {
     background-position: -110px -22px;
 }
@@ -93,7 +93,7 @@
     background-position: -44px -22px;
 }
 
-.playerMainBlock.locked .next 
+.playerBlock.locked .next 
 {
     background-position: -44px -44px;
     cursor: default;
@@ -117,11 +117,11 @@
     margin-left: 4px;
 }
 
-.playerBlock.fullView .playerMainBlock.locked .buttonBlock .repeat
+/*.playerBlock.fullView .playerMainBlock.locked .buttonBlock .repeat
 {
     background-position: -130px -44px;
     cursor: default;
-}
+}*/
 
 .buttonBlock
 {
@@ -170,7 +170,7 @@
     background-position: -88px -22px;
 }
     
-.playerMainBlock.locked .buttonBlock .share
+.playerBlock.locked .buttonBlock .share
 {
     background-position: -88px -44px;
     cursor: default;
@@ -278,8 +278,8 @@
     border: 0;
 }
 
-.playerMainBlock.locked .centerPart .trackSlider .ui-slider-handle, 
-.playerMainBlock.locked .centerPart .trackVolume .ui-slider-handle
+.playerBlock.locked .centerPart .trackSlider .ui-slider-handle, 
+.playerBlock.locked .centerPart .trackVolume .ui-slider-handle
 {
     cursor: default;
 }
@@ -289,7 +289,7 @@
     background-position:  0 -15px;
 }
 
-.playerMainBlock.locked .centerPart .trackSlider .ui-slider-handle
+.playerBlock.locked .centerPart .trackSlider .ui-slider-handle
 {
     background-position:  0 -30px;
 }
@@ -351,11 +351,11 @@
     background-position: -66px -22px;
 }
 
-.playerMainBlock.locked .switchToFullView
+/*.playerMainBlock.locked .switchToFullView
 {
     background-position: -66px -44px;
     cursor: default;
-}
+}*/
 
 .playerMainBlock .btnPartial {
     width: 2px;
@@ -464,17 +464,23 @@
     z-index: 1000;
 }
 
+.playerBlock.locked .playerHeader .btnRotator, 
+.playerBlock.locked .playerHeader .btnRotator:hover {
+    cursor: default;
+    background-position: -90px -45px;
+}
+
 .playerHeader .btnRotator {
     float: left;
     margin-right: 5px;
     width: 15px;
     height: 15px;
     cursor: pointer;
-    background: url(../Images/player/playerBtns.png) -25px -45px no-repeat;
+    background: url(../Images/player/playerBtnsV2.png) -90px -5px no-repeat;
 }
 
 .playerHeader .bottomButtonsBlock .btnRotator:hover {
-    background-position: -25px -67px;
+    background-position: -90px -27px;
 }
 
 .playerHeader .bottomButtonsBlock .menuTriangle {
@@ -588,24 +594,35 @@
     background: url(../Images/player/headerIcons.png) 0 0 no-repeat;
 }
 
-.playlistHeader .playlistHeaderButtons div.goToPlaylist
+.playlistHeader .playlistHeaderButtons div.convertToPls
 {
-    background: url(../Images/player/headerIcons.png) -54px 1px no-repeat;
+    background: url(../Images/player/createPls.png) 0 0px no-repeat;
 }
 
-.playlistHeader .playlistHeaderButtons div.goToPlaylist:hover
+.playlistHeader .playlistHeaderButtons div.convertToPls:hover
 {
-    background: url(../Images/player/headerIcons.png) -54px -14px no-repeat;
+    background-position: 0 -15px;
+}
+
+.playlistHeader .playlistHeaderButtons div.convertToPls:hover
+{
+    background-position: 0 -15px;
+}
+
+.playerBlock.locked .playlistHeaderButtons div.convertToPls
+{
+    background-position: 0 -30px;
+    cursor: default;
 }
 
 .playlistHeader .playlistHeaderButtons div.shuffle
 {
-    background: url(../Images/player/headerIcons.png) -68px 1px no-repeat;
+    background: url(../Images/player/shuffle.png) 0 0 no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.shuffle:hover
 {
-    background: url(../Images/player/headerIcons.png) -68px -14px no-repeat;
+    background-position: 0 -15px;
 }
 
 .playlistHeader .playlistHeaderButtons div.shuffle.active
@@ -615,12 +632,18 @@
 
 .playlistHeader .playlistHeaderButtons div.clearPlaylist
 {
-    background: url(../Images/player/headerIcons.png) -23px 1px no-repeat;
+    background: url(../Images/player/clearPlaylist.png) 0 0 no-repeat;
 }
 
 .playlistHeader .playlistHeaderButtons div.clearPlaylist:hover
 {
-    background: url(../Images/player/headerIcons.png) -23px -14px no-repeat;
+    background-position: 0 -15px;
+}
+
+.playerBlock.locked .playlistHeader .playlistHeaderButtons div.clearPlaylist
+{
+    background-position: 0 -30px;
+    cursor: default;
 }
 
 .playerPlaylistBlock  .trackListBlock {
@@ -706,7 +729,7 @@
 }
 
 .lockBackground {
-    position: absolute;
+    position: fixed;
     z-index: 4999;
     background: #868686;
     width: 730px;

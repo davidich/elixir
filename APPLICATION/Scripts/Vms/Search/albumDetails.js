@@ -15,8 +15,6 @@
                     button: "#similarAlbumsCarousel_next",
                     key: "right"
                 },
-                //prev: '.slider_prev',
-                //next: '.slider_next',
                 align: "left",
                 scroll: {
                     items: 2,
@@ -28,20 +26,6 @@
         var uiInited = false;
         function initUi() {
             if (uiInited) return;
-            
-            //$('.sliderBlock').carouFredSel();
-            
-            //$('.albumCover').hover(function () {
-            //    $(this).find('.albumLikeArea').fadeIn(300);
-            //    $(this).find('.albumCoverHover').animate({
-            //        'marginTop': '-31px'
-            //    });
-            //}, function () {
-            //    $(this).find('.albumLikeArea').fadeOut(300);
-            //    $(this).find('.albumCoverHover').animate({
-            //        'marginTop': '60px'
-            //    }, 200);
-            //});
             
             $("#albumDetailsVm").on("mouseenter", '.albumCover', function () {
                 $(this).find('.albumLikeArea').fadeIn(300);
@@ -63,7 +47,7 @@
             var self = this;
 
             // Data
-            RoutingExtension(self, "album", "������");
+            RoutingExtension(self, "album", "Главная");
             TabExtension(self);
             self.album = ko.observable();
             self.similars = ko.observableArray();
