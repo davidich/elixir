@@ -79,6 +79,20 @@
                         <div class="stub album"></div>
                     </div>
                 </div>
+                
+                <div data-bind="with: playlists">
+                    <div id="searchPlaylistVm" data-bind="visible: isVisible">
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub albums"></div>
+                    </div>
+                </div>                               
+                
+                <div data-bind="with: playlist">
+                    <div id="playlistDetailsVm" data-bind="visible: isVisible">
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub album"></div>
+                    </div>
+                </div>
 
                 <div data-bind="with: player">
                     <div class="stub player"></div>

@@ -37,6 +37,10 @@ function (ko, pubSub, Track, TrackForPlayer, sequenceManager) {
         $('.lockBackground').show();
         $('.playerBlock').addClass('fullView');
     });
+    
+    $("#playerContent").bind('mousewheel DOMMouseScroll', function (e) {
+        return false;
+    });
 
     var rollbar = $(".trackListBlock").rollbar({
         minThumbSize: '25%',

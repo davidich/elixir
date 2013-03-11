@@ -1,36 +1,35 @@
 define(["ko", "pubSub", "Vms/Extensions/Search", "Types/FancyDropItem", "Modules/dal"],
     function (ko, pubSub, SearchExtention, FancyDropItem, dal) {
 
-        var searchModes = [
-               new FancyDropItem("all", "По всему"),
-               new FancyDropItem("album_name", "По альбому"),
-               new FancyDropItem("artist_name", "По исполнителю")
-        ];
+        function initUi(containerId) {
+            $("#" + containerId)
+                .on("mouseenter", '.albumBlock .cover', function () {
+                    $(this).find('.coverHover').animate({
+                        marginTop: 0
+                    }, 300);
+                })
+                .on("mouseleave", '.albumBlock .cover', function () {
+                    $(this).find('.coverHover').animate({
+                        marginTop: 33
+                    }, 300);
+                });
+        }
 
-        $("#searchAlbumsVm").on("mouseenter", '.albumBlock .cover', function () {
-            $(this).find('.coverHover').animate({
-                marginTop: 0
-            }, 300);
-        });
-
-        $("#searchAlbumsVm").on("mouseleave", '.albumBlock .cover', function () {
-            $(this).find('.coverHover').animate({
-                marginTop: 33
-            }, 300);
-        });
-
-        function SearchAlubumsVm(searchVm) {
+        function SearchAlubumsVm(searchVm, options) {
             var self = this,
                 lastPage = 0;
 
-            self.vmId = "albums";
+            initUi(options.containerId);
+
+            self.vmId = options.vmId;
             self.sectionName = "Музыка";
-            self.itemInfoUrl = "/search/album?clean=true&id=";
-            SearchExtention(self, searchModes);
-            
+            self.itemInfoUrl = options.detailUrl + "?clean=true&id=";
+            self.searchResultSuffix = options.searchResultSuffix;
+            SearchExtention(self, options.searchModes);
+
             // BEHAVIOR
             self.loadItems = function (cmd) {
-                dal.searchAlbums({
+                dal[options.dalMethod]({
                     cancellationToken: cmd.cancellationToken,
                     params: cmd.params,
                     onSuccess: function (items, totalCount) {
@@ -54,7 +53,7 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Types/FancyDropItem", "Modules
                     }
                 });
             };
-            
+
             self.getLoadParams = function (page) {
                 var params = searchVm.getParams();
 
@@ -79,7 +78,7 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Types/FancyDropItem", "Modules
 
             self.getNextPageNmb = function () {
                 return lastPage + 1;
-            };            
+            };
         }
 
         return SearchAlubumsVm;
