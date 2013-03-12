@@ -52,8 +52,6 @@
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\pager.html" />
-    <Content Include="APPLICATION\Html\playlist.html" />
-    <Content Include="APPLICATION\Html\playlists.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
     <Content Include="APPLICATION\Html\player.html" />
@@ -113,6 +111,9 @@
     <Content Include="APPLICATION\Images\pagerBg.png" />
     <Content Include="APPLICATION\Images\player\activeSongBg.png" />
     <Content Include="APPLICATION\Images\player\btnPartition.png" />
+    <Content Include="APPLICATION\Images\player\clearPlaylist.png" />
+    <Content Include="APPLICATION\Images\player\createPls.png" />
+    <Content Include="APPLICATION\Images\player\shuffle.png" />
     <Content Include="APPLICATION\Images\slider\albumCover.png" />
     <Content Include="APPLICATION\Images\slider\left.png" />
     <Content Include="APPLICATION\Images\slider\leftBig.png" />
