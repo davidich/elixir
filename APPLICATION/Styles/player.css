@@ -258,7 +258,6 @@
     width: 348px;
 }
 
-    
 .centerPart .ui-slider-range-min
 {
     background: url(../Images/player/sliderBgLeft.jpg) center top repeat-x;
@@ -278,8 +277,7 @@
     border: 0;
 }
 
-.playerBlock.locked .centerPart .trackSlider .ui-slider-handle, 
-.playerBlock.locked .centerPart .trackVolume .ui-slider-handle
+.playerBlock.locked .centerPart .trackSlider .ui-slider-handle
 {
     cursor: default;
 }
@@ -627,7 +625,7 @@
 
 .playlistHeader .playlistHeaderButtons div.shuffle.active
 {
-    background: url(../Images/player/headerIcons.png) -68px -14px no-repeat;
+    background-position: 0 -15px;
 }
 
 .playlistHeader .playlistHeaderButtons div.clearPlaylist
