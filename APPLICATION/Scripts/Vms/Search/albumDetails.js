@@ -1,44 +1,40 @@
 ﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tab"],
     function (ko, pubSub, dal, RoutingExtension, TabExtension) {
-        var $carousel,
-            carouselSettings = {
-                circular: false,
-                width: 559,
-                height: 150,
-                infinite: false,
-                auto: false,                
-                align: "left",
-                scroll: { items: 2, visible: 5 }
-                //prev: { key: "left", button: "#similarAlbumsCarousel_prev" },
-                //next: { key: "right", button: "#similarAlbumsCarousel_next" },
-                //prev: '.slider_prev', 
-                //next: '.slider_next',
-            };
-
-        function initUi(containerId) {
-            $carousel = $("#" + containerId + " .sliderBlock");
-            carouselSettings.prev = { key: "left", button: "#" + containerId + " .slider_prev" };
-            carouselSettings.next = { key: "right", button: "#" + containerId + " .slider_next" };
-
-            $("#" + containerId)
-                .on("mouseenter", '.albumCover', function() {
-                    $(this).find('.albumLikeArea').fadeIn(300);
-                    $(this).find('.albumCoverHover').animate({
-                        'marginTop': '-31px'
-                    }, 200);
-                })
-                .on("mouseleave", '.albumCover', function() {
-                    $(this).find('.albumLikeArea').fadeOut(300);
-                    $(this).find('.albumCoverHover').animate({
-                        'marginTop': '60px'
-                    });
-                });
-        }
-
         function AlbumDetailsVm(options) {
-            var self = this;
+            var self = this,
+                $carousel,
+                carouselSettings = {
+                    circular: false,
+                    width: 559,
+                    height: 150,
+                    infinite: false,
+                    auto: false,
+                    align: "left",
+                    scroll: { items: 2, visible: 5 }
+                    //prev: { key: "left", button: "#similarAlbumsCarousel_prev" },
+                    //next: { key: "right", button: "#similarAlbumsCarousel_next" },
+                    //prev: '.slider_prev', 
+                    //next: '.slider_next',
+                };
 
-            initUi(options.containerId);
+
+            $carousel = $("#" + options.containerId + " .sliderBlock");
+            carouselSettings.prev = { key: "left", button: "#" + options.containerId + " .slider_prev" };
+            carouselSettings.next = { key: "right", button: "#" + options.containerId + " .slider_next" };
+
+            $("#" + options.containerId)
+                    .on("mouseenter", '.albumCover', function () {
+                        $(this).find('.albumLikeArea').fadeIn(300);
+                        $(this).find('.albumCoverHover').animate({
+                            'marginTop': '-31px'
+                        }, 200);
+                    })
+                    .on("mouseleave", '.albumCover', function () {
+                        $(this).find('.albumLikeArea').fadeOut(300);
+                        $(this).find('.albumCoverHover').animate({
+                            'marginTop': '60px'
+                        });
+                    });
 
             // Data
             RoutingExtension(self, options.vmId, "Музыка");
