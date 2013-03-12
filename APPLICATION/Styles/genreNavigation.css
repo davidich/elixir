@@ -106,6 +106,10 @@ ul.subGenders li {
     left: 105px;
 }
 
+.filterBLock .dropDownHoverFix{
+    height: 30px;    
+}
+
 .genreFilterBlock .dropDownBlock .subNavigation .subnavIcons {
     background: url(../Images/musicFilterIco.png) 0 0 no-repeat;
 }
