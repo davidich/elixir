@@ -36,8 +36,8 @@ if (showConsoleLog) {
 // place to keep some global values (I doubt we'll need it but let's have it for now)
 GLOBAL = Global = global =
 {
-    mode: "dev",       // enables stub modules
-    appVer: "0.0.0",
+    //mode: "dev",       // enables stub modules
+    appVer: "0.0.1",
     imageUrl: "http://94.242.214.22/getimage/",
     tracks: {
         topSpaceBeforeFirstItem: 90,

@@ -1,53 +1,43 @@
 ﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tab"],
     function (ko, pubSub, dal, RoutingExtension, TabExtension) {
-        var $carousel = $("#similarAlbumsCarousel"),
-            carouselSettings = {
-                circular: false,
-                width: 559,
-                height: 150,
-                infinite: false,
-                auto: false,
-                prev: {
-                    button: "#similarAlbumsCarousel_prev",
-                    key: "left"
-                },
-                next: {
-                    button: "#similarAlbumsCarousel_next",
-                    key: "right"
-                },
-                align: "left",
-                scroll: {
-                    items: 2,
-                    visible: 5
-                }
-            };
-        
+        function AlbumDetailsVm(options) {
+            var self = this,
+                $carousel,
+                carouselSettings = {
+                    circular: false,
+                    width: 559,
+                    height: 150,
+                    infinite: false,
+                    auto: false,
+                    align: "left",
+                    scroll: { items: 2, visible: 5 }
+                    //prev: { key: "left", button: "#similarAlbumsCarousel_prev" },
+                    //next: { key: "right", button: "#similarAlbumsCarousel_next" },
+                    //prev: '.slider_prev', 
+                    //next: '.slider_next',
+                };
 
-        var uiInited = false;
-        function initUi() {
-            if (uiInited) return;
-            
-            $("#albumDetailsVm").on("mouseenter", '.albumCover', function () {
-                $(this).find('.albumLikeArea').fadeIn(300);
-                $(this).find('.albumCoverHover').animate({
-                    'marginTop': '-31px'
-                }, 200);
-            });
 
-            $("#albumDetailsVm").on("mouseleave", '.albumCover', function () {
-                $(this).find('.albumLikeArea').fadeOut(300);
-                $(this).find('.albumCoverHover').animate({
-                    'marginTop': '60px'
-                });
-            });
-        }
-        
+            $carousel = $("#" + options.containerId + " .sliderBlock");
+            carouselSettings.prev = { key: "left", button: "#" + options.containerId + " .slider_prev" };
+            carouselSettings.next = { key: "right", button: "#" + options.containerId + " .slider_next" };
 
-        function AlbumDetailsVm() {
-            var self = this;
+            $("#" + options.containerId)
+                    .on("mouseenter", '.albumCover', function () {
+                        $(this).find('.albumLikeArea').fadeIn(300);
+                        $(this).find('.albumCoverHover').animate({
+                            'marginTop': '-31px'
+                        }, 200);
+                    })
+                    .on("mouseleave", '.albumCover', function () {
+                        $(this).find('.albumLikeArea').fadeOut(300);
+                        $(this).find('.albumCoverHover').animate({
+                            'marginTop': '60px'
+                        });
+                    });
 
             // Data
-            RoutingExtension(self, "album", "Главная");
+            RoutingExtension(self, options.vmId, "Музыка");
             TabExtension(self);
             self.album = ko.observable();
             self.similars = ko.observableArray();
@@ -63,34 +53,32 @@
                 self.album().playTracks();
             };
 
-            self.appendAlbum = function() {
+            self.appendAlbum = function () {
                 if (!self.album()) return;
                 self.album().appendTracks();
             };
 
-            self.openDetails = function (album) {
-                self.navigate("/search/album?id=" + album.id);
+            self.openDetails = function (item) {
+                self.navigate(options.detailUrl + "?id=" + item.id);
             };
 
             // Events
             self.onShow = function (args) {
-                if (!args) throw "track view can't be opened w/o args";
+                if (!args) throw "detail view can't be opened w/o args";
                 if (!args.id) throw "id is mandatory parameter";
 
-                initUi();
-                
                 if (args.clean == "true") {
                     self.album(null);
                     pubSub.pub("scroll.reset");
                     pubSub.pub("scroll.update");
                 }
 
-                dal.loadAlbum(args.id, function (album) {
+                dal[options.dalMethod](args.id, function (album) {
                     self.album(album);
 
                     $carousel.trigger("destroy");
                     self.similars.removeAll();
-                    
+
                     $.each(album.similars, function () { self.similars.push(this); });
                     $carousel.carouFredSel(carouselSettings);
 
