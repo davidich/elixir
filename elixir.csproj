@@ -51,6 +51,8 @@
     <Content Include="APPLICATION\elixir.html" />
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
+    <Content Include="APPLICATION\Html\artist.html" />
+    <Content Include="APPLICATION\Html\artists.html" />
     <Content Include="APPLICATION\Html\pager.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
@@ -60,6 +62,7 @@
     <Content Include="APPLICATION\Html\header.html" />
     <Content Include="APPLICATION\Images\0.gif" />
     <Content Include="APPLICATION\Images\Add_playlist.png" />
+    <Content Include="APPLICATION\Images\albums.png" />
     <Content Include="APPLICATION\Images\album\albumCoverHover.png" />
     <Content Include="APPLICATION\Images\album\albumCoverHoverAddBtn.png" />
     <Content Include="APPLICATION\Images\album\albumCoverHoverPLayBtn.png" />
@@ -69,6 +72,8 @@
     <Content Include="APPLICATION\Images\alsoLiked.png" />
     <Content Include="APPLICATION\Images\arrowDown.png" />
     <Content Include="APPLICATION\Images\arrowUp.png" />
+    <Content Include="APPLICATION\Images\artist\titleBg.png" />
+    <Content Include="APPLICATION\Images\artist\userpicShadow.png" />
     <Content Include="APPLICATION\Images\camera.png" />
     <Content Include="APPLICATION\Images\checkbox.png" />
     <Content Include="APPLICATION\Images\close.png" />
@@ -87,12 +92,17 @@
     <Content Include="APPLICATION\Images\gift.png" />
     <Content Include="APPLICATION\Images\header_bg.jpg" />
     <Content Include="APPLICATION\Images\headingRow.png" />
+    <Content Include="APPLICATION\Images\heart.png" />
+    <Content Include="APPLICATION\Images\heart1.png" />
+    <Content Include="APPLICATION\Images\heartMore.png" />
     <Content Include="APPLICATION\Images\hr_ganre.png" />
+    <Content Include="APPLICATION\Images\info.png" />
     <Content Include="APPLICATION\Images\loader.gif" />
     <Content Include="APPLICATION\Images\logo.png" />
     <Content Include="APPLICATION\Images\magnifier.png" />
     <Content Include="APPLICATION\Images\magnifier2.png" />
     <Content Include="APPLICATION\Images\main_bg.jpg" />
+    <Content Include="APPLICATION\Images\mic.png" />
     <Content Include="APPLICATION\Images\musicFilterIco.png" />
     <Content Include="APPLICATION\Images\navigation\events.png" />
     <Content Include="APPLICATION\Images\navigation\icons.png" />
@@ -114,11 +124,13 @@
     <Content Include="APPLICATION\Images\player\clearPlaylist.png" />
     <Content Include="APPLICATION\Images\player\createPls.png" />
     <Content Include="APPLICATION\Images\player\shuffle.png" />
+    <Content Include="APPLICATION\Images\similar.png" />
     <Content Include="APPLICATION\Images\slider\albumCover.png" />
     <Content Include="APPLICATION\Images\slider\left.png" />
     <Content Include="APPLICATION\Images\slider\leftBig.png" />
     <Content Include="APPLICATION\Images\slider\right.png" />
     <Content Include="APPLICATION\Images\slider\rightBig.png" />
+    <Content Include="APPLICATION\Images\stars.png" />
     <Content Include="APPLICATION\Images\tempImages\cover35x35.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />
     <Content Include="APPLICATION\Images\player\handle.png" />
@@ -141,6 +153,8 @@
     <Content Include="APPLICATION\Images\splash\splash_load_bg.png" />
     <Content Include="APPLICATION\Images\tempImages\albumCover322x322.jpg" />
     <Content Include="APPLICATION\Images\tempImages\cover100x100.jpg" />
+    <Content Include="APPLICATION\Images\tempImages\gift.png" />
+    <Content Include="APPLICATION\Images\tempImages\usherUserpic.jpg" />
     <Content Include="APPLICATION\Images\tempImages\welcomenovarock.png" />
     <Content Include="APPLICATION\Images\tempImages\welcomeRihana.png" />
     <Content Include="APPLICATION\Images\tooltipBg.jpg" />
@@ -223,6 +237,8 @@
     <Content Include="APPLICATION\Scripts\Vms\welcome.js" />
     <Content Include="APPLICATION\Styles\album.css" />
     <Content Include="APPLICATION\Styles\albums.css" />
+    <Content Include="APPLICATION\Styles\artist.css" />
+    <Content Include="APPLICATION\Styles\artists.css" />
     <Content Include="APPLICATION\Styles\cssreset-min.css" />
     <Content Include="APPLICATION\Styles\checkbox.css" />
     <Content Include="APPLICATION\Styles\dialog.css" />

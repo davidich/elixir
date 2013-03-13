@@ -17,6 +17,54 @@ a:hover {
     color: #72b4ec;
 }
 
+/* icon block*/
+span.icon
+{
+    width: 15px;
+    height: 15px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    float: left;
+    display: block;
+    margin-right: 3px;
+}
+
+span.icon.music {
+    background-image: url(../Images/note.png);
+}
+
+span.icon.stars {
+    background-image: url(../Images/stars.png);
+}
+
+span.icon.info {
+    background-image: url(../Images/info.png);
+}
+
+span.icon.note {
+    background-image: url(../Images/note1.png);
+}
+
+span.icon.album {
+    background-image: url(../Images/albums.png);
+}
+
+span.icon.similar {
+    background-image: url(../Images/similar.png);
+}
+
+span.icon.mic {
+    background-image: url(../Images/mic.png);
+}
+
+span.icon.heart {
+    background-image: url(../Images/heart.png);
+}
+
+span.icon.genders {
+    background-image: url(../Images/heart1.png);
+}
+
 .topContainer {
     background: url(../Images/main_bg.jpg) center top no-repeat;
     width: 730px;
@@ -31,38 +79,27 @@ a:hover {
     padding-top: 23px;
 }
 
-a.title {
-    color: #777777;
+div.title {
+    color: #777;
     font-weight: bold;
     height: 15px;
     line-height: 14px;
-    width: 100px;
-    display: block;
-    margin-left: 20px;
+    margin: 0 0 11px 20px;    
     padding-top: 20px;
-    margin-bottom: 11px;
+    display: inline-block;
+    cursor: pointer;
 }
 
-a.title:hover {
+div.title:hover {
     color: #72b4ec;
 }
 
-a.title span.icon
-{
-    width: 15px;
-    height: 15px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    float: left;
-    display: block;
-    margin-right: 3px;
+div.title:active span {
+    margin-top: 1px;
+    line-height: 16px;
 }
 
-a.title span.icon.music {
-    background-image: url(../Images/note.png);
-}
-
-.title:hover span {
+div.title:hover .icon {
     background-position: 0 -15px;
 }
 

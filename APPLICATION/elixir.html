@@ -23,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="Styles/slider.css" />
     <link rel="stylesheet" type="text/css" href="Styles/welcome.css" />
     <link rel="stylesheet" type="text/css" href="Styles/dialog.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/artist.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/artists.css" />
  
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
@@ -42,19 +44,22 @@
             <div class="stub welcome"></div>
         </div>
 
+        <!--<div class="stub artist"></div>-->
+
         <div data-bind="with: search">
             <div id="searchVm" data-bind="visible: isVisible" style="height: 565px;">
-                <a class="title">
-                    <span class="icon music"></span>
-                    <span data-bind="text: location"></span>
-                </a>
+                <div>
+                    <div class="title">
+                        <span class="icon music"></span>
+                        <span data-bind="text: location"></span>
+                    </div>
+                </div>
                 <div class="stub filter"></div>
 
                 <div data-bind="with: tracks">
                     <div id="searchTracksVm" data-bind="visible: isVisible">                        
                         <div class="stub pager"></div>
                         <div class="stub tabNaviation"></div>
-                        <!--<div class="stub album"></div>-->
                         <div class="stub tracks"></div>
                     </div>
                 </div>

@@ -1,0 +1,66 @@
+﻿.artistInfoBlock {
+    /*border: 1px solid #000;*/
+}
+
+.artistInfoBlock .leftSide {
+    float: left;
+    width: 220px;
+    margin-left: 12px;
+    /*border: 1px solid #f0f;*/
+}
+
+.artistInfoBlock .leftSide .userImage {
+    padding-bottom: 23px;
+    width: 212px;
+    background: url(../Images/artist/userpicShadow.png) left bottom no-repeat; 
+}
+
+.artistInfoBlock .leftSide .userImage img {
+    width: 190px;
+    margin-left: 10px;
+}
+
+.artistInfoBlock .rightSide {
+    width: 485px;
+    height: auto;
+    float: right;
+    margin-right: 10px;
+    /*border: 1px solid #f00;*/
+}
+
+.artistInfoBlock .rightSide .artistHeader, .artistInfoBlock .rightSide .artistRowInfo {
+    height: 25px;
+    color: #3C79AB;
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+
+.artistInfoBlock .rightSide .artistHeader .icon, .artistInfoBlock .rightSide .artistRowInfo .icon {
+    margin: 6px 6px 0 6px;
+}
+
+.artistInfoBlock .rightSide .artistHeader:hover {
+    cursor: pointer;
+    background: url(../Images/artist/titleBg.png) 0 0 no-repeat;
+    color: #72B4EC;
+}
+
+.artistInfoBlock .rightSide .artistHeader:hover span.icon {
+    background-position: 0 -15px;
+}
+
+.artistInfoBlock .rightSide .artistRowInfo .infoBlock {
+    float: left;
+    margin-right: 10px;
+}
+
+.artistInfoBlock .rightSide .artistRowInfo .infoBlock:hover 
+ {
+    color: #72B4EC;
+    cursor: pointer;
+}
+
+.artistInfoBlock .rightSide .artistRowInfo .infoBlock:hover .icon
+{
+    background-position: 0 -15px;
+}

@@ -72,6 +72,11 @@ ul.sliderBlock .slider img {
     background-position: 0 0;
 }
 
+.slider_prev.disabled {
+    background-position: -80px 0;
+    cursor: default;
+}
+
 .slider_next {
     display: none;
     position: relative;
@@ -86,6 +91,11 @@ ul.sliderBlock .slider img {
 
 .slider_next:hover {
     background-position: 0 0;
+}
+
+.slider_next.disabled {
+    background-position: -80px 0;
+    cursor: default;
 }
 
 
