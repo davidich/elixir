@@ -62,6 +62,7 @@
     <Content Include="APPLICATION\Html\header.html" />
     <Content Include="APPLICATION\Images\0.gif" />
     <Content Include="APPLICATION\Images\Add_playlist.png" />
+    <Content Include="APPLICATION\Images\albumCoverSmall.png" />
     <Content Include="APPLICATION\Images\albums.png" />
     <Content Include="APPLICATION\Images\album\albumCoverHover.png" />
     <Content Include="APPLICATION\Images\album\albumCoverHoverAddBtn.png" />
@@ -72,6 +73,7 @@
     <Content Include="APPLICATION\Images\alsoLiked.png" />
     <Content Include="APPLICATION\Images\arrowDown.png" />
     <Content Include="APPLICATION\Images\arrowUp.png" />
+    <Content Include="APPLICATION\Images\artist\title190Bg.png" />
     <Content Include="APPLICATION\Images\artist\titleBg.png" />
     <Content Include="APPLICATION\Images\artist\userpicShadow.png" />
     <Content Include="APPLICATION\Images\camera.png" />
@@ -79,6 +81,9 @@
     <Content Include="APPLICATION\Images\close.png" />
     <Content Include="APPLICATION\Images\coverHoverPlay.png" />
     <Content Include="APPLICATION\Images\coverHoverPlaylist.png" />
+    <Content Include="APPLICATION\Images\coverHoverPlaylistSmall.png" />
+    <Content Include="APPLICATION\Images\coverHoverPlaySmall.png" />
+    <Content Include="APPLICATION\Images\CoverHoverpxl.png" />
     <Content Include="APPLICATION\Images\coverNumberBg.png" />
     <Content Include="APPLICATION\Images\cover_hover.png" />
     <Content Include="APPLICATION\Images\dialog\btn_bg.jpg" />
@@ -116,6 +121,7 @@
     <Content Include="APPLICATION\Images\no-image100x100.png" />
     <Content Include="APPLICATION\Images\no-image35x35.png" />
     <Content Include="APPLICATION\Images\no-imageNoBorder100x100.png" />
+    <Content Include="APPLICATION\Images\no-imageNoBorder50x50.png" />
     <Content Include="APPLICATION\Images\note.png" />
     <Content Include="APPLICATION\Images\note1.png" />
     <Content Include="APPLICATION\Images\pagerBg.png" />
@@ -130,6 +136,7 @@
     <Content Include="APPLICATION\Images\slider\leftBig.png" />
     <Content Include="APPLICATION\Images\slider\right.png" />
     <Content Include="APPLICATION\Images\slider\rightBig.png" />
+    <Content Include="APPLICATION\Images\slider\sliderShadow.png" />
     <Content Include="APPLICATION\Images\stars.png" />
     <Content Include="APPLICATION\Images\tempImages\cover35x35.jpg" />
     <Content Include="APPLICATION\Images\player\Cover_Border.png" />

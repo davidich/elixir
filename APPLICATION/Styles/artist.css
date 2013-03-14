@@ -20,6 +20,40 @@
     margin-left: 10px;
 }
 
+.artistInfoBlock .leftSide .giftBlock img {
+    width: 125px;
+    height: 125px;
+    margin: 26px auto;
+    display: block;
+    cursor: pointer;
+}
+
+.artistInfoBlock .leftSide .leftBlockContent {
+    margin-left: 10px;
+}
+
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock {
+    color: #3C79AB;
+    line-height: 20px;
+    width: 190px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover {
+    background: url(../Images/artist/title190Bg.png) no-repeat 0 0;
+    color: #72B4EC;
+    cursor: pointer;
+}
+
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock .icon{
+    margin: 5px;
+}
+
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover .icon{
+    background-position: 0 -15px;
+}
+
 .artistInfoBlock .rightSide {
     width: 485px;
     height: auto;
@@ -63,4 +97,104 @@
 .artistInfoBlock .rightSide .artistRowInfo .infoBlock:hover .icon
 {
     background-position: 0 -15px;
+}
+
+.artistInfoBlock ul.sliderBlock li.slider {
+    width: 121px;
+}
+
+.artistInfoBlock .sliderContainer .slider_next_shadow{
+    left: 479px;
+}
+
+/*similar*/
+
+.similarContainer .similarBLock {
+    float: left;
+    width: 240px;
+}
+
+.similarContainer .similarBLock .cover {
+    width: 68px;
+    height: 65px;
+    background: url(../Images/albumCoverSmall.png) center top no-repeat;
+    float: left;
+    float: left;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.similarContainer .similarBLock .cover .noImageHolderNoBorder{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: 50px;
+    background: url(../Images/no-imageNoBorder50x50.png) center top no-repeat;
+    margin-top: 2px;
+}
+
+.similarContainer .similarBLock .cover .coverHoverHolder50{
+    height: 21px;
+    width: 50px;
+    overflow: hidden;
+    position: relative;
+    margin-top: -21px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.similarContainer .similarBLock .cover .coverHover{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: 21px;
+    background: url(../Images/CoverHoverpxl.png);
+    padding-top: 3px;
+    margin-top: 21px;
+}
+
+.similarContainer .similarBLock .cover .playBtn {
+    width: 15px;
+    height: 15px;
+    background: url(../Images/coverHoverPlaySmall.png) 0 0 no-repeat;
+    float: left;
+    margin-left: 6px;
+}
+
+.similarContainer .similarBLock .cover .playBtn:hover {
+    background-position: 0 -15px;
+}
+
+.similarContainer .similarBLock .cover .playListBtn {
+    width: 15px;
+    height: 15px;
+    background: url(../Images/coverHoverPlaylistSmall.png) 0 0 no-repeat;
+    float: right;
+    margin-right: 6px;
+}
+
+.similarContainer .similarBLock .cover .playListBtn:hover {
+    background-position: 0 -15px;
+}
+
+.similarContainer .similarBLock .rankBlock{
+    width: 150px;
+    margin-top: 6px;
+}
+
+.similarContainer .similarBLock .rankBlock:hover .icon{
+    background-position: 0 -15px;
+}
+
+.similarContainer .similarBLock span {
+    color: #b3b3b3;
+}
+
+.similarContainer .similarBLock span.similarArtistName, .similarContainer .similarBLock .rankBlock span{
+    color: #3C79AB;
+    cursor: pointer;
+}
+
+.similarContainer .similarBLock span.similarArtistName:hover, .similarContainer .similarBLock .rankBlock:hover span{
+    color: #72B4EC;
 }

@@ -58,14 +58,14 @@ ul.sliderBlock .slider img {
 
 .slider_prev {
     display: none;
-    position: relative;
+    position: absolute;
+    top: 23px;
     z-index: 200;
     /*top: 96px;*/
     width: 40px;
     height: 80px;
     background: url("../Images/slider/left.png") -40px 0 no-repeat;
     cursor: pointer;
-    top: -133px;
 }
 
 .slider_prev:hover {
@@ -77,16 +77,33 @@ ul.sliderBlock .slider img {
     cursor: default;
 }
 
+.slider_prev_shadow {
+    position: relative;
+    top: -160px;
+    width: 11px;
+    height: 130px;
+    background: url(../Images/slider/sliderShadow.png) -2px 0 no-repeat;
+}
+
 .slider_next {
     display: none;
-    position: relative;
+    position: absolute;
     z-index: 200;
-    top: -213px;
-    left: 520px;
+    top: 23px;
+    left: -32px;
     width: 40px;
     height: 80px;
     background: url("../Images/slider/right.png") -40px 0 no-repeat;
     cursor: pointer;
+}
+
+.slider_next_shadow {
+    position: relative;
+    top: -289px;
+    left: 550px;
+    width: 11px;
+    height: 130px;
+    background: url(../Images/slider/sliderShadow.png) -11px 0 no-repeat;
 }
 
 .slider_next:hover {
@@ -138,11 +155,14 @@ ul.sliderBlock .slider .coverHoverHolderSmall {
     overflow: hidden;
     position: relative;
     margin-top: -35px;
-    margin-left: 3px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul.sliderBlock .cover .noImageHolderNoBorder
 {
+    margin-left: auto;
+    margin-right: auto;
     width: 100px;
     height: 100px;
     background: url(../Images/no-imageNoBorder100x100.png) center top no-repeat;

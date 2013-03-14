@@ -61,6 +61,10 @@ span.icon.heart {
     background-image: url(../Images/heart.png);
 }
 
+span.icon.gift {
+    background-image: url(../Images/gift.png);
+}
+
 span.icon.genders {
     background-image: url(../Images/heart1.png);
 }
@@ -79,7 +83,7 @@ span.icon.genders {
     padding-top: 23px;
 }
 
-div.title {
+div.pageName {
     color: #777;
     font-weight: bold;
     height: 15px;

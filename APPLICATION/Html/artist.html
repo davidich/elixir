@@ -1,6 +1,6 @@
 ﻿<div class="artistInfoBlock">
     <div>
-        <div class="title">
+        <div class="pageName">
             <span class="icon stars"></span>
             <span>Артист</span>
         </div>
@@ -8,6 +8,14 @@
     <div class="leftSide">
         <div class="userImage">
             <img src="Images/tempImages/usherUserpic.jpg" alt="" />
+        </div>
+        <div class="leftBlockContent giftBlock">
+            <span class="icon gift"></span><span>Подарки</span>
+        </div>
+        <div class="giftBlock">
+            <img src="Images/tempImages/gift.png" alt="" />
+            <img src="Images/tempImages/gift.png" alt=""  />
+            <img src="Images/tempImages/gift.png" alt="" />
         </div>
     </div>
     <div class="rightSide">
@@ -31,28 +39,129 @@
             <span class="icon note"></span><span>Треки</span>
         </div>
         
-        <div>
-            <div class="trackInfo">
-                    <div class="resultPlayButton"></div>
-                    <div class="resultaddToPlaylist"></div>
-                    <div class="trackNumber">1</div>
-                    <div class="resultTrackName"></div>
-                    <div class="resultArtist" >
-                        <a>asd</a><span >,</span>
-                    </div>
-                    <div class="resultLikesAmount"><a>asd</a></div>
-                    <div class="resultTrackTime">sss</div>
+        <div class="shortTrackBlock">
+            <div class="trackInfo short">
+                <div class="resultPlayButton"></div>
+                <div class="resultaddToPlaylist"></div>
+                <div class="trackNumber">01</div>
+                <div class="resultTrackName">Stuntin Like My Daddy</div>
+                <div class="resultArtist" >
+                    <a>Артист</a><span >,</span>
                 </div>
+                <div class="resultLikesAmount"><a>1000</a></div>
+                <div class="resultTrackTime">6:03</div>
+                <div class="resultBnts">
+                    <div class="resultBnts">
+                        <div class="addToFavorit"></div>
+                        <div class="triangle">
+                            <div class='dropDownBlock' style="display: none;">
+                                <div class='dropmenuArrow'></div>
+                                <ul class='subNavigation'>
+                                    <li><a href='#'>
+                                            <div class='subnavIcons addTofavorit'></div>
+                                            Добавить в избранное</a></li>
+                                    <li><a href='#'>
+                                            <div class='subnavIcons share'></div>
+                                            Поделиться</a></li>
+                                    <li><a href='#'>
+                                            <div class='subnavIcons sendToWall'></div>
+                                            Отправить на стену</a></li>
+                                    <li><a href='#'>
+                                            <div class='subnavIcons addToPLaylist'></div>
+                                            Добавить в плейлист</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="artistHeader">
+            <span class="icon album"></span><span>Альбомы</span>
         </div>
         
+        <div class="sliderContainer">
+            <ul id="similarAlbumsCarousel" class="sliderBlock">
+                <li class="slider">
+                    <div class="cover">
+                        <div class="noImageHolderNoBorder">
+                            <img src="" alt="" height="100" width="100" />
+                        </div>
+                        <div class="coverHoverHolderSmall">
+                            <div class="coverHover">
+                                <div class="playBtn"></div>
+                                <div class="playListBtn"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="albumName"></div>
+                    <!--<div class="likesBlock">
+                            <div></div>
+                            <span>100</span>
+                        </div>-->
+                </li>
+            </ul>
+            <div class="slider_prev_shadow">
+                <div class="slider_prev"></div>    
+            </div>
+            <div class="slider_next_shadow">
+                <div class="slider_next"></div>
+            </div>
+        </div>
         
+        <div class="artistHeader">
+            <span class="icon similar"></span><span>Похожие</span>
+        </div>
+        
+        <div class="similarContainer" id="similarArtists">
+            <div class="similarBLock">
+                <div class="cover">
+                    <div class="noImageHolderNoBorder">
+                        <img src="./Images/tempImages/usherUserpic.jpg" alt="" height="50" width="50" />
+                    </div>
+                    <div class="coverHoverHolder50">
+                        <div class="coverHover">
+                            <div class="playBtn"></div>
+                            <div class="playListBtn"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span>Исполнитель: </span>
+                    <span class="similarArtistName">Usher</span>
+                </div>
+                <div class="rankBlock">
+                    <a href='#'><span class="icon heart"></span><span>100</span></a>
+                </div>
+            </div>
+        </div>
 
-            <div class="artistHeader">
-                <span class="icon album"></span><span>Альбомы</span>
-            </div>
-        
-            <div class="artistHeader">
-                <span class="icon similar"></span><span>Похожие</span>
-            </div>
-        </div>
+    </div>
 </div>
+
+
+<!--Carousel coverhover-->
+<!--$("#similarAlbumsCarousel")
+    .on("mouseenter", '.slider .cover', function () {
+    $(this).find('.coverHover').animate({
+    marginTop: 0
+    }, 300);
+    })
+    .on("mouseleave", '.slider .cover', function () {
+    $(this).find('.coverHover').animate({
+    marginTop: 33
+    }, 300);
+    });-->
+
+<!--similar coverhover-->
+<!--$("#similarArtists")
+                .on("mouseenter", ' .cover', function () {
+                    $(this).find('.coverHover').animate({
+                        marginTop: 0
+                    }, 300);
+                })
+                .on("mouseleave", ' .cover', function () {
+                    $(this).find('.coverHover').animate({
+                        marginTop: 21
+                    }, 300);
+                });-->
