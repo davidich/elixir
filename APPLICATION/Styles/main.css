@@ -17,58 +17,6 @@ a:hover {
     color: #72b4ec;
 }
 
-/* icon block*/
-span.icon
-{
-    width: 15px;
-    height: 15px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    float: left;
-    display: block;
-    margin-right: 3px;
-}
-
-span.icon.music {
-    background-image: url(../Images/note.png);
-}
-
-span.icon.stars {
-    background-image: url(../Images/stars.png);
-}
-
-span.icon.info {
-    background-image: url(../Images/info.png);
-}
-
-span.icon.note {
-    background-image: url(../Images/note1.png);
-}
-
-span.icon.album {
-    background-image: url(../Images/albums.png);
-}
-
-span.icon.similar {
-    background-image: url(../Images/similar.png);
-}
-
-span.icon.mic {
-    background-image: url(../Images/mic.png);
-}
-
-span.icon.heart {
-    background-image: url(../Images/heart.png);
-}
-
-span.icon.gift {
-    background-image: url(../Images/gift.png);
-}
-
-span.icon.genders {
-    background-image: url(../Images/heart1.png);
-}
-
 .topContainer {
     background: url(../Images/main_bg.jpg) center top no-repeat;
     width: 730px;

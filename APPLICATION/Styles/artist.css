@@ -32,7 +32,8 @@
     margin-left: 10px;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock {
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock,  
+.artistInfoBlock .leftSide .leftBlockContent.subscribe {
     color: #3C79AB;
     line-height: 20px;
     width: 190px;
@@ -40,17 +41,21 @@
     line-height: 25px;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover {
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover,
+.artistInfoBlock .leftSide .leftBlockContent.subscribe:hover
+ {
     background: url(../Images/artist/title190Bg.png) no-repeat 0 0;
     color: #72B4EC;
     cursor: pointer;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock .icon{
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock .icon, 
+.artistInfoBlock .leftSide .leftBlockContent.subscribe .icon{
     margin: 5px;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover .icon{
+.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover .icon, 
+.artistInfoBlock .leftSide .leftBlockContent.subscribe:hover .icon{
     background-position: 0 -15px;
 }
 
@@ -100,7 +105,7 @@
 }
 
 .artistInfoBlock ul.sliderBlock li.slider {
-    width: 121px;
+    width: 119px;
 }
 
 .artistInfoBlock .sliderContainer .slider_next_shadow{

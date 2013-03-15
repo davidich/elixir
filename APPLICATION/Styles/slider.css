@@ -52,10 +52,6 @@ ul.sliderBlock li.slider .albumName  {
     position: relative;
 }
 
-ul.sliderBlock .slider img {
-    margin-left: -6px;
-}
-
 .slider_prev {
     display: none;
     position: absolute;
@@ -78,11 +74,15 @@ ul.sliderBlock .slider img {
 }
 
 .slider_prev_shadow {
+    display: none;
     position: relative;
     top: -160px;
     width: 11px;
     height: 130px;
     background: url(../Images/slider/sliderShadow.png) -2px 0 no-repeat;
+}
+.caroufredsel_wrapper + .slider_prev_shadow {
+    display: block;
 }
 
 .slider_next {
@@ -98,12 +98,16 @@ ul.sliderBlock .slider img {
 }
 
 .slider_next_shadow {
+    display: none;
     position: relative;
     top: -289px;
     left: 550px;
     width: 11px;
     height: 130px;
     background: url(../Images/slider/sliderShadow.png) -11px 0 no-repeat;
+}
+.slider_prev_shadow + .slider_next_shadow {
+    display: block;
 }
 
 .slider_next:hover {
@@ -166,6 +170,5 @@ ul.sliderBlock .cover .noImageHolderNoBorder
     width: 100px;
     height: 100px;
     background: url(../Images/no-imageNoBorder100x100.png) center top no-repeat;
-    padding-left: 12px;
     margin-top: 2px;
 }

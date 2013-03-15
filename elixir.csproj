@@ -250,6 +250,7 @@
     <Content Include="APPLICATION\Styles\checkbox.css" />
     <Content Include="APPLICATION\Styles\dialog.css" />
     <Content Include="APPLICATION\Styles\genreNavigation.css" />
+    <Content Include="APPLICATION\Styles\icons.css" />
     <Content Include="APPLICATION\Styles\ie7.css" />
     <Content Include="APPLICATION\Styles\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="APPLICATION\Styles\jquery.rollbar.css" />

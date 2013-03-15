@@ -9,12 +9,15 @@
         <div class="userImage">
             <img src="Images/tempImages/usherUserpic.jpg" alt="" />
         </div>
-        <div class="leftBlockContent giftBlock">
-            <span class="icon gift"></span><span>Подарки</span>
+        
+        <div class="leftBlockContent subscribe">
+            <span class="icon heartMore"></span><span>Подписаться</span>
         </div>
+
+<!--        <div class="leftBlockContent giftBlock">
+            <span class="icon gift"></span><span>Подарки</span>
+        </div>-->
         <div class="giftBlock">
-            <img src="Images/tempImages/gift.png" alt="" />
-            <img src="Images/tempImages/gift.png" alt=""  />
             <img src="Images/tempImages/gift.png" alt="" />
         </div>
     </div>
@@ -108,35 +111,35 @@
                 <div class="slider_next"></div>
             </div>
         </div>
+        <div style="clear: both;"></div>
+            <div class="artistHeader">
+                <span class="icon similar"></span><span>Похожие</span>
+            </div>
         
-        <div class="artistHeader">
-            <span class="icon similar"></span><span>Похожие</span>
-        </div>
-        
-        <div class="similarContainer" id="similarArtists">
-            <div class="similarBLock">
-                <div class="cover">
-                    <div class="noImageHolderNoBorder">
-                        <img src="./Images/tempImages/usherUserpic.jpg" alt="" height="50" width="50" />
-                    </div>
-                    <div class="coverHoverHolder50">
-                        <div class="coverHover">
-                            <div class="playBtn"></div>
-                            <div class="playListBtn"></div>
+            <div class="similarContainer" id="similarArtists">
+                <div class="similarBLock">
+                    <div class="cover">
+                        <div class="noImageHolderNoBorder">
+                            <img src="./Images/tempImages/usherUserpic.jpg" alt="" height="50" width="50" />
+                        </div>
+                        <div class="coverHoverHolder50">
+                            <div class="coverHover">
+                                <div class="playBtn"></div>
+                                <div class="playListBtn"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <span>Исполнитель: </span>
-                    <span class="similarArtistName">Usher</span>
-                </div>
-                <div class="rankBlock">
-                    <a href='#'><span class="icon heart"></span><span>100</span></a>
+                    <div>
+                        <span>Исполнитель: </span>
+                        <span class="similarArtistName">Usher</span>
+                    </div>
+                    <div class="rankBlock">
+                        <a href='#'><span class="icon heart"></span><span>100</span></a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 </div>
 
 
@@ -155,13 +158,33 @@
 
 <!--similar coverhover-->
 <!--$("#similarArtists")
-                .on("mouseenter", ' .cover', function () {
-                    $(this).find('.coverHover').animate({
-                        marginTop: 0
-                    }, 300);
-                })
-                .on("mouseleave", ' .cover', function () {
-                    $(this).find('.coverHover').animate({
-                        marginTop: 21
-                    }, 300);
-                });-->
+    .on("mouseenter", ' .cover', function () {
+    $(this).find('.coverHover').animate({
+    marginTop: 0
+    }, 300);
+    })
+    .on("mouseleave", ' .cover', function () {
+    $(this).find('.coverHover').animate({
+    marginTop: 21
+    }, 300);
+    });-->
+
+
+
+
+<!--carouselSettings = {
+                    circular: false,
+                    width: 559,
+                    height: 150,
+                    infinite: false,
+                    auto: false,
+                    align: "left",
+                    scroll: { items: 2, visible: 5 },
+                    //prev: { key: "left", button: "#similarAlbumsCarousel_prev" },
+                    //next: { key: "right", button: "#similarAlbumsCarousel_next" },
+                    prev: '.slider_prev', 
+                    next: '.slider_next'
+                }
+$('#similarAlbumsCarousel').carouFredSel(carouselSettings);
+
+-->
