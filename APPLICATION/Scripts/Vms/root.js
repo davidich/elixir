@@ -19,10 +19,14 @@
             };
 
             self.goToMusic = function () {
+                searchVm.artist(null);
+                searchVm.user(null);
                 self.navigate("/search/tracks");
             };
 
             self.goToPeople = function () {
+                searchVm.artist(null);
+                searchVm.user(null);
                 self.navigate("/search/artists");
             };
         }

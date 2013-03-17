@@ -90,14 +90,14 @@
                         <div class="stub albums"></div>
                     </div>
                 </div>
-                
+
                 <div data-bind="with: playlist">
                     <div id="playlistDetailsVm" data-bind="visible: isVisible">
                         <div class="stub tabNaviation"></div>
                         <div class="stub album"></div>
                     </div>
                 </div>
-                
+
                 <div data-bind="with: artists">
                     <div id="searchAristsVm" data-bind="visible: isVisible">
                         <div class="stub tabNaviation"></div>
@@ -110,8 +110,13 @@
                 </div>
             </div>
         </div>
-        
-        <!--<div class="stub artist"></div>-->
+
+        <div data-bind="with: artist">
+            <div id="artistDetailVm" data-bind="visible: isVisible">
+                <div class="stub artist"></div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

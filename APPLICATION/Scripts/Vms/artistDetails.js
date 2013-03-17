@@ -1,5 +1,5 @@
-﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Extensions/Tabs", "Types/Artist"],
-    function (ko, pubSub, RoutingExtension, TabsExtension, Artist) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Extensions/Tabs", "Types/Artist", "Vms/search"],
+    function (ko, pubSub, RoutingExtension, TabsExtension, Artist, searchVm) {
         function ArtistDetailsVm() {
             var self = this;
 
@@ -72,9 +72,10 @@
                     pubSub.pub("scroll.update");
                 }
 
-                Artist.load(args.id, function (artist) {
+                Artist.load(args.id, function (artist) {                    
                     self.artist(artist);
-
+                    searchVm.artist(artist);
+                    
                     self.tracks.removeAll();
                     $.each(artist.albums, function () { self.albums.push(this); });
                     

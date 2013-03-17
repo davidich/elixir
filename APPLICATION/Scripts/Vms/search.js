@@ -1,10 +1,10 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/FancyDropItem", "Types/GenreSelector",
-        "Vms/Search/tracks", "Vms/Search/track", 
-        "Vms/Search/searchAlbums", "Vms/Search/albumDetails", 
+        "Vms/Search/tracks", "Vms/Search/track",
+        "Vms/Search/searchAlbums", "Vms/Search/albumDetails",
         "Vms/Search/searchArtists",
         "Vms/Search/player"],
     function (ko, pubSub, RoutingExtension, FancyDropItem, GenreSelector,
-        SearchTracksVm, TrackDetailsVm,  
+        SearchTracksVm, TrackDetailsVm,
         SearchAlbumsVm, AlbumDetailsVm,
         SearchArtistsVm,
         playerVm) {
@@ -28,7 +28,7 @@
             new FancyDropItem("album_name", "По альбому"),
             new FancyDropItem("artist_name", "По исполнителю")
         ];
-        
+
         var playlistSearchModes = [
             new FancyDropItem("all", "По всему"),
             new FancyDropItem("playlist_name", "По плейлисту"),
@@ -73,7 +73,7 @@
             });
             self.addVm(searchPlaylistVm);
             self.addVm(playlistDetailVm);
-            
+
             // People
             self.addVm(new SearchArtistsVm(self));
         }
@@ -81,37 +81,45 @@
         function SearchVm() {
             var self = this;
 
-            //$.extend(self, new BaseVm("search"));
             RoutingExtension(self, "search");
             setupVms(self);
-            
-            // Data
-            self.location = ko.computed(function () { return self.activeSubVm() && self.activeSubVm().friendlyName; });
-            self.player = window.player = playerVm; // make player global to have access to its properties from some vms        
-            self.timeRanges = ko.observableArray(timeRanges);
-            self.orderTypes = ko.observableArray(orderTypes);
 
+            // DATA
             // Search params
             self.timeRange = ko.observable("all");
             self.orderType = ko.observable("popular");
-            self.artistId = ko.observable(0);
             self.genreId = ko.observable(0);
             self.styleId = ko.observable(0);
             self.isHighQuality = ko.observable(false);
 
-            // create genre selector only after all pros are added
-            self.genreSelector = new GenreSelector(self);
-
-
+            self.artist = ko.observable();            
+            self.genreSelector = new GenreSelector(self);            
+            self.player = window.player = playerVm; // make player global to have access to its properties from some vms        
+            self.timeRanges = ko.observableArray(timeRanges);
+            self.orderTypes = ko.observableArray(orderTypes);
+            self.location = ko.computed(function () {
+                if (self.artist())
+                    return self.artist().name;
+                else
+                    return self.activeSubVm() && self.activeSubVm().friendlyName;
+            });
+           
             // subscribe to param updates
-            var searchParams = ["artistId", "genreId", "styleId", "orderType", "timeRange", "isHighQuality"];
+            var searchParams = ["genreId", "styleId", "orderType", "timeRange", "isHighQuality"];
             $.each(searchParams, function (i, propName) {
                 self[propName].subscribe(function () { pubSub.pub("search.changed", propName); });
             });
 
             self.getParams = function () {
                 var params = {};
-                $.each(searchParams, function (i, propName) { params[propName] = self[propName](); });
+
+                $.each(searchParams, function(i, propName) {
+                     params[propName] = self[propName]();
+                });
+                
+                if (self.artist())
+                    params["artist"] = self.artist().id;
+                
                 return params;
             };
 
