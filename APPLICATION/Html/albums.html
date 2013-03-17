@@ -4,7 +4,7 @@
             <div class="searchCancel" data-bind="click: clearQuery, css: { cancel:  hasQuery }"></div>
             <input class="searchBar" placeholder="Поиск по" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: onQueryKeyUp }" />
             <div class="searchCriterion" data-bind="fancyDrop: searchModes, value: searchMode"></div>
-            <div class="searchLoader" data-bind="visible: loadMgr.isSearching" style="display: none;">
+            <div class="searchLoader" style="display: none;"  data-bind="visible: loadMgr.isSearching">
                 <img src="./Images/loader.gif" alt="" />
             </div>
             <div style="clear: both;"></div>
@@ -20,15 +20,19 @@
                             </div>
                             <div class="coverHoverHolderSmall">
                                 <div class="coverHover">
-                                    <div class="playBtn" data-bind="click: playTracks"></div>
-                                    <div class="playListBtn" data-bind="click: appendTracks"></div>
+                                    <div class="playBtn" data-bind="click: play, clickBubble: false"></div>
+                                    <div class="playListBtn" data-bind="click: append, clickBubble: false"></div>
                                 </div>
                             </div>
                             <div class="number" data-bind="text: $index() + 1"></div>
                         </div>
                         <div class="albumInfo">
-                            <div><a href="#" data-bind="text: name"></a></div>
-                            <div><span>Дата:</span> <span data-bind="text: release"></span></div>
+                            <div>
+                                <a href="#" data-bind="text: name"></a>
+                            </div>
+                            <div>
+                                <span>Дата:</span> <span data-bind="text: release"></span>
+                            </div>
                             <div>
                                 <span>Исполнитель:</span>
                                 <span data-bind="foreach: artists">

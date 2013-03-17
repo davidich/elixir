@@ -1,10 +1,10 @@
-﻿define(["ko", "pubSub", "json", "Vms/Extensions/Routing", "Vms/Extensions/Tab", "Types/LoadCommand", "Types/LoadManager"],
-    function (ko, pubSub, JSON, RoutingExtension, TabExtension, LoadCommand, LoadManager) {
+﻿define(["ko", "pubSub", "json", "Vms/Extensions/Routing", "Vms/Extensions/Tabs", "Types/LoadCommand", "Types/LoadManager"],
+    function (ko, pubSub, JSON, RoutingExtension, TabsExtension, LoadCommand, LoadManager) {
         
         function SearchExtension(self, searchModes) {
             // Init
             RoutingExtension(self, self.vmId, self.sectionName);
-            TabExtension(self);
+            TabsExtension(self, "music");
             self.loadMgr = new LoadManager(self.processLoadRequest);
 
             // Data            
@@ -12,8 +12,11 @@
             self.hasQuery = ko.computed(function () {
                 return self.query() && $.trim(self.query()).length > 0;
             });
-            self.searchMode = ko.observable("all");
-            self.searchModes = ko.observableArray(searchModes);
+            
+            if (searchModes) {
+                self.searchMode = ko.observable("all");
+                self.searchModes = ko.observableArray(searchModes);
+            }
 
             self.items = ko.observableArray();
             self.totalCount = ko.observable();
@@ -50,9 +53,11 @@
                 self.doSearch();
             });
 
-            self.searchMode.subscribe(function () {
-                if (self.query()) self.doSearch();
-            });
+            if (self.searchMode) {
+                self.searchMode.subscribe(function() {
+                    if (self.query()) self.doSearch();
+                });
+            }
 
             // clear on ESC
             self.onQueryKeyUp = function (data, event) {

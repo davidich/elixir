@@ -1,5 +1,13 @@
-﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Search/track", "Vms/Search/tracks", "Vms/Search/searchAlbums", "Vms/Search/albumDetails", "Vms/Search/player", "Types/FancyDropItem", "Types/GenreSelector"],
-    function (ko, pubSub, RoutingExtension, TrackDetailsVm, SearchTracksVm, SearchAlbumsVm, AlbumDetailsVm, playerVm, FancyDropItem, GenreSelector) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/FancyDropItem", "Types/GenreSelector",
+        "Vms/Search/tracks", "Vms/Search/track", 
+        "Vms/Search/searchAlbums", "Vms/Search/albumDetails", 
+        "Vms/Search/searchArtists",
+        "Vms/Search/player"],
+    function (ko, pubSub, RoutingExtension, FancyDropItem, GenreSelector,
+        SearchTracksVm, TrackDetailsVm,  
+        SearchAlbumsVm, AlbumDetailsVm,
+        SearchArtistsVm,
+        playerVm) {
 
         // Munu items  
         var timeRanges = [
@@ -44,8 +52,7 @@
             var albumDetailVm = new AlbumDetailsVm({
                 containerId: "albumDetailsVm",
                 vmId: "album",
-                detailUrl: "/search/album",
-                dalMethod: "loadAlbum",
+                detailUrl: "/search/album"
             });
             self.addVm(searchAlbumVm);
             self.addVm(albumDetailVm);
@@ -62,11 +69,13 @@
             var playlistDetailVm = new AlbumDetailsVm({
                 containerId: "playlistDetailsVm",
                 vmId: "playlist",
-                detailUrl: "/search/playlist",
-                dalMethod: "loadAlbum",
+                detailUrl: "/search/playlist"
             });
             self.addVm(searchPlaylistVm);
             self.addVm(playlistDetailVm);
+            
+            // People
+            self.addVm(new SearchArtistsVm(self));
         }
 
         function SearchVm() {

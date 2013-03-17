@@ -1,5 +1,5 @@
-﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tab"],
-    function (ko, pubSub, dal, RoutingExtension, TabExtension) {
+﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tabs"],
+    function (ko, pubSub, dal, RoutingExtension, TabsExtension) {
 
         $("#trackDetailsVm").on("mouseenter", '.albumBlock .cover', function () {
             $(this).find('.coverHover').animate({
@@ -18,7 +18,7 @@
 
             // Data
             RoutingExtension(self, "track", "Музыка");
-            TabExtension(self);
+            TabsExtension(self, "music");
             self.track = ko.observable();
             self.showAll = ko.observable();
             self.similars = ko.observableArray();
@@ -34,16 +34,14 @@
             };
 
             self.playAlbum = function () {
-                if (!self.track()) return;                
-                self.track().loadAlbum(function (album) {
-                    album.playTracks();
-                });
+                if (!self.track()) return;
+                self.track().album.play();
             };
 
             self.appendAlbum = function() {
                 if (!self.track()) return;                
                 self.track().loadAlbum(function(album) {
-                    album.appendTracks();
+                    album.append();
                 });
             };
 

@@ -1,4 +1,4 @@
-﻿define(["vkApiSource", "Types/Track"], function (vkApi, Track) {
+﻿define(["vkApiSource"/*, "Types/Track"*/], function (vkApi/*, Track*/) {
     vkApi.args = (function () {
         var params = {};
 
@@ -17,30 +17,30 @@
         return params;
     })();
 
-    vkApi.constructTracks = function (metadata, callback) {
-        var tracks = $.getNamedArray(metadata, "tracks");
+    //vkApi.constructTracks = function (metadata, callback) {
+    //    var tracks = $.getNamedArray(metadata, "tracks");
 
-        // format vk parameter
-        var i, paramValue = "";
-        for (i = 0; i < tracks.length; i++) {
-            if (paramValue.length > 0) paramValue += ",";
-            paramValue += tracks[i].ownerId + "_" + tracks[i].aid;
-        }
+    //    // format vk parameter
+    //    var i, paramValue = "";
+    //    for (i = 0; i < tracks.length; i++) {
+    //        if (paramValue.length > 0) paramValue += ",";
+    //        paramValue += tracks[i].ownerId + "_" + tracks[i].aid;
+    //    }
 
-        // query data
-        vk.api("audio.getById", { audios: paramValue }, function (vkObj) {
+    //    // query data
+    //    vk.api("audio.getById", { audios: paramValue }, function (vkObj) {
 
-            var constructedTracks = [];
+    //        var constructedTracks = [];
 
-            for (i = 0; i < vkObj.response.length; i++) {
-                var vkTrack = vkObj.response[i];
-                var match = $.grep(tracks, function (track) { return track.aid == vkTrack.aid; });
-                if (match.length > 0) constructedTracks.push(new Track(match[0], vkTrack.url, vkTrack.duration));
-            }
+    //        for (i = 0; i < vkObj.response.length; i++) {
+    //            var vkTrack = vkObj.response[i];
+    //            var match = $.grep(tracks, function (track) { return track.aid == vkTrack.aid; });
+    //            if (match.length > 0) constructedTracks.push(new Track(match[0], vkTrack.url, vkTrack.duration));
+    //        }
 
-            callback(constructedTracks);
-        });
-    };
+    //        callback(constructedTracks);
+    //    });
+    //};
 
     vkApi.appendVkData = function (tracks, onSuccess) {
         var request = "";

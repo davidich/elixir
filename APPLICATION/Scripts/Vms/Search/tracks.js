@@ -1,5 +1,5 @@
-﻿define(["ko", "pubSub", "Vms/Extensions/Search", "Types/FancyDropItem", "Modules/dal"],
-    function (ko, pubSub, SearchExtention, FancyDropItem, dal) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/FancyDropItem", "Modules/dal"],
+    function (ko, pubSub, SearchExtention, TabsExtension, FancyDropItem, dal) {
 
         var searchModes = [
                new FancyDropItem("all", "По всему"),
@@ -16,6 +16,7 @@
             self.sectionName = "Музыка";
             self.itemInfoUrl = "/search/track?clean=true&id=";
             SearchExtention(self, searchModes);
+            TabsExtension(self, "music");
 
             // DATA
             self.pageNmb = ko.observable();

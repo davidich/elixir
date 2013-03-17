@@ -11,8 +11,8 @@
         Plupload: 'Libs/Plupload',
         soundManager: 'Libs/soundmanager/soundmanager2',        
         vkApiSource: 'http://vk.com/js/api/xd_connection.js?2',
-        vk: 'Modules/vkWrapper',                                        //<- use this alias for VK Api
-        elixir: 'Modules/elixirWrapper',
+        vk: 'Modules/vk',                                               //<- use this alias for VK Api
+        elixir: 'Modules/elixir',
         htmlBuilder: 'Modules/htmlBuilder',
         jqueryui: 'Libs/jquery-ui-1.10.0',
         customFormElem: 'Libs/customFormElements',        
@@ -36,6 +36,7 @@
 
 if (global.mode == "dev") {
     config.paths.vk = 'Modules/vkStub';
+    config.paths.elixir = 'Modules/elixirStub';
 }
 
 if (global && global.appVer)
