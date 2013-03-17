@@ -1,4 +1,4 @@
-define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/FancyDropItem", "Modules/dal"],
+﻿define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/FancyDropItem", "Modules/dal"],
     function (ko, pubSub, SearchExtention, TabsExtension, FancyDropItem, dal) {
 
         function initUi(containerId) {
@@ -15,22 +15,23 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/F
                 });
         }
 
-        function SearchAlubumsVm(searchVm, options) {
+        function SearchArtistsVm(searchVm) {
             var self = this,
                 lastPage = 0;
+            
+            initUi("searchAristsVm");
 
-            initUi(options.containerId);
+            // DATA
+            self.vmId = "artists";
+            self.sectionName = "Люди";
+            self.itemInfoUrl = "/artist?clean=true&id=";
+            SearchExtention(self);
+            TabsExtension(self, "people");
 
-            self.vmId = options.vmId;
-            self.sectionName = "Музыка";
-            self.itemInfoUrl = options.detailUrl + "?clean=true&id=";
-            self.searchResultSuffix = options.searchResultSuffix;
-            SearchExtention(self, options.searchModes);
-            TabsExtension(self, "music");
 
             // BEHAVIOR
             self.loadItems = function (cmd) {
-                dal[options.dalMethod]({
+                dal.searchArtists({
                     cancellationToken: cmd.cancellationToken,
                     params: cmd.params,
                     onSuccess: function (items, totalCount) {
@@ -57,16 +58,11 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/F
 
             self.getLoadParams = function (page) {
                 var params = searchVm.getParams();
-
-                // add view specific params
-                params.query = encodeURIComponent($.trim(self.query()));
-                params.searchMode = self.searchMode();
-                params.artist = params.artist || 0;
+                params.query = $.trim(self.query());
                 params.page = page || 1;
 
-                return { // convert to elixir api format
+                return { // convert to elixir formar
                     query: encodeURIComponent(params.query),
-                    by: params.searchMode,
                     artist: params.artistId || 0,
                     genre: params.genreId,
                     style: params.styleId,
@@ -74,13 +70,13 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/F
                     order: params.orderType,
                     timerange: params.timeRange,
                     page: params.page
-                };
+                };;
             };
 
             self.getNextPageNmb = function () {
                 return lastPage + 1;
-            };
+            };            
         }
 
-        return SearchAlubumsVm;
+        return SearchArtistsVm;
     })

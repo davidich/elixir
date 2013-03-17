@@ -1,7 +1,5 @@
 ﻿<div class="tabNavigationBLock">
-    <ul class="tabNavigation">
-        <li><span data-bind="css: {active: name == 'tracks'}, click: toTracks">Треки</span></li>
-        <li><span data-bind="css: {active: name == 'albums'}, click: toAlbums">Альбомы</span></li>
-        <li><span data-bind="css: {active: name == 'playlists'}, click: toPlaylists">Плейлисты</span></li>
+    <ul class="tabNavigation" data-bind="foreach: tabs">
+        <li><span data-bind="css: {active: $parent.name == $data.viewName }, click: $parent.onTabClick, text: tabText"></span></li>
     </ul>
 </div>

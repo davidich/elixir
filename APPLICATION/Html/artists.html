@@ -1,44 +1,49 @@
 ﻿<div class="artistsBlock rightPartHolder">
     <div class="rightContainer">
         <div class="rightSearchBlock">
-            <div class="searchCancel" ></div>
-            <input class="searchBar" placeholder="Поиск по" />
-            <div class="searchCriterion"></div>
-            <div class="searchLoader" >
+            <div class="searchCancel" data-bind="click: clearQuery, css: { cancel:  hasQuery }"></div>
+            <input class="searchBar" placeholder="Поиск по артистам" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: onQueryKeyUp }" />
+            <div class="searchLoader" style="display: none; left: 525px;" data-bind="visible: loadMgr.isSearching">
                 <img src="./Images/loader.gif" alt="" />
             </div>
             <div style="clear: both;"></div>
         </div>
         <div class="searchResult">
-            <div class="searchResultInfo">У нас <span>1000</span><span> исполнителей</span></div>
+            <div class="searchResultInfo">У нас <span data-bind="text: totalCount"></span><span> исполнителей</span></div>
             <div>
-                <div>
+                <div data-bind="foreach: items">
                     <div class="albumBlock artistBlock">
-                        <div class="cover">
+                        <div class="cover" data-bind="click: $parent.openDetails">
                             <div class="noImageHolder">
-                                <img src="./Images/tempImages/cover100x100.jpg" alt=""  />
+                                <img src="" alt="" data-bind="visible: image, attr: {src: imageUrl('large')}" />
                             </div>
                             <div class="coverHoverHolderSmall">
                                 <div class="coverHover">
-                                    <div class="playBtn"></div>
-                                    <div class="playListBtn"></div>
+                                    <div class="playBtn" data-bind="click: play, clickBubble: false"></div>
+                                    <div class="playListBtn" data-bind="click: append, clickBubble: false"></div>
                                 </div>
                             </div>
-                            <div class="number">1</div>
+                            <div class="number" data-bind="text: $index() + 1"></div>
                         </div>
                         <div class="albumInfo">
-                            <div class="artistNameHolder"><span class="icon stars"></span><span class="artistName">Usher</span></div>
-                            <div><span>Основное:</span><span> 34 года. Лос Анджелес.  США</span></div>
+                            <div class="artistNameHolder">
+                                <!--<span class="icon stars"></span>-->
+                                <span class="artistName" data-bind="text: name"></span>
+                            </div>
+                            <!--<div>
+                                <span>Основное:</span>
+                                <span>34 года. Лос Анджелес.  США</span>
+                            </div>-->
                             <div>
                                 <span>Стиль:</span>
-                                <span>
-                                    <a href="#" >Style</a><span >,</span>
+                                <span data-bind="foreach: styles">
+                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
                             </div>
                             <div class="rankBlock">
                                 <a href='#'>
                                     <div class="heart"></div>
-                                    <span>100</span>
+                                    <span data-bind="text: stats.rank"></span></a>
                                 </a>
                             </div>
                         </div>

@@ -1,5 +1,16 @@
-﻿define(["ko", "pubSub", "Types/TrackForPlayer", "Types/GenreSelector"], function (ko, pubSub, TrackForPlayer, GenreSelector) {
-
+﻿define(["ko", "pubSub", "Types/TrackForPlayer", "Types/GenreSelector", "Types/Album"], function (ko, pubSub, TrackForPlayer, GenreSelector, Album) {
+    var deps = arguments;
+    function ensureDeps() {
+        if (!ensureDeps.ensured) {
+            ensureDeps.ensured = true;
+            GenreSelector = require("Types/GenreSelector");
+            Album = require("Types/Album");
+            for (var key in deps) {
+                if (!deps[key]) throw "Track module invoked ensureDeps, but coundn't resolve '" + key + "'";
+            }
+        }
+    }
+    
     function genreSelector() {
         if (!GenreSelector)
             GenreSelector = require("Types/GenreSelector");
@@ -8,20 +19,17 @@
     }
 
     function Track(metadata) {
-        var self = this,
-            cache = {};
+        var self = this;
 
-        self.metadata = metadata;
+        ensureDeps();
         
         // Data
-        //self.id = "id_" + metadata.id;
-        self.id = metadata.id;
+        var props = ["id", "stats", "aid", "ownerId"];
+        $.copyProps(self, metadata, props);
         self.title = metadata.name;
-        self.album = metadata.album;
+
+        self.album = Album.get(metadata.album);
         self.artists = $.getNamedArray(metadata, "artists");
-        self.stats = metadata.stats;        
-        self.aid = metadata.aid;
-        self.ownerId = metadata.ownerId;
 
         var styleIds = $.getNamedArray(metadata, "styles");
         genreSelector().extendWithStyleAndGenres(self, styleIds);
@@ -86,18 +94,7 @@
         
         self.addToEnd = function (track) {
             pubSub.pub("player.addToEnd", track);
-        };
-
-        self.loadAlbum = function(onSuccess) {
-            if (cache.album)
-                onSuccess(cache.album);
-            else {
-                require("Modules/dal").loadAlbum(self.album.id, function(album) {
-                    cache.album = album;
-                    onSuccess(album);
-                });
-            }
-        };
+        };        
     }
 
     Track.toTimeString = function(durationInSecs) {

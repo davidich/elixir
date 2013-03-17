@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/dialog.css" />
     <link rel="stylesheet" type="text/css" href="Styles/artist.css" />
     <link rel="stylesheet" type="text/css" href="Styles/artists.css" />
- 
+
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
     <![endif]-->
@@ -45,9 +45,7 @@
             <div class="stub welcome"></div>
         </div>
 
-        <div class="stub artist"></div>
-
-<!--        <div data-bind="with: search">
+        <div data-bind="with: search">
             <div id="searchVm" data-bind="visible: isVisible" style="height: 565px;">
                 <div>
                     <div class="pageName">
@@ -58,7 +56,7 @@
                 <div class="stub filter"></div>
 
                 <div data-bind="with: tracks">
-                    <div id="searchTracksVm" data-bind="visible: isVisible">                        
+                    <div id="searchTracksVm" data-bind="visible: isVisible">
                         <div class="stub pager"></div>
                         <div class="stub tabNaviation"></div>
                         <div class="stub tracks"></div>
@@ -68,30 +66,30 @@
                 <div data-bind="with: track">
                     <div id="trackDetailsVm" data-bind="visible: isVisible">
                         <div class="stub tabNaviation"></div>
-                        <div class="stub track"></div>                        
+                        <div class="stub track"></div>
                     </div>
                 </div>
-                
+
                 <div data-bind="with: albums">
                     <div id="searchAlbumsVm" data-bind="visible: isVisible">
                         <div class="stub tabNaviation"></div>
                         <div class="stub albums"></div>
                     </div>
-                </div>                               
-                
+                </div>
+
                 <div data-bind="with: album">
                     <div id="albumDetailsVm" data-bind="visible: isVisible">
                         <div class="stub tabNaviation"></div>
                         <div class="stub album"></div>
                     </div>
                 </div>
-                
+
                 <div data-bind="with: playlists">
                     <div id="searchPlaylistVm" data-bind="visible: isVisible">
                         <div class="stub tabNaviation"></div>
                         <div class="stub albums"></div>
                     </div>
-                </div>                               
+                </div>
                 
                 <div data-bind="with: playlist">
                     <div id="playlistDetailsVm" data-bind="visible: isVisible">
@@ -99,12 +97,21 @@
                         <div class="stub album"></div>
                     </div>
                 </div>
+                
+                <div data-bind="with: artists">
+                    <div id="searchAristsVm" data-bind="visible: isVisible">
+                        <div class="stub tabNaviation"></div>
+                        <div class="stub artists"></div>
+                    </div>
+                </div>
 
                 <div data-bind="with: player">
                     <div class="stub player"></div>
                 </div>
             </div>
-        </div>-->
+        </div>
+        
+        <!--<div class="stub artist"></div>-->
     </div>
 </body>
 </html>

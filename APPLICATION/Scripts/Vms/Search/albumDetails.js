@@ -1,5 +1,5 @@
-﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tab"],
-    function (ko, pubSub, dal, RoutingExtension, TabExtension) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Extensions/Tabs", "Types/Album"],
+    function (ko, pubSub, RoutingExtension, TabsExtension, Album) {
         function AlbumDetailsVm(options) {
             var self = this,
                 $carousel,
@@ -38,7 +38,7 @@
 
             // Data
             RoutingExtension(self, options.vmId, "Музыка");
-            TabExtension(self);
+            TabsExtension(self, "music");
             self.album = ko.observable();
             self.similars = ko.observableArray();
 
@@ -50,12 +50,12 @@
 
             self.playAlbum = function () {
                 if (!self.album()) return;
-                self.album().playTracks();
+                self.album().play();
             };
 
             self.appendAlbum = function () {
                 if (!self.album()) return;
-                self.album().appendTracks();
+                self.album().append();
             };
 
             self.openDetails = function (item) {
@@ -73,7 +73,7 @@
                     pubSub.pub("scroll.update");
                 }
 
-                dal[options.dalMethod](args.id, function (album) {
+                Album.load(args.id, function (album) {
                     self.album(album);
 
                     $carousel.trigger("destroy");
