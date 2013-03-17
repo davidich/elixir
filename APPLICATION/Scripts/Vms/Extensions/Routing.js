@@ -23,6 +23,9 @@
 
             // show VM (if navigate is invoked and route is not absolute then VM is visible)
             self.show(route.params());
+
+            // if we are at the end of the route, then refresh player visibility
+            if (!route.subRoute()) $("#playerContent").toggle(self.isPlayerVisible == true);
             
             // hide inactive subVm
             $.each(self.vms, function (index, subVm) {

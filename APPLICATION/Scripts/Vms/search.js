@@ -1,10 +1,9 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/FancyDropItem", "Types/GenreSelector",
-        "Vms/Search/tracks", "Vms/Search/track", 
-        "Vms/Search/searchAlbums", "Vms/Search/albumDetails", 
-        "Vms/Search/searchArtists",
-        "Vms/Search/player"],
+        "Vms/Search/tracks", "Vms/Search/track",
+        "Vms/Search/searchAlbums", "Vms/Search/albumDetails",
+        "Vms/Search/searchArtists"],
     function (ko, pubSub, RoutingExtension, FancyDropItem, GenreSelector,
-        SearchTracksVm, TrackDetailsVm,  
+        SearchTracksVm, TrackDetailsVm,
         SearchAlbumsVm, AlbumDetailsVm,
         SearchArtistsVm,
         playerVm) {
@@ -28,7 +27,7 @@
             new FancyDropItem("album_name", "По альбому"),
             new FancyDropItem("artist_name", "По исполнителю")
         ];
-        
+
         var playlistSearchModes = [
             new FancyDropItem("all", "По всему"),
             new FancyDropItem("playlist_name", "По плейлисту"),
@@ -73,7 +72,7 @@
             });
             self.addVm(searchPlaylistVm);
             self.addVm(playlistDetailVm);
-            
+
             // People
             self.addVm(new SearchArtistsVm(self));
         }
@@ -81,56 +80,47 @@
         function SearchVm() {
             var self = this;
 
-            //$.extend(self, new BaseVm("search"));
             RoutingExtension(self, "search");
             setupVms(self);
-            
-            // Data
-            self.location = ko.computed(function () { return self.activeSubVm() && self.activeSubVm().friendlyName; });
-            self.player = window.player = playerVm; // make player global to have access to its properties from some vms        
-            self.timeRanges = ko.observableArray(timeRanges);
-            self.orderTypes = ko.observableArray(orderTypes);
 
+            // DATA
             // Search params
             self.timeRange = ko.observable("all");
             self.orderType = ko.observable("popular");
-            self.artistId = ko.observable(0);
             self.genreId = ko.observable(0);
             self.styleId = ko.observable(0);
             self.isHighQuality = ko.observable(false);
 
-            // create genre selector only after all pros are added
+            self.artist = ko.observable();
+            self.user = ko.observable();
             self.genreSelector = new GenreSelector(self);
-
+            self.timeRanges = ko.observableArray(timeRanges);
+            self.orderTypes = ko.observableArray(orderTypes);
+            self.location = ko.computed(function () {
+                if (self.artist())
+                    return self.artist().name;
+                else
+                    return self.activeSubVm() && self.activeSubVm().friendlyName;
+            });
 
             // subscribe to param updates
-            var searchParams = ["artistId", "genreId", "styleId", "orderType", "timeRange", "isHighQuality"];
+            var searchParams = ["genreId", "styleId", "orderType", "timeRange", "isHighQuality"];
             $.each(searchParams, function (i, propName) {
                 self[propName].subscribe(function () { pubSub.pub("search.changed", propName); });
             });
 
             self.getParams = function () {
                 var params = {};
-                $.each(searchParams, function (i, propName) { params[propName] = self[propName](); });
+
+                $.each(searchParams, function (i, propName) {
+                    params[propName] = self[propName]();
+                });
+
+                params["artist"] = self.artist() ? self.artist().id : 0;
+                params["user"] = self.user() ? self.user().id : 0;
+
                 return params;
             };
-
-            // deal with scroll
-            var rollbar = $("#searchVm").rollbar({
-                minThumbSize: '25%',
-                pathPadding: '3px',
-                zIndex: 100,
-                onScroll: function (scrollState) {
-                    pubSub.pub("scroll.moved", scrollState);
-                }
-            });
-
-            pubSub.sub("scroll.reset", function () {
-                rollbar.reset();
-            });
-            pubSub.sub("scroll.update", function () {
-                rollbar.update();
-            });
         }
 
         return new SearchVm();

@@ -1,47 +1,39 @@
-﻿<div class="artistDetails">
-    <div class="pageName">
+﻿<div id="artistInfoBlock" class="artistDetails" style="display: none;" data-bind="with: artist">
+    <div class="pageName" data-bind="click: $parent.toggleInfo">
         <span class="icon info"></span>
-        <span>Usher</span>
+        <span data-bind="text: name"></span>
     </div>
     <div class="artistDetailsContent">
-        <div class="artistDetailsInfoBlock">
+        <div class="artistDetailsInfoBlock" data-bind="click: $parent.toggleInfo">
             <span class="icon mic"></span>
             <span class="fieldDescription">Исполнитель: </span>
-            <span class="fieldData">Usher</span>
+            <span class="fieldData"  data-bind="text: name"></span>
         </div>
 
         <div class="artistDetailsInfoBlock">
-            <span class="icon"></span>
-            <span class="fieldDescription">Слушатель: </span>
-            <span class="fieldData">Kanye West</span>
-        </div>
-    
-        <div class="artistDetailsInfoBlock">
-            <span class="icon"></span>
-            <span class="fieldDescription">Основное: </span>
-            <span> 21год Россия Москва</span>
-        </div>
-    
-        <div class="artistDetailsInfoBlock">
             <span class="icon heart"></span>
             <span class="fieldDescription">Оценки: </span>
-            <span class="fieldData">21 000</span>
+            <span class="fieldData" data-bind="text: stats.rank"></span>
         </div>
-    
+
         <div class="artistDetailsInfoBlock">
             <span class="icon"></span>
             <span class="fieldDescription">Выступает: </span>
             <div>
                 <span class="fieldDescription">Жанры:</span>
-                <span class="fieldData">Pop</span>, <span class="fieldData">Hip-Hop</span>
+                <span data-bind="foreach: genres">
+                    <span class="fieldData" data-bind="text: name"></span><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                </span>
             </div>
             <div>
                 <span class="fieldDescription">Стили:</span>
-                <span class="fieldData">Pop</span>, <span class="fieldData">Hip-Hop</span>
+                <span data-bind="foreach: styles">
+                    <span class="fieldData" data-bind="text: name"></span><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                </span>
             </div>
         </div>
 
-        <div class="artistDetailsInfoBlock">
+        <!--<div class="artistDetailsInfoBlock">
             <span class="icon"></span><span class="fieldDescription">Рейтинг слушателя: </span>
             <div>
                 <div>
@@ -55,11 +47,10 @@
 
                 </div>
             </div>
-        </div>
-        <div class="artistDetailsInfoBlock">
+        </div>-->
+        <!--<div class="artistDetailsInfoBlock">
             <span class="icon"></span><span class="fieldDescription">Биография: </span>
-            <span>
-                 С другой стороны дальнейшее развитие различных форм деятельности требуют от на 
+            <span>С другой стороны дальнейшее развитие различных форм деятельности требуют от на 
                  С другой стороны дальнейшее развитие различных форм деятельности требуют от на 
                  С другой стороны дальнейшее развитие различных форм деятельности требуют от на 
                  С другой стороны дальнейшее развитие различных форм деятельности требуют от на 
@@ -74,6 +65,6 @@
             <span class="icon"></span><span class="fieldDescription">Ссылки: </span>
             <a href="#" target="_blank">vk.com/Usher</a>,
             <a href="#" target="_blank">vk.com/Usher</a>
-        </div>
-        </div>
+        </div>-->
+    </div>
 </div>

@@ -79,8 +79,8 @@
             });
 
             var lastLoadParams;
-            self.onHide = function () {
-                if (self.items().length > 0)
+            self.onHide = function (isRehidden) {
+                if (self.items().length > 0 && !isRehidden)
                     lastLoadParams = JSON.stringify(self.getLoadParams(1));
             };
 

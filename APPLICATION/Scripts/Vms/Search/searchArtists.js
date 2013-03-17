@@ -22,6 +22,7 @@
             initUi("searchAristsVm");
 
             // DATA
+            self.isPlayerVisible = true;            
             self.vmId = "artists";
             self.sectionName = "Люди";
             self.itemInfoUrl = "/artist?clean=true&id=";
@@ -63,12 +64,11 @@
 
                 return { // convert to elixir formar
                     query: encodeURIComponent(params.query),
-                    artist: params.artistId || 0,
                     genre: params.genreId,
                     style: params.styleId,
                     hq: params.isHighQuality ? 1 : 0,
                     order: params.orderType,
-                    timerange: params.timeRange,
+                    timerange: params.timeRange,                    
                     page: params.page
                 };;
             };

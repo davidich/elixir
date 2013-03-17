@@ -46,73 +46,80 @@
             <div class="stub welcome"></div>
         </div>
 
-        <div data-bind="with: search">
-            <div id="searchVm" data-bind="visible: isVisible" style="height: 565px;">
-                <div>
-                    <div class="pageName">
-                        <span class="icon music"></span>
-                        <span data-bind="text: location"></span>
-                    </div>
-                </div>
-                <div class="stub filter"></div>
+        <div data-bind="with: player">
+            <div class="stub player"></div>
+        </div>
 
-                <div data-bind="with: tracks">
-                    <div id="searchTracksVm" data-bind="visible: isVisible">
-                        <div class="stub pager"></div>
-                        <div class="stub tabNaviation"></div>
-                        <div class="stub tracks"></div>
+        <div id="scrolledContent" style="height: 566px;">
+            <div data-bind="with: search">
+                <div id="searchVm" data-bind="visible: isVisible">
+                    <div>
+                        <div class="pageName">
+                            <span class="icon music"></span>
+                            <span data-bind="text: location"></span>
+                        </div>
                     </div>
-                </div>
+                    <div class="stub filter"></div>
 
-                <div data-bind="with: track">
-                    <div id="trackDetailsVm" data-bind="visible: isVisible">
-                        <div class="stub tabNaviation"></div>
-                        <div class="stub track"></div>
+                    <div data-bind="with: tracks">
+                        <div id="searchTracksVm" data-bind="visible: isVisible">
+                            <div class="stub pager"></div>
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub tracks"></div>
+                        </div>
                     </div>
-                </div>
 
-                <div data-bind="with: albums">
-                    <div id="searchAlbumsVm" data-bind="visible: isVisible">
-                        <div class="stub tabNaviation"></div>
-                        <div class="stub albums"></div>
+                    <div data-bind="with: track">
+                        <div id="trackDetailsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub track"></div>
+                        </div>
                     </div>
-                </div>
 
-                <div data-bind="with: album">
-                    <div id="albumDetailsVm" data-bind="visible: isVisible">
-                        <div class="stub tabNaviation"></div>
-                        <div class="stub album"></div>
+                    <div data-bind="with: albums">
+                        <div id="searchAlbumsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub albums"></div>
+                        </div>
                     </div>
-                </div>
 
-                <div data-bind="with: playlists">
-                    <div id="searchPlaylistVm" data-bind="visible: isVisible">
-                        <div class="stub tabNaviation"></div>
-                        <div class="stub albums"></div>
+                    <div data-bind="with: album">
+                        <div id="albumDetailsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub album"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div data-bind="with: playlist">
-                    <div id="playlistDetailsVm" data-bind="visible: isVisible">
-                        <div class="stub tabNaviation"></div>
-                        <div class="stub album"></div>
-                    </div>
-                </div>
-                
-                <div data-bind="with: artists">
-                    <div id="searchAristsVm" data-bind="visible: isVisible">
-                        <div class="stub tabNaviation"></div>
-                        <div class="stub artists"></div>
-                    </div>
-                </div>
 
-                <div data-bind="with: player">
-                    <div class="stub player"></div>
+                    <div data-bind="with: playlists">
+                        <div id="searchPlaylistVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub albums"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: playlist">
+                        <div id="playlistDetailsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub album"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: artists">
+                        <div id="searchAristsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub artists"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-bind="with: artist">
+                <div id="artistDetailVm" data-bind="visible: isVisible">
+                    <div class="stub artist"></div>
+                    <div class="stub artistInfo"></div>
                 </div>
             </div>
         </div>
-        
-        <!--<div class="stub artist"></div>-->
     </div>
 </body>
 </html>

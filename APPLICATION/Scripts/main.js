@@ -73,22 +73,26 @@ $.copyProps = function (target, source, propNames) {
 };
 
 $.parseSimpleMetadata = function (object, metadata, maturities) {
-    for (var i = 0; i < object.maturity.level; i++) {
+    for (var i = 0; i <= object.maturity.level; i++) {
         $.copyProps(object, metadata, maturities[i].props);
-    }    
+    }
 };
 
 // for counting metadata load level
 $.getMaturity = function (metadata, maturities) {
     var maxLevelMaturity;
     $.each(maturities, function (index, maturity) {
-        maxLevelMaturity = maturity;
         var i = 0, propAmount = maturity.props.length;
         while (i < propAmount) {
             if (!metadata.hasOwnProperty(maturity.props[i])) break;
             i++;
         }
-        return i == propAmount; // break for each once level props are missing
+        if (i == propAmount) {
+            maxLevelMaturity = maturity;
+            return true;    // continue
+        } else {
+            return false;   // break
+        }        
     });
 
     return maxLevelMaturity;
@@ -128,7 +132,7 @@ require(["require-config"], function () {
                         if (global.mode != "dev")
                             rootVm.navigate("/welcome");
                         else
-                            rootVm.navigate("/search/albums");
+                            rootVm.navigate("/search/artists");
                     });
                 }
             });

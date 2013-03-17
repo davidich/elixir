@@ -52,8 +52,9 @@
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\artist.html" />
-    <Content Include="APPLICATION\Html\artistDetails.html" />
+    <Content Include="APPLICATION\Html\artistInfo.html" />
     <Content Include="APPLICATION\Html\artists.html" />
+    <Content Include="APPLICATION\Html\userInfo.html" />
     <Content Include="APPLICATION\Html\events\rihanna.html" />
     <Content Include="APPLICATION\Html\pager.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />

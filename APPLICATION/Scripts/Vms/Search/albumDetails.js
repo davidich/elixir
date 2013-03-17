@@ -10,11 +10,7 @@
                     infinite: false,
                     auto: false,
                     align: "left",
-                    scroll: { items: 2, visible: 5 }
-                    //prev: { key: "left", button: "#similarAlbumsCarousel_prev" },
-                    //next: { key: "right", button: "#similarAlbumsCarousel_next" },
-                    //prev: '.slider_prev', 
-                    //next: '.slider_next',
+                    scroll: { items: 2, visible: 5 }                    
                 };
 
 
@@ -22,21 +18,8 @@
             carouselSettings.prev = { key: "left", button: "#" + options.containerId + " .slider_prev" };
             carouselSettings.next = { key: "right", button: "#" + options.containerId + " .slider_next" };
 
-            $("#" + options.containerId)
-                    .on("mouseenter", '.albumCover', function () {
-                        $(this).find('.albumLikeArea').fadeIn(300);
-                        $(this).find('.albumCoverHover').animate({
-                            'marginTop': '-31px'
-                        }, 200);
-                    })
-                    .on("mouseleave", '.albumCover', function () {
-                        $(this).find('.albumLikeArea').fadeOut(300);
-                        $(this).find('.albumCoverHover').animate({
-                            'marginTop': '60px'
-                        });
-                    });
-
             // Data
+            self.isPlayerVisible = true;
             RoutingExtension(self, options.vmId, "Музыка");
             TabsExtension(self, "music");
             self.album = ko.observable();
