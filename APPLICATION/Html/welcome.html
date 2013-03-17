@@ -61,12 +61,27 @@
             modal: true,
             width: 501,
             height: 483,
-            title: title
+            title: title,
+            buttons: [{
+                text: "",
+                icons: {},
+                'class': 'giftButton'
+                
+            }, {
+                text: 'закрыть',
+                icons: {
+                    primary: 'close'
+                    }
+                }
+            ]
         });
 
         $.ajax({
-            method: 'Post',
-            url: 'Html/events/rihanna.html'
+            method: 'Get',
+            url: 'Html/events/rihanna.html',
+            success: function (data) {
+                $(dialog).html(data);
+            }
         });
 
         console.log(fileId, title);

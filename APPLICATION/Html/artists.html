@@ -3,7 +3,7 @@
         <div class="rightSearchBlock">
             <div class="searchCancel" data-bind="click: clearQuery, css: { cancel:  hasQuery }"></div>
             <input class="searchBar" placeholder="Поиск по артистам" data-bind="value: query, valueUpdate: 'afterkeydown', event: { keyup: onQueryKeyUp }" />
-            <div class="searchLoader" style="display: none; left: 525px;" data-bind="visible: loadMgr.isSearching">
+            <div class="searchLoader" style="display: none;" data-bind="visible: loadMgr.isSearching">
                 <img src="./Images/loader.gif" alt="" />
             </div>
             <div style="clear: both;"></div>

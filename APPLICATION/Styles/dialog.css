@@ -80,6 +80,16 @@
     background-position: 0 -15px;
 }
 
+.customDialog.ui-dialog .ui-dialog-buttonpane button.giftButton {
+    background: url(../Images/dialog/giftBtn.png) no-repeat 0 0;
+    width: 166px;
+    height: 24px;
+}
+
+.customDialog.ui-dialog .ui-dialog-buttonpane button.giftButton:hover {
+    background-position: 0 -24px;
+}
+
 
 .customDialog.ui-dialog .ui-dialog-titlebar.ui-dialog-titlebar {
     background: url("../Images/dialog/header.jpg") 0 0 no-repeat;

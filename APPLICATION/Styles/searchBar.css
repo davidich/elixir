@@ -19,10 +19,11 @@
 
 
 .rightSearchBlock .searchLoader {
-    position: absolute;
-    top: 5px;
-    left: 400px;
-    /*display: none;*/
+    width: 27px;
+    float: right;
+    margin-left: -27px;
+    padding-right: 7px;
+    padding-top: 3px;
 }
 
 .rightSearchBlock .searchCriterion {
