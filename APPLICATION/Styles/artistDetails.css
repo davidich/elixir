@@ -1,0 +1,21 @@
+﻿.artistDetails .artistDetailsInfoBlock {
+    padding-bottom: 10px; 
+    line-height: 20px;
+}
+
+.artistDetails .fieldDescription {
+    color: #B3B3B3;
+}
+
+.artistDetails .fieldData {
+    color: #3C79AB;
+    cursor: pointer;
+}
+
+artistDetailsContent.fieldData:hover {
+    color: #72B4EC;
+}
+
+.artistDetailsContent .artistDetailsContent {
+    margin-left: 20px;
+}

@@ -52,7 +52,9 @@
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\artist.html" />
+    <Content Include="APPLICATION\Html\artistDetails.html" />
     <Content Include="APPLICATION\Html\artists.html" />
+    <Content Include="APPLICATION\Html\events\rihanna.html" />
     <Content Include="APPLICATION\Html\pager.html" />
     <Content Include="APPLICATION\Html\tabNaviation.html" />
     <Content Include="APPLICATION\Html\track.html" />
@@ -92,6 +94,11 @@
     <Content Include="APPLICATION\Images\dialog\header.jpg" />
     <Content Include="APPLICATION\Images\dropdownblock_arrow.png" />
     <Content Include="APPLICATION\Images\dropdownblock_bg.jpg" />
+    <Content Include="APPLICATION\Images\events\rihana\img1.jpg" />
+    <Content Include="APPLICATION\Images\events\rihana\img2.jpg" />
+    <Content Include="APPLICATION\Images\events\rihana\img3.jpg" />
+    <Content Include="APPLICATION\Images\events\rihana\img4.jpg" />
+    <Content Include="APPLICATION\Images\events\rihana\img5.jpg" />
     <Content Include="APPLICATION\Images\flag.png" />
     <Content Include="APPLICATION\Images\folderIcon.png" />
     <Content Include="APPLICATION\Images\gift.png" />
@@ -245,6 +252,7 @@
     <Content Include="APPLICATION\Styles\album.css" />
     <Content Include="APPLICATION\Styles\albums.css" />
     <Content Include="APPLICATION\Styles\artist.css" />
+    <Content Include="APPLICATION\Styles\artistDetails.css" />
     <Content Include="APPLICATION\Styles\artists.css" />
     <Content Include="APPLICATION\Styles\cssreset-min.css" />
     <Content Include="APPLICATION\Styles\checkbox.css" />
