@@ -58,17 +58,13 @@
         self.albums = [];
         if (metadata.albums) {
             var albums = $.getNamedArray(metadata, "albums");
-            $.each(albums, function () {
-                self.albums.push(Album.get(this));
-            });
+            $.each(albums, function() { self.albums.push(Album.get(this)); });
         }
 
         self.similars = [];
         if (metadata.similar) {
             var similars = $.getNamedArray(metadata, "similar", "artist");
-            $.each(similars, function () {
-                self.similars.push(Artist.get(this));
-            });
+            $.each(similars, function() { self.similars.push(Artist.get(this)); });
         }
 
         // BEHAVIOR

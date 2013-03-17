@@ -19,6 +19,7 @@
             TabsExtension(self, "music");
 
             // DATA
+            self.isPlayerVisible = true;
             self.pageNmb = ko.observable();
 
             // BEHAVIOR
@@ -63,12 +64,13 @@
                 return { // convert to elixir formar
                     query: encodeURIComponent(params.query),
                     by: params.searchMode,
-                    artist: params.artistId || 0,
                     genre: params.genreId,
                     style: params.styleId,
                     hq: params.isHighQuality ? 1 : 0,
                     order: params.orderType,
                     timerange: params.timeRange,
+                    artist: params.artist,
+                    user: params.user,
                     page: params.page
                 };;
             };

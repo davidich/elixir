@@ -1,22 +1,10 @@
 ﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tabs"],
     function (ko, pubSub, dal, RoutingExtension, TabsExtension) {
-
-        $("#trackDetailsVm").on("mouseenter", '.albumBlock .cover', function () {
-            $(this).find('.coverHover').animate({
-                marginTop: 0
-            }, 300);
-        });
-
-        $("#trackDetailsVm").on("mouseleave", '.albumBlock .cover', function () {
-            $(this).find('.coverHover').animate({
-                marginTop: 35
-            }, 300);
-        });
-
         function TrackVm() {
             var self = this;
 
             // Data
+            self.isPlayerVisible = true;
             RoutingExtension(self, "track", "Музыка");
             TabsExtension(self, "music");
             self.track = ko.observable();

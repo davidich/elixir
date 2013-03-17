@@ -1,26 +1,14 @@
 define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/FancyDropItem", "Modules/dal"],
     function (ko, pubSub, SearchExtention, TabsExtension, FancyDropItem, dal) {
+        
 
-        function initUi(containerId) {
-            $("#" + containerId)
-                .on("mouseenter", '.albumBlock .cover', function () {
-                    $(this).find('.coverHover').animate({
-                        marginTop: 0
-                    }, 300);
-                })
-                .on("mouseleave", '.albumBlock .cover', function () {
-                    $(this).find('.coverHover').animate({
-                        marginTop: 33
-                    }, 300);
-                });
-        }
 
         function SearchAlubumsVm(searchVm, options) {
             var self = this,
                 lastPage = 0;
 
-            initUi(options.containerId);
-
+            // DATA
+            self.isPlayerVisible = true;            
             self.vmId = options.vmId;
             self.sectionName = "Музыка";
             self.itemInfoUrl = options.detailUrl + "?clean=true&id=";
@@ -67,12 +55,13 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/F
                 return { // convert to elixir api format
                     query: encodeURIComponent(params.query),
                     by: params.searchMode,
-                    artist: params.artistId || 0,
                     genre: params.genreId,
                     style: params.styleId,
                     hq: params.isHighQuality ? 1 : 0,
                     order: params.orderType,
                     timerange: params.timeRange,
+                    artist: params.artist,
+                    user: params.user,
                     page: params.page
                 };
             };

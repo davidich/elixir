@@ -1,8 +1,7 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/FancyDropItem", "Types/GenreSelector",
         "Vms/Search/tracks", "Vms/Search/track",
         "Vms/Search/searchAlbums", "Vms/Search/albumDetails",
-        "Vms/Search/searchArtists",
-        "Vms/Search/player"],
+        "Vms/Search/searchArtists"],
     function (ko, pubSub, RoutingExtension, FancyDropItem, GenreSelector,
         SearchTracksVm, TrackDetailsVm,
         SearchAlbumsVm, AlbumDetailsVm,
@@ -92,9 +91,9 @@
             self.styleId = ko.observable(0);
             self.isHighQuality = ko.observable(false);
 
-            self.artist = ko.observable();            
-            self.genreSelector = new GenreSelector(self);            
-            self.player = window.player = playerVm; // make player global to have access to its properties from some vms        
+            self.artist = ko.observable();
+            self.user = ko.observable();
+            self.genreSelector = new GenreSelector(self);
             self.timeRanges = ko.observableArray(timeRanges);
             self.orderTypes = ko.observableArray(orderTypes);
             self.location = ko.computed(function () {
@@ -103,7 +102,7 @@
                 else
                     return self.activeSubVm() && self.activeSubVm().friendlyName;
             });
-           
+
             // subscribe to param updates
             var searchParams = ["genreId", "styleId", "orderType", "timeRange", "isHighQuality"];
             $.each(searchParams, function (i, propName) {
@@ -113,32 +112,15 @@
             self.getParams = function () {
                 var params = {};
 
-                $.each(searchParams, function(i, propName) {
-                     params[propName] = self[propName]();
+                $.each(searchParams, function (i, propName) {
+                    params[propName] = self[propName]();
                 });
-                
-                if (self.artist())
-                    params["artist"] = self.artist().id;
-                
+
+                params["artist"] = self.artist() ? self.artist().id : 0;
+                params["user"] = self.user() ? self.user().id : 0;
+
                 return params;
             };
-
-            // deal with scroll
-            var rollbar = $("#searchVm").rollbar({
-                minThumbSize: '25%',
-                pathPadding: '3px',
-                zIndex: 100,
-                onScroll: function (scrollState) {
-                    pubSub.pub("scroll.moved", scrollState);
-                }
-            });
-
-            pubSub.sub("scroll.reset", function () {
-                rollbar.reset();
-            });
-            pubSub.sub("scroll.update", function () {
-                rollbar.update();
-            });
         }
 
         return new SearchVm();

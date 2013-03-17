@@ -1,5 +1,22 @@
-﻿define(["ko", "Vms/Extensions/Routing", "Vms/welcome", "Vms/search", "Vms/artistDetails"],
-    function (ko, RoutingExtension, welcomeVm, searchVm, artistDetailsVm) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/welcome", "Vms/search", "Vms/artistDetails", "Vms/Search/player"],
+    function (ko, pubSub, RoutingExtension, welcomeVm, searchVm, artistDetailsVm, playerVm) {
+
+
+        $("#rootVm")
+            .on("mouseenter", '.hiddenPanelContainer', function () {
+                var $slidePanel = $(this).find(".slidePanel");
+                $slidePanel.animate({ marginTop: 0 }, 300);
+                
+                $(this).find(".fadePanel").fadeIn(300);
+            })
+            .on("mouseleave", '.hiddenPanelContainer', function () {
+                var $slidePanel = $(this).find(".slidePanel");
+                $slidePanel.animate({ marginTop: $slidePanel.height() }, 300);
+                
+                $(this).find(".fadePanel").fadeOut(300);
+            });
+
+
 
         function RootVm() {
             var self = this;
@@ -11,7 +28,7 @@
             self.addVm(searchVm);
             self.addVm(welcomeVm);
             self.addVm(new artistDetailsVm());
-
+            self.player = window.player = playerVm; // make player global to have access to its properties from some vms
 
             // behavior
             self.goToWelcome = function () {
@@ -29,6 +46,23 @@
                 searchVm.user(null);
                 self.navigate("/search/artists");
             };
+
+            // deal with scroll
+            var rollbar = $("#scrolledContent").rollbar({
+                minThumbSize: '25%',
+                pathPadding: '3px',
+                zIndex: 100,
+                onScroll: function (scrollState) {
+                    pubSub.pub("scroll.moved", scrollState);
+                }
+            });
+
+            pubSub.sub("scroll.reset", function () {
+                rollbar.reset();
+            });
+            pubSub.sub("scroll.update", function () {
+                rollbar.update();
+            });
         }
 
         // return singleton

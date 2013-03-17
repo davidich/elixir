@@ -47,13 +47,13 @@
             <!-- CONTEXT: 'TrackVM.track()' 
                 albumBlock is extended info with album image and additional track info -->
             <div class="albumBlock">
-                <div class="cover">
+                <div class="cover hiddenPanelContainer">
                     <div class="noImageHolder">
                         <img src="" alt="" data-bind="visible: imageId, attr: {src: getImageUrl('large')}" />
                     </div>
                     <!--<div class="number">1</div>-->
                     <div class="coverHoverHolderSmall">
-                        <div class="coverHover">
+                        <div class="coverHover slidePanel">
                             <div class="playBtn" data-bind="click: $parent.playAlbum"></div>
                             <div class="playListBtn" data-bind="click: $parent.appendAlbum"></div>
                         </div>

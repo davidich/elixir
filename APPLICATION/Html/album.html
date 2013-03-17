@@ -5,13 +5,13 @@
                 <div class="icon"></div>
                 <div><span>Альбом:</span> <span data-bind="text: name"></span></div>
             </div>
-            <div class="albumCover">
-                <div class="albumLikeArea" style="display: none;"></div>
+            <div class="albumCover hiddenPanelContainer">
+                <div class="albumLikeArea fadePanel" style="display: none;"></div>
                 <div class="noImageHolder">
                     <img src="" alt="" width="320" height="320" data-bind="visible: image, attr: {src: imageUrl('extralarge')}">
                 </div>
                 <div class="albumCoverHoverContainer">
-                    <div class="albumCoverHover">
+                    <div class="albumCoverHover slidePanel">
                         <div class="playBtn" data-bind="click: $parent.playAlbum"></div>
                         <div class="addToPLaylistBtn" data-bind="click: $parent.appendAlbum"></div>
                     </div>
@@ -100,14 +100,14 @@
         <div class="sliderContainer">
             <ul id="similarAlbumsCarousel" class="sliderBlock" data-bind="foreach: similars">
                 <li class="slider">
-                    <div class="cover">
+                    <div class="cover hiddenPanelContainer" data-bind="click: $parent.openDetails">
                         <div class="noImageHolderNoBorder">
                             <img src="" alt="" height="100" width="100" data-bind="attr: {src: imageUrl('large')}" />
                         </div>
                         <div class="coverHoverHolderSmall">
-                            <div class="coverHover">
-                                <div class="playBtn"></div>
-                                <div class="playListBtn"></div>
+                            <div class="coverHover slidePanel">
+                                <div class="playBtn" data-bind="click: play, clickBubble: false"></div>
+                                <div class="playListBtn" data-bind="click: append, clickBubble: false"></div>
                             </div>
                         </div>
                     </div>

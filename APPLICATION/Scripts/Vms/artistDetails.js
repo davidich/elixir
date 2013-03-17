@@ -1,63 +1,45 @@
-﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Extensions/Tabs", "Types/Artist", "Vms/search"],
-    function (ko, pubSub, RoutingExtension, TabsExtension, Artist, searchVm) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/Artist", "Vms/search"],
+    function (ko, pubSub, RoutingExtension, Artist, searchVm) {
+
+        var carouselSelector = "#artistDetailsBlock .sliderBlock",
+            carouselSettings = {
+                circular: false,
+                width: 559,
+                height: 150,
+                infinite: false,
+                auto: false,
+                align: "left",
+                scroll: { items: 2, visible: 5 },
+                prev: { key: "left", button: "#artistDetailsBlock .slider_prev" },
+                next: { key: "right", button: "#artistDetailsBlock .slider_next" }
+            };
+        
         function ArtistDetailsVm() {
             var self = this;
 
-            //var $carousel,
-            //    carouselSettings = {
-            //        circular: false,
-            //        width: 559,
-            //        height: 150,
-            //        infinite: false,
-            //        auto: false,
-            //        align: "left",
-            //        scroll: { items: 2, visible: 5 }
-            //        //prev: { key: "left", button: "#similarAlbumsCarousel_prev" },
-            //        //next: { key: "right", button: "#similarAlbumsCarousel_next" },
-            //        //prev: '.slider_prev', 
-            //        //next: '.slider_next',
-            //    };
-
-
-            //$carousel = $("#" + options.containerId + " .sliderBlock");
-            //carouselSettings.prev = { key: "left", button: "#" + options.containerId + " .slider_prev" };
-            //carouselSettings.next = { key: "right", button: "#" + options.containerId + " .slider_next" };
-
-            //$("#" + options.containerId)
-            //        .on("mouseenter", '.albumCover', function () {
-            //            $(this).find('.albumLikeArea').fadeIn(300);
-            //            $(this).find('.albumCoverHover').animate({
-            //                'marginTop': '-31px'
-            //            }, 200);
-            //        })
-            //        .on("mouseleave", '.albumCover', function () {
-            //            $(this).find('.albumLikeArea').fadeOut(300);
-            //            $(this).find('.albumCoverHover').animate({
-            //                'marginTop': '60px'
-            //            });
-            //        });
-
             // Data
+            self.isPlayerVisible = true;
             RoutingExtension(self, "artist", "Люди");
-            TabsExtension(self, "people");
             self.artist = ko.observable();
-            self.tracks = ko.observableArray();
-            self.albums = ko.observableArray();
-            self.similars = ko.observableArray();
-            
 
-            // Behavior
-            //self.playAlbum = function () {
-            //    if (!self.album()) return;
-            //    self.album().play();
-            //};
+            // Behavior            
+            self.toggleInfo = function () {
+                $("#artistDetailsBlock, #artistInfoBlock").toggle("slide", { direction: "left" }, 200);
+            };
 
-            //self.appendAlbum = function () {
-            //    if (!self.album()) return;
-            //    self.album().append();
-            //};
+            self.openTracks = function () {
+                self.navigate("/search/tracks");
+            };
 
-            self.openDetails = function (item) {
+            self.openAlbums = function () {
+                self.navigate("/search/albums");
+            };
+
+            self.openAlbum = function (album) {
+                self.navigate("/search/album?clear=true&id=" + album.id);
+            };
+
+            self.openArtist = function (item) {
                 self.navigate("/artist" + "?id=" + item.id);
             };
 
@@ -72,21 +54,12 @@
                     pubSub.pub("scroll.update");
                 }
 
-                Artist.load(args.id, function (artist) {                    
-                    self.artist(artist);
+                Artist.load(args.id, function (artist) {
                     searchVm.artist(artist);
                     
-                    self.tracks.removeAll();
-                    $.each(artist.albums, function () { self.albums.push(this); });
-                    
-                    self.albums.removeAll();
-                    $.each(artist.tracks, function () { self.tracks.push(this); });
-
-                    //$carousel.trigger("destroy");
-                    self.similars.removeAll();
-                    $.each(artist.similars, function () { self.similars.push(this); });
-                    //$carousel.carouFredSel(carouselSettings);
-                   
+                    $(carouselSelector).trigger("destroy");
+                    self.artist(artist);                   
+                    $(carouselSelector).carouFredSel(carouselSettings);
 
                     pubSub.pub("scroll.reset");
                     pubSub.pub("scroll.update");
