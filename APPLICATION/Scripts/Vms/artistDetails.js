@@ -44,9 +44,12 @@
             };
 
             // Events
-            self.onShow = function (args) {
+            self.onShow = function (args) {                
                 if (!args) throw "detail view can't be opened w/o args";
                 if (!args.id) throw "id is mandatory parameter";
+
+                $("#artistDetailsBlock").show();
+                $("#artistInfoBlock").hide();
 
                 if (args.clean == "true") {
                     self.artist(null);

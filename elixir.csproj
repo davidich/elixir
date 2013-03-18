@@ -49,6 +49,7 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="APPLICATION\elixir.html" />
+    <Content Include="APPLICATION\elixirDev.html" />
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\artist.html" />
@@ -277,6 +278,7 @@
     <Content Include="APPLICATION\Styles\welcome.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\styles.css" />
+    <Content Include="HtmlBuilder.exe" />
     <Content Include="index.html" />
     <Content Include="main.html" />
     <Content Include="Scripts\jquery.mCustomScrollbar.js" />
@@ -390,6 +392,9 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)HtmlBuilder.exe $(ProjectDir)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

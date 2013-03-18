@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Elixir</title>
+    <script type="text/javascript" src="Scripts/require-jquery.js" data-main="Scripts/main"></script>
+    <link rel="stylesheet" type="text/css" href="Styles/splash.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/icons.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/cssreset-min.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/player.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/jquery-ui-1.10.0.custom.min.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/jquery.rollbar.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/genreNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/checkbox.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/headerNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/searchBar.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/musicSearchResult.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/track.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/tabNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/album.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/albums.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/pager.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/slider.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/welcome.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/dialog.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/artist.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/artists.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/artistDetails.css" />
+
+    <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="Styles/ie7.css" />
+    <![endif]-->
+</head>
+<body>
+    <div id="splashContent" style="position: absolute; top: 0; left: 0; z-index: 5001">
+        <div id="loaderContainer">
+            <span id="loaderBar"></span>
+        </div>
+    </div>
+
+    <div id="rootVm" class="topContainer" style="display: none;" data-bind="visible: isVisible">
+        <div class="stub header"></div>
+
+        <div data-bind="with: welcome">
+            <div class="stub welcome"></div>
+        </div>
+
+        <div data-bind="with: player">
+            <div class="stub player"></div>
+        </div>
+
+        <div id="scrolledContent" style="height: 566px;">
+            <div data-bind="with: search">
+                <div id="searchVm" data-bind="visible: isVisible">
+                    <div>
+                        <div class="pageName">
+                            <span class="icon music"></span>
+                            <span data-bind="text: location"></span>
+                        </div>
+                    </div>
+                    <div class="stub filter"></div>
+
+                    <div data-bind="with: tracks">
+                        <div id="searchTracksVm" data-bind="visible: isVisible">
+                            <div class="stub pager"></div>
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub tracks"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: track">
+                        <div id="trackDetailsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub track"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: albums">
+                        <div id="searchAlbumsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub albums"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: album">
+                        <div id="albumDetailsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub album"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: playlists">
+                        <div id="searchPlaylistVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub albums"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: playlist">
+                        <div id="playlistDetailsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub album"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="with: artists">
+                        <div id="searchAristsVm" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub artists"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-bind="with: artist">
+                <div id="artistDetailVm" data-bind="visible: isVisible">
+                    <div class="stub artist"></div>
+                    <div class="stub artistInfo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
