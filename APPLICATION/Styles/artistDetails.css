@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 
-artistDetailsContent.fieldData:hover {
+.artistDetailsContent.fieldData:hover {
     color: #72B4EC;
 }
 
@@ -22,3 +22,8 @@ artistDetailsContent.fieldData:hover {
 .artistDetailsContent .artistSubBlock {
     margin: 20px 0 20px 0;
 }
+
+.artistDetailsContent .artistSubBlock div {
+    margin: 20px 0 10px 0;
+}
+
