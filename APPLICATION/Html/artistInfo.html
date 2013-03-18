@@ -17,19 +17,21 @@
         </div>
 
         <div class="artistDetailsInfoBlock">
-            <span class="icon"></span>
+            <span class="icon heartArrow"></span>
             <span class="fieldDescription">Выступает: </span>
+            <div class="artistSubBlock">
             <div>
                 <span class="fieldDescription">Жанры:</span>
                 <span data-bind="foreach: genres">
                     <span class="fieldData" data-bind="text: name"></span><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                 </span>
             </div>
-            <div>
-                <span class="fieldDescription">Стили:</span>
-                <span data-bind="foreach: styles">
-                    <span class="fieldData" data-bind="text: name"></span><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
-                </span>
+                <div>
+                    <span class="fieldDescription">Стили:</span>
+                    <span data-bind="foreach: styles">
+                        <span class="fieldData" data-bind="text: name"></span><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                    </span>
+                </div>
             </div>
         </div>
 

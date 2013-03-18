@@ -1,6 +1,5 @@
 ﻿.artistDetails .artistDetailsInfoBlock {
-    padding-bottom: 10px; 
-    line-height: 20px;
+    padding-bottom: 15px; 
 }
 
 .artistDetails .fieldDescription {
@@ -16,6 +15,10 @@ artistDetailsContent.fieldData:hover {
     color: #72B4EC;
 }
 
-.artistDetailsContent .artistDetailsContent {
+.artistDetailsContent {
     margin-left: 20px;
+}
+
+.artistDetailsContent .artistSubBlock {
+    margin: 20px 0 20px 0;
 }

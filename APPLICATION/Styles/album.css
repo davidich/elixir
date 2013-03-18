@@ -39,22 +39,16 @@
     background: url(../Images/album/albumCoverHover.png) center top no-repeat;
     position: relative;
     z-index: 300;
-    margin: 60px auto 0 auto;
+    margin: 101px auto 0 auto;
 }
 
 .fullAlbumInfoBlock .albumCover .albumCoverHoverContainer {
     /*border: 1px solid #f00;*/
     overflow: hidden;
-    height: 70px;
+    height: 101px;
     position: relative;
-    padding-top: 30px;
     z-index: 200;
     margin-top: -101px
-}
-
-.fullAlbumInfoBlock .albumCover .albumCoverHover {
-    /*position: relative;
-    padding-top: 30px;*/
 }
 
 .fullAlbumInfoBlock .albumCover .albumCoverHover .playBtn {
