@@ -1,7 +1,7 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/Artist", "Vms/search"],
     function (ko, pubSub, RoutingExtension, Artist, searchVm) {
 
-        var carouselSelector = "#artistDetailsBlock .sliderBlock",
+        var carouselSelector = "#personDetailsBlock .sliderBlock",
             carouselSettings = {
                 circular: false,
                 width: 559,
@@ -10,8 +10,8 @@
                 auto: false,
                 align: "left",
                 scroll: { items: 2, visible: 5 },
-                prev: { key: "left", button: "#artistDetailsBlock .slider_prev" },
-                next: { key: "right", button: "#artistDetailsBlock .slider_next" }
+                prev: { key: "left", button: "#personDetailsBlock .slider_prev" },
+                next: { key: "right", button: "#personDetailsBlock .slider_next" }
             };
         
         function ArtistDetailsVm() {
@@ -24,7 +24,7 @@
 
             // Behavior            
             self.toggleInfo = function () {
-                $("#artistDetailsBlock, #artistInfoBlock").toggle("slide", { direction: "left" }, 200);
+                $("#personDetailsBlock, #personInfoBlock").toggle("slide", { direction: "left" }, 200);
             };
 
             self.openTracks = function () {
@@ -48,8 +48,8 @@
                 if (!args) throw "detail view can't be opened w/o args";
                 if (!args.id) throw "id is mandatory parameter";
 
-                $("#artistDetailsBlock").show();
-                $("#artistInfoBlock").hide();
+                $("#personDetailsBlock").show();
+                $("#personInfoBlock").hide();
 
                 if (args.clean == "true") {
                     self.artist(null);

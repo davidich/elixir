@@ -1,26 +1,26 @@
-﻿.artistInfoBlock {
+﻿.personInfoBlock {
     /*border: 1px solid #000;*/
 }
 
-.artistInfoBlock .leftSide {
+.personInfoBlock .leftSide {
     float: left;
     width: 220px;
     margin-left: 12px;
     /*border: 1px solid #f0f;*/
 }
 
-.artistInfoBlock .leftSide .userImage {
+.personInfoBlock .leftSide .userImage {
     padding-bottom: 23px;
     width: 212px;
     background: url(../Images/artist/userpicShadow.png) left bottom no-repeat; 
 }
 
-.artistInfoBlock .leftSide .userImage img {
+.personInfoBlock .leftSide .userImage img {
     width: 190px;
     margin-left: 10px;
 }
 
-.artistInfoBlock .leftSide .giftBlock img {
+.personInfoBlock .leftSide .giftBlock img {
     width: 125px;
     height: 125px;
     margin: 26px auto;
@@ -28,12 +28,12 @@
     cursor: pointer;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent {
+.personInfoBlock .leftSide .leftBlockContent {
     margin-left: 10px;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock,  
-.artistInfoBlock .leftSide .leftBlockContent.subscribe {
+.personInfoBlock .leftSide .leftBlockContent.giftBlock,  
+.personInfoBlock .leftSide .leftBlockContent.subscribe {
     color: #3C79AB;
     line-height: 20px;
     width: 190px;
@@ -41,25 +41,25 @@
     line-height: 25px;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover,
-.artistInfoBlock .leftSide .leftBlockContent.subscribe:hover
+.personInfoBlock .leftSide .leftBlockContent.giftBlock:hover,
+.personInfoBlock .leftSide .leftBlockContent.subscribe:hover
  {
     background: url(../Images/artist/title190Bg.png) no-repeat 0 0;
     color: #72B4EC;
     cursor: pointer;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock .icon, 
-.artistInfoBlock .leftSide .leftBlockContent.subscribe .icon{
+.personInfoBlock .leftSide .leftBlockContent.giftBlock .icon, 
+.personInfoBlock .leftSide .leftBlockContent.subscribe .icon{
     margin: 5px;
 }
 
-.artistInfoBlock .leftSide .leftBlockContent.giftBlock:hover .icon, 
-.artistInfoBlock .leftSide .leftBlockContent.subscribe:hover .icon{
+.personInfoBlock .leftSide .leftBlockContent.giftBlock:hover .icon, 
+.personInfoBlock .leftSide .leftBlockContent.subscribe:hover .icon{
     background-position: 0 -15px;
 }
 
-.artistInfoBlock .rightSide {
+.personInfoBlock .rightSide {
     width: 485px;
     height: auto;
     float: right;
@@ -67,48 +67,48 @@
     /*border: 1px solid #f00;*/
 }
 
-.artistInfoBlock .rightSide .artistHeader, .artistInfoBlock .rightSide .artistRowInfo {
+.personInfoBlock .rightSide .personHeader, .personInfoBlock .rightSide .personRowInfo {
     height: 25px;
     color: #3C79AB;
     line-height: 25px;
     margin-bottom: 10px;
 }
 
-.artistInfoBlock .rightSide .artistHeader .icon, .artistInfoBlock .rightSide .artistRowInfo .icon {
+.personInfoBlock .rightSide .personHeader .icon, .personInfoBlock .rightSide .personRowInfo .icon {
     margin: 6px 6px 0 6px;
 }
 
-.artistInfoBlock .rightSide .artistHeader:hover {
+.personInfoBlock .rightSide .personHeader:hover {
     cursor: pointer;
     background: url(../Images/artist/titleBg.png) 0 0 no-repeat;
     color: #72B4EC;
 }
 
-.artistInfoBlock .rightSide .artistHeader:hover span.icon {
+.personInfoBlock .rightSide .personHeader:hover span.icon {
     background-position: 0 -15px;
 }
 
-.artistInfoBlock .rightSide .artistRowInfo .infoBlock {
+.personInfoBlock .rightSide .personRowInfo .infoBlock {
     float: left;
     margin-right: 10px;
 }
 
-.artistInfoBlock .rightSide .artistRowInfo .infoBlock:hover 
+.personInfoBlock .rightSide .personRowInfo .infoBlock:hover 
  {
     color: #72B4EC;
     cursor: pointer;
 }
 
-.artistInfoBlock .rightSide .artistRowInfo .infoBlock:hover .icon
+.personInfoBlock .rightSide .personRowInfo .infoBlock:hover .icon
 {
     background-position: 0 -15px;
 }
 
-.artistInfoBlock ul.sliderBlock li.slider {
+.personInfoBlock ul.sliderBlock li.slider {
     width: 119px;
 }
 
-.artistInfoBlock .sliderContainer .slider_next_shadow{
+.personInfoBlock .sliderContainer .slider_next_shadow{
     left: 479px;
 }
 
@@ -203,3 +203,38 @@
 .similarContainer .similarBLock span.similarArtistName:hover, .similarContainer .similarBLock .rankBlock:hover span{
     color: #72B4EC;
 }
+
+
+.noDataContent {
+    color: #777;
+    text-align: center;
+    margin-top: 30px;
+    height: 50px; 
+}
+
+/*  user / artist block visibility */
+
+.personInfoBlock.artistView .artistInfoBlock, 
+.personInfoBlock.artistView .similarBlock {
+    display: block;
+    
+}
+
+.personInfoBlock.userView .artistInfoBlock,
+.personInfoBlock.userView .similarBlock {
+    display: none;
+    
+}
+
+.personInfoBlock.artistView .userInfoBlock,
+.personInfoBlock.artistView .subscribeBlock {
+    display: none;
+    
+}
+
+.personInfoBlock.userView .userInfoBlock,
+.personInfoBlock.userView .subscribeBlock {
+    display: block;
+    
+}
+
