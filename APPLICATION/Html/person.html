@@ -1,5 +1,6 @@
-﻿<div id="artistDetailsBlock" class="artistInfoBlock">
-    <div data-bind="with: person">
+﻿<!--  artistView / userView -->
+<div id="personDetailsBlock" class="personInfoBlock artistView">
+    <div data-bind="with: artist">
         <div>
             <div class="pageName">
                 <span class="icon stars"></span>
@@ -23,19 +24,21 @@
                 <img src="Images/tempImages/gift.png" alt="" />
             </div>-->
         </div>
-
         <div class="rightSide">
-            <div class="artistHeader" data-bind="click: $parent.toggleInfo">
+            <div class="personHeader" data-bind="click: $parent.toggleInfo">
                 <span class="icon info"></span><span>Информация</span>
             </div>
 
-            <div class="artistRowInfo">
-                <div class="infoBlock">
+            <div class="personRowInfo">
+                <div class="infoBlock artistInfoBlock">
                     <span class="icon mic"></span><span>Исполнитель</span>
                 </div>
-                <div class="infoBlock">
-                    <span class="icon heart"></span><span data-bind="text: stats.rank"></span>
+                <div class="infoBlock userInfoBlock">
+                    <span class="icon headphones"></span><span>Слушатель</span>
                 </div>
+<!--                <div class="infoBlock">
+                    <span class="icon heart"></span><span data-bind="text: stats.rank"></span>
+                </div>-->
                 <div class="infoBlock">
                     <span class="icon heartArrow"></span>
                     <span data-bind="foreach: styles">
@@ -45,7 +48,7 @@
             </div>
 
             <div>
-                <div class="artistHeader" data-bind="click: $parent.openTracks">
+                <div class="personHeader" data-bind="click: $parent.openTracks">
                     <span class="icon note"></span><span>Треки</span>
                 </div>
                 <div class="shortTrackBlock" data-bind="foreach: tracks">
@@ -88,7 +91,7 @@
             </div>
 
             <div>
-                <div class="artistHeader" data-bind="click: $parent.openAlbums">
+                <div class="personHeader" data-bind="click: $parent.openAlbums">
                     <span class="icon album"></span><span>Альбомы</span>
                 </div>
                 <div class="sliderContainer">
@@ -122,13 +125,13 @@
                 <div style="clear: both;"></div>
             </div>
 
-            <div>
-                <div class="artistHeader">
+            <div class="similarBlock">
+                <div class="personHeader">
                     <span class="icon similar"></span><span>Похожие</span>
                 </div>
                 <div id="similarArtists" class="similarContainer" data-bind="foreach: similars">
                     <div class="similarBLock">
-                        <div class="cover hiddenPanelContainer" data-bind="click: $parents[1].openDetails">
+                        <div class="cover hiddenPanelContainer" data-bind="click: $parents[1].openArtist">
                             <div class="noImageHolderNoBorder">
                                 <img src="" alt="" height="50" width="50" data-bind="attr: {src: imageUrl('medium')}"/>
                             </div>
@@ -150,6 +153,15 @@
                 </div>
                 <div style="clear: both"></div>
             </div>
+            
+            <div class="subscribeBlock">
+                <div class="personHeader">
+                    <span class="icon similar"></span><span>Подписки</span>
+                </div>
+                <div class="noDataContent" >
+                    Нет подписок
+                </div>
+            </div>          
             
             <div style="height: 60px">
                 <!--Space holder to enable content scrolling above player block -->

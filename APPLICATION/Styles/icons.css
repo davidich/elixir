@@ -52,3 +52,11 @@ span.icon.heartArrow {
 span.icon.heartMore {
     background-image: url(../Images/heartMore.png);
 }
+
+span.icon.headphones {
+    background-image: url(../Images/headphones.png);
+}
+
+span.icon.people {
+    background-image: url(../Images/people.png);
+}
