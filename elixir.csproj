@@ -48,7 +48,6 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
-    <Content Include="APPLICATION\elixir.html" />
     <Content Include="APPLICATION\elixirDev.html" />
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
@@ -227,6 +226,7 @@
     <Content Include="APPLICATION\Scripts\require-jquery.js" />
     <Content Include="APPLICATION\Scripts\Types\Album.js" />
     <Content Include="APPLICATION\Scripts\Types\Artist.js" />
+    <Content Include="APPLICATION\Scripts\Types\User.js" />
     <Content Include="APPLICATION\Scripts\Types\GenreSelector.js" />
     <Content Include="APPLICATION\Scripts\Types\FancyDropItem.js" />
     <Content Include="APPLICATION\Scripts\Types\Genre.js" />
@@ -241,11 +241,11 @@
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Search.js" />
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Tabs.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\albumDetails.js" />
-    <Content Include="APPLICATION\Scripts\Vms\artistDetails.js" />
+    <Content Include="APPLICATION\Scripts\Vms\personDetails.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\searchAlbums.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\track.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\tracks.js" />
-    <Content Include="APPLICATION\Scripts\Vms\Search\searchArtists.js" />
+    <Content Include="APPLICATION\Scripts\Vms\Search\searchPersons.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\player.js" />
     <Content Include="APPLICATION\Scripts\Vms\root.js" />
     <Content Include="APPLICATION\Scripts\Vms\search.js" />

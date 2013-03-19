@@ -4,12 +4,16 @@
 
     var urls = {
         genres: getUrl("genres"),
+
         searchTracks: getUrl("tracks"),
-        trackInfo: getUrl("track"),
         searchAlbums: getUrl("albums"),
-        albumInfo: getUrl("album"),
         searchArtists: getUrl("artists"),
-        artistInfo: getUrl("artist")
+        searchUsers: getUrl("users"),
+        
+        trackInfo: getUrl("track"),        
+        albumInfo: getUrl("album"),        
+        artistInfo: getUrl("artist"),
+        userInfo: getUrl("user")
     };
 
     function getUrl(name) {

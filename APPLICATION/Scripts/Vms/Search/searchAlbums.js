@@ -1,6 +1,6 @@
 define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/FancyDropItem", "Modules/dal"],
     function (ko, pubSub, SearchExtention, TabsExtension, FancyDropItem, dal) {
-        
+
 
 
         function SearchAlubumsVm(searchVm, options) {
@@ -8,7 +8,7 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/F
                 lastPage = 0;
 
             // DATA
-            self.isPlayerVisible = true;            
+            self.isPlayerVisible = true;
             self.vmId = options.vmId;
             self.sectionName = "Музыка";
             self.itemInfoUrl = options.detailUrl + "?clean=true&id=";
@@ -18,7 +18,7 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/F
 
             // BEHAVIOR
             self.loadItems = function (cmd) {
-                dal[options.dalMethod]({
+                dal.search("album", {
                     cancellationToken: cmd.cancellationToken,
                     params: cmd.params,
                     onSuccess: function (items, totalCount) {

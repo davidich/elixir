@@ -1,5 +1,5 @@
 ﻿<div id="artistDetailsBlock" class="artistInfoBlock">
-    <div data-bind="with: artist">
+    <div data-bind="with: person">
         <div>
             <div class="pageName">
                 <span class="icon stars"></span>
@@ -128,7 +128,7 @@
                 </div>
                 <div id="similarArtists" class="similarContainer" data-bind="foreach: similars">
                     <div class="similarBLock">
-                        <div class="cover hiddenPanelContainer" data-bind="click: $parents[1].openArtist">
+                        <div class="cover hiddenPanelContainer" data-bind="click: $parents[1].openDetails">
                             <div class="noImageHolderNoBorder">
                                 <img src="" alt="" height="50" width="50" data-bind="attr: {src: imageUrl('medium')}"/>
                             </div>
