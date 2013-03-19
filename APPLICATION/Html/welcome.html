@@ -53,7 +53,7 @@
         var title = activeSlide.attr('data-title');
         var fileId = activeSlide.attr('data-id');
 
-        var dialog = $('<div></div>').dialog({
+        var dialog = $('<div class="eventDetailContaiber" style="height: 390px;"></div>').dialog({
             dialogClass: 'customDialog',
             draggable: false,
             resizable: false,
@@ -75,6 +75,13 @@
                 }
             ]
         });
+
+        var rollbar = $(".eventDetailContaiber").rollbar({
+            minThumbSize: '25%',
+            pathPadding: '3px',
+            zIndex: 100
+        });
+
 
         $.ajax({
             method: 'Get',

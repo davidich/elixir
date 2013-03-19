@@ -13,6 +13,7 @@
 
 .customDialog.ui-dialog .ui-widget-content p {
     padding: 15px;
+    color: #777;
 }
 
 .customDialog.ui-dialog .ui-icon {

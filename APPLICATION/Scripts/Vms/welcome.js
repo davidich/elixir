@@ -26,8 +26,7 @@ define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtens
             carouselInited = true;
 
             $('.centerBlock').fadeIn(1500);
-
-
+            
             $('.welcomeSlider').carouFredSel({
                 circular: true,
                 infinite: true,

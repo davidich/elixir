@@ -54,7 +54,7 @@
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\artist.html" />
     <Content Include="APPLICATION\Html\artistInfo.html" />
-    <Content Include="APPLICATION\Html\artists.html" />
+    <Content Include="APPLICATION\Html\persons.html" />
     <Content Include="APPLICATION\Html\userInfo.html" />
     <Content Include="APPLICATION\Html\events\rihanna.html" />
     <Content Include="APPLICATION\Html\pager.html" />
@@ -255,7 +255,7 @@
     <Content Include="APPLICATION\Styles\albums.css" />
     <Content Include="APPLICATION\Styles\artist.css" />
     <Content Include="APPLICATION\Styles\artistDetails.css" />
-    <Content Include="APPLICATION\Styles\artists.css" />
+    <Content Include="APPLICATION\Styles\persons.css" />
     <Content Include="APPLICATION\Styles\cssreset-min.css" />
     <Content Include="APPLICATION\Styles\checkbox.css" />
     <Content Include="APPLICATION\Styles\dialog.css" />
