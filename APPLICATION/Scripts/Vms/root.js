@@ -1,5 +1,5 @@
-﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/welcome", "Vms/search", "Vms/artistDetails", "Vms/Search/player"],
-    function (ko, pubSub, RoutingExtension, welcomeVm, searchVm, artistDetailsVm, playerVm) {
+﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/welcome", "Vms/search", "Vms/personDetails", "Vms/Search/player"],
+    function (ko, pubSub, RoutingExtension, welcomeVm, searchVm, PersonDetailsVm, playerVm) {
 
 
         $("#rootVm")
@@ -27,7 +27,8 @@
             // init
             self.addVm(searchVm);
             self.addVm(welcomeVm);
-            self.addVm(new artistDetailsVm());
+            self.addVm(new PersonDetailsVm("artist"));
+            self.addVm(new PersonDetailsVm("user"));
             self.player = window.player = playerVm; // make player global to have access to its properties from some vms
 
             // behavior

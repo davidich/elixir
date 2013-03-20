@@ -1,6 +1,6 @@
 ﻿<!--  artistView / userView -->
 <div id="personDetailsBlock" class="personInfoBlock artistView">
-    <div data-bind="with: artist">
+    <div data-bind="with: person">
         <div>
             <div class="pageName">
                 <span class="icon stars"></span>
@@ -129,7 +129,7 @@
                 <div class="personHeader">
                     <span class="icon similar"></span><span>Похожие</span>
                 </div>
-                <div id="similarArtists" class="similarContainer" data-bind="foreach: similars">
+                <div class="similarContainer" data-bind="foreach: similars">
                     <div class="similarBLock">
                         <div class="cover hiddenPanelContainer" data-bind="click: $parents[1].openArtist">
                             <div class="noImageHolderNoBorder">

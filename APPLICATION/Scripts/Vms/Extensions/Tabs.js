@@ -7,7 +7,7 @@
     
     var peopleTabs = [
         { tabText: "Исполнители", viewName: "artists" },
-        { tabText: "Пользователи", viewName: "users+" }
+        { tabText: "Пользователи", viewName: "users" }
     ];
 
     function TabExtension(self, mode) {

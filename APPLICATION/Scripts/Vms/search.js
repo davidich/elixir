@@ -1,12 +1,11 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/FancyDropItem", "Types/GenreSelector",
         "Vms/Search/tracks", "Vms/Search/track",
         "Vms/Search/searchAlbums", "Vms/Search/albumDetails",
-        "Vms/Search/searchArtists"],
+        "Vms/Search/searchPersons"],
     function (ko, pubSub, RoutingExtension, FancyDropItem, GenreSelector,
         SearchTracksVm, TrackDetailsVm,
         SearchAlbumsVm, AlbumDetailsVm,
-        SearchArtistsVm,
-        playerVm) {
+        SearchPersonsVm) {
 
         // Munu items  
         var timeRanges = [
@@ -45,7 +44,6 @@
                 vmId: "albums",
                 searchModes: albumSearchModes,
                 detailUrl: "/search/album",
-                dalMethod: "searchAlbums",
                 searchResultSuffix: " альбомов"
             });
             var albumDetailVm = new AlbumDetailsVm({
@@ -62,7 +60,6 @@
                 vmId: "playlists",
                 searchModes: playlistSearchModes,
                 detailUrl: "/search/playlist",
-                dalMethod: "searchAlbums",
                 searchResultSuffix: " плейлистов"
             });
             var playlistDetailVm = new AlbumDetailsVm({
@@ -74,7 +71,8 @@
             self.addVm(playlistDetailVm);
 
             // People
-            self.addVm(new SearchArtistsVm(self));
+            self.addVm(new SearchPersonsVm(self, "artist"));
+            self.addVm(new SearchPersonsVm(self, "user"));
         }
 
         function SearchVm() {
@@ -97,10 +95,10 @@
             self.timeRanges = ko.observableArray(timeRanges);
             self.orderTypes = ko.observableArray(orderTypes);
             self.location = ko.computed(function () {
-                if (self.artist())
-                    return self.artist().name;
-                else
-                    return self.activeSubVm() && self.activeSubVm().friendlyName;
+                var person = self.artist() || self.user();
+                return person
+                    ? person.name
+                    : self.activeSubVm() && self.activeSubVm().friendlyName;
             });
 
             // subscribe to param updates

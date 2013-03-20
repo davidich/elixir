@@ -110,13 +110,25 @@
                             <div class="stub persons"></div>
                         </div>
                     </div>
+                    
+                    <div data-bind="with: users">
+                        <div id="Div1" data-bind="visible: isVisible">
+                            <div class="stub tabNaviation"></div>
+                            <div class="stub persons"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div data-bind="with: artist">
                 <div id="artistDetailVm" data-bind="visible: isVisible">
                     <div class="stub person"></div>
-                    <div class="stub artistInfo"></div>
+                </div>
+            </div>
+            
+            <div data-bind="with: user">
+                <div id="userDetailVm" data-bind="visible: isVisible">
+                    <div class="stub person"></div>                    
                 </div>
             </div>
         </div>

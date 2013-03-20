@@ -1,38 +1,22 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/FancyDropItem", "Modules/dal"],
     function (ko, pubSub, SearchExtention, TabsExtension, FancyDropItem, dal) {
 
-        function initUi(containerId) {
-            $("#" + containerId)
-                .on("mouseenter", '.albumBlock .cover', function () {
-                    $(this).find('.coverHover').animate({
-                        marginTop: 0
-                    }, 300);
-                })
-                .on("mouseleave", '.albumBlock .cover', function () {
-                    $(this).find('.coverHover').animate({
-                        marginTop: 33
-                    }, 300);
-                });
-        }
-
-        function SearchArtistsVm(searchVm) {
+        function SearchPersonsVm(searchVm, mode) {
             var self = this,
                 lastPage = 0;
             
-            initUi("searchAristsVm");
-
             // DATA
-            self.isPlayerVisible = true;            
-            self.vmId = "artists";
+            self.isPlayerVisible = true;
+            self.vmId = mode + "s";
+            self.itemInfoUrl = "/" + mode + "?clean=true&id=";
             self.sectionName = "Люди";
-            self.itemInfoUrl = "/artist?clean=true&id=";
             SearchExtention(self);
             TabsExtension(self, "people");
 
 
             // BEHAVIOR
             self.loadItems = function (cmd) {
-                dal.searchArtists({
+                dal.search(mode, {
                     cancellationToken: cmd.cancellationToken,
                     params: cmd.params,
                     onSuccess: function (items, totalCount) {
@@ -78,5 +62,5 @@
             };            
         }
 
-        return SearchArtistsVm;
+        return SearchPersonsVm;
     })

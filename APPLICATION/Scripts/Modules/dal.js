@@ -1,4 +1,4 @@
-﻿define(["vk", "elixir", "Types/Track", "Types/Album", "Types/Artist"], function (vk, elixir, Track, Album, Artist) {
+﻿define(["vk", "elixir", "Types/Track", "Types/Album", "Types/Artist", "Types/User"], function (vk, elixir, Track, Album, Artist, User) {
     var deps = arguments;
     function ensureDeps() {
         if (!ensureDeps.ensured) {
@@ -8,6 +8,7 @@
             Album = require("Types/Album");
             Track = require("Types/Track");
             Artist = require("Types/Artist");
+            User = require("Types/User");
 
             for (var key in deps) {
                 if (!deps[key]) throw "Dal module invoked ensureDeps, but coundn't resolve '" + key + "'";
@@ -24,9 +25,12 @@
         },
         artist: function (metadata) {
             return Artist.get(metadata);
+        },
+        user: function (metadata) {
+            return User.get(metadata);
         }
     };
-    
+
     function search(itemType, args, extraLogic) {
         var cancellationToken = args && args.cancellationToken || {},
             params = args.params,
@@ -52,7 +56,8 @@
                 }
 
                 //create items
-                metadata = $.getNamedArray(metadata, itemType + "s");
+                var collectionName = itemType != "user" ? itemType + "s" : "listeners"; //EБАНЫЙ ХАК!!!
+                metadata = $.getNamedArray(metadata, collectionName );
                 $.each(metadata, function () {
                     var item = searchFactory[itemType](this);
                     items.push(item);
@@ -62,9 +67,9 @@
                     extraLogic(items, function (extendedItems) {
                         // are results still needed?
                         if (cancellationToken.isCanceled) return;
-                        
+
                         // report success
-                        onSuccess(extendedItems, totalCount);                                               
+                        onSuccess(extendedItems, totalCount);
                     });
                 } else {
                     // report success
@@ -78,30 +83,24 @@
     }
 
     var dal = {
+        search: search,
         searchTracks: function (args) {
-            search("track", args, function(items, onComplete) {
+            search("track", args, function (items, onComplete) {
                 // append URL and DURATION to tracks
                 vk.appendVkData(items, function (tracksWithData) {
                     onComplete(tracksWithData);
                 });
-            });            
+            });
         },
-        searchAlbums: function (args) {
-            search("album", args);
-        },
-        searchArtists: function (args) {
-            search("artist", args);
-        },
-        
         trackInfo: function (id, onSuccess) {
-            ensureDeps();            
+            ensureDeps();
             elixir.get("trackInfo", { id: id }, function (response) {
                 var track = new Track(response.track);
                 vk.appendVkData(track, function () {
                     onSuccess(track);
-                });                
+                });
             });
-        }        
+        }
     };
     return dal;
 })
