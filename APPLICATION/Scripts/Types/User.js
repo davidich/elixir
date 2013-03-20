@@ -20,14 +20,14 @@
 
         var id = typeof idOrMeta != "object" ? idOrMeta : idOrMeta.id,
             metadata = typeof idOrMeta != "object" ? { id: id } : idOrMeta,
-            artist = cache[id];
+            person = cache[id];
 
-        if (!artist)
-            cache[metadata.id] = (artist = new User(metadata));
-        else if (!artist.isFullyLoaded)
-            User.call(artist, metadata);
+        if (!person)
+            cache[metadata.id] = (person = new User(metadata));
+        //else if (!person.isFullyLoaded)
+        //    User.call(person, metadata);
 
-        return artist;
+        return person;
     };
 
 
@@ -78,7 +78,7 @@
             } else {
                 self.load.started = true;
                 elixir.get("userInfo", { id: self.id }, function (response) {
-                    User.call(self, response.artist);
+                    User.call(self, response.listener);
 
                     vk.appendVkData(self.tracks, function () {
                         onComplete(self);

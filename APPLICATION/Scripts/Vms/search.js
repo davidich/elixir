@@ -43,7 +43,7 @@
                 containerId: "searchAlbumsVm",
                 vmId: "albums",
                 searchModes: albumSearchModes,
-                detailUrl: "/search/album",                
+                detailUrl: "/search/album",
                 searchResultSuffix: " альбомов"
             });
             var albumDetailVm = new AlbumDetailsVm({
@@ -59,7 +59,7 @@
                 containerId: "playlistAlbumsVm",
                 vmId: "playlists",
                 searchModes: playlistSearchModes,
-                detailUrl: "/search/playlist",                
+                detailUrl: "/search/playlist",
                 searchResultSuffix: " плейлистов"
             });
             var playlistDetailVm = new AlbumDetailsVm({
@@ -95,10 +95,10 @@
             self.timeRanges = ko.observableArray(timeRanges);
             self.orderTypes = ko.observableArray(orderTypes);
             self.location = ko.computed(function () {
-                if (self.artist())
-                    return self.artist().name;
-                else
-                    return self.activeSubVm() && self.activeSubVm().friendlyName;
+                var person = self.artist() || self.user();
+                return person
+                    ? person.name
+                    : self.activeSubVm() && self.activeSubVm().friendlyName;
             });
 
             // subscribe to param updates

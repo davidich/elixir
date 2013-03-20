@@ -1,13 +1,16 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Types/Artist", "Types/User", "Vms/search"],
     function (ko, pubSub, RoutingExtension, Artist, User, searchVm) {
 
+        var detailPageSelector = "#artistDetailVm .personInfoBlock";
+        var infoPageSelector = "#artistDetailVm .artistDetails";
+
         function PersonDetailsVm(mode) {
             var self = this,
                 carouselSelector,
                 carouselSettings;
 
             if (mode == "artist") {
-                carouselSelector = "#artistDetailsBlock .sliderBlock",
+                carouselSelector = detailPageSelector + " .sliderBlock",
                 carouselSettings = {
                     circular: false,
                     width: 559,
@@ -16,8 +19,8 @@
                     auto: false,
                     align: "left",
                     scroll: { items: 2, visible: 5 },
-                    prev: { key: "left", button: "#artistDetailsBlock .slider_prev" },
-                    next: { key: "right", button: "#artistDetailsBlock .slider_next" }
+                    prev: { key: "left", button: detailPageSelector + " .slider_prev" },
+                    next: { key: "right", button: detailPageSelector + " .slider_next" }
                 };
             }
 
@@ -28,7 +31,7 @@
 
             // Behavior            
             self.toggleInfo = function () {
-            //    $("#artistDetailsBlock, #artistInfoBlock").toggle("slide", { direction: "left" }, 200);
+                //$(detailPageSelector + ", " + infoPageSelector).toggle("slide", { direction: "left" }, 200);
             };
 
 
@@ -53,11 +56,11 @@
                 if (!args) throw "detail view can't be opened w/o args";
                 if (!args.id) throw "id is mandatory parameter";
 
-                //$("#artistDetailsBlock").show();
-                //$("#artistInfoBlock").hide();
+                //$(detailPageSelector).show();
+                //$(infoPageSelector).hide();
 
                 if (args.clean == "true") {
-                    self.artist(null);
+                    self.person(null);
                     pubSub.pub("scroll.reset");
                     pubSub.pub("scroll.update");
                 }
@@ -65,7 +68,7 @@
                 var Ctor = mode == "artist" ? Artist : User;
 
                 Ctor.load(args.id, function (person) {
-                    searchVm.artist(artist);
+                    searchVm[mode](person);
 
                     $(carouselSelector).trigger("destroy");
                     self.person(person);

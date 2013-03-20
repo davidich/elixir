@@ -20,14 +20,14 @@
 
         var id = typeof idOrMeta != "object" ? idOrMeta : idOrMeta.id,
             metadata = typeof idOrMeta != "object" ? { id: id } : idOrMeta,
-            artist = cache[id];
+            person = cache[id];
 
-        if (!artist)
-            cache[metadata.id] = (artist = new Artist(metadata));
-        else if (!artist.isFullyLoaded)
-            Artist.call(artist, metadata);
+        if (!person)
+            cache[metadata.id] = (person = new Artist(metadata));
+        //else if (!person.isFullyLoaded)
+        //    Artist.call(person, metadata);
 
-        return artist;
+        return person;
     };
 
 
