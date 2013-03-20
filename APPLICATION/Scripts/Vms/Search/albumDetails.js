@@ -2,7 +2,7 @@
     function (ko, pubSub, RoutingExtension, TabsExtension, Album) {
         function AlbumDetailsVm(searchVm, options) {
             var self = this,
-                $carousel,
+                carouselSelector = "#" + options.containerId + " .sliderBlock",
                 carouselSettings = {
                     circular: false,
                     width: 559,
@@ -13,8 +13,6 @@
                     scroll: { items: 2, visible: 5 }                    
                 };
 
-
-            $carousel = $("#" + options.containerId + " .sliderBlock");
             carouselSettings.prev = { key: "left", button: "#" + options.containerId + " .slider_prev" };
             carouselSettings.next = { key: "right", button: "#" + options.containerId + " .slider_next" };
 
@@ -22,8 +20,7 @@
             self.isPlayerVisible = true;
             RoutingExtension(self, options.vmId, "Музыка");
             TabsExtension(self, "music");
-            self.album = ko.observable();
-            self.similars = ko.observableArray();
+            self.album = ko.observable();            
 
             // Behavior
             self.toggleShowAll = function () {
@@ -70,13 +67,9 @@
                 }
 
                 Album.load(args.id, function (album) {
-                    self.album(album);
-
-                    $carousel.trigger("destroy");
-                    self.similars.removeAll();
-
-                    $.each(album.similars, function () { self.similars.push(this); });
-                    $carousel.carouFredSel(carouselSettings);
+                    $(carouselSelector).trigger("destroy");
+                    self.album(album);                    
+                    $(carouselSelector).carouFredSel(carouselSettings);
 
                     pubSub.pub("scroll.reset");
                     pubSub.pub("scroll.update");
