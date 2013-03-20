@@ -17,8 +17,9 @@ define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtens
         self.onShow = function() {
             initCarousel();
         };
-        
 
+        self.sliderData = global.welcomeData;
+        
         var carouselInited = false;
         function initCarousel() {
             if (carouselInited) return;

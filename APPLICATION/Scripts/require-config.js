@@ -18,6 +18,7 @@
         customFormElem: 'Libs/customFormElements',        
         rollbar: "Libs/scroll/jquery.rollbar",
         carousel: 'Libs/jquery.carouFredSel-6.2.0',
+        welcomeHtml: 'Modules/welcomeHtml',
         placeHolder: ""
     },
     shim: {

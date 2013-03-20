@@ -23,13 +23,13 @@
     <div class="slider_prevBig"></div>
     <div class="slider_nextBig"></div>
     <div class="centerBlock">
-        <ul class="welcomeSlider" id="welcomeEventSilder">
+        <ul class="welcomeSlider" id="welcomeEventSilder"  data-bind="foreach: sliderData">
             <li data-title="Концерт Рианы" data-id="rihanna">
-                <div class="slideContent"><img src="./Images/tempImages/welcomeRihana.png" alt=""/></div>
+                <div class="slideContent"><img src="" alt=""  data-bind="attr: {src: imageUrl}"/></div>
             </li>
-            <li data-title="Концерт Novarock" data-id="novarock">
+<!--            <li data-title="Концерт Novarock" data-id="novarock">
                 <div class="slideContent"><img src="./Images/tempImages/welcomenovarock.png" alt=""/></div>
-            </li>
+            </li>-->
         </ul>
 
     </div>
