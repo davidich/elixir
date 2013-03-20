@@ -1,4 +1,4 @@
-define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtension) {
+﻿define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtension) {
 
     function WelcomeVm() {
         var self = this;
@@ -19,7 +19,57 @@ define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtens
         };
 
         self.sliderData = global.welcomeData;
-        
+
+        self.showPopup = function () {
+            var activeSlide = $($('ul#welcomeEventSilder li:first'));
+            var title = activeSlide.attr('data-title');
+            var fileName = activeSlide.attr('data-file');
+
+            $(dialog).dialog("option", "title", title);
+            $(dialog).dialog("open");
+            $.ajax({
+                method: 'Get',
+                url: 'Html/events/' + fileName,
+                beforeSend: function () {
+                    $(dialog).html("");
+                },
+                success: function (data) {
+                    $(dialog).html(data);
+                    var rollbar = $(".eventDetailContainer").rollbar({
+                        pathPadding: '3px'
+                        //zIndex: 100
+                    });
+                    rollbar.update();
+                }
+            });
+        };
+
+
+        var dialog = $('<div class="eventDetailContainer"></div>').dialog({
+            dialogClass: 'customDialog',
+            draggable: false,
+            resizable: false,
+            autoOpen: false,
+            modal: true,
+            width: 501,
+            height: 483,
+            buttons: [{
+                text: "",
+                icons: {},
+                'class': 'giftButton'
+
+            }, {
+                text: 'закрыть',
+                icons: {
+                    primary: 'close'
+                },
+                click: function() {
+                    $(this).dialog("close");
+                }
+            }
+            ]
+        });
+
         var carouselInited = false;
         function initCarousel() {
             if (carouselInited) return;
@@ -40,6 +90,8 @@ define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtens
                 align: "left"
             });
         }
+
+
     };
 
     return new WelcomeVm();

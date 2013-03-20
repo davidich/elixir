@@ -48,10 +48,13 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
+    <Content Include="APPLICATION\elixir.html" />
     <Content Include="APPLICATION\elixirDev.html" />
     <Content Include="APPLICATION\Html\album.html" />
     <Content Include="APPLICATION\Html\albums.html" />
     <Content Include="APPLICATION\Html\artistInfo.html" />
+    <Content Include="APPLICATION\Html\events\novarock.html" />
+    <Content Include="APPLICATION\Html\events\sensation.html" />
     <Content Include="APPLICATION\Html\person.html" />
     <Content Include="APPLICATION\Html\persons.html" />
     <Content Include="APPLICATION\Html\events\rihanna.html" />
@@ -100,6 +103,9 @@
     <Content Include="APPLICATION\Images\events\rihana\img3.jpg" />
     <Content Include="APPLICATION\Images\events\rihana\img4.jpg" />
     <Content Include="APPLICATION\Images\events\rihana\img5.jpg" />
+    <Content Include="APPLICATION\Images\events\sliderImages\novarock.png" />
+    <Content Include="APPLICATION\Images\events\sliderImages\rihanna.png" />
+    <Content Include="APPLICATION\Images\events\sliderImages\sensation.png" />
     <Content Include="APPLICATION\Images\flag.png" />
     <Content Include="APPLICATION\Images\folderIcon.png" />
     <Content Include="APPLICATION\Images\gift.png" />
@@ -201,6 +207,7 @@
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\xdomain\soundmanager2_debug.swf" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\xdomain\soundmanager2_flash9.swf" />
     <Content Include="APPLICATION\Scripts\Libs\soundmanager\swfs\xdomain\soundmanager2_flash9_debug.swf" />
+    <Content Include="APPLICATION\Scripts\Modules\welcomeHtml.js" />
     <Content Include="APPLICATION\Scripts\Modules\elixirStub.js" />
     <Content Include="APPLICATION\Scripts\Modules\vkStub.js" />
     <Content Include="APPLICATION\Scripts\Modules\dal.js" />
@@ -228,7 +235,6 @@
     <Content Include="APPLICATION\Scripts\require-jquery.js" />
     <Content Include="APPLICATION\Scripts\Types\Album.js" />
     <Content Include="APPLICATION\Scripts\Types\Artist.js" />
-    <Content Include="APPLICATION\Scripts\Types\User.js" />
     <Content Include="APPLICATION\Scripts\Types\GenreSelector.js" />
     <Content Include="APPLICATION\Scripts\Types\FancyDropItem.js" />
     <Content Include="APPLICATION\Scripts\Types\Genre.js" />
@@ -242,12 +248,12 @@
     <Content Include="APPLICATION\Scripts\Types\viewManager.js" />
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Search.js" />
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Tabs.js" />
-    <Content Include="APPLICATION\Scripts\Vms\Search\albumDetails.js" />
     <Content Include="APPLICATION\Scripts\Vms\personDetails.js" />
+    <Content Include="APPLICATION\Scripts\Vms\Search\albumDetails.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\searchAlbums.js" />
+    <Content Include="APPLICATION\Scripts\Vms\Search\searchPersons.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\track.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\tracks.js" />
-    <Content Include="APPLICATION\Scripts\Vms\Search\searchPersons.js" />
     <Content Include="APPLICATION\Scripts\Vms\Search\player.js" />
     <Content Include="APPLICATION\Scripts\Vms\root.js" />
     <Content Include="APPLICATION\Scripts\Vms\search.js" />
