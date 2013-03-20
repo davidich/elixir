@@ -245,7 +245,6 @@
     <Content Include="APPLICATION\Scripts\Types\Track.js" />
     <Content Include="APPLICATION\Scripts\Types\LoadCommand.js" />
     <Content Include="APPLICATION\Scripts\Types\TrackForPlayer.js" />
-    <Content Include="APPLICATION\Scripts\Types\viewManager.js" />
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Search.js" />
     <Content Include="APPLICATION\Scripts\Vms\Extensions\Tabs.js" />
     <Content Include="APPLICATION\Scripts\Vms\personDetails.js" />

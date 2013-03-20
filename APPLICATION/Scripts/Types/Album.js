@@ -1,4 +1,4 @@
-﻿define(["ko", "pubSub", "vk", "elixir", "Types/GenreSelector", "Types/Track"], function (ko, pubSub, vk, elixir, GenreSelector, Track) {
+﻿define(["ko", "pubSub", "vk", "elixir", "Types/GenreSelector", "Types/Track", "Types/Artist"], function (ko, pubSub, vk, elixir, GenreSelector, Track, Artist) {
 
     var deps = arguments;
     function ensureDeps() {
@@ -6,6 +6,7 @@
             ensureDeps.ensured = true;
             GenreSelector = require("Types/GenreSelector");
             Track = require("Types/Track");
+            Artist = require("Types/Artist");
             for (var key in deps) {
                 if (!deps[key]) throw "Album module invoked ensureDeps, but coundn't resolve '" + key + "'";
             }
@@ -55,9 +56,11 @@
             self.release = "не известна";
         }
 
-        self.artists = $.getNamedArray(metadata, "artists");
-
-
+        self.artists = [];
+        if (metadata.artists) {
+            var artists = $.getNamedArray(metadata, "artists");
+            $.each(artists, function () { self.artists.push(Artist.get(this)); });
+        }
 
         self.similars = [];
         if (metadata.similar) {
@@ -105,6 +108,10 @@
             self.load(function () {
                 pubSub.pub("player.addToEnd", self.tracks);
             });
+        };
+        
+        self.openDetails = function (album) {
+            global.router.navigate("/search/album?clean=true&id=" + album.id);
         };
     }
 

@@ -1,5 +1,5 @@
 ﻿define(["ko"], function (ko) {
-    function MusicStyle(data, genre) {
+    function MusicStyle(data, genre, searchParams) {
         var self = this;
 
         // Data
@@ -7,25 +7,20 @@
         self.name = data.name;
         self.genre = genre;
 
+        self.isVisible = ko.computed(function () {
+            return searchParams.genreId() == self.genre.id;
+        });
 
-        self.createKoObj = function (searchParams) {
-            var copy = $.extend({}, self);
+        self.isActive = ko.computed(function () {
+            return searchParams.styleId() == self.id;
+        });
 
-            copy.isVisible = ko.computed(function () {
-                return searchParams.genreId() == copy.genre.id;
-            });
+        // Behavior
+        self.onClick = function (style) {
+            searchParams.genreSelector.onStyleClick(style);
+        };
 
-            copy.isActive = ko.computed(function () {
-                return searchParams.styleId() == copy.id;
-            });
 
-            // Behavior
-            copy.onClick = function (style) {
-                searchParams.genreSelector.onStyleClick(style);
-            };            
-
-            return copy;
-        };        
     }
 
     return MusicStyle;

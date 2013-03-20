@@ -84,14 +84,28 @@
                     lastLoadParams = JSON.stringify(self.getLoadParams(1));
             };
 
-            self.onShow = function () {
+            self.onShow = function (args) {
                 pubSub.pub("scroll.reset");
                 pubSub.pub("scroll.update");
+
+                if (args && args.genreId) {
+                    self.isVisible(false);  // to prevent search initiation
+                    var genre = global.genreSelector.getGenre(args.genreId);
+                    global.genreSelector.onGenreClick(genre);
+                    self.isVisible(true);  // restore visibility                    
+                }
+                
+                if (args && args.styleId) {
+                    self.isVisible(false);  // to prevent search initiation
+                    var style = global.genreSelector.getStyle(args.styleId);
+                    global.genreSelector.onStyleClick(style);
+                    self.isVisible(true);  // restore visibility
+                }
 
                 // if params are changed since last time then reload data
                 if (lastLoadParams != JSON.stringify(self.getLoadParams(1))) {
                     self.items.removeAll();
-                    self.doPageLoad(1);
+                    self.doPageLoad(1);                    
                 }
             };
         }

@@ -1,8 +1,8 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Extensions/Tabs", "Types/Album"],
     function (ko, pubSub, RoutingExtension, TabsExtension, Album) {
-        function AlbumDetailsVm(options) {
+        function AlbumDetailsVm(searchVm, options) {
             var self = this,
-                $carousel,
+                carouselSelector = "#" + options.containerId + " .sliderBlock",
                 carouselSettings = {
                     circular: false,
                     width: 559,
@@ -13,8 +13,6 @@
                     scroll: { items: 2, visible: 5 }                    
                 };
 
-
-            $carousel = $("#" + options.containerId + " .sliderBlock");
             carouselSettings.prev = { key: "left", button: "#" + options.containerId + " .slider_prev" };
             carouselSettings.next = { key: "right", button: "#" + options.containerId + " .slider_next" };
 
@@ -22,8 +20,7 @@
             self.isPlayerVisible = true;
             RoutingExtension(self, options.vmId, "Музыка");
             TabsExtension(self, "music");
-            self.album = ko.observable();
-            self.similars = ko.observableArray();
+            self.album = ko.observable();            
 
             // Behavior
             self.toggleShowAll = function () {
@@ -44,8 +41,21 @@
             self.openDetails = function (item) {
                 self.navigate(options.detailUrl + "?id=" + item.id);
             };
+            
+            self.searchByGenre = function (genre) {
+                self.navigate("/search/albums?genreId=" + genre.id);
+            };
+
+            self.searchByStyle = function (style) {
+                self.navigate("/search/albums?styleId=" + style.id);
+            };
 
             // Events
+            pubSub.sub("search.changed", function (propName) {
+                if (self.isVisible() && (propName == "genreId" || propName == "styleId"))
+                    self.navigate("/search/albums");
+            });
+            
             self.onShow = function (args) {
                 if (!args) throw "detail view can't be opened w/o args";
                 if (!args.id) throw "id is mandatory parameter";
@@ -57,13 +67,9 @@
                 }
 
                 Album.load(args.id, function (album) {
-                    self.album(album);
-
-                    $carousel.trigger("destroy");
-                    self.similars.removeAll();
-
-                    $.each(album.similars, function () { self.similars.push(this); });
-                    $carousel.carouFredSel(carouselSettings);
+                    $(carouselSelector).trigger("destroy");
+                    self.album(album);                    
+                    $(carouselSelector).carouFredSel(carouselSettings);
 
                     pubSub.pub("scroll.reset");
                     pubSub.pub("scroll.update");

@@ -29,7 +29,11 @@
             RoutingExtension(self, mode, "Люди");
             self.person = ko.observable();
 
-            // Behavior            
+            // Behavior
+            self.searchByStyle = function (style) {
+                self.navigate("/search/artists?clean=true&styleId=" + style.id);
+            };
+
             self.toggleInfo = function () {
                 //$(detailPageSelector + ", " + infoPageSelector).toggle("slide", { direction: "left" }, 200);
             };
@@ -44,7 +48,7 @@
             };
 
             self.openAlbum = function (album) {
-                self.navigate("/search/album?clear=true&id=" + album.id);
+                self.navigate("/search/album?clean=true&id=" + album.id);
             };
 
             self.openDetails = function (item) {

@@ -17,6 +17,11 @@ define(["ko", "pubSub", "Vms/Extensions/Search", "Vms/Extensions/Tabs", "Types/F
             TabsExtension(self, "music");
 
             // BEHAVIOR
+            self.searchByStyle = function (style) {
+                if (searchVm.styleId() != style.id)
+                    self.navigate("/search/albums?styleId=" + style.id);
+            };
+            
             self.loadItems = function (cmd) {
                 dal.search("album", {
                     cancellationToken: cmd.cancellationToken,

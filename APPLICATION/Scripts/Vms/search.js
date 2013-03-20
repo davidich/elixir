@@ -36,7 +36,7 @@
         function setupVms(self) {
             // Tracks
             self.addVm(new SearchTracksVm(self));
-            self.addVm(new TrackDetailsVm());
+            self.addVm(new TrackDetailsVm(self));
 
             // Albums
             var searchAlbumVm = new SearchAlbumsVm(self, {
@@ -46,7 +46,7 @@
                 detailUrl: "/search/album",
                 searchResultSuffix: " альбомов"
             });
-            var albumDetailVm = new AlbumDetailsVm({
+            var albumDetailVm = new AlbumDetailsVm(self, {
                 containerId: "albumDetailsVm",
                 vmId: "album",
                 detailUrl: "/search/album"
@@ -62,7 +62,7 @@
                 detailUrl: "/search/playlist",
                 searchResultSuffix: " плейлистов"
             });
-            var playlistDetailVm = new AlbumDetailsVm({
+            var playlistDetailVm = new AlbumDetailsVm(self, {
                 containerId: "playlistDetailsVm",
                 vmId: "playlist",
                 detailUrl: "/search/playlist"
@@ -91,7 +91,7 @@
 
             self.artist = ko.observable();
             self.user = ko.observable();
-            self.genreSelector = new GenreSelector(self);
+            self.genreSelector =  global.genreSelector = new GenreSelector(self);            
             self.timeRanges = ko.observableArray(timeRanges);
             self.orderTypes = ko.observableArray(orderTypes);
             self.location = ko.computed(function () {
@@ -104,7 +104,9 @@
             // subscribe to param updates
             var searchParams = ["genreId", "styleId", "orderType", "timeRange", "isHighQuality"];
             $.each(searchParams, function (i, propName) {
-                self[propName].subscribe(function () { pubSub.pub("search.changed", propName); });
+                self[propName].subscribe(function() {
+                     pubSub.pub("search.changed", propName);
+                });
             });
 
             self.getParams = function () {
