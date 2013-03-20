@@ -44,7 +44,7 @@ GLOBAL = Global = global =
         itemHeight: 34,
     },
     searchDelay: 1000,      // time to accumulate search query
-    vkInitDelay: 500,       // time to wait until vk has finished initialization
+    vkInitDelay: 1500,      // time to wait until vk has finished initialization
     splashStep: 250,        // time for each splash loader step animation
     albumHover: 300         // time to fadeIn/fadeOut play&pause buttons on album cover
 };
@@ -128,6 +128,7 @@ require(["require-config"], function () {
 
                     // set active vm
                     require(["ko", "Vms/root"], function (ko, rootVm) {
+                        global.router = rootVm;
                         ko.applyBindings(rootVm);
                         if (global.mode != "dev")
                             rootVm.navigate("/welcome");

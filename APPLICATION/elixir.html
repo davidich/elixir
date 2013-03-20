@@ -377,7 +377,7 @@
                         <div class="resultaddToPlaylist" data-bind="click: addToEnd, clickBubble: false, css: {active: isAdded}"></div>
                         <div class="resultTrackName" data-bind="text: title"></div>
                         <div class="resultArtist" data-bind="foreach: artists">
-                            <a data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                            <a data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
                         </div>
                         <div class="resultLikesAmount"><a data-bind="text: stats.rank"></a></div>
                         <div class="resultTrackTime" data-bind="text: time"></div>
@@ -486,18 +486,21 @@
                     </div>
                 </div>
                 <div class="albumInfo">
-                    <div><span>Альбом:</span> <a href="#" data-bind="text: album.name"></a></div>
+                    <div data-bind="with: album">
+                        <span>Альбом:</span>
+                        <a href="#" data-bind="text: name, click: openDetails, clickBubble: false"></a>
+                    </div>
                     <!--<div><span>Дата:</span> 08.06.2012</div>-->
                     <div>
                         <span>Жанр:</span>
                         <span data-bind="foreach: genres">
-                            <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                            <a href="#" data-bind="text: name, click: $parents[1].searchByGenre, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                         </span>
                     </div>
                     <div>
                         <span>Стиль:</span>
                         <span data-bind="foreach: styles">
-                            <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                            <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                         </span>
                         <!--<div><span>Загрузил:</span> <a href="#">хуй с горы</a></div>-->
                     </div>
@@ -528,7 +531,7 @@
                 <div class="resultaddToPlaylist" data-bind="click: addToEnd, clickBubble: false, css: {active: isAdded}"></div>
                 <div class="resultTrackName" data-bind="text: title"></div>
                 <div class="resultArtist" data-bind="foreach: artists">
-                    <a data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                    <a data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
                 </div>
                 <div class="resultLikesAmount"><a data-bind="text: stats.rank"></a></div>
                 <div class="resultTrackTime" data-bind="text: time"></div>
@@ -609,7 +612,7 @@
                         </div>
                         <div class="albumInfo">
                             <div>
-                                <a href="#" data-bind="text: name"></a>
+                                <a href="#" data-bind="text: name, click: $parent.openDetails, clickBubble: false"></a>
                             </div>
                             <div>
                                 <span>Дата:</span> <span data-bind="text: release"></span>
@@ -617,7 +620,7 @@
                             <div>
                                 <span>Исполнитель:</span>
                                 <span data-bind="foreach: artists">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                                 </span>
                             </div>
                             <!--<div>
@@ -629,7 +632,7 @@
                             <div>
                                 <span>Стиль:</span>
                                 <span data-bind="foreach: styles">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
                             </div>
                             <div class="rankBlock">
@@ -700,19 +703,19 @@
                 <div>
                     <span>Исполнитель:</span>
                     <span data-bind="foreach: artists">
-                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                        <a href="#" data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                     </span>
                 </div>
                 <div>
                     <span>Жанр:</span>
                     <span data-bind="foreach: genres">
-                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                        <a href="#" data-bind="text: name, click: $parents[1].searchByGenre, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                     </span>
                 </div>
                 <div>
                     <span>Стиль:</span>
                     <span data-bind="foreach: styles">
-                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                        <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                     </span>
                 </div>
                 <!--<div>Загрузил: <a href="#">Вася</a></div>
@@ -738,7 +741,7 @@
                     <div class="trackNumber" data-bind="text: $index() + 1"></div>
                     <div class="resultTrackName" data-bind="text: title"></div>
                     <div class="resultArtist" data-bind="foreach: artists">
-                        <a data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                        <a data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
                     </div>
                     <div class="resultLikesAmount"><a data-bind="text: stats.rank"></a></div>
                     <div class="resultTrackTime" data-bind="text: time"></div>
@@ -845,7 +848,7 @@
                         </div>
                         <div class="albumInfo">
                             <div>
-                                <a href="#" data-bind="text: name"></a>
+                                <a href="#" data-bind="text: name, click: $parent.openDetails, clickBubble: false"></a>
                             </div>
                             <div>
                                 <span>Дата:</span> <span data-bind="text: release"></span>
@@ -853,7 +856,7 @@
                             <div>
                                 <span>Исполнитель:</span>
                                 <span data-bind="foreach: artists">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                                 </span>
                             </div>
                             <!--<div>
@@ -865,7 +868,7 @@
                             <div>
                                 <span>Стиль:</span>
                                 <span data-bind="foreach: styles">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
                             </div>
                             <div class="rankBlock">
@@ -936,19 +939,19 @@
                 <div>
                     <span>Исполнитель:</span>
                     <span data-bind="foreach: artists">
-                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                        <a href="#" data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                     </span>
                 </div>
                 <div>
                     <span>Жанр:</span>
                     <span data-bind="foreach: genres">
-                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                        <a href="#" data-bind="text: name, click: $parents[1].searchByGenre, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                     </span>
                 </div>
                 <div>
                     <span>Стиль:</span>
                     <span data-bind="foreach: styles">
-                        <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                        <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                     </span>
                 </div>
                 <!--<div>Загрузил: <a href="#">Вася</a></div>
@@ -974,7 +977,7 @@
                     <div class="trackNumber" data-bind="text: $index() + 1"></div>
                     <div class="resultTrackName" data-bind="text: title"></div>
                     <div class="resultArtist" data-bind="foreach: artists">
-                        <a data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                        <a data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
                     </div>
                     <div class="resultLikesAmount"><a data-bind="text: stats.rank"></a></div>
                     <div class="resultTrackTime" data-bind="text: time"></div>
@@ -1083,7 +1086,7 @@
                         <div class="albumInfo">
                             <div class="personNameHolder">
                                 <!--<span class="icon stars"></span>-->
-                                <span class="personName" data-bind="text: name"></span>
+                                <span class="personName" data-bind="text: name, click: $parent.openDetails, clickBubble: false"></span>
                             </div>
                             <!--<div>
                                     <span>Основное:</span>
@@ -1092,7 +1095,7 @@
                             <div class="personStylesBlock">
                                 <span>Стиль:</span>
                                 <span data-bind="foreach: styles">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
                             </div>
                             <!--<div class="rankBlock">
@@ -1171,7 +1174,7 @@
                         <div class="albumInfo">
                             <div class="personNameHolder">
                                 <!--<span class="icon stars"></span>-->
-                                <span class="personName" data-bind="text: name"></span>
+                                <span class="personName" data-bind="text: name, click: $parent.openDetails, clickBubble: false"></span>
                             </div>
                             <!--<div>
                                     <span>Основное:</span>
@@ -1180,7 +1183,7 @@
                             <div class="personStylesBlock">
                                 <span>Стиль:</span>
                                 <span data-bind="foreach: styles">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
                             </div>
                             <!--<div class="rankBlock">
@@ -1268,7 +1271,7 @@
                 <div class="infoBlock">
                     <span class="icon heartArrow"></span>
                     <span data-bind="foreach: styles">
-                        <span class="fieldData" data-bind="text: name"></span><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                        <span class="fieldData" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></span><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                     </span>
                 </div>
             </div>
@@ -1284,7 +1287,7 @@
                         <div class="trackNumber" data-bind="text: $index() + 1"></div>
                         <div class="resultTrackName" data-bind="text: title"></div>
                         <div class="resultArtist" data-bind="foreach: artists">
-                            <a data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                            <a data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
                         </div>
                         <div class="resultLikesAmount"><a data-bind="text: stats.rank"></a></div>
                         <div class="resultTrackTime" data-bind="text: time"></div>
@@ -1357,7 +1360,7 @@
                 </div>
                 <div class="similarContainer" data-bind="foreach: similars">
                     <div class="similarBLock">
-                        <div class="cover hiddenPanelContainer" data-bind="click: $parents[1].openArtist">
+                        <div class="cover hiddenPanelContainer" data-bind="click: openDetails">
                             <div class="noImageHolderNoBorder">
                                 <img src="" alt="" height="50" width="50" data-bind="attr: {src: imageUrl('medium')}"/>
                             </div>
@@ -1370,7 +1373,7 @@
                         </div>
                         <div>
                             <span>Исполнитель: </span>
-                            <span class="similarArtistName" data-bind="text: name"></span>
+                            <span class="similarArtistName" data-bind="text: name, click: openDetails, clickBubble: false"></span>
                         </div>
                         <!--<div class="rankBlock">
                                 <a href='#'><span class="icon heart"></span><span data-bind="text: stats.rank"></span></a>
@@ -1445,7 +1448,7 @@
                 <div class="infoBlock">
                     <span class="icon heartArrow"></span>
                     <span data-bind="foreach: styles">
-                        <span class="fieldData" data-bind="text: name"></span><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                        <span class="fieldData" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></span><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                     </span>
                 </div>
             </div>
@@ -1461,7 +1464,7 @@
                         <div class="trackNumber" data-bind="text: $index() + 1"></div>
                         <div class="resultTrackName" data-bind="text: title"></div>
                         <div class="resultArtist" data-bind="foreach: artists">
-                            <a data-bind="text: name"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
+                            <a data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.artists.length - 1)">,</span>
                         </div>
                         <div class="resultLikesAmount"><a data-bind="text: stats.rank"></a></div>
                         <div class="resultTrackTime" data-bind="text: time"></div>
@@ -1534,7 +1537,7 @@
                 </div>
                 <div class="similarContainer" data-bind="foreach: similars">
                     <div class="similarBLock">
-                        <div class="cover hiddenPanelContainer" data-bind="click: $parents[1].openArtist">
+                        <div class="cover hiddenPanelContainer" data-bind="click: openDetails">
                             <div class="noImageHolderNoBorder">
                                 <img src="" alt="" height="50" width="50" data-bind="attr: {src: imageUrl('medium')}"/>
                             </div>
@@ -1547,7 +1550,7 @@
                         </div>
                         <div>
                             <span>Исполнитель: </span>
-                            <span class="similarArtistName" data-bind="text: name"></span>
+                            <span class="similarArtistName" data-bind="text: name, click: openDetails, clickBubble: false"></span>
                         </div>
                         <!--<div class="rankBlock">
                                 <a href='#'><span class="icon heart"></span><span data-bind="text: stats.rank"></span></a>

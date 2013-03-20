@@ -1,16 +1,17 @@
-﻿define(["ko", "pubSub", "Types/TrackForPlayer", "Types/GenreSelector", "Types/Album"], function (ko, pubSub, TrackForPlayer, GenreSelector, Album) {
+﻿define(["ko", "pubSub", "Types/TrackForPlayer", "Types/GenreSelector", "Types/Album", "Types/Artist"], function (ko, pubSub, TrackForPlayer, GenreSelector, Album, Artist) {
     var deps = arguments;
     function ensureDeps() {
         if (!ensureDeps.ensured) {
             ensureDeps.ensured = true;
             GenreSelector = require("Types/GenreSelector");
             Album = require("Types/Album");
+            Artist = require("Types/Artist");
             for (var key in deps) {
                 if (!deps[key]) throw "Track module invoked ensureDeps, but coundn't resolve '" + key + "'";
             }
         }
     }
-    
+
     function genreSelector() {
         if (!GenreSelector)
             GenreSelector = require("Types/GenreSelector");
@@ -22,25 +23,29 @@
         var self = this;
 
         ensureDeps();
-        
+
         // Data
         var props = ["id", "stats", "aid", "ownerId"];
         $.copyProps(self, metadata, props);
         self.title = metadata.name;
 
         self.album = Album.get(metadata.album);
-        self.artists = $.getNamedArray(metadata, "artists");
+        self.artists = [];
+        if (metadata.artists) {
+            var artists = $.getNamedArray(metadata, "artists");
+            $.each(artists, function () { self.artists.push(Artist.get(this)); });
+        }
 
         var styleIds = $.getNamedArray(metadata, "styles");
         genreSelector().extendWithStyleAndGenres(self, styleIds);
-        
+
         self.similars = [];
         if (metadata.similar) {
             var similars = $.getNamedArray(metadata, "similar", "track");
-            $.each(similars, function() { self.similars.push(new Track(this)); });
+            $.each(similars, function () { self.similars.push(new Track(this)); });
         }
 
-        self.isAdded = ko.computed(function() {
+        self.isAdded = ko.computed(function () {
             var addedTracks = window.player.tracks();
             var match = $.grep(addedTracks, function (elem) {
                 return self.id == elem.id;
@@ -49,7 +54,7 @@
             return match.length > 0;
         });
 
-        self.imageId = function() {
+        self.imageId = function () {
             return self.album.image;
         };
         self.getImageUrl = function (size) {
@@ -59,7 +64,7 @@
         };
 
         // Behavior
-        self.appendVkRequest = function(vkRequest) {
+        self.appendVkRequest = function (vkRequest) {
             $.each(self.similars, function () {
                 vkRequest = this.appendVkRequest(vkRequest);
             });
@@ -69,8 +74,8 @@
 
             return vkRequest;
         };
-        
-        self.obserbVkData = function(vkData) {
+
+        self.obserbVkData = function (vkData) {
             $.each(self.similars, function () {
                 this.obserbVkData(vkData);
             });
@@ -80,28 +85,28 @@
                     self.similars.splice(i, 1);
                 }
             }
-            
+
             if (vkData[self.aid]) {
                 self.url = vkData[self.aid].url;
                 self.duration = vkData[self.aid].duration;
                 self.time = Track.toTimeString(self.duration);
             }
         };
-        
-        self.addToStart = function(track) {
+
+        self.addToStart = function (track) {
             pubSub.pub("player.addToStart", track);
         };
-        
+
         self.addToEnd = function (track) {
             pubSub.pub("player.addToEnd", track);
-        };        
+        };
     }
 
-    Track.toTimeString = function(durationInSecs) {
+    Track.toTimeString = function (durationInSecs) {
         var mins = parseInt(durationInSecs / 60);
         var secs = parseInt(durationInSecs % 60);
         return mins + ":" + (secs < 10 ? "0" + secs : secs);
     };
-    
+
     return Track;
 })

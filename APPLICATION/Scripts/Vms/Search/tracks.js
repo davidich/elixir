@@ -8,7 +8,7 @@
         ];
 
 
-        function TrackVm(searchVm) {
+        function SearchTracksVm(searchVm) {
             var self = this, i,
                 loadedPageItems = []; // ex: value 48 at 2nd index means that page1 + page2 + page3 together have 48 items
 
@@ -91,7 +91,7 @@
                 }
                 pubSub.pub("player.addToStart", tracksOnPage);
             };
-
+            
             // on scroll refresh page number 
             self.onScroll = function (scrollState) {
                 var indexOfMiddleItem = (scrollState.vPxl + scrollState.vVisiblePxl / 2 - global.tracks.topSpaceBeforeFirstItem) / global.tracks.itemHeight;
@@ -109,8 +109,8 @@
 
                 if (pageNmb == null) throw "Check the logic: pageNmb should be always resolved";
                 self.pageNmb(pageNmb);
-            };
+            };            
         }
 
-        return TrackVm;
+        return SearchTracksVm;
     })

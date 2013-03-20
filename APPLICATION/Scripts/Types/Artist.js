@@ -24,8 +24,8 @@
 
         if (!person)
             cache[metadata.id] = (person = new Artist(metadata));
-        //else if (!person.isFullyLoaded)
-        //    Artist.call(person, metadata);
+        else if (!person.isFullyLoaded)
+            Artist.call(person, metadata);
 
         return person;
     };
@@ -97,6 +97,10 @@
             self.load(function () {
                 pubSub.pub("player.addToEnd", self.tracks);
             });
+        };
+        
+        self.openDetails = function (artist) {
+            global.router.navigate("/artist?clean=true&id=" + artist.id);
         };
     }
 

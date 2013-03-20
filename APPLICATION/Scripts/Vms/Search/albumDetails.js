@@ -1,6 +1,6 @@
 ﻿define(["ko", "pubSub", "Vms/Extensions/Routing", "Vms/Extensions/Tabs", "Types/Album"],
     function (ko, pubSub, RoutingExtension, TabsExtension, Album) {
-        function AlbumDetailsVm(options) {
+        function AlbumDetailsVm(searchVm, options) {
             var self = this,
                 $carousel,
                 carouselSettings = {
@@ -44,8 +44,21 @@
             self.openDetails = function (item) {
                 self.navigate(options.detailUrl + "?id=" + item.id);
             };
+            
+            self.searchByGenre = function (genre) {
+                self.navigate("/search/albums?genreId=" + genre.id);
+            };
+
+            self.searchByStyle = function (style) {
+                self.navigate("/search/albums?styleId=" + style.id);
+            };
 
             // Events
+            pubSub.sub("search.changed", function (propName) {
+                if (self.isVisible() && (propName == "genreId" || propName == "styleId"))
+                    self.navigate("/search/albums");
+            });
+            
             self.onShow = function (args) {
                 if (!args) throw "detail view can't be opened w/o args";
                 if (!args.id) throw "id is mandatory parameter";

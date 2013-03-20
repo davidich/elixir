@@ -1,6 +1,6 @@
 ﻿define(["ko", "pubSub", "Modules/dal", "Vms/Extensions/Routing", "Vms/Extensions/Tabs"],
     function (ko, pubSub, dal, RoutingExtension, TabsExtension) {
-        function TrackVm() {
+        function TrackVm(searchVm) {
             var self = this;
 
             // Data
@@ -37,7 +37,20 @@
                 self.navigate("/search/track?id=" + track.id);
             };
 
+            self.searchByGenre = function (genre) {
+                self.navigate("/search/tracks?genreId=" + genre.id);
+            };
+            
+            self.searchByStyle = function (style) {
+                self.navigate("/search/tracks?styleId=" + style.id);
+            };
+
             // Events
+            pubSub.sub("search.changed", function (propName) {
+                if (self.isVisible() && (propName == "genreId" || propName == "styleId"))
+                    self.navigate("/search/tracks");
+            });
+            
             self.onShow = function (args) {
                 if (!args) throw "track view can't be opened w/o args";
                 if (!args.id) throw "id is mandatory parameter";
@@ -49,6 +62,8 @@
                     pubSub.pub("scroll.reset");
                     pubSub.pub("scroll.update");
                 }
+                
+
 
                 dal.trackInfo(args.id, function (track) {
                     self.track(track);

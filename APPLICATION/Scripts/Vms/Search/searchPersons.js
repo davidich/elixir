@@ -15,6 +15,11 @@
 
 
             // BEHAVIOR
+            self.searchByStyle = function (style) {
+                if (searchVm.styleId() != style.id)
+                    self.navigate("/search/artists?styleId=" + style.id);
+            };
+            
             self.loadItems = function (cmd) {
                 dal.search(mode, {
                     cancellationToken: cmd.cancellationToken,

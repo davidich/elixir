@@ -28,7 +28,7 @@
                         </div>
                         <div class="albumInfo">
                             <div>
-                                <a href="#" data-bind="text: name"></a>
+                                <a href="#" data-bind="text: name, click: $parent.openDetails, clickBubble: false"></a>
                             </div>
                             <div>
                                 <span>Дата:</span> <span data-bind="text: release"></span>
@@ -36,7 +36,7 @@
                             <div>
                                 <span>Исполнитель:</span>
                                 <span data-bind="foreach: artists">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: openDetails, clickBubble: false"></a><span data-bind="if: $index() < ($parent.genres.length - 1)">,</span>
                                 </span>
                             </div>
                             <!--<div>
@@ -48,7 +48,7 @@
                             <div>
                                 <span>Стиль:</span>
                                 <span data-bind="foreach: styles">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
                             </div>
                             <div class="rankBlock">

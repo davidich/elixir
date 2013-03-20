@@ -30,7 +30,7 @@
                         <div class="albumInfo">
                             <div class="personNameHolder">
                                 <!--<span class="icon stars"></span>-->
-                                <span class="personName" data-bind="text: name"></span>
+                                <span class="personName" data-bind="text: name, click: $parent.openDetails, clickBubble: false"></span>
                             </div>
                             <!--<div>
                                     <span>Основное:</span>
@@ -39,7 +39,7 @@
                             <div class="personStylesBlock">
                                 <span>Стиль:</span>
                                 <span data-bind="foreach: styles">
-                                    <a href="#" data-bind="text: name"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
+                                    <a href="#" data-bind="text: name, click: $parents[1].searchByStyle, clickBubble: false"></a><span data-bind="if: $index() < ($parent.styles.length - 1)">,</span>
                                 </span>
                             </div>
                             <!--<div class="rankBlock">
