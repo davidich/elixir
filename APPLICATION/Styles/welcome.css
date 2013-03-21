@@ -2,12 +2,21 @@
     height: 565px; 
 }
 
+.welcomeBlock.welcomeView .eventsPart {
+    display: none;
+}
+
+.welcomeBlock.eventsView .welcomePart {
+    display: none;
+}
+
 .welcomeBlock .topBlock,
 .welcomeBlock .leftBlock,
 .welcomeBlock .rightBlock,
 .welcomeBlock .centerBlock
 {
-    cursor: pointer;
+    /*cursor: pointer;*/
+    cursor: default !important;
 }
 
 .welcomeBlock .centerBlock
@@ -23,7 +32,6 @@
 }
 
 .welcomeBlock .leftBlock {
-    cursor: pointer;
     width: 361px;
     height: 560px;
     position: absolute;

@@ -15,12 +15,16 @@
         };        
 
         self.onShow = function (args) {
+            self.agrs = args;
             if (args == null || args.type == 'welcome') {
-                $('.wellcomePart').show();
-                $('.eventsPart').hide();
+                $('.welcomeBlock').addClass('welcomeView');
+                $('.welcomeBlock').removeClass('eventsView');
+                $('.rightPart, .leftPart, .topPart').attr('href', 'javascript:void(0);');
+
             } else {
-                $('.wellcomePart').hide();
-                $('.eventsPart').show();
+                $('.welcomeBlock').removeClass('welcomeView');
+                $('.welcomeBlock').addClass('eventsView');
+                $('.rightPart, .leftPart, .topPart').removeAttr('href');
             }
             initCarousel();
         };
@@ -44,7 +48,6 @@
                     $(dialog).html(data);
                     var rollbar = $(".eventDetailContainer").rollbar({
                         pathPadding: '3px'
-                        //zIndex: 100
                     });
                     rollbar.update();
                 }
