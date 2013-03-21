@@ -14,7 +14,14 @@
             self.navigate("/search/tracks?query=dido");
         };        
 
-        self.onShow = function() {
+        self.onShow = function (args) {
+            if (args == null || args.type == 'welcome') {
+                $('.wellcomePart').show();
+                $('.eventsPart').hide();
+            } else {
+                $('.wellcomePart').hide();
+                $('.eventsPart').show();
+            }
             initCarousel();
         };
 
@@ -83,7 +90,7 @@
                 infinite: true,
                 auto: {
                     play: true,
-                    timeoutDuration: 7000
+                    timeoutDuration: 70000
                 },
                 prev: '.slider_prevBig',
                 next: '.slider_nextBig',

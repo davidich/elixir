@@ -1,19 +1,19 @@
 ﻿<div class="welcomeBlock" data-bind="visible: isVisible">
-    <div class="topBlock">
+    <div class="topBlock wellcomePart">
         <div class="topContent">
             <div class="icon"></div><div class="title">Поиск</div>
             <div class="text">Музыкальная сеть, с ежедневно обновляемой и организованной по жанрам музыкой</div>
         </div>
     </div>
 
-    <div class="leftBlock">
+    <div class="leftBlock wellcomePart">
         <div class="leftContent">
             <div class="icon"></div><div class="title">Избранное</div>
             <div class="text">Ваша музыка, организованная по жанрам</div>
         </div>
     </div>
 
-    <div class="rightBlock">
+    <div class="rightBlock wellcomePart">
         <div class="rightContent">
             <div class="icon"></div><div class="title">Новости</div>
             <div class="text">Обмен музыкой с исполнителями и слушателями</div>
@@ -22,10 +22,19 @@
 
     <div class="slider_prevBig"></div>
     <div class="slider_nextBig"></div>
-    <div class="centerBlock">
+    <div class="centerBlock" >
         <ul class="welcomeSlider" id="welcomeEventSilder"  data-bind="foreach: sliderData">
             <li data-bind="attr: {'data-title': title, 'data-file': fileName}">
-                <div class="slideContent"><img src="" alt=""  data-bind="attr: {src: imageUrl}"/></div>
+                <div class="slideContent">
+                    <div class="eventDetails eventsPart">
+                        <div>
+                            <div class="title icon notes" data-bind="text: title" ></div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="text" data-bind="text: title"></div>
+                    </div>
+                    <img src="" alt=""  data-bind="attr: {src: imageUrl}"/>
+                </div>
             </li>
         </ul>
     </div>

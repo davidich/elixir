@@ -60,3 +60,7 @@ span.icon.headphones {
 span.icon.people {
     background-image: url(../Images/people.png);
 }
+
+.icon.notes {
+    background-image: url(../Images/notes.png);
+}

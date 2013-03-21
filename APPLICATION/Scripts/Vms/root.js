@@ -36,6 +36,10 @@
                 self.navigate("/welcome");
             };
 
+            self.goToEvents = function () {
+                self.navigate("/welcome?type=event");
+            };
+
             self.goToMusic = function () {
                 searchVm.artist(null);
                 searchVm.user(null);
