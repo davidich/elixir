@@ -1,4 +1,4 @@
-﻿define(["ko", "Vms/Extensions/Routing", "carousel"], function (ko, RoutingExtension) {
+﻿define(["ko", "Vms/Extensions/Routing", "carousel", "rollbar"], function (ko, RoutingExtension) {
 
     function WelcomeVm() {
         var self = this;
@@ -100,13 +100,12 @@
             ]
         });
 
-        var helpRollbar = null;
+        var helpRollbar = $(".helpContent").rollbar({
+            pathPadding: '3px'
+        });
         $('body').on('click', '.showHelpPopup', function () {
             $(helpDialog).dialog('open');
             /* reset state */
-            helpRollbar = $(".helpContent").rollbar({
-                pathPadding: '3px'
-            });
             helpRollbar.update();
             $('.aboutTab').trigger('click');
 
