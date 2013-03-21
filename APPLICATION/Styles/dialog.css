@@ -141,3 +141,12 @@
     border: 0;
 }
 
+.customDialog.ui-dialog.ui-widget .helpContent {
+    padding: 0 20px;
+    clear: both;
+    height: 370px;
+}
+
+.customDialog.ui-widget-content a {
+    color: #3C79AB;
+}

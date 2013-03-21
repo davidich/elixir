@@ -4,6 +4,21 @@
     float: right;
     margin-right: 20px;
 }
+
+.helpContainer .tabNavigationBLock {
+    width: 500px;
+    border-bottom: 1px solid #C3C3C3;
+    border-top: 0;
+    padding: 7px 0;
+    margin: 0;
+    background-color: #fff;
+}
+
+.helpContainer .tabNavigationBLock ul {
+    padding-left: 20px;
+
+}
+
 .tabNavigationBLock ul.tabNavigation li {
     width: auto;
     height: 20px;

@@ -12,7 +12,7 @@
 
         self.goToTracks = function () {
             self.navigate("/search/tracks?query=dido");
-        };        
+        };
 
         self.onShow = function (args) {
             self.agrs = args;
@@ -78,6 +78,47 @@
                 }
             }
             ]
+        });
+
+        var helpDialog = $('.helpContainer').dialog({
+            dialogClass: 'customDialog',
+            draggable: false,
+            resizable: false,
+            autoOpen: false,
+            modal: true,
+            width: 501,
+            height: 483,
+            buttons: [{
+                text: 'закрыть',
+                icons: {
+                    primary: 'close'
+                },
+                click: function() {
+                    $(this).dialog("close");
+                }
+            }
+            ]
+        });
+
+        var helpRollbar = null;
+        $('body').on('click', '.showHelpPopup', function () {
+            $(helpDialog).dialog('open');
+            /* reset state */
+            helpRollbar = $(".helpContent").rollbar({
+                pathPadding: '3px'
+            });
+            helpRollbar.update();
+            $('.aboutTab').trigger('click');
+
+        });
+
+        $('body').on('click', '.helpTab', function () {
+            $('.helpTab').removeClass('active');
+            $(this).addClass('active');
+            $('.helpContent div.tabContent').hide();
+            $(helpDialog).dialog('option', 'title',  $(this).attr('data-title'));
+            $('.' + $(this).attr('data-block')).show();
+            helpRollbar.update();
         });
 
         var carouselInited = false;
