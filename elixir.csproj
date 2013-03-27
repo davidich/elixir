@@ -184,6 +184,7 @@
     <Content Include="APPLICATION\Images\welcome\topHover.png" />
     <Content Include="APPLICATION\Images\wellcome_bg.jpg" />
     <Content Include="APPLICATION\Scripts\Libs\jquery.carouFredSel-6.2.0.js" />
+    <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\slider.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\fadeoutOrShow.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\fadeinOrHide.js" />
     <Content Include="APPLICATION\Scripts\Libs\knockout\customBindings\fancyDrop.js" />

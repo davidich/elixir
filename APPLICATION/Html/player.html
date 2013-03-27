@@ -35,7 +35,7 @@
                 <div class="rankBlock"><a href='#'><span class="heart"></span><span data-bind="text: rank"></span></a></div>
                 <!--<div class="trackQuality"><span class="detailDescription">HQ</span></div>-->
             </div>
-            <div class="compactViewBtn"></div>
+            <div class="compactViewBtn" data-bind="click: onCompactViewClick"></div>
             <div class="bottomButtonsBlock">
                 <div class="btnRotator"></div>
 <!--                <div class="menuTriangle">
@@ -73,13 +73,13 @@
                     <img src="" alt="" data-bind="visible: imageVisibility, attr: {src: imageUrl('small')}" />
                 </div>
                 <div class='trackName' data-bind="text: trackCaption"></div>
-                <div class='trackSlider'></div>
+                <div class='trackSlider' data-bind="slider: positionSliderOptions"></div>
                 <div class='trackTimer' data-bind="text: time, toggleButton: isElapsed"></div>
                 <div class='soundIco' data-bind="toggleButton: isMuted, activeCss: 'mute', onToggle: refreshVolume"></div>
-                <div class='trackVolume'></div>
+                <div class='trackVolume' data-bind="slider: volumeSliderOptions"></div>
             </div>
             <div class="btnPartial"></div>
-            <div class='switchToFullView'></div>
+            <div class='switchToFullView' data-bind="click: onFullViewClick"></div>
         </div>
         <div class="playerPlaylistBlock">
             <div class="playlistHeader">

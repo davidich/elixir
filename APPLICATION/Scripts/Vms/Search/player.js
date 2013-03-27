@@ -1,43 +1,6 @@
 ﻿define(["ko", "pubSub", "Types/Track", "Types/TrackForPlayer", "Types/SequenceMananager", /*plugins w/o export*/ "jqueryui", "rollbar"],
 function (ko, pubSub, Track, TrackForPlayer, sequenceManager) {
 
-    // player ui setup    
-    $('.compactViewBtn').click(function () {
-        $('.playerHeader').animate({
-            height: ['toggle', 'swing'],
-            opacity: 'toggle'
-        }, 200, 'linear');
-
-        $('.playerPlaylistBlock').animate({
-            height: ['toggle', 'swing'],
-            opacity: 'toggle'
-        }, 200, 'linear');
-        $('.lockBackground').hide();
-        $('.playerBlock').removeClass('fullView');
-    });
-
-    $('.switchToFullView').click(function () {
-        $('.playerHeader').animate(
-            {
-                height: ['toggle', 'swing'],
-                opacity: 'toggle'
-            },
-            200,
-            'linear',
-            function () {
-                rollbar.update();
-            });
-
-
-        $('.playerPlaylistBlock').animate({
-            height: ['toggle', 'swing'],
-            opacity: 'toggle'
-        }, 200, 'linear');
-
-        $('.lockBackground').show();
-        $('.playerBlock').addClass('fullView');
-    });
-    
     $("#playerContent").bind('mousewheel DOMMouseScroll', function (e) {
         return false;
     });
@@ -53,34 +16,31 @@ function (ko, pubSub, Track, TrackForPlayer, sequenceManager) {
     function PlayerVm() {
         var self = this;
 
-        // override base isVisible logic
+        // DATA
         self.isVisible = ko.observable();
-        pubSub.sub("viewChanged", function (viewName) {
-            self.isVisible($.inArray(viewName, ["music", "video", "artists"]) != -1);
-        });
 
-
-        // Build UI
-        var $slider = $('.trackSlider').slider({
+        self.positionSliderOptions = {
+            vmPropName: "positionSlider",
             range: "min",
             min: 0,
             max: 0,
             value: 0,
             animate: true,
             slide: function (event, ui) { self.refreshPosition(ui.value); }
-        });
+        };
         self.sliderValue = function (value) {
             return typeof value == "undefined"
-                ? $slider.slider("option", "value")
-                : $slider.slider("option", "value", value);
+                ? self.positionSlider.slider("option", "value")
+                : self.positionSlider.slider("option", "value", value);
         };
         self.sliderMaxValue = function (value) {
             return typeof value == "undefined"
-                ? $slider.slider("option", "max")
-                : $slider.slider("option", "max", value);
+                ? self.positionSlider.slider("option", "max")
+                : self.positionSlider.slider("option", "max", value);
         };
 
-        var $volumeSlider = $('.trackVolume').slider({
+        self.volumeSliderOptions = {
+            vmPropName: "volumeSlider",
             range: "min",
             min: 0,
             max: 100,
@@ -91,15 +51,18 @@ function (ko, pubSub, Track, TrackForPlayer, sequenceManager) {
                 self.volume(ui.value);
                 self.refreshVolume();
             }
-        });
+        };
         self.volumeSilderValue = function (value) {
+            // dirty fix as volume is updated because of toggle button initialization, 
+            // but slider binding for volumeSlider is not applied at that moment
+            if (!self.volumeSlider) return undefined;
+
             return typeof value == "undefined"
-                ? $volumeSlider.slider("option", "value")
-                : $volumeSlider.slider("option", "value", value);
+                ? self.volumeSlider.slider("option", "value")
+                : self.volumeSlider.slider("option", "value", value);
         };
 
 
-        // DATA
         self.track = ko.observable();
         self.tracks = ko.observableArray();
         self.state = ko.observable("paused"); //playing, paused, stoped
@@ -241,6 +204,42 @@ function (ko, pubSub, Track, TrackForPlayer, sequenceManager) {
             self.tracks.removeAll();
             self.track(null);
             refreshSliderLength();
+        };
+
+        self.onFullViewClick = function () {
+            $('.playerHeader').animate(
+            {
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            },
+            200,
+            'linear',
+            function () {
+                rollbar.update();
+            });
+
+
+            $('.playerPlaylistBlock').animate({
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            }, 200, 'linear');
+
+            $('.lockBackground').show();
+            $('.playerBlock').addClass('fullView');
+        };
+
+        self.onCompactViewClick = function() {
+            $('.playerHeader').animate({
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            }, 200, 'linear');
+
+            $('.playerPlaylistBlock').animate({
+                height: ['toggle', 'swing'],
+                opacity: 'toggle'
+            }, 200, 'linear');
+            $('.lockBackground').hide();
+            $('.playerBlock').removeClass('fullView');
         };
 
 

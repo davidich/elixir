@@ -8,6 +8,7 @@ define(["knockout",
         "Libs/knockout/customBindings/toggleButton",
         "Libs/knockout/customBindings/fadeinOrHide",
         "Libs/knockout/customBindings/fadeoutOrShow",
+        "Libs/knockout/customBindings/slider",
         "Libs/knockout/customBindings/slideVisible"
     ], function (ko, mapping) {
         ko.mapping = mapping;
