@@ -172,3 +172,23 @@ ul.sliderBlock .cover .noImageHolderNoBorder
     background: url(../Images/no-imageNoBorder100x100.png) center top no-repeat;
     margin-top: 2px;
 }
+
+ul .slideContent .eventDetails {
+    width: 380px;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+    padding-top: 22px;
+    margin-bottom: -70px;
+}
+
+ul .slideContent .eventDetails .icon{
+    width: auto;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+ul .slideContent .eventDetails .title {
+    float: none;
+}

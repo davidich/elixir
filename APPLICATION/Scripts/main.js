@@ -100,7 +100,7 @@ $.getMaturity = function (metadata, maturities) {
 
 require(["require-config"], function () {
     require(["pubSub", "domReady", "jqueryui"], function (pubSub, domReady) {
-        var componets = ["vkApi", "soundManager", "genreSelector", "customFormElement", "html"];
+        var componets = ["vkApi", "soundManager", "genreSelector", "customFormElement", "html", "welcomeHtml"];
         var componentCount = componets.length;
 
         domReady(function () {
@@ -157,6 +157,10 @@ require(["require-config"], function () {
 
                 initCustomFormElement(function () {
                     pubSub.pub("componentInited", "customFormElement");
+                });
+
+                initWelcomeHtml(function () {
+                    pubSub.pub("componentInited", "welcomeHtml");
                 });
             }, global.mode != "dev" ? global.vkInitDelay : 0);
         });
@@ -221,5 +225,11 @@ require(["require-config"], function () {
                 builder.build(onComplete);
             });
         }
+    }
+
+    function initWelcomeHtml(onComplete) {
+        require(["welcomeHtml"], function (welcomeHtmlBuilder) {
+            welcomeHtmlBuilder.build(onComplete);
+        });
     }
 });

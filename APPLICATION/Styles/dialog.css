@@ -12,8 +12,14 @@
 }
 
 .customDialog.ui-dialog .ui-widget-content p {
-    padding: 15px;
+    padding-top: 15px;
     color: #777;
+    width: 450px;
+}
+
+.customDialog.ui-dialog .ui-dialog-content {
+    padding: 0;
+    margin: 0;
 }
 
 .customDialog.ui-dialog .ui-icon {
@@ -92,7 +98,12 @@
 .customDialog.ui-dialog .ui-dialog-buttonpane button.giftButton:hover {
     background-position: 0 -24px;
 }
-
+.customDialog.ui-dialog .eventDetailContainer {
+    height: 390px;
+    margin: 0 0 0 25px;
+    position:relative; 
+    z-index: 10;
+}
 
 .customDialog.ui-dialog .ui-dialog-titlebar.ui-dialog-titlebar {
     background: url("../Images/dialog/header.jpg") 0 0 no-repeat;
@@ -132,3 +143,14 @@
     border: 0;
 }
 
+.customDialog.ui-dialog.ui-widget .helpContent {
+    padding: 0 20px;
+    clear: both;
+    height: 370px;
+    z-index: 200;
+    position:relative; 
+}
+
+.customDialog.ui-widget-content a {
+    color: #3C79AB;
+}
